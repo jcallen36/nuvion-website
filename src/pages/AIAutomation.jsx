@@ -20,22 +20,20 @@ const CSS = BASE_CSS + `
 .aa-node-icon{font-size:1rem;flex-shrink:0}
 .aa-connector{text-align:center;color:var(--dim);font-size:.65rem;padding:2px 0}
 .aa-middle{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:0 8px}
-.aa-divider-pill{background:rgba(0,220,255,0.1);border:1px solid rgba(0,220,255,0.25);border-radius:100px;padding:6px 14px;font-size:.7rem;font-weight:700;color:#00DCFF;letter-spacing:.06em;text-transform:uppercase;writing-mode:vertical-rl;text-orientation:mixed}
-.aa-arrow-circle{width:44px;height:44px;background:linear-gradient(135deg,rgba(0,220,255,0.15),rgba(79,110,247,0.15));border:1px solid rgba(0,220,255,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.aa-divider-pill{background:rgba(0,220,255,0.1);border:1px solid rgba(0,220,255,0.25);border-radius:100px;padding:6px 14px;font-size:.7rem;font-weight:700;color:#00DCFF;letter-spacing:.06em;text-transform:uppercase}
 
 /* PHASES */
 .aa-phases{padding:0 0 80px}
 .aa-phase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .aa-phase{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:30px 26px;position:relative;overflow:hidden}
 .aa-phase::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#00DCFF,transparent)}
-.aa-phase-num{font-size:3rem;font-weight:900;color:rgba(0,220,255,0.1);line-height:1;margin-bottom:14px;letter-spacing:-.04em}
+.aa-phase-num{font-size:3rem;font-weight:900;color:rgba(0,220,255,0.4);line-height:1;margin-bottom:14px;letter-spacing:-.04em}
 .aa-phase-title{font-size:.95rem;font-weight:700;margin-bottom:8px;color:var(--text)}
 .aa-phase-desc{font-size:.82rem;color:var(--muted);line-height:1.65}
 
 @media(max-width:700px){
   .aa-grid{grid-template-columns:1fr;gap:16px}
   .aa-middle{flex-direction:row;padding:8px 0}
-  .aa-divider-pill{writing-mode:horizontal-tb}
   .aa-phase-grid{grid-template-columns:1fr}
 }
 `;
@@ -64,7 +62,7 @@ export default function AIAutomation() {
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">
-        <Link to="/" className="sp-logo">Nuvion<span>.</span></Link>
+        <Link to="/" className="sp-logo"><span className="sp-logo-mark">N</span>Nuvion</Link>
         <Link to="/" className="sp-back">← Back to Home</Link>
       </nav>
 
@@ -90,7 +88,6 @@ export default function AIAutomation() {
 
             <div className="aa-middle">
               <div className="aa-divider-pill">vs</div>
-              <div className="aa-arrow-circle">→</div>
             </div>
 
             <div className="aa-panel">

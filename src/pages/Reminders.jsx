@@ -18,7 +18,7 @@ const CSS = BASE_CSS + `
 .rm-step-timing.final{color:#34D399;background:rgba(52,211,153,0.08);border-color:rgba(52,211,153,0.15)}
 .rm-step-title{font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:6px;padding:0 4px;line-height:1.3}
 .rm-step-channel{font-size:.68rem;color:var(--muted)}
-.rm-step-preview{font-size:.7rem;color:var(--dim);font-style:italic;margin-top:6px;padding:0 6px;line-height:1.4;max-width:130px}
+.rm-step-preview{font-size:.7rem;color:var(--muted);font-style:italic;margin-top:8px;padding:8px 10px;line-height:1.4;max-width:150px;background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.2);border-radius:10px 10px 10px 3px}
 
 /* STAT */
 .rm-stat{margin:0 auto 72px;max-width:700px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -44,7 +44,7 @@ const CSS = BASE_CSS + `
   .rm-step{flex-direction:row;text-align:left;min-width:unset;align-items:flex-start;gap:14px}
   .rm-step::after{display:none}
   .rm-step-dot{margin-bottom:0;flex-shrink:0}
-  .rm-step-preview{max-width:none;padding:0}
+  .rm-step-preview{max-width:none}
 }
 `;
 
@@ -63,7 +63,7 @@ export default function Reminders() {
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">
-        <Link to="/" className="sp-logo">Nuvion<span>.</span></Link>
+        <Link to="/" className="sp-logo"><span className="sp-logo-mark">N</span>Nuvion</Link>
         <Link to="/" className="sp-back">← Back to Home</Link>
       </nav>
 

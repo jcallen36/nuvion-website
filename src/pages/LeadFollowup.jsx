@@ -44,44 +44,44 @@ const STEPS = [
     time: 'T + 0 min',
     channel: 'sms',
     channelLabel: 'SMS',
-    title: 'Lead submits your form',
-    preview: '"Hi {name}! Thanks for reaching out to {Business}. I\'m reviewing your request now and will have details for you in just a moment."',
+    title: 'Instant Auto-Confirmation',
+    preview: '"Hi Sandra! Thanks for reaching out to Peak Service Co. We\'ve got your message and someone will be in touch very shortly."',
     pulse: true,
   },
   {
     time: 'T + 5 min',
     channel: 'sms',
     channelLabel: 'SMS',
-    title: 'Immediate personal follow-up',
-    preview: '"Hey {name}, it\'s {Owner} — saw you were interested in {service}. Do you have 5 minutes for a quick call today?"',
+    title: 'Personal Follow-Up from Jack',
+    preview: '"Hey Sandra, it\'s Jack! I just got your message — would love to jump on a quick call today. Got 5 minutes?"',
   },
   {
     time: 'T + 1 hr',
     channel: 'email',
     channelLabel: 'Email',
     title: 'Value-first email',
-    preview: '"Hi {name}, I wanted to share how we helped a similar business save 15 hours a week last month. I think we can do the same for you..."',
+    preview: '"Hi Sandra, wanted to share how we helped a client just like you save 15 hours a week last month. I think we can do the same for you..."',
   },
   {
     time: 'T + 24 hrs',
     channel: 'vm',
     channelLabel: 'Voicemail',
     title: 'Ringless voicemail drop',
-    preview: '"Hey {name}, just wanted to personally follow up on your inquiry. I\'d love to walk you through what we can build for your business..."',
+    preview: '"Hey Sandra, it\'s Jack again. Just wanted to personally follow up — I\'d love to walk you through what we can build for your business."',
   },
   {
     time: 'T + 3 days',
     channel: 'email',
     channelLabel: 'Email',
     title: 'Case study + social proof',
-    preview: '"Still thinking it over? Here\'s what {Client Name} said after their first month working with us..."',
+    preview: '"Still thinking it over, Sandra? Here\'s what one of our clients said after their first month working with us..."',
   },
   {
     time: 'T + 7 days',
     channel: 'sms',
     channelLabel: 'SMS',
     title: 'Final check-in',
-    preview: '"Hey {name}, I know timing matters. Whenever you\'re ready, I\'m here. Just reply \'ready\' and I\'ll get everything set up for you."',
+    preview: '"Hey Sandra, I know timing matters. Whenever you\'re ready, just reply \'ready\' and I\'ll get everything set up. — Jack"',
   },
 ];
 
@@ -91,7 +91,7 @@ export default function LeadFollowup() {
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">
-        <Link to="/" className="sp-logo">Nuvion<span>.</span></Link>
+        <Link to="/" className="sp-logo"><span className="sp-logo-mark">N</span>Nuvion</Link>
         <Link to="/" className="sp-back">← Back to Home</Link>
       </nav>
 

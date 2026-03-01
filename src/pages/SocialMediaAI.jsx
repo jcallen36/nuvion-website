@@ -83,7 +83,7 @@ export default function SocialMediaAI() {
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">
-        <Link to="/" className="sp-logo">Nuvion<span>.</span></Link>
+        <Link to="/" className="sp-logo"><span className="sp-logo-mark">N</span>Nuvion</Link>
         <Link to="/" className="sp-back">← Back to Home</Link>
       </nav>
 
@@ -121,9 +121,9 @@ export default function SocialMediaAI() {
                 <div className="sm-plat-icon">📸</div>
                 <div className="sm-plat-name">Instagram</div>
               </div>
+              <div className="sm-plat-feature">AI-generated images and visual content</div>
               <div className="sm-plat-feature">AI-written captions with hashtag strategy</div>
-              <div className="sm-plat-feature">Reels scripts and Story prompts</div>
-              <div className="sm-plat-feature">Engagement monitoring and reply drafts</div>
+              <div className="sm-plat-feature">Reels scripts and Story content</div>
               <div className="sm-plat-feature">Optimal posting time scheduling</div>
             </div>
             <div className="sm-plat sm-plat-li">

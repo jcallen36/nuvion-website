@@ -75,7 +75,7 @@ export default function CustomIntegrations() {
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">
-        <Link to="/" className="sp-logo">Nuvion<span>.</span></Link>
+        <Link to="/" className="sp-logo"><span className="sp-logo-mark">N</span>Nuvion</Link>
         <Link to="/" className="sp-back">← Back to Home</Link>
       </nav>
 
