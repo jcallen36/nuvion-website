@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BASE_CSS } from './shared.js';
+import nuvionLogo from '../assets/nuvion-logo.png';
 
 const CSS = BASE_CSS + `
 .sp-eyebrow.sm{background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.22);color:#F59E0B}
@@ -83,7 +84,7 @@ export default function SocialMediaAI() {
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">
-        <Link to="/" className="sp-logo"><span className="sp-logo-mark">N</span>Nuvion</Link>
+        <Link to="/" className="sp-logo"><img src={nuvionLogo} className="sp-logo-img" alt="Nuvion Solutions" /></Link>
         <Link to="/" className="sp-back">← Back to Home</Link>
       </nav>
 

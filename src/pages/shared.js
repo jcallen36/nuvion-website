@@ -14,8 +14,8 @@ a{text-decoration:none;color:inherit}
 
 /* NAV */
 .sp-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;background:rgba(7,9,15,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
-.sp-logo{display:flex;align-items:center;gap:9px;font-size:1.1rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
-.sp-logo-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--primary),var(--cyan));display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:900;color:#fff;box-shadow:0 2px 10px rgba(79,110,247,.35);flex-shrink:0}
+.sp-logo{display:flex;align-items:center}
+.sp-logo-img{height:34px;width:auto}
 .sp-back{display:inline-flex;align-items:center;gap:6px;font-size:.83rem;color:var(--muted);border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s;cursor:pointer}
 .sp-back:hover{color:var(--text);border-color:rgba(255,255,255,.15);background:rgba(255,255,255,.03)}
 

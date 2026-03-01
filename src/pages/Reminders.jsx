@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BASE_CSS } from './shared.js';
+import nuvionLogo from '../assets/nuvion-logo.png';
 
 const CSS = BASE_CSS + `
 .sp-eyebrow.rm{background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.22);color:#EC4899}
@@ -63,7 +64,7 @@ export default function Reminders() {
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">
-        <Link to="/" className="sp-logo"><span className="sp-logo-mark">N</span>Nuvion</Link>
+        <Link to="/" className="sp-logo"><img src={nuvionLogo} className="sp-logo-img" alt="Nuvion Solutions" /></Link>
         <Link to="/" className="sp-back">← Back to Home</Link>
       </nav>
 
