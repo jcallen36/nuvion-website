@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
+import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-const CSS = BASE_CSS + `
+const CSS = BASE_CSS + FOOTER_CSS + `
 .sp-eyebrow.rm{background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.22);color:#EC4899}
 .rm-accent{color:#EC4899}
 .sp-cta-btn.rm{background:#EC4899;color:#fff}

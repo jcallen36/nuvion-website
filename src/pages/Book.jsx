@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
+import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-const CSS = BASE_CSS + `
+const CSS = BASE_CSS + FOOTER_CSS + `
 .bk-hero{padding:48px 32px 32px;max-width:700px;margin:0 auto;text-align:center}
 .bk-hero h1{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:14px}
 .bk-hero p{color:var(--muted);font-size:.95rem;line-height:1.7}
@@ -52,6 +53,7 @@ export default function Book() {
           style={{ width: '100%', border: 'none', overflow: 'hidden', minHeight: '720px' }}
         />
       </div>
+      <Footer />
     </>
   );
 }

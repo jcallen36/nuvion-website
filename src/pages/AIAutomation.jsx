@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
+import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-const CSS = BASE_CSS + `
+const CSS = BASE_CSS + FOOTER_CSS + `
 /* PAGE ACCENT */
 .aa-accent{color:#00DCFF}
 .sp-eyebrow.aa{background:rgba(0,220,255,0.08);border:1px solid rgba(0,220,255,0.2);color:#00DCFF}
