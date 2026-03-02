@@ -1,6 +1,7 @@
 import { StrictMode, useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import NuvionWebsite from './NuvionWebsite.jsx'
 import AIAutomation from './pages/AIAutomation.jsx'
 import AIReceptionist from './pages/AIReceptionist.jsx'
@@ -18,6 +19,7 @@ function ScrollToTop() {
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <HelmetProvider>
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
@@ -31,5 +33,6 @@ createRoot(document.getElementById('root')).render(
         <Route path="/book" element={<Book />} />
       </Routes>
     </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>,
 )

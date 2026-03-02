@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
 
@@ -89,6 +90,11 @@ const STEPS = [
 export default function LeadFollowup() {
   return (
     <>
+      <Helmet>
+        <title>Lead Follow-Up Automation | Nuvion Solutions</title>
+        <meta name="description" content="Instantly follow up with every new lead via SMS, email, and voicemail. Automated lead nurturing that dramatically improves close rates — no manual effort required." />
+        <link rel="canonical" href="https://nuvion-solutions.com/services/lead-followup" />
+      </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">

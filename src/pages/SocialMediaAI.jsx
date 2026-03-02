@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
 
@@ -81,6 +82,11 @@ const CALENDAR = [
 export default function SocialMediaAI() {
   return (
     <>
+      <Helmet>
+        <title>Social Media AI Management | Nuvion Solutions</title>
+        <meta name="description" content="AI-powered social media management for busy business owners. Content creation, scheduling, and engagement on autopilot for Instagram, LinkedIn, and Facebook." />
+        <link rel="canonical" href="https://nuvion-solutions.com/services/social-media-ai" />
+      </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">

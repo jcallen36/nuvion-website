@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
 
@@ -50,6 +51,11 @@ const CAPS = [
 export default function AIReceptionist() {
   return (
     <>
+      <Helmet>
+        <title>AI Smart Receptionist | Nuvion Solutions</title>
+        <meta name="description" content="Never miss another lead. Nuvion's AI receptionist handles calls, texts, and web inquiries 24/7 — qualifying prospects and booking appointments automatically, even while you sleep." />
+        <link rel="canonical" href="https://nuvion-solutions.com/services/ai-receptionist" />
+      </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">

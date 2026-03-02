@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
 
@@ -26,6 +27,11 @@ export default function Book() {
 
   return (
     <>
+      <Helmet>
+        <title>Book a Free Strategy Call | Nuvion Solutions</title>
+        <meta name="description" content="Book your free AI automation strategy call with Nuvion Solutions. We'll map your workflows and show you exactly how to save 10+ hours per week with custom automation." />
+        <link rel="canonical" href="https://nuvion-solutions.com/book" />
+      </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
 
@@ -73,6 +74,11 @@ const SVG_LINES = NODES.map(n => {
 export default function CustomIntegrations() {
   return (
     <>
+      <Helmet>
+        <title>Custom Business Integrations | Nuvion Solutions</title>
+        <meta name="description" content="Connect your CRM, calendar, billing, and communication tools into one seamless automated ecosystem. No switching platforms — we integrate what you already use." />
+        <link rel="canonical" href="https://nuvion-solutions.com/services/custom-integrations" />
+      </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">

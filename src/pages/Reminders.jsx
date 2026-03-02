@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
 
@@ -56,6 +57,11 @@ const STEPS = [
 export default function Reminders() {
   return (
     <>
+      <Helmet>
+        <title>Automated Reminders & Confirmations | Nuvion Solutions</title>
+        <meta name="description" content="Reduce no-shows by up to 80% with automated appointment reminders and confirmation sequences. Smart rescheduling built in. No manual follow-up needed." />
+        <link rel="canonical" href="https://nuvion-solutions.com/services/reminders" />
+      </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">

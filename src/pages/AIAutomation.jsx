@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
 
@@ -60,6 +61,11 @@ const AFTER = [
 export default function AIAutomation() {
   return (
     <>
+      <Helmet>
+        <title>AI & Automation Consulting | Nuvion Solutions</title>
+        <meta name="description" content="Custom AI automation consulting for small businesses. We map your workflows, eliminate bottlenecks, and build systems that run automatically — saving you 10+ hours per week." />
+        <link rel="canonical" href="https://nuvion-solutions.com/services/ai-automation" />
+      </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
 
       <nav className="sp-nav">
