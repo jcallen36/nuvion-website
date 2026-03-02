@@ -39,11 +39,12 @@ export default function Footer() {
       <div className="footer-inner">
         <div>
           <div className="f-logo-row">
-            <img src={nuvionLogo} alt="Nuvion Solutions" style={{ height: '32px', width: 'auto' }} />
+            <img src={nuvionLogo} alt="Nuvion Solutions" style={{width:'150px',height:'auto',objectFit:'contain'}} />
           </div>
           <p className="f-tag">AI automation systems that eliminate manual work and help your business run on autopilot.</p>
           <div className="f-contact">
-            <a href="mailto:jaedenc3604@gmail.com">jaedenc3604@gmail.com</a>
+            <a href="mailto:team@nuvion-solutions.com">team@nuvion-solutions.com</a>
+            <a href="tel:+14152136834">(415) 213-6834</a>
           </div>
         </div>
         <div>
