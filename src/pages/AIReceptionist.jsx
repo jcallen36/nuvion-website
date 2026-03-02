@@ -85,7 +85,7 @@ export default function AIReceptionist() {
                 <div className="ar-msg ar-msg-ai">We have openings this Thursday at 10am or Friday at 2pm — which works better for you?</div>
                 <div className="ar-msg ar-msg-in">Thursday at 10 is perfect.</div>
                 <div className="ar-msg ar-msg-ai">You're all set! I've booked Thursday at 10am. You'll get a confirmation text in just a moment.</div>
-                <div className="ar-msg ar-msg-sys">— Appointment confirmed · Lead saved · Owner notified —</div>
+
               </div>
               <div className="ar-badges">
                 <span className="ar-badge ar-b-g">✓ Booked</span>
