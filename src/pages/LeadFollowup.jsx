@@ -150,6 +150,7 @@ export default function LeadFollowup() {
         <p>Book a free call and we'll build your entire follow-up sequence in under a week.</p>
         <Link to="/book" className="sp-cta-btn lf">Book a Free Strategy Call →</Link>
       </div>
+          <Footer />
     </>
   );
 }

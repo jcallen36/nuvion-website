@@ -137,6 +137,7 @@ export default function AIAutomation() {
         <p>Book a free strategy call and we'll map out your automation potential in 30 minutes.</p>
         <Link to="/book" className="sp-cta-btn aa">Book a Free Strategy Call →</Link>
       </div>
+          <Footer />
     </>
   );
 }

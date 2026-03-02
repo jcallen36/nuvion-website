@@ -132,6 +132,7 @@ export default function Reminders() {
         <p>Book a free call and we'll set up your entire reminder system in under a week.</p>
         <Link to="/book" className="sp-cta-btn rm">Book a Free Strategy Call →</Link>
       </div>
+          <Footer />
     </>
   );
 }

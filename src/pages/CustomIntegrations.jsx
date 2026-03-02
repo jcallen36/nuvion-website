@@ -154,6 +154,7 @@ export default function CustomIntegrations() {
         <p>Book a free call and we'll map out exactly how your tools can work together.</p>
         <Link to="/book" className="sp-cta-btn ci">Book a Free Strategy Call →</Link>
       </div>
+          <Footer />
     </>
   );
 }
