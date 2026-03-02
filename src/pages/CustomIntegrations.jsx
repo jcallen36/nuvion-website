@@ -145,7 +145,7 @@ export default function CustomIntegrations() {
       <div className="sp-cta">
         <h2>Ready to unify your tech stack?</h2>
         <p>Book a free call and we'll map out exactly how your tools can work together.</p>
-        <Link to="/book" className="sp-cta-btn ci">Book a Free <span className="grad">Strategy Call</span> →</Link>
+        <Link to="/book" className="sp-cta-btn ci">Book a Free Strategy Call →</Link>
       </div>
     </>
   );

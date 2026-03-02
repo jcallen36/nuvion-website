@@ -34,7 +34,7 @@ export default function Book() {
       </nav>
 
       <div className="bk-hero">
-        <h1>Book a Free Strategy Call</h1>
+        <h1>Book a Free <span className="grad">Strategy Call</span></h1>
         <p>Pick a time that works for you. We'll walk through your business, identify automation opportunities, and outline exactly what we'd build for you — no commitment required.</p>
       </div>
 

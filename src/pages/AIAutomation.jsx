@@ -128,7 +128,7 @@ export default function AIAutomation() {
       <div className="sp-cta">
         <h2>Ready to eliminate the busywork?</h2>
         <p>Book a free strategy call and we'll map out your automation potential in 30 minutes.</p>
-        <Link to="/book" className="sp-cta-btn aa">Book a Free <span className="grad">Strategy Call</span> →</Link>
+        <Link to="/book" className="sp-cta-btn aa">Book a Free Strategy Call →</Link>
       </div>
     </>
   );

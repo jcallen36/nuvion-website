@@ -154,7 +154,7 @@ export default function SocialMediaAI() {
       <div className="sp-cta">
         <h2>Ready to grow without the grind?</h2>
         <p>Book a free call and we'll show you exactly what a month of AI-managed content looks like for your business.</p>
-        <Link to="/book" className="sp-cta-btn sm">Book a Free <span className="grad">Strategy Call</span> →</Link>
+        <Link to="/book" className="sp-cta-btn sm">Book a Free Strategy Call →</Link>
       </div>
     </>
   );
