@@ -14,7 +14,7 @@ const CSS = BASE_CSS + `
 .sm-cal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
 .sm-cell{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 10px;min-height:90px;display:flex;flex-direction:column;gap:6px}
 .sm-post{border-radius:6px;padding:6px 8px;font-size:.72rem;font-weight:600;line-height:1.35;cursor:default}
-.sm-post-ig{background:rgba(236,72,153,0.1);border:1px solid rgba(236,72,153,0.18);color:#F472B6}
+.sm-post-ig{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.18);color:#F59E0B}
 .sm-post-li{background:rgba(79,110,247,0.1);border:1px solid rgba(79,110,247,0.18);color:#818CF8}
 .sm-post-fb{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.18);color:#60A5FA}
 .sm-post-time{font-size:.6rem;color:var(--dim);margin-top:2px}
@@ -28,7 +28,7 @@ const CSS = BASE_CSS + `
 .sm-plat-name{font-size:.95rem;font-weight:700}
 .sm-plat-feature{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);margin-bottom:8px;line-height:1.4}
 .sm-plat-feature::before{content:'→';color:var(--dim);flex-shrink:0}
-.sm-plat-ig .sm-plat-icon{background:rgba(236,72,153,0.12)}
+.sm-plat-ig .sm-plat-icon{background:rgba(245,158,11,0.12)}
 .sm-plat-li .sm-plat-icon{background:rgba(79,110,247,0.12)}
 .sm-plat-fb .sm-plat-icon{background:rgba(59,130,246,0.12)}
 
