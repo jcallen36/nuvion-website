@@ -13,7 +13,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font
 a{text-decoration:none;color:inherit}
 
 /* NAV */
-.sp-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 32px;background:rgba(7,9,15,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.sp-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:10px 32px;background:rgba(7,9,15,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
 .sp-logo{display:flex;align-items:center}
 .sp-logo-img{width:150px;height:auto;object-fit:contain}
 .sp-back{display:inline-flex;align-items:center;gap:6px;font-size:.83rem;color:var(--muted);border:1px solid var(--border);padding:7px 14px;border-radius:8px;transition:all .2s;cursor:pointer}
@@ -40,7 +40,7 @@ a{text-decoration:none;color:inherit}
 .sp-cta-btn:hover{opacity:.85}
 
 @media(max-width:680px){
-  .sp-nav{padding:12px 20px}
+  .sp-nav{padding:10px 20px}
   .sp-wrap{padding:0 20px}
   .sp-hero{padding:48px 20px 36px}
 }

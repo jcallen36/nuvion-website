@@ -17,9 +17,9 @@ const CSS = BASE_CSS + `
 .rm-step-dot.final{background:rgba(52,211,153,0.12);border-color:rgba(52,211,153,0.5);box-shadow:0 0 16px rgba(52,211,153,0.15)}
 .rm-step-timing{font-size:.68rem;font-weight:700;color:#EC4899;background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.15);border-radius:100px;padding:3px 9px;margin-bottom:8px;white-space:nowrap}
 .rm-step-timing.final{color:#34D399;background:rgba(52,211,153,0.08);border-color:rgba(52,211,153,0.15)}
-.rm-step-title{font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:6px;padding:0 4px;line-height:1.3}
-.rm-step-channel{font-size:.68rem;color:var(--muted)}
-.rm-step-preview{font-size:.7rem;color:var(--muted);font-style:italic;margin-top:8px;padding:8px 10px;line-height:1.4;max-width:150px;background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.2);border-radius:10px 10px 10px 3px}
+.rm-step-title{font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:2px;padding:0 4px;line-height:1.3}
+.rm-step-channel{font-size:.68rem;color:var(--muted);margin-bottom:6px}
+.rm-step-preview{font-size:.7rem;color:var(--muted);font-style:italic;margin-top:0;padding:8px 10px;line-height:1.4;max-width:120px;background:rgba(236,72,153,0.08);border:1px solid rgba(236,72,153,0.2);border-radius:10px 10px 10px 3px}
 
 /* STAT */
 .rm-stat{margin:0 auto 72px;max-width:700px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -42,10 +42,13 @@ const CSS = BASE_CSS + `
   .rm-stat{grid-template-columns:1fr}
   .rm-how-grid{grid-template-columns:1fr}
   .rm-steps{flex-direction:column;align-items:stretch;gap:16px}
-  .rm-step{flex-direction:row;text-align:left;min-width:unset;align-items:flex-start;gap:14px}
+  .rm-step{display:grid;grid-template-columns:42px 1fr;column-gap:14px;text-align:left;align-items:start;min-width:unset}
   .rm-step::after{display:none}
-  .rm-step-dot{margin-bottom:0;flex-shrink:0}
-  .rm-step-preview{max-width:none}
+  .rm-step-dot{grid-column:1;grid-row:1/6;align-self:start;margin-bottom:0;flex-shrink:0}
+  .rm-step-timing{grid-column:2}
+  .rm-step-title{grid-column:2}
+  .rm-step-channel{grid-column:2}
+  .rm-step-preview{grid-column:2;max-width:100%;width:100%;box-sizing:border-box}
 }
 `;
 
