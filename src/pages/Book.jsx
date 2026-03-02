@@ -19,10 +19,12 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 
 export default function Book() {
   useEffect(() => {
+    window.scrollTo(0, 0);
     const script = document.createElement('script');
     script.src = 'https://go.nuvionsolutions.us/js/form_embed.js';
     script.type = 'text/javascript';
     document.body.appendChild(script);
+    script.onload = () => { window.scrollTo(0, 0); };
     return () => { document.body.removeChild(script); };
   }, []);
 
@@ -54,7 +56,6 @@ export default function Book() {
         />
       </div>
       <Footer />
-          <Footer />
     </>
   );
 }
