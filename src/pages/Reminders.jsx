@@ -41,14 +41,6 @@ const CSS = BASE_CSS + `
 @media(max-width:700px){
   .rm-stat{grid-template-columns:1fr}
   .rm-how-grid{grid-template-columns:1fr}
-  .rm-steps{flex-direction:column;align-items:stretch;gap:16px}
-  .rm-step{display:grid;grid-template-columns:42px 1fr;column-gap:14px;text-align:left;align-items:start;min-width:unset}
-  .rm-step::after{display:none}
-  .rm-step-dot{grid-column:1;grid-row:1/6;align-self:start;margin-bottom:0;flex-shrink:0}
-  .rm-step-timing{grid-column:2}
-  .rm-step-title{grid-column:2}
-  .rm-step-channel{grid-column:2}
-  .rm-step-preview{grid-column:2;max-width:100%;width:100%;box-sizing:border-box}
 }
 `;
 
