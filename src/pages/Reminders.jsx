@@ -123,7 +123,7 @@ export default function Reminders() {
       <div className="sp-cta">
         <h2>Fill your calendar and keep it full.</h2>
         <p>Book a free call and we'll set up your entire reminder system in under a week.</p>
-        <a href="/#contact" className="sp-cta-btn rm">Book a Free Strategy Call →</a>
+        <Link to="/book" className="sp-cta-btn rm">Book a Free <span className="grad">Strategy Call</span> →</Link>
       </div>
     </>
   );

@@ -38,6 +38,8 @@ a{text-decoration:none;color:inherit}
 .sp-cta p{color:var(--muted);margin-bottom:28px;font-size:.95rem}
 .sp-cta-btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;padding:14px 28px;border-radius:10px;font-size:.95rem;transition:opacity .2s}
 .sp-cta-btn:hover{opacity:.85}
+@keyframes shimmer{to{background-position:200% center}}
+.grad{background:linear-gradient(130deg,var(--cyan) 0%,var(--primary) 48%,var(--violet) 100%);background-size:220% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 6s linear infinite}
 
 @media(max-width:680px){
   .sp-nav{padding:10px 20px}

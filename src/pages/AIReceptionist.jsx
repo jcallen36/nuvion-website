@@ -106,7 +106,7 @@ export default function AIReceptionist() {
       <div className="sp-cta">
         <h2>Stop missing leads after hours.</h2>
         <p>Book a free call and see a live demo of your AI receptionist in action.</p>
-        <a href="/#contact" className="sp-cta-btn ar">Book a Free Strategy Call →</a>
+        <Link to="/book" className="sp-cta-btn ar">Book a Free <span className="grad">Strategy Call</span> →</Link>
       </div>
     </>
   );
