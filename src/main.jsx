@@ -8,6 +8,7 @@ import CustomIntegrations from './pages/CustomIntegrations.jsx'
 import LeadFollowup from './pages/LeadFollowup.jsx'
 import SocialMediaAI from './pages/SocialMediaAI.jsx'
 import Reminders from './pages/Reminders.jsx'
+import Book from './pages/Book.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/services/lead-followup" element={<LeadFollowup />} />
         <Route path="/services/social-media-ai" element={<SocialMediaAI />} />
         <Route path="/services/reminders" element={<Reminders />} />
+        <Route path="/book" element={<Book />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
