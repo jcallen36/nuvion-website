@@ -869,15 +869,15 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 </body>
 </html>`;
 
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
       (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     if (isIOS) {
-      // iOS blocks blob: URLs in window.open — open blank window then write HTML directly
-      const win = window.open('', '_blank');
-      if (win) { win.document.write(html); win.document.close(); }
+      // iOS blocks blob: URLs in new tabs — navigate current tab instead
+      // User can use Safari Share Sheet to save to Files or print to PDF, then tap Back
+      window.location.href = url;
     } else {
-      const blob = new Blob([html], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
       a.download = `${(biz || firstName).replace(/[^a-z0-9]/gi, '-').toLowerCase()}-audit-report.html`;
