@@ -564,7 +564,7 @@ function LoadingScreen({ niche, onDone }) {
 /* ─────────────────────────────────────────────────────────────
    RESULTS VIEW
 ───────────────────────────────────────────────────────────── */
-function ResultsView({ results, niche, name, biz, onRestart }) {
+function ResultsView({ results, niche, name, biz, answers, onRestart }) {
   const [showSrc, setShowSrc] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [msgs, setMsgs] = useState([]);
@@ -617,6 +617,202 @@ function ResultsView({ results, niche, name, biz, onRestart }) {
     }, 1400);
   };
 
+  const handleDownload = () => {
+    const fmt = (n) => {
+      if (!n || isNaN(n)) return '$0';
+      if (n >= 1000000) return `$${(n / 1000000).toFixed(1)}M`;
+      if (n >= 1000) return `$${(n / 1000).toFixed(0)}K`;
+      return `$${Math.round(n).toLocaleString()}`;
+    };
+    const qList = niche?.questions || [];
+    const answerPairs = qList.map((q, i) => {
+      const val = (answers || [])[i];
+      const idx = Array.isArray(q.values) ? q.values.indexOf(val) : -1;
+      const label = (idx >= 0 && Array.isArray(q.options)) ? q.options[idx] : (val !== undefined ? String(val) : 'N/A');
+      return { question: q.text || '', answer: label };
+    });
+    const donutTotal = Math.max(monthlyRevenueLost + monthlyRevenueGained, 1);
+    const lossPct = Math.round((monthlyRevenueLost / donutTotal) * 100);
+    const gainPct = 100 - lossPct;
+
+    const answersRows = answerPairs.map((p, i) => `
+      <tr style="background:${i % 2 === 0 ? '#0D1221' : '#111829'}">
+        <td style="padding:12px 16px;color:#8B99B5;font-size:13px;border-bottom:1px solid #1a2540;width:60%">${p.question}</td>
+        <td style="padding:12px 16px;color:#F1F5F9;font-size:13px;font-weight:600;border-bottom:1px solid #1a2540">${p.answer}</td>
+      </tr>`).join('');
+
+    const painRows = painPoints.map(pp => `
+      <div style="background:#111829;border-radius:10px;border-left:3px solid #4F6EF7;padding:16px 20px;margin-bottom:12px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px">
+          <span style="color:#F1F5F9;font-weight:700;font-size:14px">${pp.label || ''}</span>
+          <span style="color:#EF4444;font-size:13px;font-weight:600;margin-left:16px;white-space:nowrap">${pp.currentValue || ''}</span>
+        </div>
+        <p style="color:#8B99B5;font-size:13px;line-height:1.6;margin:0 0 8px">${pp.description || ''}</p>
+        <div style="color:#34D399;font-size:12px;font-weight:600">Fix: ${pp.fix || ''}</div>
+        ${pp.gainValue ? `<div style="color:#34D399;font-size:12px;font-weight:700;margin-top:4px">${pp.gainValue}</div>` : ''}
+      </div>`).join('');
+
+    const sourcesHtml = sources.length > 0 ? `
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid #1a2540">
+        <div style="color:#404860;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px">Research Sources</div>
+        ${sources.map(s => `<div style="color:#8B99B5;font-size:11px;line-height:1.6;padding:4px 0;border-bottom:1px solid #0D1221">${s}</div>`).join('')}
+      </div>` : '';
+
+    const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${biz || firstName} — AI Automation Audit Report</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #07090F; color: #F1F5F9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; padding: 40px 20px; min-height: 100vh; }
+    .wrap { max-width: 760px; margin: 0 auto; }
+    .top-bar { height: 4px; background: linear-gradient(90deg, #4F6EF7, #00DCFF, #A78BFA); border-radius: 4px; margin-bottom: 0; }
+    .card { background: #0D1221; border: 1px solid #1a2540; border-top: none; border-radius: 0 0 14px 14px; padding: 36px 40px 40px; margin-bottom: 24px; }
+    .brand { color: #8B99B5; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; }
+    h1 { color: #F1F5F9; font-size: 28px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+    h1 span { background: linear-gradient(135deg, #4F6EF7, #00DCFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .sub { color: #8B99B5; font-size: 14px; line-height: 1.6; margin-bottom: 28px; }
+    .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .metrics-3 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .metric { background: #111829; border-radius: 10px; padding: 20px; text-align: center; }
+    .metric-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+    .metric-val { font-size: 30px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+    .metric-note { font-size: 12px; color: #8B99B5; margin-top: 6px; }
+    .red-lbl { color: #EF4444; } .grn-lbl { color: #34D399; } .cyn-lbl { color: #00DCFF; } .vio-lbl { color: #A78BFA; }
+    .banner { background: linear-gradient(135deg, rgba(79,110,247,0.12), rgba(0,220,255,0.08)); border: 1px solid rgba(79,110,247,0.2); border-radius: 12px; padding: 24px 28px; margin-bottom: 24px; display: flex; align-items: center; gap: 24px; }
+    .banner-val { font-size: 36px; font-weight: 800; background: linear-gradient(135deg, #4F6EF7, #00DCFF); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; white-space: nowrap; }
+    .banner-txt { color: #8B99B5; font-size: 13px; line-height: 1.6; }
+    .banner-txt strong { color: #F1F5F9; }
+    .sec-card { background: #0D1221; border: 1px solid #1a2540; border-radius: 14px; padding: 28px 32px; margin-bottom: 20px; }
+    .sec-title { color: #F1F5F9; font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+    .sec-sub { color: #8B99B5; font-size: 13px; margin-bottom: 20px; }
+    .bar-wrap { margin-bottom: 20px; }
+    .bar-track { height: 28px; border-radius: 8px; overflow: hidden; display: flex; margin-bottom: 16px; }
+    .bar-loss { background: #EF4444; }
+    .bar-gain { background: #34D399; }
+    .bar-legend { display: flex; gap: 32px; }
+    .leg-item-val { font-size: 22px; font-weight: 800; }
+    .leg-item-lbl { color: #8B99B5; font-size: 11px; margin-top: 2px; }
+    .answers-table { width: 100%; border-collapse: collapse; border-radius: 8px; overflow: hidden; border: 1px solid #1a2540; }
+    .answers-table th { padding: 10px 16px; background: #111829; color: #8B99B5; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; text-align: left; border-bottom: 1px solid #1a2540; }
+    .cta-box { text-align: center; padding: 36px; background: #0D1221; border: 1px solid #1a2540; border-radius: 14px; margin-bottom: 20px; }
+    .cta-box h2 { color: #F1F5F9; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .cta-box p { color: #8B99B5; font-size: 14px; margin-bottom: 24px; }
+    .cta-link { display: inline-block; background: linear-gradient(135deg, #4F6EF7, #6366F1); color: #fff; font-weight: 700; font-size: 15px; text-decoration: none; padding: 14px 36px; border-radius: 10px; }
+    .footer { text-align: center; color: #404860; font-size: 12px; padding: 20px; }
+    .footer a { color: #4F6EF7; text-decoration: none; }
+    @media print { body { background: #07090F !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top-bar"></div>
+  <div class="card">
+    <div class="brand">Nuvion Solutions · AI Automation Audit</div>
+    <h1>Your AI Automation Report, <span>${firstName}</span></h1>
+    <p class="sub">Personalized for <strong style="color:#4F6EF7">${biz || firstName}</strong>${niche?.label ? ` · ${niche.label}` : ''}<br>
+    Every number below is based on your specific answers, cross-referenced against verified industry research.</p>
+
+    <div class="metrics">
+      <div class="metric">
+        <div class="metric-lbl red-lbl">Revenue at Risk / Month</div>
+        <div class="metric-val" style="color:#F1F5F9">${fmt(monthlyRevenueLost)}</div>
+        <div class="metric-note">from slow follow-up &amp; missed leads</div>
+      </div>
+      <div class="metric">
+        <div class="metric-lbl grn-lbl">Hours Wasted / Week</div>
+        <div class="metric-val" style="color:#F1F5F9">${weeklyHoursWasted}</div>
+        <div class="metric-note">on tasks AI can handle for you</div>
+      </div>
+    </div>
+    <div class="metrics-3">
+      <div class="metric">
+        <div class="metric-lbl cyn-lbl">Recovery Potential / Month</div>
+        <div class="metric-val" style="color:#F1F5F9">+${fmt(monthlyRevenueGained)}</div>
+      </div>
+      <div class="metric">
+        <div class="metric-lbl vio-lbl">Hours Freed / Year</div>
+        <div class="metric-val" style="color:#F1F5F9">${annualHoursSaved}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="banner">
+    <div class="banner-val">+${fmt(yearlyRevenueGained)}</div>
+    <div class="banner-txt"><strong>12-month revenue opportunity for ${biz || firstName}.</strong><br>
+    Conservative estimate based on your answers and verified ${niche?.label || 'industry'} research.</div>
+  </div>
+
+  <div class="sec-card">
+    <div class="sec-title">Revenue Recovery Breakdown</div>
+    <div class="sec-sub">How your current losses compare to what's recoverable</div>
+    <div class="bar-wrap">
+      <div class="bar-track">
+        <div class="bar-loss" style="width:${lossPct}%"></div>
+        <div class="bar-gain" style="width:${gainPct}%"></div>
+      </div>
+      <div class="bar-legend">
+        <div>
+          <div class="leg-item-val" style="color:#EF4444">${fmt(monthlyRevenueLost)}/mo</div>
+          <div class="leg-item-lbl">Currently Losing</div>
+        </div>
+        <div>
+          <div class="leg-item-val" style="color:#34D399">+${fmt(monthlyRevenueGained)}/mo</div>
+          <div class="leg-item-lbl">Recoverable with Nuvion</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  ${answerPairs.length > 0 ? `
+  <div class="sec-card">
+    <div class="sec-title">Your Answers</div>
+    <div class="sec-sub">Exactly what you told us — every result above flows from these</div>
+    <table class="answers-table">
+      <thead><tr>
+        <th>Question</th>
+        <th>Your Answer</th>
+      </tr></thead>
+      <tbody>${answersRows}</tbody>
+    </table>
+  </div>` : ''}
+
+  ${painPoints.length > 0 ? `
+  <div class="sec-card">
+    <div class="sec-title">Issues Identified in Your Business</div>
+    <div class="sec-sub">Every issue below was identified directly from your answers — not generic assumptions</div>
+    ${painRows}
+  </div>` : ''}
+
+  <div class="cta-box">
+    <h2>Ready to capture ${fmt(monthlyRevenueGained)}/month?</h2>
+    <p>Book a free 30-minute strategy call. We'll walk through your audit and build a step-by-step roadmap.</p>
+    <a href="https://nuvion-solutions.com/book" class="cta-link">Book Your Free Strategy Call</a>
+  </div>
+
+  ${sourcesHtml}
+
+  <div class="footer">
+    Nuvion Solutions · AI Automation for Growing Businesses ·
+    <a href="https://nuvion-solutions.com">nuvion-solutions.com</a>
+  </div>
+</div>
+</body>
+</html>`;
+
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${(biz || firstName).replace(/[^a-z0-9]/gi, '-').toLowerCase()}-audit-report.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="ar-wrap">
       {/* Header */}
@@ -632,6 +828,12 @@ function ResultsView({ results, niche, name, biz, onRestart }) {
         </p>
         <div className="ar-header-actions">
           <button className="restart-btn" onClick={onRestart}>↺ Start Over</button>
+          <button className="restart-btn" onClick={handleDownload} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6.5 1v7M6.5 8l-3-3M6.5 8l3-3M1 11h11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Download Report
+          </button>
           <Link to="/book" className="an-cta">Book a Strategy Call</Link>
         </div>
       </div>
@@ -1050,6 +1252,7 @@ export default function Audit() {
             name={userData.name}
             biz={userData.biz}
             email={userData.email}
+            answers={answers}
             onRestart={handleRestart}
           />
         )}
