@@ -79,8 +79,8 @@ const AUDIT_CSS = `
 .ang-card:hover { border-color: rgba(79,110,247,0.45); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(79,110,247,0.2); }
 .ang-card:hover::after { opacity: 1; }
 .ang-icon { font-size: 1.85rem; margin-bottom: 10px; display: block; }
-.ang-label { font-size: 0.89rem; font-weight: 700; margin-bottom: 4px; }
-.ang-tag { font-size: 0.71rem; color: var(--muted); line-height: 1.35; }
+.ang-label { font-size: 0.89rem; font-weight: 700; margin-bottom: 4px; color: #F1F5F9; }
+.ang-tag { font-size: 0.71rem; color: #8B99B5; line-height: 1.35; }
 
 /* ── QUESTIONS ───────────────────────────────────────── */
 .aq-wrap { min-height: 100vh; display: flex; flex-direction: column; padding: 90px 24px 48px; }
