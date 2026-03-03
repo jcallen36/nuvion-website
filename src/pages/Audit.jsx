@@ -295,7 +295,7 @@ const AUDIT_CSS = `
 /* Restart button */
 .restart-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: var(--font); font-size: 0.82rem; padding: 8px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
 .restart-btn:hover { border-color: rgba(79,110,247,0.3); color: var(--text); }
-.ar-header-actions { display: flex; justify-content: center; padding: 16px 24px; gap: 12px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.015); }
+.ar-header-actions { display: flex; justify-content: center; padding: 20px 24px; gap: 12px; }
 `;
 
 const CSS = BASE_CSS + FOOTER_CSS + AUDIT_CSS;
