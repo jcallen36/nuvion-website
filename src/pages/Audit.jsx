@@ -970,8 +970,11 @@ export default function Audit() {
 
   const handleEmailSubmit = (data) => {
     setUserData(data);
-    // Phase 2: send to n8n webhook here
-    // fetch('https://nuvionsolutions.zeabur.app/webhook/audit', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({ ...data, niche: niche.id, results }) }).catch(() => {});
+    fetch('https://nuvionsolutions.zeabur.app/webhook/audit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...data, niche: niche.id, results })
+    }).catch(() => {});
     setStep('loading');
   };
 
