@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { NICHES } from './audit-data.js';
+import { BASE_CSS } from './shared.js';
+import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
+import nuvionLogo from '../assets/nuvion-logo.png';
 
 /* ─────────────────────────────────────────────────────────────
    MONEY / NUMBER FORMATTERS
@@ -15,28 +18,26 @@ const $$ = (n) => {
 const nn = (n) => (n ? Math.round(n).toLocaleString() : '0');
 
 /* ─────────────────────────────────────────────────────────────
+   NICHE GROUPS
+───────────────────────────────────────────────────────────── */
+const NICHE_GROUPS = [
+  { label: 'Home Services', emoji: '🏠', ids: ['hvac', 'roofing', 'plumbing-electrical', 'landscaping', 'cleaning'] },
+  { label: 'Real Estate & Property', emoji: '🏡', ids: ['real-estate', 'property-mgmt', 'mortgage'] },
+  { label: 'Healthcare & Wellness', emoji: '🏥', ids: ['medical', 'dental', 'chiro-pt', 'veterinary', 'gyms'] },
+  { label: 'Legal, Finance & Insurance', emoji: '⚖️', ids: ['law-firms', 'financial-advisors', 'insurance', 'accounting'] },
+  { label: 'Automotive & Retail', emoji: '🛒', ids: ['auto-dealers', 'ecommerce'] },
+  { label: 'Professional Services', emoji: '💼', ids: ['marketing-agencies', 'coaching'] },
+  { label: 'Hospitality & Lifestyle', emoji: '🍽️', ids: ['restaurants', 'salons-spas', 'events', 'photography'] },
+  { label: "Don't See Your Industry?", emoji: '🔧', ids: ['other'] },
+];
+
+/* ─────────────────────────────────────────────────────────────
    CSS
 ───────────────────────────────────────────────────────────── */
-const CSS = `
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
-
-:root {
-  --bg: #07090F; --surface: #0D1221; --surface2: #111829;
-  --border: rgba(79,110,247,0.12);
-  --primary: #4F6EF7; --primary2: #3B5BDB;
-  --cyan: #00DCFF; --violet: #A78BFA;
-  --text: #F1F5F9; --muted: #8B99B5; --dim: #404860;
-  --font: 'Plus Jakarta Sans', system-ui, sans-serif;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+const AUDIT_CSS = `
 .aud { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
-/* ── NAV ─────────────────────────────────────────────── */
-.an { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: rgba(7,9,15,0.9); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid rgba(79,110,247,0.1); padding: 0 24px; height: 68px; display: flex; align-items: center; justify-content: space-between; }
-.an-logo { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.1rem; color: var(--text); text-decoration: none; }
-.an-mark { width: 32px; height: 32px; border-radius: 8px; background: linear-gradient(135deg, var(--primary), var(--cyan)); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-weight: 900; color: #fff; box-shadow: 0 2px 14px rgba(79,110,247,0.4); }
+/* CTA button used in results header */
 .an-cta { padding: 10px 22px; border-radius: 9px; background: linear-gradient(135deg, var(--primary), var(--primary2)); color: #fff; font-family: var(--font); font-size: 0.88rem; font-weight: 700; text-decoration: none; transition: all 0.25s; }
 .an-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(79,110,247,0.45); }
 
@@ -74,11 +75,9 @@ const CSS = `
 .ang-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(79,110,247,0.07), rgba(0,220,255,0.04)); opacity: 0; transition: opacity 0.22s; }
 .ang-card:hover { border-color: rgba(79,110,247,0.45); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(79,110,247,0.2); }
 .ang-card:hover::after { opacity: 1; }
-.ang-card.t1 { border-color: rgba(79,110,247,0.18); }
 .ang-icon { font-size: 1.85rem; margin-bottom: 10px; display: block; }
 .ang-label { font-size: 0.89rem; font-weight: 700; margin-bottom: 4px; }
 .ang-tag { font-size: 0.71rem; color: var(--muted); line-height: 1.35; }
-.ang-pop { position: absolute; top: 9px; right: 9px; font-size: 0.61rem; font-weight: 700; letter-spacing: 0.07em; padding: 3px 8px; border-radius: 6px; background: rgba(79,110,247,0.18); color: var(--primary); z-index: 1; }
 
 /* ── QUESTIONS ───────────────────────────────────────── */
 .aq-wrap { min-height: 100vh; display: flex; flex-direction: column; padding: 90px 24px 48px; }
@@ -226,7 +225,6 @@ const CSS = `
 .ap-body { padding: 24px; }
 .ap-trigger-lbl { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); margin-bottom: 5px; }
 .ap-trigger { font-size: 0.88rem; color: var(--muted); margin-bottom: 22px; font-style: italic; line-height: 1.5; }
-.ap-flow-wrap { margin-bottom: 22px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 .ap-steps-lbl { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); margin-bottom: 10px; }
 .ap-steps-list { display: flex; flex-direction: column; gap: 7px; margin-bottom: 22px; }
 .ap-step-item { display: flex; align-items: flex-start; gap: 10px; font-size: 0.86rem; color: var(--muted); line-height: 1.5; }
@@ -235,9 +233,6 @@ const CSS = `
 .ap-tool { font-size: 0.75rem; font-weight: 600; padding: 5px 12px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: var(--muted); }
 .ap-impact { padding: 14px 18px; border-radius: 10px; background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.15); font-size: 0.88rem; color: var(--text); line-height: 1.55; }
 .ap-impact-lbl { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #34D399; margin-bottom: 5px; }
-
-/* Workflow Flow SVG */
-.wf-svg { display: block; min-width: 320px; }
 
 /* Sources */
 .src-section { margin-top: 52px; }
@@ -300,20 +295,7 @@ const CSS = `
 .ar-header-actions { display: flex; justify-content: center; margin-top: 22px; gap: 12px; }
 `;
 
-/* ─────────────────────────────────────────────────────────────
-   NAV
-───────────────────────────────────────────────────────────── */
-function AuditNav() {
-  return (
-    <nav className="an">
-      <Link to="/" className="an-logo">
-        <div className="an-mark">N</div>
-        <span>Nuvion Solutions</span>
-      </Link>
-      <Link to="/book" className="an-cta">Book a Call</Link>
-    </nav>
-  );
-}
+const CSS = BASE_CSS + FOOTER_CSS + AUDIT_CSS;
 
 /* ─────────────────────────────────────────────────────────────
    INTRO SCREEN
@@ -336,7 +318,7 @@ function IntroScreen({ onStart }) {
         </p>
         <div className="ai-stats">
           <div>
-            <div className="ai-stat-val">25</div>
+            <div className="ai-stat-val">26</div>
             <div className="ai-stat-lbl">Industries covered</div>
           </div>
           <div>
@@ -363,16 +345,13 @@ function IntroScreen({ onStart }) {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   NICHE SELECTION GRID
+   NICHE SELECTION GRID — grouped by industry category
 ───────────────────────────────────────────────────────────── */
 function NicheGrid({ onSelect }) {
-  const tier1 = NICHES.filter(n => n.tier === 1);
-  const tier2 = NICHES.filter(n => n.tier === 2);
-  const tier3 = NICHES.filter(n => n.tier === 3);
+  const nicheMap = Object.fromEntries(NICHES.map(n => [n.id, n]));
 
   const NicheCard = ({ n }) => (
-    <button className={`ang-card${n.tier === 1 ? ' t1' : ''}`} onClick={() => onSelect(n)}>
-      {n.tier === 1 && <div className="ang-pop">Popular</div>}
+    <button className="ang-card" onClick={() => onSelect(n)}>
       <span className="ang-icon">{n.icon}</span>
       <div className="ang-label">{n.label}</div>
       <div className="ang-tag">{n.tagline}</div>
@@ -387,20 +366,14 @@ function NicheGrid({ onSelect }) {
           <p>Select your industry to get questions and results specific to your situation</p>
         </div>
 
-        <div className="ang-tier-lbl">High-Value Service Businesses</div>
-        <div className="ang-grid">
-          {tier1.map(n => <NicheCard key={n.id} n={n} />)}
-        </div>
-
-        <div className="ang-tier-lbl">Professional & Trade Services</div>
-        <div className="ang-grid">
-          {tier2.map(n => <NicheCard key={n.id} n={n} />)}
-        </div>
-
-        <div className="ang-tier-lbl">Retail, Hospitality & Other</div>
-        <div className="ang-grid">
-          {tier3.map(n => <NicheCard key={n.id} n={n} />)}
-        </div>
+        {NICHE_GROUPS.map(group => (
+          <div key={group.label}>
+            <div className="ang-tier-lbl">{group.emoji} {group.label}</div>
+            <div className="ang-grid">
+              {group.ids.map(id => nicheMap[id] ? <NicheCard key={id} n={nicheMap[id]} /> : null)}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -582,60 +555,6 @@ function LoadingScreen({ niche, onDone }) {
         ))}
       </div>
     </div>
-  );
-}
-
-/* ─────────────────────────────────────────────────────────────
-   WORKFLOW FLOW SVG (numbered circles with connecting arrows)
-───────────────────────────────────────────────────────────── */
-function WorkflowFlowSVG({ steps, priority }) {
-  const vis = steps.slice(0, 5);
-  const n = vis.length;
-  const W = 560;
-  const H = 56;
-  const R = 18;
-  const spacing = W / (n + 1);
-
-  const priorityColor = priority === 'critical' ? '#FB923C' : priority === 'high' ? '#4F6EF7' : '#00DCFF';
-  const fillColor = priority === 'critical' ? 'rgba(251,146,60,0.15)' : priority === 'high' ? 'rgba(79,110,247,0.15)' : 'rgba(0,220,255,0.12)';
-
-  return (
-    <svg
-      className="wf-svg"
-      viewBox={`0 0 ${W} ${H}`}
-      style={{ width: '100%', height: 'auto' }}
-      aria-hidden="true"
-    >
-      <defs>
-        <marker id={`arr-${priority}`} markerWidth={8} markerHeight={6} refX={7} refY={3} orient="auto">
-          <polygon points="0 0, 8 3, 0 6" fill={priorityColor} opacity="0.5" />
-        </marker>
-      </defs>
-      {vis.map((_, i) => {
-        const cx = spacing * (i + 1);
-        const cy = H / 2;
-        return (
-          <g key={i}>
-            {i > 0 && (
-              <line
-                x1={spacing * i + R + 5}
-                y1={cy}
-                x2={cx - R - 3}
-                y2={cy}
-                stroke={priorityColor}
-                strokeWidth={1.5}
-                strokeOpacity={0.4}
-                markerEnd={`url(#arr-${priority})`}
-              />
-            )}
-            <circle cx={cx} cy={cy} r={R} fill={fillColor} stroke={priorityColor} strokeWidth={1.5} strokeOpacity={0.7} />
-            <text x={cx} y={cy} textAnchor="middle" dominantBaseline="central" fill={priorityColor} fontSize={12} fontWeight="700" fontFamily="Plus Jakarta Sans, sans-serif">
-              {i + 1}
-            </text>
-          </g>
-        );
-      })}
-    </svg>
   );
 }
 
@@ -847,11 +766,6 @@ function ResultsView({ results, niche, name, biz, onRestart }) {
                     <div className="ap-trigger-lbl">Trigger</div>
                     <div className="ap-trigger">{wf.trigger}</div>
 
-                    {/* Visual flow */}
-                    <div className="ap-flow-wrap">
-                      <WorkflowFlowSVG steps={wf.steps} priority={wf.priority} />
-                    </div>
-
                     {/* Steps list */}
                     <div className="ap-steps-lbl">How It Works</div>
                     <div className="ap-steps-list">
@@ -922,6 +836,8 @@ function ResultsView({ results, niche, name, biz, onRestart }) {
         </div>
 
       </div>{/* end ar-inner */}
+
+      <Footer />
 
       {/* ── CHATBOT SHELL ──────────────────────────────────── */}
       <button
@@ -1085,8 +1001,12 @@ export default function Audit() {
       </Helmet>
 
       <div className="aud">
-        <style>{CSS}</style>
-        <AuditNav />
+        <style dangerouslySetInnerHTML={{ __html: CSS }} />
+
+        <nav className="sp-nav">
+          <Link to="/" className="sp-logo"><img src={nuvionLogo} className="sp-logo-img" alt="Nuvion Solutions" /></Link>
+          <Link to="/" className="sp-back">← Back to Home</Link>
+        </nav>
 
         {step === 'intro' && (
           <IntroScreen onStart={() => setStep('niche')} />
