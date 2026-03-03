@@ -301,7 +301,7 @@ const AUDIT_CSS = `
 .aq-num-wrap { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
 .aq-num-row { display: flex; align-items: center; gap: 12px; }
 .aq-num-prefix { font-size: 1.6rem; font-weight: 700; color: var(--muted); line-height: 1; }
-.aq-num-inp { flex: 1; padding: 16px 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: var(--font); font-size: 1.5rem; font-weight: 700; outline: none; transition: border-color 0.2s; -moz-appearance: textfield; }
+.aq-num-inp { flex: 0 1 66%; min-width: 80px; padding: 16px 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: var(--font); font-size: 1.5rem; font-weight: 700; outline: none; transition: border-color 0.2s; -moz-appearance: textfield; }
 .aq-num-inp::-webkit-outer-spin-button, .aq-num-inp::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 .aq-num-inp:focus { border-color: rgba(79,110,247,0.55); }
 .aq-num-inp::placeholder { color: var(--dim); font-weight: 400; font-size: 1.1rem; }
