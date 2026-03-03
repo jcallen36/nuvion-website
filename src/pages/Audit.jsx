@@ -973,7 +973,14 @@ export default function Audit() {
     fetch('https://nuvionsolutions.zeabur.app/webhook/audit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...data, niche: niche.id, results })
+      body: JSON.stringify({
+        ...data,
+        niche: niche.id,
+        nicheLabel: niche.label,
+        answers,
+        questions: niche.questions.map(q => ({ text: q.text, options: q.options, values: q.values })),
+        results
+      })
     }).catch(() => {});
     setStep('loading');
   };
