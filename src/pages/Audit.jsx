@@ -146,7 +146,7 @@ const AUDIT_CSS = `
 
 /* ── RESULTS ─────────────────────────────────────────── */
 .ar-wrap { padding-top: 68px; padding-bottom: 100px; }
-.ar-header { background: linear-gradient(180deg, rgba(79,110,247,0.09) 0%, transparent 100%); border-bottom: 1px solid var(--border); padding: 52px 24px 44px; text-align: center; }
+.ar-header { padding: 52px 24px 44px; text-align: center; }
 .ar-biz { font-size: 0.83rem; color: var(--muted); margin-bottom: 8px; font-weight: 500; letter-spacing: 0.04em; }
 .ar-title { font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 800; margin-bottom: 14px; letter-spacing: -0.02em; }
 .ar-sub { font-size: 0.97rem; color: var(--muted); max-width: 600px; margin: 0 auto; line-height: 1.68; }
@@ -869,16 +869,15 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 </body>
 </html>`;
 
-    const blob = new Blob([html], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
     const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
       (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
     if (isIOS) {
-      // iOS Safari doesn't support <a download> for blob URLs — open in new tab instead
-      // User can save via Share Sheet → "Save to Files" or print to PDF
-      window.open(url, '_blank');
-      setTimeout(() => URL.revokeObjectURL(url), 10000);
+      // iOS blocks blob: URLs in window.open — open blank window then write HTML directly
+      const win = window.open('', '_blank');
+      if (win) { win.document.write(html); win.document.close(); }
     } else {
+      const blob = new Blob([html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
       a.download = `${(biz || firstName).replace(/[^a-z0-9]/gi, '-').toLowerCase()}-audit-report.html`;
