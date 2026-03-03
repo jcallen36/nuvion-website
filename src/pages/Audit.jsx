@@ -66,7 +66,7 @@ const AUDIT_CSS = `
 .ang-head { text-align: center; margin-bottom: 52px; }
 .ang-head h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; margin-bottom: 10px; }
 .ang-head p { color: var(--muted); font-size: 1rem; }
-.ang-tier-lbl { font-size: 0.71rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--dim); margin: 36px 0 14px; padding-left: 2px; }
+.ang-tier-lbl { font-size: 0.71rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--primary); margin: 36px 0 14px; padding-left: 2px; }
 .ang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
 @media (min-width: 640px) { .ang-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 900px) { .ang-grid { grid-template-columns: repeat(4, 1fr); } }
