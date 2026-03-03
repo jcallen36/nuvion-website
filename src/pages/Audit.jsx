@@ -35,6 +35,9 @@ const NICHE_GROUPS = [
    CSS
 ───────────────────────────────────────────────────────────── */
 const AUDIT_CSS = `
+/* define --primary2 not in BASE_CSS */
+:root { --primary2: #3B5BDB; }
+
 .aud { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
 
 /* CTA button used in results header */
@@ -66,7 +69,7 @@ const AUDIT_CSS = `
 .ang-head { text-align: center; margin-bottom: 52px; }
 .ang-head h2 { font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 800; margin-bottom: 10px; }
 .ang-head p { color: var(--muted); font-size: 1rem; }
-.ang-tier-lbl { font-size: 0.71rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--primary); margin: 36px 0 14px; padding-left: 2px; }
+.ang-tier-lbl { font-size: 0.71rem; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: #4F6EF7; margin: 36px 0 14px; padding-left: 2px; }
 .ang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 12px; }
 @media (min-width: 640px) { .ang-grid { grid-template-columns: repeat(3, 1fr); } }
 @media (min-width: 900px) { .ang-grid { grid-template-columns: repeat(4, 1fr); } }
@@ -674,16 +677,10 @@ function ResultsView({ results, niche, name, biz, onRestart }) {
               <div className="bav-metric">
                 <div className="bav-metric-lbl">Monthly revenue escaping</div>
                 <div className="bav-metric-val">{$$(monthlyRevenueLost)}</div>
-                <div className="bav-bar-track">
-                  <div className="bav-bar-fill bef" style={{ width: `${Math.min(95, (monthlyRevenueLost / maxRev) * 90 + 10)}%` }} />
-                </div>
               </div>
               <div className="bav-metric">
                 <div className="bav-metric-lbl">Weekly hours burned on manual work</div>
                 <div className="bav-metric-val">{weeklyHoursWasted} hours</div>
-                <div className="bav-bar-track">
-                  <div className="bav-bar-fill bef" style={{ width: `${Math.min(95, (weeklyHoursWasted / maxHrs) * 85 + 12)}%` }} />
-                </div>
               </div>
               <div className="bav-metric">
                 <div className="bav-metric-lbl">Annual revenue at risk</div>
@@ -700,16 +697,10 @@ function ResultsView({ results, niche, name, biz, onRestart }) {
               <div className="bav-metric">
                 <div className="bav-metric-lbl">Monthly revenue recovered and added</div>
                 <div className="bav-metric-val">+{$$(monthlyRevenueGained)}</div>
-                <div className="bav-bar-track">
-                  <div className="bav-bar-fill aft" style={{ width: `${Math.min(95, (monthlyRevenueGained / maxRev) * 90 + 10)}%` }} />
-                </div>
               </div>
               <div className="bav-metric">
                 <div className="bav-metric-lbl">Weekly hours reclaimed from automation</div>
                 <div className="bav-metric-val">{weeklyHoursSaved} hours</div>
-                <div className="bav-bar-track">
-                  <div className="bav-bar-fill aft" style={{ width: `${Math.min(95, (weeklyHoursSaved / maxHrs) * 85 + 12)}%` }} />
-                </div>
               </div>
               <div className="bav-metric">
                 <div className="bav-metric-lbl">Annual hours given back to your life</div>
