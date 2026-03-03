@@ -10,6 +10,7 @@ import LeadFollowup from './pages/LeadFollowup.jsx'
 import SocialMediaAI from './pages/SocialMediaAI.jsx'
 import Reminders from './pages/Reminders.jsx'
 import Book from './pages/Book.jsx'
+import Audit from './pages/Audit.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,6 +32,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/services/social-media-ai" element={<SocialMediaAI />} />
         <Route path="/services/reminders" element={<Reminders />} />
         <Route path="/book" element={<Book />} />
+        <Route path="/audit" element={<Audit />} />
       </Routes>
     </BrowserRouter>
     </HelmetProvider>
