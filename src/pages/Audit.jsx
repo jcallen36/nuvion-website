@@ -296,6 +296,20 @@ const AUDIT_CSS = `
 .restart-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: var(--font); font-size: 0.82rem; padding: 8px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
 .restart-btn:hover { border-color: rgba(79,110,247,0.3); color: var(--text); }
 .ar-header-actions { display: flex; justify-content: center; padding: 20px 24px; gap: 12px; }
+
+/* ── NUMBER INPUT (for numeric questions) ────────────────── */
+.aq-num-wrap { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+.aq-num-row { display: flex; align-items: center; gap: 12px; }
+.aq-num-prefix { font-size: 1.6rem; font-weight: 700; color: var(--muted); line-height: 1; }
+.aq-num-inp { flex: 1; padding: 16px 20px; border-radius: 12px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-family: var(--font); font-size: 1.5rem; font-weight: 700; outline: none; transition: border-color 0.2s; -moz-appearance: textfield; }
+.aq-num-inp::-webkit-outer-spin-button, .aq-num-inp::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.aq-num-inp:focus { border-color: rgba(79,110,247,0.55); }
+.aq-num-inp::placeholder { color: var(--dim); font-weight: 400; font-size: 1.1rem; }
+.aq-num-unit { font-size: 0.9rem; color: var(--muted); font-weight: 500; white-space: nowrap; }
+.aq-num-err { color: #FF6B6B; font-size: 0.83rem; }
+.aq-continue { padding: 16px 36px; border-radius: 12px; background: linear-gradient(135deg, var(--primary), #3B5BDB); color: #fff; font-family: var(--font); font-size: 1.0rem; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 6px 24px rgba(79,110,247,0.35); transition: all 0.25s; align-self: flex-start; }
+.aq-continue:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 10px 34px rgba(79,110,247,0.52); }
+.aq-continue:disabled { opacity: 0.4; cursor: default; box-shadow: none; }
 `;
 
 const CSS = BASE_CSS + FOOTER_CSS + AUDIT_CSS;
@@ -387,19 +401,31 @@ function NicheGrid({ onSelect }) {
 ───────────────────────────────────────────────────────────── */
 function QuestionStep({ niche, qIndex, onAnswer, onBack }) {
   const [selected, setSelected] = useState(null);
+  const [numVal, setNumVal] = useState('');
+  const [numErr, setNumErr] = useState('');
   const question = niche.questions[qIndex];
   const total = niche.questions.length;
+  const isNum = question.type === 'number';
 
-  // Reset selected state when qIndex changes
-  useEffect(() => { setSelected(null); }, [qIndex]);
+  // Reset state when question changes
+  useEffect(() => { setSelected(null); setNumVal(''); setNumErr(''); }, [qIndex]);
 
+  // Multiple-choice handler (legacy, kept for safety)
   const handleSelect = (i) => {
     if (selected !== null) return;
     setSelected(i);
-    setTimeout(() => onAnswer(i), 420);
+    setTimeout(() => onAnswer(question.values[i]), 420);
   };
 
-  const pct = Math.round((qIndex / total) * 100);
+  // Numeric input handler
+  const handleNumSubmit = () => {
+    const v = parseFloat(numVal);
+    if (isNaN(v) || v < 0) { setNumErr('Please enter a valid number.'); return; }
+    if (question.pct && v > 100) { setNumErr('Please enter a percentage between 0 and 100.'); return; }
+    onAnswer(question.pct ? v / 100 : v);
+  };
+
+  const progress = Math.round((qIndex / total) * 100);
 
   return (
     <div className="aq-wrap">
@@ -412,26 +438,56 @@ function QuestionStep({ niche, qIndex, onAnswer, onBack }) {
           <div className="aq-prog-count">{qIndex + 1} / {total}</div>
         </div>
         <div className="aq-prog-track">
-          <div className="aq-prog-fill" style={{ width: `${pct}%` }} />
+          <div className="aq-prog-fill" style={{ width: `${progress}%` }} />
         </div>
       </div>
 
       <div className="aq-inner">
         <h2 className="aq-q">{question.text}</h2>
-        <p className="aq-sub">{question.sub}</p>
+        {question.sub && <p className="aq-sub">{question.sub}</p>}
 
-        <div className="aq-opts">
-          {question.options.map((opt, i) => (
+        {isNum ? (
+          <div className="aq-num-wrap">
+            <div className="aq-num-row">
+              {question.unit === '$' && <span className="aq-num-prefix">$</span>}
+              <input
+                type="number"
+                className="aq-num-inp"
+                placeholder={question.placeholder || '0'}
+                value={numVal}
+                onChange={e => { setNumVal(e.target.value); setNumErr(''); }}
+                onKeyDown={e => e.key === 'Enter' && handleNumSubmit()}
+                min="0"
+                max={question.pct ? '100' : undefined}
+                autoFocus
+              />
+              {question.unit && question.unit !== '$' && (
+                <span className="aq-num-unit">{question.unit}</span>
+              )}
+            </div>
+            {numErr && <p className="aq-num-err">{numErr}</p>}
             <button
-              key={i}
-              className={`aq-opt${selected === i ? ' sel' : ''}`}
-              onClick={() => handleSelect(i)}
-              disabled={selected !== null}
+              className="aq-continue"
+              onClick={handleNumSubmit}
+              disabled={numVal === '' || numVal === null}
             >
-              {opt}
+              Continue →
             </button>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="aq-opts">
+            {question.options.map((opt, i) => (
+              <button
+                key={i}
+                className={`aq-opt${selected === i ? ' sel' : ''}`}
+                onClick={() => handleSelect(i)}
+                disabled={selected !== null}
+              >
+                {opt}
+              </button>
+            ))}
+          </div>
+        )}
 
         <div className="aq-src">
           <span className="aq-src-ico">📊</span>
@@ -627,8 +683,19 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
     const qList = niche?.questions || [];
     const answerPairs = qList.map((q, i) => {
       const val = (answers || [])[i];
-      const idx = Array.isArray(q.values) ? q.values.indexOf(val) : -1;
-      const label = (idx >= 0 && Array.isArray(q.options)) ? q.options[idx] : (val !== undefined ? String(val) : 'N/A');
+      let label;
+      if (q.type === 'number') {
+        if (q.pct) {
+          label = `${Math.round((val || 0) * 100)}%`;
+        } else if (q.unit === '$') {
+          label = `$${Math.round(val || 0).toLocaleString()}`;
+        } else {
+          label = q.unit ? `${val ?? 'N/A'} ${q.unit}` : String(val ?? 'N/A');
+        }
+      } else {
+        const idx = Array.isArray(q.values) ? q.values.indexOf(val) : -1;
+        label = (idx >= 0 && Array.isArray(q.options)) ? q.options[idx] : (val !== undefined ? String(val) : 'N/A');
+      }
       return { question: q.text || '', answer: label };
     });
     const donutTotal = Math.max(monthlyRevenueLost + monthlyRevenueGained, 1);
@@ -1138,8 +1205,7 @@ export default function Audit() {
     setStep('questions');
   };
 
-  const handleAnswer = (optIdx) => {
-    const val = niche.questions[qIndex].values[optIdx];
+  const handleAnswer = (val) => {
     const newAnswers = [...answers, val];
     setAnswers(newAnswers);
 
