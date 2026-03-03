@@ -295,7 +295,7 @@ const AUDIT_CSS = `
 /* Restart button */
 .restart-btn { background: none; border: 1px solid var(--border); border-radius: 8px; color: var(--muted); font-family: var(--font); font-size: 0.82rem; padding: 8px 16px; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
 .restart-btn:hover { border-color: rgba(79,110,247,0.3); color: var(--text); }
-.ar-header-actions { display: flex; justify-content: center; margin-top: 22px; gap: 12px; }
+.ar-header-actions { display: flex; justify-content: center; padding: 16px 24px; gap: 12px; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.015); }
 `;
 
 const CSS = BASE_CSS + FOOTER_CSS + AUDIT_CSS;
@@ -826,16 +826,17 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
           Every number below is based on your specific answers, cross-referenced against
           verified industry research. These aren't averages — they reflect your business.
         </p>
-        <div className="ar-header-actions">
-          <button className="restart-btn" onClick={onRestart}>↺ Start Over</button>
-          <button className="restart-btn" onClick={handleDownload} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6.5 1v7M6.5 8l-3-3M6.5 8l3-3M1 11h11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-            Download Report
-          </button>
-          <Link to="/book" className="an-cta">Book a Strategy Call</Link>
-        </div>
+      </div>
+
+      <div className="ar-header-actions">
+        <button className="restart-btn" onClick={onRestart}>↺ Start Over</button>
+        <button className="restart-btn" onClick={handleDownload} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6.5 1v7M6.5 8l-3-3M6.5 8l3-3M1 11h11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Download Report
+        </button>
+        <Link to="/book" className="an-cta">Book a Strategy Call</Link>
       </div>
 
       <div className="ar-inner">
