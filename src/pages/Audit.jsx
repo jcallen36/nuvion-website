@@ -684,7 +684,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
     }, 1400);
   };
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     const fmt = (n) => {
       if (!n || isNaN(n)) return '$0';
       if (n >= 1000000) return `$${(n / 1000000).toFixed(1)}M`;
@@ -880,20 +880,35 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 </body>
 </html>`;
 
-    // Build a blob URL from the HTML string
+    const filename = `${(biz || firstName).replace(/[^a-z0-9]/gi, '-').toLowerCase()}-audit-report.html`;
     const blob = new Blob([html], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
 
-    // Try to open in a new tab — this is a plain navigation to a URL, NOT a file download,
-    // so it's not blocked by Chrome's "dangerous file" filter in incognito or on mobile.
-    const win = window.open(url, '_blank');
-
-    if (!win) {
-      // Popup was blocked (some mobile browsers) — navigate the current tab instead.
-      // User can use the browser share/save menu, then press Back to return.
-      window.location.href = url;
+    // Mobile (iOS/Android): trigger native share sheet — Save to Files, Drive, AirDrop, etc.
+    if (navigator.canShare) {
+      const file = new File([blob], filename, { type: 'text/html' });
+      if (navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            title: `${biz || firstName} — AI Automation Audit Report`,
+            files: [file],
+          });
+          return;
+        } catch (e) {
+          if (e.name === 'AbortError') return; // user dismissed the sheet — do nothing
+          // unexpected error — fall through to desktop download
+        }
+      }
     }
-    // Do NOT revoke the URL — the tab/page still needs it to render.
+
+    // Desktop: direct file download via anchor
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
   };
 
   return (
