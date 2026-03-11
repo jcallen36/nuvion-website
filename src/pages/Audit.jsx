@@ -298,7 +298,7 @@ const AUDIT_CSS = `
 .ar-header-actions { display: flex; justify-content: center; padding: 20px 24px; gap: 12px; }
 
 /* Report scroll arrow */
-.report-scroll-arrow { display: flex; justify-content: center; align-items: center; padding: 0 0 28px; }
+.report-scroll-arrow { display: flex; justify-content: center; align-items: center; padding: 24px 0 24px; }
 @keyframes arrowCascade {
   0%   { opacity: 0.15; transform: translateY(-4px); }
   50%  { opacity: 1;    transform: translateY(4px);  }
@@ -880,25 +880,20 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 </body>
 </html>`;
 
-    // Open in a new tab — works in all contexts (incognito, mobile, any browser)
-    // window.open called synchronously from a click handler is never blocked by popup blockers
-    const win = window.open('', '_blank');
-    if (win) {
-      win.document.open();
-      win.document.write(html);
-      win.document.close();
-    } else {
-      // Fallback: blob download if new tab was somehow blocked
-      const blob = new Blob([html], { type: 'text/html' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${(biz || firstName).replace(/[^a-z0-9]/gi, '-').toLowerCase()}-audit-report.html`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
+    // Build a blob URL from the HTML string
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+
+    // Try to open in a new tab — this is a plain navigation to a URL, NOT a file download,
+    // so it's not blocked by Chrome's "dangerous file" filter in incognito or on mobile.
+    const win = window.open(url, '_blank');
+
+    if (!win) {
+      // Popup was blocked (some mobile browsers) — navigate the current tab instead.
+      // User can use the browser share/save menu, then press Back to return.
+      window.location.href = url;
     }
+    // Do NOT revoke the URL — the tab/page still needs it to render.
   };
 
   return (
