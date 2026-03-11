@@ -297,6 +297,17 @@ const AUDIT_CSS = `
 .restart-btn:hover { border-color: rgba(79,110,247,0.3); color: var(--text); }
 .ar-header-actions { display: flex; justify-content: center; padding: 20px 24px; gap: 12px; }
 
+/* Report scroll arrow */
+.report-scroll-arrow { display: flex; justify-content: center; align-items: center; padding: 0 0 28px; }
+@keyframes arrowCascade {
+  0%   { opacity: 0.15; transform: translateY(-4px); }
+  50%  { opacity: 1;    transform: translateY(4px);  }
+  100% { opacity: 0.15; transform: translateY(-4px); }
+}
+.report-scroll-arrow .arr-ch1 { animation: arrowCascade 1.6s ease-in-out infinite 0s;    }
+.report-scroll-arrow .arr-ch2 { animation: arrowCascade 1.6s ease-in-out infinite 0.22s; }
+.report-scroll-arrow .arr-ch3 { animation: arrowCascade 1.6s ease-in-out infinite 0.44s; }
+
 /* ── NUMBER INPUT (for numeric questions) ────────────────── */
 .aq-num-wrap { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
 .aq-num-row { display: flex; align-items: center; gap: 12px; }
@@ -869,15 +880,17 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 </body>
 </html>`;
 
-    const blob = new Blob([html], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
-      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-    if (isIOS) {
-      // iOS blocks blob: URLs in new tabs — navigate current tab instead
-      // User can use Safari Share Sheet to save to Files or print to PDF, then tap Back
-      window.location.href = url;
+    // Open in a new tab — works in all contexts (incognito, mobile, any browser)
+    // window.open called synchronously from a click handler is never blocked by popup blockers
+    const win = window.open('', '_blank');
+    if (win) {
+      win.document.open();
+      win.document.write(html);
+      win.document.close();
     } else {
+      // Fallback: blob download if new tab was somehow blocked
+      const blob = new Blob([html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
       a.download = `${(biz || firstName).replace(/[^a-z0-9]/gi, '-').toLowerCase()}-audit-report.html`;
@@ -912,6 +925,23 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
           Download Report
         </button>
         <Link to="/book" className="an-cta">Book a Strategy Call</Link>
+      </div>
+
+      {/* ── SCROLL-DOWN ARROW ─────────────────────────────── */}
+      <div className="report-scroll-arrow">
+        <svg width="32" height="60" viewBox="0 0 32 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="arrGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#00DCFF"/>
+              <stop offset="50%" stopColor="#4F6EF7"/>
+              <stop offset="100%" stopColor="#A78BFA"/>
+            </linearGradient>
+          </defs>
+          {/* Three staggered chevrons cascading downward */}
+          <path className="arr-ch1" d="M6 5 L16 15 L26 5" stroke="url(#arrGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path className="arr-ch2" d="M6 21 L16 31 L26 21" stroke="url(#arrGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+          <path className="arr-ch3" d="M6 37 L16 47 L26 37" stroke="url(#arrGrad)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </div>
 
       <div className="ar-inner">
