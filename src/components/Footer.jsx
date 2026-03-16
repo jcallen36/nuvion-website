@@ -44,7 +44,7 @@ export default function Footer() {
           <p className="f-tag">AI automation systems that eliminate manual work and help your business run on autopilot.</p>
           <div className="f-contact">
             <a href="mailto:team@nuvion-solutions.com">team@nuvion-solutions.com</a>
-            <a href="tel:+14152136834">(415) 213-6834</a>
+            <a href="tel:+14152336834">(415) 233-6834</a>
           </div>
         </div>
         <div>
