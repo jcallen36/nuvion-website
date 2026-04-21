@@ -34,12 +34,31 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .sm-plat-li .sm-plat-icon{background:rgba(79,110,247,0.12)}
 .sm-plat-fb .sm-plat-icon{background:rgba(59,130,246,0.12)}
 
+/* PAID ADS SECTION */
+.sm-ads{padding:0 0 72px}
+.sm-ads-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sm-ad-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
+.sm-ad-card:hover{transform:translateY(-3px);border-color:rgba(245,158,11,0.3)}
+.sm-ad-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#F59E0B,transparent);opacity:0;transition:opacity .3s}
+.sm-ad-card:hover::after{opacity:1}
+.sm-ad-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.sm-ad-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.sm-ad-name{font-size:1rem;font-weight:700}
+.sm-ad-desc{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:14px}
+.sm-ad-features{display:flex;flex-direction:column;gap:8px}
+.sm-ad-feat{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted);line-height:1.4}
+.sm-ad-feat::before{content:'✓';color:#F59E0B;font-weight:700;flex-shrink:0}
+.sm-ad-fb .sm-ad-icon{background:rgba(59,130,246,0.12)}
+.sm-ad-tt .sm-ad-icon{background:rgba(236,72,153,0.12)}
+.sm-ad-gg .sm-ad-icon{background:rgba(52,211,153,0.12)}
+
 @media(max-width:700px){
   .sm-cal-header{grid-template-columns:repeat(3,1fr)}
   .sm-cal-grid{grid-template-columns:repeat(3,1fr)}
   .sm-cal-header > *:nth-child(n+4),
   .sm-cal-grid > *:nth-child(n+4){display:none}
   .sm-plat-grid{grid-template-columns:1fr}
+  .sm-ads-grid{grid-template-columns:1fr}
 }
 `;
 
@@ -84,8 +103,8 @@ export default function SocialMediaAI() {
   return (
     <>
       <Helmet>
-        <title>Social Media AI Management | Nuvion Solutions</title>
-        <meta name="description" content="AI-powered social media management for busy business owners. Content creation, scheduling, and engagement on autopilot for Instagram, LinkedIn, and Facebook." />
+        <title>Social Media AI Management & Paid Ads | Nuvion Solutions</title>
+        <meta name="description" content="AI-powered social media management and paid advertising for busy business owners. Content creation, scheduling, engagement, plus Facebook Ads, TikTok Ads, and Google Ads management." />
         <link rel="canonical" href="https://nuvion-solutions.com/services/social-media-ai" />
       </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
@@ -98,7 +117,7 @@ export default function SocialMediaAI() {
       <div className="sp-hero">
         <div className="sp-eyebrow sm">📱 Social Media AI Management</div>
         <h1 className="sp-h1">Your brand, always<br /><em className="sm-accent">active and growing</em></h1>
-        <p className="sp-sub">AI-powered content creation, scheduling, and engagement — your social media runs on autopilot while you focus on running your business.</p>
+        <p className="sp-sub">AI-powered content creation, scheduling, engagement, and paid advertising — your social media and ad campaigns run on autopilot while you focus on running your business.</p>
       </div>
 
       <div className="sp-wrap">
@@ -153,6 +172,51 @@ export default function SocialMediaAI() {
               <div className="sm-plat-feature">Ad-ready content creation</div>
               <div className="sm-plat-feature">Event promotion and announcements</div>
               <div className="sm-plat-feature">Review response automation</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="sm-ads">
+          <div className="sp-section-title">Paid Ads Management</div>
+          <div className="sm-ads-grid">
+            <div className="sm-ad-card sm-ad-fb">
+              <div className="sm-ad-top">
+                <div className="sm-ad-icon">📘</div>
+                <div className="sm-ad-name">Facebook & Instagram Ads</div>
+              </div>
+              <div className="sm-ad-desc">Targeted ad campaigns across Meta's platforms — reaching the exact audiences most likely to convert into paying customers.</div>
+              <div className="sm-ad-features">
+                <div className="sm-ad-feat">Custom audience building and lookalikes</div>
+                <div className="sm-ad-feat">AI-optimized ad creative and copy</div>
+                <div className="sm-ad-feat">Retargeting campaigns that recapture lost leads</div>
+                <div className="sm-ad-feat">A/B testing and continuous optimization</div>
+              </div>
+            </div>
+            <div className="sm-ad-card sm-ad-tt">
+              <div className="sm-ad-top">
+                <div className="sm-ad-icon">🎵</div>
+                <div className="sm-ad-name">TikTok Ads</div>
+              </div>
+              <div className="sm-ad-desc">Tap into TikTok's massive, engaged audience with short-form video ads that feel native and drive real results.</div>
+              <div className="sm-ad-features">
+                <div className="sm-ad-feat">Scroll-stopping creative production</div>
+                <div className="sm-ad-feat">Interest and behavior-based targeting</div>
+                <div className="sm-ad-feat">Spark Ads and in-feed video campaigns</div>
+                <div className="sm-ad-feat">Performance tracking and scaling strategies</div>
+              </div>
+            </div>
+            <div className="sm-ad-card sm-ad-gg">
+              <div className="sm-ad-top">
+                <div className="sm-ad-icon">🔍</div>
+                <div className="sm-ad-name">Google Ads</div>
+              </div>
+              <div className="sm-ad-desc">Capture high-intent buyers actively searching for your services with Google Search, Display, and YouTube ad campaigns.</div>
+              <div className="sm-ad-features">
+                <div className="sm-ad-feat">Keyword research and bid strategy optimization</div>
+                <div className="sm-ad-feat">Search, Display, and YouTube campaigns</div>
+                <div className="sm-ad-feat">Landing page alignment for higher conversions</div>
+                <div className="sm-ad-feat">Monthly reporting with clear ROI tracking</div>
+              </div>
             </div>
           </div>
         </div>

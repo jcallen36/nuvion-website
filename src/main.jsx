@@ -9,6 +9,8 @@ import CustomIntegrations from './pages/CustomIntegrations.jsx'
 import LeadFollowup from './pages/LeadFollowup.jsx'
 import SocialMediaAI from './pages/SocialMediaAI.jsx'
 import Reminders from './pages/Reminders.jsx'
+import SeoAso from './pages/SeoAso.jsx'
+import WebDesign from './pages/WebDesign.jsx'
 import Book from './pages/Book.jsx'
 import Audit from './pages/Audit.jsx'
 
@@ -31,6 +33,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/services/lead-followup" element={<LeadFollowup />} />
         <Route path="/services/social-media-ai" element={<SocialMediaAI />} />
         <Route path="/services/reminders" element={<Reminders />} />
+        <Route path="/services/seo-aso" element={<SeoAso />} />
+        <Route path="/services/web-design" element={<WebDesign />} />
         <Route path="/book" element={<Book />} />
         <Route path="/audit" element={<Audit />} />
       </Routes>

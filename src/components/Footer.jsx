@@ -30,6 +30,8 @@ const services = [
   { slug: 'custom-integrations', label: 'Custom Integrations' },
   { slug: 'social-media-ai',     label: 'Social Media AI' },
   { slug: 'reminders',           label: 'Reminders & Retention' },
+  { slug: 'seo-aso',             label: 'SEO & AI Search Optimization' },
+  { slug: 'web-design',          label: 'Web Design & Development' },
 ];
 
 export default function Footer() {
