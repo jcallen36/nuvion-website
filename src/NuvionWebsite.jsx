@@ -295,7 +295,7 @@ const ShieldIcon = () => (
 /* ── Data ─────────────────────────────────────────────────── */
 const SERVICES = [
   { icon: '⚡', bg: 'rgba(0,220,255,0.2)', title: 'AI & Automation Consulting', slug: 'ai-automation', desc: 'We map your workflows, identify bottlenecks, and design custom automation systems that eliminate repetitive tasks and human error once and for all.' },
-  { icon: '🤖', bg: 'rgba(100,116,139,0.3)', title: 'AI Smart Receptionist', slug: 'ai-receptionist', desc: 'Never miss another call or lead. Our AI receptionist handles inquiries, qualifies prospects, and books appointments 24/7 — even while you sleep.' },
+  { icon: '📞', bg: 'rgba(79,110,247,0.18)', title: 'Virtual Front Desk', slug: 'ai-receptionist', desc: 'A 24/7 AI-powered phone agent trained on your business. Answers every call, books jobs to your calendar, triages emergencies, and runs outbound reminders + review requests.' },
   { icon: '🔗', bg: 'rgba(162,28,175,0.2)', title: 'Custom Integrations', slug: 'custom-integrations', desc: 'Connect your CRM, scheduling tools, billing software, and communication platforms into one seamless, automated ecosystem.' },
   { icon: '📈', bg: 'rgba(239,68,68,0.2)', title: 'Lead Follow-Up Automation', slug: 'lead-followup', desc: 'Instantly respond to every new lead with personalized follow-ups via SMS, email, and voicemail — dramatically improving close rates.' },
   { icon: '📱', bg: 'rgba(100,116,139,0.3)', title: 'Social Media AI Management', slug: 'social-media-ai', desc: 'AI-powered content creation, scheduling, and engagement monitoring that keeps your brand active and growing without manual effort.' },
@@ -310,7 +310,7 @@ const TESTIMONIALS = [
 
 
 const STRIP_ITEMS = [
-  'Process Automation','AI Receptionists','CRM Integration',
+  'Process Automation','Virtual Front Desks','CRM Integration',
   'Lead Nurturing','Custom Workflows','No-Show Reduction',
   'Social AI','Appointment Booking',
 ];
@@ -437,7 +437,7 @@ function Services() {
           <div className="sec-label reveal">What We Do</div>
           <h2 className="sec-h2 reveal d1">Everything You Need to<br /><span className="grad">Automate & Scale</span></h2>
           <p className="sec-sub reveal d2">
-            From AI receptionists to full workflow automation — we build the systems that remove bottlenecks, reduce overhead, and let your business run at full speed.
+            From Virtual Front Desks to full workflow automation — we build the systems that remove bottlenecks, reduce overhead, and let your business run at full speed.
           </p>
         </div>
         <div className="svc-grid">
@@ -763,8 +763,8 @@ const FAQS = [
     a: 'We start with a free strategy call to map your current workflows, identify every manual bottleneck, and design a custom automation system that eliminates repetitive tasks. Most clients save 10–20+ hours per week within their first 30 days — time they reinvest into growing the business instead of running it.',
   },
   {
-    q: 'What is an AI receptionist and does my business need one?',
-    a: 'An AI receptionist handles inbound calls, texts, and web inquiries 24/7 — qualifying leads, answering common questions, and booking appointments automatically. If your business ever misses a call outside business hours, puts leads on hold, or loses prospects because no one followed up fast enough, an AI receptionist solves all three problems at once.',
+    q: 'What is a Virtual Front Desk and does my business need one?',
+    a: "Our Virtual Front Desk is a 24/7 AI-powered phone agent trained on your business. It answers every inbound call, knows your services + pricing + service area, books jobs straight to your calendar, triages emergencies, and runs outbound appointment reminders + review requests. If your business ever misses calls outside hours, puts callers on hold, or loses leads because nobody followed up fast enough — that's exactly what it's built for.",
   },
   {
     q: 'How does automated lead follow-up work?',
@@ -835,7 +835,7 @@ function Footer() {
           <div className="f-col-title">Services</div>
           <ul className="f-links">
             {[
-              { label: 'AI Smart Receptionist', slug: 'ai-receptionist' },
+              { label: 'Virtual Front Desk', slug: 'ai-receptionist' },
               { label: 'Automation Consulting', slug: 'ai-automation' },
               { label: 'Custom Integrations', slug: 'custom-integrations' },
               { label: 'Lead Follow-Up', slug: 'lead-followup' },

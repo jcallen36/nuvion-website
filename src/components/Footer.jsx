@@ -25,7 +25,7 @@ export const FOOTER_CSS = `
 
 const services = [
   { slug: 'ai-automation',       label: 'AI & Automation' },
-  { slug: 'ai-receptionist',     label: 'AI Receptionist' },
+  { slug: 'ai-receptionist',     label: 'Virtual Front Desk' },
   { slug: 'lead-followup',       label: 'Lead Follow-Up' },
   { slug: 'custom-integrations', label: 'Custom Integrations' },
   { slug: 'social-media-ai',     label: 'Social Media AI' },

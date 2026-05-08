@@ -129,7 +129,7 @@ export default function WebDesign() {
             <div className="wd-pillar">
               <div className="wd-pillar-icon">🔗</div>
               <div className="wd-pillar-title">Wired Into Automation</div>
-              <div className="wd-pillar-desc">Forms, bookings, and chat are connected directly to your CRM, calendar, and AI receptionist — so leads flow into your pipeline automatically.</div>
+              <div className="wd-pillar-desc">Forms, bookings, and chat are connected directly to your CRM, calendar, and Virtual Front Desk — so leads flow into your pipeline automatically.</div>
             </div>
           </div>
         </div>
