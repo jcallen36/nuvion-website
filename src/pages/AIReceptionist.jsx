@@ -21,7 +21,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .ar-phone-tag{font-size:.64rem;background:rgba(79,110,247,0.2);color:#4F6EF7;padding:3px 9px;border-radius:100px;font-weight:700;display:inline-flex;align-items:center;gap:5px}
 .ar-phone-tag::before{content:'';width:6px;height:6px;background:#34D399;border-radius:50%;box-shadow:0 0 8px #34D399;animation:livePulse 1.6s infinite ease-in-out}
 @keyframes livePulse{0%,100%{opacity:1}50%{opacity:.45}}
-.ar-messages{display:flex;flex-direction:column;gap:9px;min-height:280px}
+.ar-messages{display:flex;flex-direction:column;gap:9px;min-height:220px}
 .ar-msg{max-width:82%;padding:9px 13px;font-size:.79rem;line-height:1.5;border-radius:14px}
 .ar-msg-in{background:var(--surface2);border-radius:14px 14px 14px 3px;color:var(--text);align-self:flex-start}
 .ar-msg-ai{background:rgba(79,110,247,0.15);border:1px solid rgba(79,110,247,0.22);border-radius:14px 14px 3px 14px;color:var(--text);align-self:flex-end}
@@ -166,12 +166,10 @@ export default function AIReceptionist() {
               </div>
               <div className="ar-messages">
                 <div className="ar-msg ar-msg-ai">Thanks for calling — how can I help?</div>
-                <div className="ar-msg ar-msg-in">Hey, I've got water coming up through the kitchen sink — like backing up bad. Can someone come out today?</div>
-                <div className="ar-msg ar-msg-ai">That sounds like a drain line backup, and yes — I'd treat that as urgent. We've got a tech that can be there between 2 and 4. Are you at the address on file?</div>
-                <div className="ar-msg ar-msg-in">Yeah, same one. How much is it gonna run me?</div>
-                <div className="ar-msg ar-msg-ai">Drain cleaning starts around $185 with a $89 dispatch fee that gets applied to the job. Want me to lock in the 2 to 4 window?</div>
-                <div className="ar-msg ar-msg-in">Yes please.</div>
-                <div className="ar-msg ar-msg-ai">Booked. You'll get a text confirmation and the tech's name in about 30 seconds. We'll see you this afternoon.</div>
+                <div className="ar-msg ar-msg-in">Water's backing up through my kitchen sink. Can someone come today?</div>
+                <div className="ar-msg ar-msg-ai">Sounds urgent — I have a tech open 2 to 4. Same address on file?</div>
+                <div className="ar-msg ar-msg-in">Yeah, lock it in.</div>
+                <div className="ar-msg ar-msg-ai">Booked 2 to 4. Confirmation text in 30 seconds.</div>
               </div>
               <div className="ar-badges">
                 <span className="ar-badge ar-b-g">✓ Booked</span>
