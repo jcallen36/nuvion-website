@@ -166,10 +166,10 @@ export default function AIReceptionist() {
               </div>
               <div className="ar-messages">
                 <div className="ar-msg ar-msg-ai">Thanks for calling — how can I help?</div>
-                <div className="ar-msg ar-msg-in">Water's backing up through my kitchen sink. Can someone come today?</div>
-                <div className="ar-msg ar-msg-ai">Sounds urgent — I have a tech open 2 to 4. Same address on file?</div>
-                <div className="ar-msg ar-msg-in">Yeah, lock it in.</div>
-                <div className="ar-msg ar-msg-ai">Booked 2 to 4. Confirmation text in 30 seconds.</div>
+                <div className="ar-msg ar-msg-in">Water's backing up through my kitchen sink. Can someone come out today?</div>
+                <div className="ar-msg ar-msg-ai">Sounds urgent — I've got a tech who can be there between 2 and 4. Is your address still the same one on file?</div>
+                <div className="ar-msg ar-msg-in">Yeah, that works. Please book it.</div>
+                <div className="ar-msg ar-msg-ai">Perfect — you'll get a confirmation text in just a moment.</div>
               </div>
               <div className="ar-badges">
                 <span className="ar-badge ar-b-g">✓ Booked</span>
