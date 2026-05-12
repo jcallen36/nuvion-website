@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import jaedenPhoto from './assets/jaeden-callender.png';
+import davidPhoto from './assets/david-prudhomme.png';
 
 /* ─────────────────────────────────────────────────────────────
    APEX — Nuvion Solutions  |  Mobile-first, single-file React
@@ -196,7 +197,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);overflow-x:h
 @media(min-width:600px){.team-grid{grid-template-columns:repeat(2,1fr)}}
 .team-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
 .team-card:hover{transform:translateY(-5px);border-color:rgba(79,110,247,.3);box-shadow:0 20px 50px rgba(0,0,0,.28)}
-.team-photo{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;display:block;background:var(--surface2)}
+.team-photo{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;background:var(--surface2)}
 .team-ph{width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0D1221,#131929);font-size:3rem;color:var(--dim)}
 .team-body{padding:24px}
 .team-name{font-size:1.12rem;font-weight:800;color:var(--text);margin-bottom:4px;letter-spacing:-.015em}
@@ -704,7 +705,7 @@ function Team() {
       name: 'David Prudhomme',
       role: 'Co-Founder & AI Integration Lead',
       bio: 'David brings deep expertise in AI automation and system integration — turning disconnected tools and manual processes into unified, intelligent workflows that scale with your business.',
-      photo: null,
+      photo: davidPhoto,
     },
   ];
   return (
