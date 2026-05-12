@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import jaedenPhoto from './assets/jaeden-callender.png';
 
 /* ─────────────────────────────────────────────────────────────
    APEX — Nuvion Solutions  |  Mobile-first, single-file React
@@ -697,7 +698,7 @@ function Team() {
       name: 'Jaeden Callender',
       role: 'Co-Founder & Operations Lead',
       bio: 'Jaeden specializes in business process optimization — identifying the daily bottlenecks that quietly cost businesses time and money, then designing automation systems that eliminate them for good.',
-      photo: JAEDEN_B64 ? `data:image/png;base64,${JAEDEN_B64}` : null,
+      photo: jaedenPhoto,
     },
     {
       name: 'David Prudhomme',
