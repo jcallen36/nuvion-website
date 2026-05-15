@@ -234,7 +234,7 @@ function LiveDemoWidget() {
       <div className="ar-demo">
         <div className="ar-demo-success">
           <div className="ar-demo-success-icon">✓</div>
-          <h3>Calling you in 60 seconds</h3>
+          <h3>Calling you in under 10 seconds</h3>
           <p>Pick up — you'll hear our Virtual Front Desk in action. Talk to it like a real customer would (try booking a job, or describing an emergency).</p>
           <button type="button" className="ar-demo-success-again" onClick={reset}>Send another demo</button>
         </div>
@@ -249,7 +249,7 @@ function LiveDemoWidget() {
         Live demo · Free · No setup
       </div>
       <h3 className="ar-demo-title">Hear it <em>actually</em> answer your call.</h3>
-      <p className="ar-demo-sub">Pick your trade, drop your number — we'll call you in under a minute. Talk to it like a real customer would.</p>
+      <p className="ar-demo-sub">Pick your trade, drop your number — we'll call you in under 10 seconds. Talk to it like a real customer would.</p>
       <form className="ar-demo-form" onSubmit={handleSubmit}>
         <div className="ar-demo-row">
           <select className="ar-demo-niche" value={niche} onChange={(e) => setNiche(e.target.value)} disabled={status === 'submitting'}>
