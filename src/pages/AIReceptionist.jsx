@@ -212,9 +212,25 @@ function LiveDemoWidget() {
         body: JSON.stringify({ phone: '+1' + phone.replace(/\D/g, ''), niche }),
       });
       const j = await res.json().catch(() => ({}));
-      if (!res.ok) {
+      // Treat as failure if EITHER the HTTP status indicates an error OR the
+      // body explicitly says ok:false. n8n's Respond-to-Webhook responseCode
+      // expression sometimes evaluates to 200 even when the body carries
+      // a rate-limit / validation error — the body's ok flag is the
+      // authoritative signal.
+      const failed = !res.ok || j.ok === false || j.error;
+      if (failed) {
         setStatus('error');
-        setError(j.detail || (j.error === 'rate_limited' ? 'Too many demo calls — try again later.' : 'Could not place the demo call. Try again or book a strategy call.'));
+        if (j.error === 'rate_limited') {
+          setError("You've used the demo 3 times today. Want to hear exactly what it'd sound like for your business? Book a quick strategy call below — we'll demo it live with your services + pricing.");
+        } else if (j.error === 'invalid_phone') {
+          setError(j.detail || 'That number looks off — double-check the digits.');
+        } else if (j.error === 'unsupported_niche') {
+          setError(j.detail || 'That trade isn\'t available yet.');
+        } else if (j.error === 'vapi_not_configured' || j.error === 'vapi_call_failed') {
+          setError("Sorry — our demo line is having an issue. Book a strategy call below and we'll demo live.");
+        } else {
+          setError(j.detail || 'Could not place the demo call. Try again or book a strategy call below.');
+        }
         return;
       }
       setStatus('success');
