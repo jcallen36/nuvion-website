@@ -32,6 +32,7 @@ const services = [
   { slug: 'reminders',           label: 'Reminders & Retention' },
   { slug: 'seo-aso',             label: 'SEO & AI Search Optimization' },
   { slug: 'web-design',          label: 'Web Design & Development' },
+  { slug: 'done-for-you-business', label: 'Done-For-You Business' },
 ];
 
 export default function Footer() {
