@@ -5,7 +5,11 @@ import { BASE_CSS } from './shared.js';
 import nuvionLogo from '../assets/nuvion-logo.png';
 import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-const DEMO_CALL_ENDPOINT = 'https://app.nuvion-solutions.com/api/public/demo-call';
+// n8n webhook URL for the "call me now" demo. Configurable via Vercel env var
+// (set VITE_DEMO_WEBHOOK_URL on the website's Vercel project, then redeploy).
+// Default points at our n8n instance on Zeabur — change there if the host moves.
+const DEMO_CALL_ENDPOINT = import.meta.env.VITE_DEMO_WEBHOOK_URL
+  || 'https://nuvionsolutions.zeabur.app/webhook/public-demo-call';
 
 const DEMO_NICHES = [
   { value: 'plumbing', label: '🔧 Plumbing', available: true },
