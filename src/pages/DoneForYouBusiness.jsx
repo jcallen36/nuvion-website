@@ -61,6 +61,20 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .df-step-desc{font-size:.9rem;color:var(--muted);line-height:1.65}
 @media(max-width:560px){.df-step{grid-template-columns:1fr;gap:10px;padding:22px 24px 22px 28px}.df-step-num{font-size:2rem;min-width:0}}
 
+/* TWO STARTING POINTS — new vs existing */
+.df-paths{padding:0 0 88px}
+.df-paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.df-path{background:linear-gradient(160deg,rgba(245,158,11,0.06) 0%,var(--surface) 80%);border:1px solid rgba(245,158,11,0.22);border-radius:18px;padding:32px 28px;transition:border-color .25s,transform .25s}
+.df-path:hover{border-color:rgba(245,158,11,0.42);transform:translateY(-3px)}
+.df-path-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.30);color:#FFC645;font-size:.68rem;font-weight:800;padding:5px 12px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.df-path-h{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin-bottom:12px;color:var(--text)}
+.df-path-h em{font-style:normal;background:linear-gradient(130deg,#FFC645,#F59E0B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+.df-path-p{font-size:.92rem;color:var(--muted);line-height:1.7;margin-bottom:18px}
+.df-path-list{display:flex;flex-direction:column;gap:8px;padding-top:18px;border-top:1px solid rgba(245,158,11,0.18)}
+.df-path-line{font-size:.83rem;color:var(--text);display:flex;align-items:flex-start;gap:9px;line-height:1.55}
+.df-path-line::before{content:'→';color:#F59E0B;font-weight:700;flex-shrink:0}
+@media(max-width:780px){.df-paths-grid{grid-template-columns:1fr}}
+
 /* WHO IT'S FOR — fit/not-fit comparison */
 .df-fit{padding:0 0 88px}
 .df-fit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:820px;margin:0 auto}
@@ -118,11 +132,35 @@ const PROCESS = [
     desc: 'We don\'t disappear after launch. Monthly review calls, real-time monitoring, and tweaks based on what\'s actually working in your specific business. Your operation gets sharper every month.' },
 ];
 
+const PATH_NEW = {
+  tag: 'Launching a new business',
+  headline: 'Start with the whole operation, not just a website.',
+  body: 'Most new founders cobble together a logo, a Squarespace site, a Calendly link, and start hustling. Six months in, they\'re drowning in manual tasks and rebuilding everything. We skip that — you launch with strategy, brand, site, AI front desk, and automations from day one.',
+  lines: [
+    'Strategic positioning + brand identity from scratch',
+    'Site + booking + AI receptionist live on launch day',
+    'Lead capture + follow-up automated from your first lead',
+    'No "we\'ll fix the systems later" — built right the first time',
+  ],
+};
+
+const PATH_EXISTING = {
+  tag: 'Already running',
+  headline: 'Stop juggling vendors and tools.',
+  body: 'You\'ve been making it work with a patchwork — a website here, a CRM there, a missed-call texting tool that doesn\'t talk to your calendar. We replace that with one connected system, take it off your plate, and tune it monthly.',
+  lines: [
+    'Audit your current stack — keep what works, replace what doesn\'t',
+    'Connect everything you already use into one operation',
+    'Free up the owner from coordination and admin',
+    'Ongoing monthly optimization based on what\'s actually performing',
+  ],
+};
+
 const RIGHT_FIT = [
-  'Service business doing $250K–$5M/year',
-  'Owner is the bottleneck on too many roles',
-  'Tired of managing multiple vendors',
-  'Wants the operation to just run',
+  'Launching a new service business and want to start right',
+  'OR running one and tired of juggling multiple vendors',
+  'Want a real operation, not a patchwork of tools',
+  'Ready to invest in something built around you',
 ];
 
 const NOT_FIT = [
@@ -151,7 +189,7 @@ export default function DoneForYouBusiness() {
         <div className="df-hero-glow" aria-hidden="true" />
         <div className="sp-eyebrow df">🏗️ Done-For-You Business</div>
         <h1 className="sp-h1">One team.<br /><em className="df-accent">The whole business.</em></h1>
-        <p className="sp-sub">From strategy and consulting to website, AI receptionist, automations, integrations, and custom apps — we build out and run your entire operation so you can focus on the work you actually want to do.</p>
+        <p className="sp-sub">Whether you're launching a brand-new business or scaling one that's already running — we build out and connect your entire operation. Strategy, website, AI receptionist, automations, integrations, custom apps. One team, end to end, everything talking to each other.</p>
       </div>
 
       <div className="sp-wrap">
@@ -166,6 +204,24 @@ export default function DoneForYouBusiness() {
                 <div>
                   <div className="df-pill-title">{item.title}</div>
                   <div className="df-pill-desc">{item.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* TWO STARTING POINTS — new vs existing */}
+        <div className="df-paths">
+          <div className="sp-section-title">Two Starting Points</div>
+          <p className="df-intro">Done-For-You Business works whether you're launching from zero or scaling something that already exists. The build process is the same — only the starting context changes.</p>
+          <div className="df-paths-grid">
+            {[PATH_NEW, PATH_EXISTING].map(p => (
+              <div key={p.tag} className="df-path">
+                <div className="df-path-tag">{p.tag}</div>
+                <h3 className="df-path-h">{p.headline}</h3>
+                <p className="df-path-p">{p.body}</p>
+                <div className="df-path-list">
+                  {p.lines.map(line => <div key={line} className="df-path-line">{line}</div>)}
                 </div>
               </div>
             ))}

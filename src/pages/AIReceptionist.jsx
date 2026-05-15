@@ -388,8 +388,8 @@ export default function AIReceptionist() {
 
           <div className="ar-trial">
             <span className="ar-trial-tag">14-day free trial</span>
-            <h3>No card upfront required.</h3>
-            <p>If you'd rather not save a card during signup, we'll follow up at day 10–12. No setup fees. No contracts. Cancel any time from your account or by replying to any of our emails.</p>
+            <h3>$0 today. $0 for 14 days.</h3>
+            <p>You'll save a card at signup to reserve your build slot — but you won't be charged until day 15, and only if you haven't canceled by then. No setup fees, no contracts. Cancel any time during the trial from your account or by replying to any of our emails.</p>
           </div>
         </div>
       </div>
