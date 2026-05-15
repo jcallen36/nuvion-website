@@ -9,7 +9,7 @@ import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 // (set VITE_DEMO_WEBHOOK_URL on the website's Vercel project, then redeploy).
 // Default points at our n8n instance on Zeabur — change there if the host moves.
 const DEMO_CALL_ENDPOINT = import.meta.env.VITE_DEMO_WEBHOOK_URL
-  || 'https://nuvionsolutions.zeabur.app/webhook/public-demo-call';
+  || 'https://nuvion-n8n.zeabur.app/webhook/public-demo-call';
 
 const DEMO_NICHES = [
   { value: 'plumbing', label: '🔧 Plumbing', available: true },
