@@ -101,7 +101,7 @@ export default function ReviewsAutomation() {
     <>
       <Helmet>
         <title>Reviews Automation | Nuvion Solutions</title>
-        <meta name="description" content="Automatically collect more 5-star reviews. After every completed job we send a personal, photo-branded text asking for a review — and we donate a meal to a family in need for every review you earn." />
+        <meta name="description" content="Automatically collect a lot more reviews. After every completed job we send a personal, photo-branded text asking for a review — and we donate a meal to a family in need for every review you earn." />
         <link rel="canonical" href="https://nuvion-solutions.com/services/reviews-automation" />
       </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
@@ -113,7 +113,7 @@ export default function ReviewsAutomation() {
 
       <div className="sp-hero">
         <div className="sp-eyebrow rv">⭐ Reviews Automation</div>
-        <h1 className="sp-h1">More 5-star reviews,<br /><em className="rv-accent">on autopilot</em></h1>
+        <h1 className="sp-h1">A lot more reviews,<br /><em className="rv-accent">on autopilot</em></h1>
         <p className="sp-sub">After every completed job, we automatically send your customer a personal, photo-branded text asking for a review — so your reputation grows without anyone lifting a finger. And for every review you earn, we donate a meal to a family in need.</p>
       </div>
 
@@ -172,7 +172,7 @@ export default function ReviewsAutomation() {
       </div>
 
       <div className="sp-cta">
-        <h2>Turn every finished job into a 5-star review.</h2>
+        <h2>Turn every finished job into another review.</h2>
         <p>Book a free call and we'll set up your entire review engine — and start feeding families with every review you earn.</p>
         <Link to="/book" className="sp-cta-btn rv">Book a Free Strategy Call →</Link>
       </div>
