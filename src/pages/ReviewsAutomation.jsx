@@ -71,8 +71,8 @@ const STEPS = [
     time: 'A couple hours later',
     channel: 'sms',
     channelLabel: 'SMS',
-    title: 'A personal, photo-branded review request',
-    preview: '"Hi Sandra! Thanks for trusting Peak Plumbing today. If Mike took good care of you, would you mind leaving us a quick review? It means the world to a small crew like ours 🙏 [photo of the crew] → [1-tap Google link]"',
+    title: 'A personal, photo-branded review request — with a reason to say yes',
+    preview: '"Hi Sandra! Thanks for trusting Peak Plumbing today. If Mike took good care of you, would you leave us a quick review? For every review we get, we donate a meal to a family in need — so you\'d be doing some good too 🙏 [photo of the crew] → [1-tap Google link]"',
   },
   {
     time: 'One tap',
@@ -82,11 +82,11 @@ const STEPS = [
     preview: 'The link drops them straight onto your Google review page — no searching, no friction. More reviews, higher ranking, more calls.',
   },
   {
-    time: 'After the review posts',
+    time: 'Every review',
     channel: 'charity',
-    channelLabel: 'Charity',
-    title: 'A meal gets donated — and they hear about it',
-    preview: '"Thank you, Sandra! Because of your review, we just donated a meal to a family in need. We appreciate you more than you know. — Peak Plumbing"',
+    channelLabel: 'Impact',
+    title: 'A meal goes to a family in need',
+    preview: 'The promise from the text, kept — every review you earn funds a meal for a family. Customers love being part of it, and it\'s a big reason they say yes in the first place.',
   },
 ];
 
