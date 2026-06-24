@@ -44,7 +44,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .rv-stat-label{font-size:.78rem;color:var(--muted);line-height:1.45}
 
 /* OUTCOME */
-.rv-outcome{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px;margin:40px auto 0}
+.rv-outcome{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:760px;margin:40px auto 72px}
 .rv-outcome-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px}
 .rv-outcome-label{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px}
 .rv-outcome-label.bad{color:#EF4444}
