@@ -13,12 +13,12 @@ const CONTACT_EMAIL = 'team@nuvion-solutions.com';
 // Slugs MUST match the n8n Prepare Data SERVICE_COPY map so the confirmation
 // email is tailored and the admin email shows the right labels.
 const SERVICES = [
+  { slug: 'web-design', label: 'Web Design' },
   { slug: 'reviews-automation', label: 'Reviews Automation' },
   { slug: 'virtual-front-desk', label: 'Virtual Front Desk' },
   { slug: 'lead-followup', label: 'Lead Follow-Up' },
   { slug: 'reminders-and-confirmations', label: 'Reminders & Confirmations' },
   { slug: 'social-media-ai', label: 'Social Media AI' },
-  { slug: 'web-design', label: 'Web Design' },
   { slug: 'seo', label: 'SEO' },
   { slug: 'ai-automation', label: 'AI Automation' },
   { slug: 'other', label: 'Something else' },
