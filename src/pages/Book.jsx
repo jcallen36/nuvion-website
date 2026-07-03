@@ -10,6 +10,20 @@ const BOOKING_API = 'https://nuvion-n8n.zeabur.app/webhook';
 const DURATION_MINUTES = 30;
 const CONTACT_EMAIL = 'team@nuvion-solutions.com';
 
+// Slugs MUST match the n8n Prepare Data SERVICE_COPY map so the confirmation
+// email is tailored and the admin email shows the right labels.
+const SERVICES = [
+  { slug: 'reviews-automation', label: 'Reviews Automation' },
+  { slug: 'virtual-front-desk', label: 'Virtual Front Desk' },
+  { slug: 'lead-followup', label: 'Lead Follow-Up' },
+  { slug: 'reminders-and-confirmations', label: 'Reminders & Confirmations' },
+  { slug: 'social-media-ai', label: 'Social Media AI' },
+  { slug: 'web-design', label: 'Web Design' },
+  { slug: 'seo', label: 'SEO' },
+  { slug: 'ai-automation', label: 'AI Automation' },
+  { slug: 'other', label: 'Something else' },
+];
+
 const CSS = BASE_CSS + FOOTER_CSS + `
 .bk-hero{padding:48px 32px 28px;max-width:700px;margin:0 auto;text-align:center}
 .bk-hero h1{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:14px}
@@ -71,6 +85,12 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .bk-textarea{resize:vertical;min-height:88px}
 .bk-err{font-size:.76rem;color:var(--pink)}
 .bk-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* service chips */
+.bk-services{display:flex;flex-wrap:wrap;gap:9px}
+.bk-chip{padding:9px 14px;border-radius:999px;border:1px solid var(--border);background:var(--surface2);color:var(--text);cursor:pointer;font-size:.85rem;font-weight:600;transition:all .16s;font-family:inherit}
+.bk-chip:hover{border-color:rgba(79,110,247,.5)}
+.bk-chip.sel{background:linear-gradient(130deg,var(--cyan),var(--primary) 60%,var(--violet));border-color:transparent;color:#fff}
 
 /* honeypot */
 .bk-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
@@ -146,6 +166,7 @@ export default function Book() {
   const [phone, setPhone] = useState('');
   const [notes, setNotes] = useState('');
   const [hp, setHp] = useState(''); // honeypot
+  const [services, setServices] = useState([]);
   const [showErrors, setShowErrors] = useState(false);
 
   const [submitting, setSubmitting] = useState(false);
@@ -202,6 +223,10 @@ export default function Book() {
   const nameValid = name.trim().length > 0;
   const canSubmit = !!selectedSlot && nameValid && emailValid && !submitting;
 
+  function toggleService(slug) {
+    setServices((prev) => (prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug]));
+  }
+
   async function handleSubmit(e) {
     e.preventDefault();
     setShowErrors(true);
@@ -228,7 +253,7 @@ export default function Book() {
           start_iso: selectedSlot,
           duration_minutes: DURATION_MINUTES,
           timezone: visitorTz,
-          services: [],
+          services,
           other_service_text: null,
           notes: notes.trim() || null,
           business_name: null,
@@ -383,6 +408,26 @@ export default function Book() {
 
                       <form className="bk-form" onSubmit={handleSubmit} noValidate>
                         <div className="bk-field">
+                          <label>What are you interested in? <span style={{ color: 'var(--dim)', fontWeight: 400 }}>(optional — pick any)</span></label>
+                          <div className="bk-services" role="group" aria-label="Services you're interested in">
+                            {SERVICES.map((s) => {
+                              const sel = services.includes(s.slug);
+                              return (
+                                <button
+                                  key={s.slug}
+                                  type="button"
+                                  className={`bk-chip${sel ? ' sel' : ''}`}
+                                  aria-pressed={sel}
+                                  onClick={() => toggleService(s.slug)}
+                                >
+                                  {s.label}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
+
+                        <div className="bk-field">
                           <label htmlFor="bk-name">Name<span className="req">*</span></label>
                           <input
                             id="bk-name"
@@ -427,13 +472,13 @@ export default function Book() {
                         </div>
 
                         <div className="bk-field">
-                          <label htmlFor="bk-notes">What do you want help with? <span style={{ color: 'var(--dim)', fontWeight: 400 }}>(optional)</span></label>
+                          <label htmlFor="bk-notes">Anything you'd like us to know before the call? <span style={{ color: 'var(--dim)', fontWeight: 400 }}>(optional)</span></label>
                           <textarea
                             id="bk-notes"
                             className="bk-textarea"
                             value={notes}
                             onChange={(e) => setNotes(e.target.value)}
-                            placeholder="A sentence or two about your business and what you're hoping to automate."
+                            placeholder="A sentence or two about your business, your goals, or anything you'd like us to prep for."
                           />
                         </div>
 
