@@ -15,6 +15,7 @@ import ReviewsAutomation from './pages/ReviewsAutomation.jsx'
 import DoneForYouBusiness from './pages/DoneForYouBusiness.jsx'
 import Book from './pages/Book.jsx'
 import Audit from './pages/Audit.jsx'
+import Agreement from './pages/Agreement.jsx'
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -41,6 +42,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/services/done-for-you-business" element={<DoneForYouBusiness />} />
         <Route path="/book" element={<Book />} />
         <Route path="/audit" element={<Audit />} />
+        <Route path="/agreement" element={<Agreement />} />
       </Routes>
     </BrowserRouter>
     </HelmetProvider>
