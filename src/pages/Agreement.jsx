@@ -88,11 +88,11 @@ export default function Agreement() {
             <div className="ag-plans">
               <div className="ag-plan">
                 <div className="ag-amt">$900 <span>one-time</span></div>
-                <div className="ag-plan-note">Pay once, and it's yours to keep.</div>
+                <div className="ag-plan-note">Pay once — it's yours to keep. Hosting included; $10 per revision.</div>
               </div>
               <div className="ag-plan">
                 <div className="ag-amt grad-amt">$89 <span>/ month</span></div>
-                <div className="ag-plan-note">No big upfront cost. Includes free revisions and hosting while you're subscribed.</div>
+                <div className="ag-plan-note">No big upfront cost. Hosting and free revisions while you're subscribed.</div>
               </div>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function Agreement() {
             <h2>Who owns it</h2>
             <p>
               <strong>One-time plan:</strong> once you've paid in full, the website — design, files, and content —
-              is yours to keep, move, or host anywhere.
+              is yours to keep. We host it for you free, and you're free to move it or host it elsewhere anytime.
             </p>
             <p>
               <strong>Monthly plan:</strong> you're subscribed to the site and its hosting. It stays live while
@@ -128,7 +128,7 @@ export default function Agreement() {
 
           <div className="ag-item">
             <h2>Hosting</h2>
-            <p>Included. Your site is hosted, secured with HTTPS, and kept online by Nuvion.</p>
+            <p>Free on both plans — no separate hosting fee. Your site is hosted, secured with HTTPS, and kept online by Nuvion.</p>
           </div>
 
           <div className="ag-item">
