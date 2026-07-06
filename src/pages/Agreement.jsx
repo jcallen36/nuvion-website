@@ -77,8 +77,7 @@ export default function Agreement() {
           <div className="ag-item">
             <h2>What you get</h2>
             <p>
-              A custom, mobile-friendly website for your business — designed, built, and hosted by Nuvion
-              Solutions, with your real business info on it.
+              A custom, mobile-friendly website for your business — designed, built, and hosted by Nuvion Solutions LLC, with your real business info on it.
             </p>
           </div>
 
@@ -134,7 +133,7 @@ export default function Agreement() {
           <div className="ag-item">
             <h2>Your content</h2>
             <p>
-              You confirm you have the right to use any logo, photos, text, or reviews you give us. Nuvion isn't
+              You confirm you have the right to use any logo, photos, text, or reviews you give us. Nuvion Solutions LLC isn't
               responsible for content you provide.
             </p>
           </div>
@@ -162,7 +161,7 @@ export default function Agreement() {
 
           <div className="ag-item">
             <h2>Liability</h2>
-            <p>Nuvion's total responsibility is limited to the amount you've paid.</p>
+            <p>Nuvion Solutions LLC's total responsibility is limited to the amount you've paid.</p>
           </div>
 
         </div>

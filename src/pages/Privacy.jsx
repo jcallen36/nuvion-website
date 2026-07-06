@@ -72,7 +72,7 @@ export default function Privacy() {
           <div className="lg-item">
             <h2>1. Who we are</h2>
             <p>
-              Nuvion Solutions ("we," "us," or "our") operates nuvion-solutions.com and provides AI automation,
+              Nuvion Solutions LLC ("we," "us," or "our") operates nuvion-solutions.com and provides AI automation,
               web design, and related services to businesses. For any privacy question, email{' '}
               <a href="mailto:team@nuvion-solutions.com">team@nuvion-solutions.com</a>.
             </p>

@@ -72,8 +72,8 @@ export default function Terms() {
           <div className="lg-item">
             <h2>1. Who we are</h2>
             <p>
-              Nuvion Solutions ("Nuvion," "we," "us," or "our") provides AI automation, web design and development,
-              and related digital services to businesses. This site is operated by Nuvion Solutions. You can reach us
+              Nuvion Solutions LLC ("Nuvion," "we," "us," or "our") provides AI automation, web design and development,
+              and related digital services to businesses. This site is operated by Nuvion Solutions LLC. You can reach us
               at <a href="mailto:team@nuvion-solutions.com">team@nuvion-solutions.com</a>.
             </p>
           </div>
@@ -128,7 +128,7 @@ export default function Terms() {
           <div className="lg-item">
             <h2>7. Intellectual property</h2>
             <p>
-              The content, design, and branding of this website are owned by Nuvion Solutions and may not be copied or
+              The content, design, and branding of this website are owned by Nuvion Solutions LLC and may not be copied or
               reused without permission. Ownership of the deliverables we create for you (such as a website) transfers
               as described in your project's agreement — for websites, see the{' '}
               <Link to="/agreement">Website Agreement</Link>.
@@ -156,7 +156,7 @@ export default function Terms() {
           <div className="lg-item">
             <h2>10. Limitation of liability</h2>
             <p>
-              To the maximum extent permitted by law, Nuvion Solutions is not liable for any indirect, incidental, or
+              To the maximum extent permitted by law, Nuvion Solutions LLC is not liable for any indirect, incidental, or
               consequential damages, and our total liability for any claim is limited to the amount you paid us for the
               service giving rise to the claim.
             </p>
