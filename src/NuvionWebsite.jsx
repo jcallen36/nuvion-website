@@ -832,7 +832,7 @@ function Footer() {
           <p className="f-tag">Custom AI automation systems for businesses tired of running on manual labor and missed opportunities.</p>
           <div className="f-contact">
             <a href="mailto:team@nuvion-solutions.com">team@nuvion-solutions.com</a>
-            <a href="tel:+14152336834">(415) 233-6834</a>
+            <a href="tel:+17075209179">(707) 520-9179</a>
           </div>
         </div>
         <div>
