@@ -72,8 +72,8 @@ export default function Footer() {
       <div className="footer-bot">
         <div className="f-copy">© {year} Nuvion Solutions. All rights reserved.</div>
         <div className="f-leg">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/terms">Terms of Service</Link>
         </div>
       </div>
     </footer>
