@@ -66,7 +66,7 @@ const CSS = `
 .aa-scope-row:hover .aa-scope-go{transform:translateX(4px)}
 
 /* CTA inner alignment */
-.aa-cta-inner{max-width:1140px;margin:0 auto}
+.aa-cta-inner{max-width:1076px;margin:0 auto}
 .aa-cta-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,242,236,.5);margin-bottom:18px}
 `;
 
@@ -207,7 +207,7 @@ export default function AIAutomation() {
           <div className="aa-cta-label">№ 04 — Start here</div>
           <h2>Ready to eliminate the busywork?</h2>
           <p>Book a free strategy call and we’ll map out your automation potential in 30 minutes.</p>
-          <Link to="/book" className="sp-cta-btn">Book a free strategy call</Link>
+          <Link to="/book" className="sp-cta-btn">Book a free strategy call <span aria-hidden="true">→</span></Link>
         </div>
       </section>
 

@@ -97,7 +97,7 @@ export const NICHES = [
       qn('missed','What percentage of inbound calls go unanswered or to voicemail?','Include after-hours calls, peak-season overflow, and lunch hours','%','e.g., 20','Forbes: 80% of callers who reach voicemail don\'t leave a message — they call a competitor instead',true),
       qn('ticket','What is your average job ticket value?','Estimate across all service types (repairs, installs, maintenance)','$','e.g., 400','HomeAdvisor 2023: Average HVAC repair $150–$500; new system installation $3,000–$12,000; service average $400–$800'),
       qn('admin','How many hours per week does your office or dispatch team spend on administrative tasks?','Scheduling, invoicing, customer follow-up, job notes, data entry','hrs/week','e.g., 15','ServiceTitan 2022: Home service businesses spend avg 30% of operational hours on scheduling and administrative tasks'),
-      qn('estimates','How many estimates or quotes go uncontacted after being sent each month?','Customers who received an estimate but you never followed up with','per month','e.g., 8','Service business data: 60% of estimates that aren\'t followed up within 48 hours go to a competitor'),
+      qn('estimates','How many estimates or quotes go uncontacted after being sent each month?','Customers who received an estimate but you never followed up with','per month','e.g., 8','Nuvion estimate: 60% of estimates that aren\'t followed up within 48 hours go to a competitor'),
       qn('afterhours','What percentage of emergency after-hours calls receive an automated or live response?','Evenings, weekends, holidays','%','e.g., 30','Angi 2023: 28% of HVAC service requests are submitted outside business hours; emergency calls convert at 2× the rate',true),
       qn('maintenance','How many active maintenance plan or membership members do you currently have?','Monthly or annual memberships for tune-ups and priority service','members','e.g., 50','ServiceTitan 2023: Companies with maintenance programs have 3× higher customer retention and 40% more revenue per customer'),
       qn('followup','What percentage of your post-job customer follow-up is automated?','For reviews, referrals, maintenance reminders, and repeat business','%','e.g., 20','Podium 2022: Businesses that follow up within 24 hours of service completion receive 5× more reviews and 30% more referrals',true),
@@ -287,12 +287,12 @@ export const NICHES = [
       qn('leads','How many inbound leads or estimate requests do you receive per month?','Calls, web forms, referrals, storm-chasing leads, HomeAdvisor/Angi','per month','e.g., 40','IBISWorld 2023: Average roofing contractor receives 30–60 leads/month; storm-season surge can triple this'),
       qn('missed','What percentage of inbound calls go unanswered or to voicemail?','','%','e.g., 20','Forbes: 80% of callers who reach voicemail don\'t leave a message — they call the next contractor',true),
       qn('jobvalue','What is your average job contract value?','Estimate across repairs, re-roofs, and commercial','$','e.g., 10000','HomeAdvisor 2023: Average roof replacement $7,000–$14,000; commercial jobs $20,000–$100,000+'),
-      qn('estimates','How many estimates go unsent or uncontacted after initial inquiry per month?','Inquiries where you never got them an estimate, or sent one and never followed up','per month','e.g., 10','Contractor data: 55% of contractor estimates that aren\'t followed up within 24 hours are awarded to competitors'),
+      qn('estimates','How many estimates go unsent or uncontacted after initial inquiry per month?','Inquiries where you never got them an estimate, or sent one and never followed up','per month','e.g., 10','Nuvion estimate: 55% of contractor estimates that aren\'t followed up within 24 hours are awarded to competitors'),
       qn('admin','How many hours per week do you spend on admin, scheduling, and paperwork?','Proposals, contracts, invoicing, project updates, subcontractor coordination','hrs/week','e.g., 15','NAHB 2022: Contractors spend avg 25–35% of their time on administrative and non-billable tasks'),
-      qn('followup','What percentage of your estimate and lead follow-up is automated?','0 = fully manual, 100 = fully automated sequences','%','e.g., 20','Construction marketing: 70% of lost contractor bids could have been won with one additional follow-up contact',true),
+      qn('followup','What percentage of your estimate and lead follow-up is automated?','0 = fully manual, 100 = fully automated sequences','%','e.g., 20','Nuvion estimate: 70% of lost contractor bids could have been won with one additional follow-up contact',true),
       qn('insurance','How many insurance claim jobs do you handle per month?','Storm damage, hail, wind — insurance-funded repairs','per month','e.g., 5','NOAA 2023: Hail and wind damage accounts for $15B+ in insurance claims annually; most homeowners don\'t initiate claims without contractor guidance'),
       qn('scheduling','How many hours per week do you spend on crew scheduling and project coordination?','','hrs/week','e.g., 12','NAHB: Project scheduling and coordination accounts for 15–20% of total project management time'),
-      qn('referrals','How many referrals do you receive from past customers per month?','','per month','e.g., 3','Contractor data: Contractors with systematic post-project follow-up receive 3–5× more referrals than those without'),
+      qn('referrals','How many referrals do you receive from past customers per month?','','per month','e.g., 3','Nuvion estimate: Contractors with systematic post-project follow-up receive 3–5× more referrals than those without'),
       qn('reviews','How many new online reviews do you receive per month?','Google, Houzz, BBB, Facebook','per month','e.g., 3','BrightLocal 2023: 91% of consumers read contractor reviews before hiring; 4.5+ star average drives 35% more quote requests'),
     ],
     calculate: (a) => {
@@ -310,7 +310,7 @@ export const NICHES = [
           pp('Admin & Coordination Overhead',`${Math.round(wasted)} hrs/wk wasted`,`${Math.round(saved)} hrs/wk recovered`,`${Math.round(adminHrs+schedulingHrs)} hours/week on admin and scheduling. That\'s time not spent closing jobs or managing quality.`,'Automated project updates, crew scheduling notifications, and subcontractor coordination eliminate most manual coordination'),
           pp('Missed Referral Opportunities',`$${fmt(referrals*0.4*jobVal*0.1)}/mo missed`,`+$${fmt(referrals*0.5*jobVal*0.15)}/mo potential`,`Contractors with systematic follow-up receive 3–5× more referrals. Post-project automation captures the ones you\'re currently missing.`,'Post-project review requests, referral asks, and annual roof checkup reminders turn one job into three'),
         ],
-        sources:['HomeAdvisor 2023: Average roof replacement $7,000–$14,000','Forbes: 80% of callers who reach voicemail call a competitor','Construction marketing: 70% of lost bids could be won with one more follow-up','NAHB 2022: Contractors spend 25–35% of time on non-billable admin','BrightLocal 2023: 91% read contractor reviews before hiring']
+        sources:['HomeAdvisor 2023: Average roof replacement $7,000–$14,000','Forbes: 80% of callers who reach voicemail call a competitor','Nuvion estimate: 70% of lost bids could be won with one more follow-up','NAHB 2022: Contractors spend 25–35% of time on non-billable admin','BrightLocal 2023: 91% read contractor reviews before hiring']
       };
     },
     automationPlan:[
@@ -328,15 +328,15 @@ export const NICHES = [
     tagline: 'Independent Agents, Brokers & Agencies',
     questions: [
       qn('leads','How many new prospect inquiries do you receive per month?','Calls, web forms, referrals, purchased leads','per month','e.g., 60','LIMRA 2023: Average independent insurance agent receives 40–80 new inquiries/month'),
-      qn('response','What percentage of inquiries receive a response within the same business day?','','%','e.g., 50','Insurance marketing data: 78% of insurance consumers buy from the first agent who responds to their inquiry',true),
+      qn('response','What percentage of inquiries receive a response within the same business day?','','%','e.g., 50','Nuvion estimate: 78% of insurance consumers buy from the first agent who responds to their inquiry',true),
       qn('premium','What is your average annual premium per new policy written?','','$','e.g., 1500','IIABA 2023: Average independent agency premium per policy $1,200–$2,500 P&C; life/health varies widely'),
       qn('retention','What is your annual policy renewal retention rate?','','%','e.g., 85','IIABA 2023: Top-performing agencies retain 90%+ of policies annually; industry average is 82–84%',true),
-      qn('renewals','How many policies are up for renewal each month without proactive outreach?','Renewals where the client might shop around without hearing from you','per month','e.g., 40','Insurance data: Clients who receive renewal outreach are 60% less likely to shop competitors'),
+      qn('renewals','How many policies are up for renewal each month without proactive outreach?','Renewals where the client might shop around without hearing from you','per month','e.g., 40','Nuvion estimate: Clients who receive renewal outreach are 60% less likely to shop competitors'),
       qn('admin','How many hours per week do you spend on administrative tasks?','Quoting, data entry, policy updates, certificate requests, client calls','hrs/week','e.g., 25','Reagan Consulting 2022: Administrative overhead consumes 35–45% of agency staff time'),
       qn('crosssell','What percentage of your clients have multiple policies with you?','Auto + home, business + life, etc.','%','e.g., 35','IIABA: Cross-sold clients have 90% retention vs 65% for single-policy clients — and generate 2.5× more revenue',true),
       qn('claims','What percentage of clients receive automated follow-up after filing a claim?','','%','e.g., 20','J.D. Power 2023: Agents who proactively reach out during and after claims see 40% higher retention and 35% more referrals',true),
       qn('referrals','How many referrals do you receive from existing clients per month?','','per month','e.g., 3','LIMRA: Referred clients have 37% higher retention rate and cost 80% less to acquire than purchased leads'),
-      qn('followup','What percentage of your post-quote prospect follow-up is automated?','For prospects who got a quote but didn\'t buy','%','e.g., 20','Insurance data: 62% of prospects who get a quote and don\'t buy immediately will purchase within 3 months if followed up with consistently',true),
+      qn('followup','What percentage of your post-quote prospect follow-up is automated?','For prospects who got a quote but didn\'t buy','%','e.g., 20','Nuvion estimate: 62% of prospects who get a quote and don\'t buy immediately will purchase within 3 months if followed up with consistently',true),
     ],
     calculate: (a) => {
       const [leads,response,premium,retention,renewals,adminHrs,crosssell,claims,referrals,followup] = a;
@@ -354,7 +354,7 @@ export const NICHES = [
           pp('Under-Penetrated Book of Business',`$${fmt(renewals*(1-crosssell)*premium*0.2/12)}/mo missed`,`+$${fmt(renewals*(1-crosssell)*0.25*premium*0.35/12)}/mo potential`,`Only ${Math.round(crosssell*100)}% of clients have multiple policies. Cross-sold clients retain at 90% vs 65% and generate 2.5× more revenue.`,'Automated cross-sell sequences triggered by life events (new home, new baby, business expansion) multiply revenue per client'),
           pp('Post-Quote Follow-Up Gap',`$${fmt(leads*(1-followup)*0.1*premium)}/mo lost`,`+$${fmt(leads*(1-followup)*0.6*premium*0.15)}/mo recovered`,`62% of prospects who get a quote and don\'t buy immediately will purchase within 3 months with consistent follow-up.`,'Multi-step quote follow-up sequences run automatically for 90 days — turning cold prospects into converted clients'),
         ],
-        sources:['Insurance marketing data: 78% of consumers buy from the first agent who responds','IIABA 2023: Cross-sold clients retain at 90% vs 65% single-policy; 2.5× revenue','J.D. Power 2023: Post-claim follow-up drives 40% higher retention','LIMRA: Referred clients cost 80% less to acquire and retain 37% better','Reagan Consulting 2022: Admin overhead consumes 35–45% of agency staff time']
+        sources:['Nuvion estimate: 78% of consumers buy from the first agent who responds','IIABA 2023: Cross-sold clients retain at 90% vs 65% single-policy; 2.5× revenue','J.D. Power 2023: Post-claim follow-up drives 40% higher retention','LIMRA: Referred clients cost 80% less to acquire and retain 37% better','Reagan Consulting 2022: Admin overhead consumes 35–45% of agency staff time']
       };
     },
     automationPlan:[
@@ -490,7 +490,7 @@ export const NICHES = [
       q3:'Hours per week on scheduling, routing, and customer communication?',
       src1:'PLANET 2023: Average landscaping company receives 40–80 inquiries/month', src2:'Lawn care industry: 65% of lost lawn care customers leave due to lack of communication, not price',
       customPP:'Seasonal Maintenance Retention',customPPDesc:'Lawn care data: Customers contacted proactively for spring/fall service renewal retain at 80% vs 45% for those who have to call in. Automated seasonal renewal campaigns run themselves.',
-      sources:['PLANET 2023: 65% of lost lawn care customers leave due to lack of communication','Lawn care data: Proactive renewal outreach increases retention from 45% to 80%','Industry data: Referred lawn care clients have 2.5× higher lifetime value and churn at half the rate']
+      sources:['PLANET 2023: 65% of lost lawn care customers leave due to lack of communication','Lawn care data: Proactive renewal outreach increases retention from 45% to 80%','Nuvion estimate: Referred lawn care clients have 2.5× higher lifetime value and churn at half the rate']
     },
     { id:'veterinary', label:'Veterinary Clinics', icon:'🐾', tier:2, tagline:'General Practice, Emergency & Specialty Vet',
       avgTicket:215, ticketLabel:'average revenue per visit', niche:'veterinary',
@@ -508,18 +508,18 @@ export const NICHES = [
       q3:'Hours per week on customer service, order issues, and returns management?',
       src1:'Baymard Institute 2023: Average cart abandonment rate 70.19%', src2:'Klaviyo 2023: Email automation generates avg 30% of total e-commerce revenue',
       customPP:'Cart Abandonment Recovery',customPPDesc:'Baymard Institute: 70% of shopping carts are abandoned. Automated recovery sequences (email + SMS) recover 10–15% of those carts — often the highest-ROI automation in e-commerce.',
-      sources:['Baymard Institute 2023: Average cart abandonment rate 70.19%','Klaviyo 2023: Email automation generates 30% of e-commerce revenue on average','E-commerce data: Post-purchase sequences increase repeat purchase rate by 40%']
+      sources:['Baymard Institute 2023: Average cart abandonment rate 70.19%','Klaviyo 2023: Email automation generates 30% of e-commerce revenue on average','Nuvion estimate: Post-purchase sequences increase repeat purchase rate by 40%']
     },
   ].map(n => ({
     id: n.id, label: n.label, icon: n.icon, tier: n.tier, tagline: n.tagline,
     questions: [
       qn('leads', n.q1, 'Include all channels and sources', 'per month', 'e.g., 50', n.src1),
-      qn('response', 'What percentage of inquiries receive a same-day response?', '', '%', 'e.g., 50', 'Industry data: Same-day response increases conversion rate by 2–4× across all service businesses', true),
+      qn('response', 'What percentage of inquiries receive a same-day response?', '', '%', 'e.g., 50', 'Nuvion estimate: Same-day response increases conversion rate by 2–4× across all service businesses', true),
       qn('avgval', `What is your ${n.ticketLabel}?`, '', '$', 'e.g., 2000', n.src2),
       qn('admin', 'How many hours per week do you spend on administrative tasks?', 'Scheduling, follow-up, data entry, reporting', 'hrs/week', 'e.g., 15', 'McKinsey: 60% of businesses have 30%+ of tasks that are automatable'),
       qn('followup', 'What percentage of your lead and customer follow-up is automated?', '', '%', 'e.g., 30', 'Marketing Donut: 80% of sales require 5+ follow-ups; 44% of businesses give up after 1 attempt', true),
-      qn('afterhours', 'What percentage of after-hours inquiries receive an automated or timely response?', 'Evenings, weekends, holidays', '%', 'e.g., 20', 'Industry data: 30–40% of service inquiries arrive outside business hours', true),
-      qn('scheduling', 'How many hours per week do you spend on scheduling and booking coordination?', '', 'hrs/week', 'e.g., 8', 'Operations data: Scheduling and coordination consumes 20–30% of office staff time in most service businesses'),
+      qn('afterhours', 'What percentage of after-hours inquiries receive an automated or timely response?', 'Evenings, weekends, holidays', '%', 'e.g., 20', 'Nuvion estimate: 30–40% of service inquiries arrive outside business hours', true),
+      qn('scheduling', 'How many hours per week do you spend on scheduling and booking coordination?', '', 'hrs/week', 'e.g., 8', 'Nuvion estimate: Scheduling and coordination consumes 20–30% of office staff time in most service businesses'),
       qn('retention', 'What percentage of customers return for repeat business within 12 months?', '', '%', 'e.g., 40', 'Bain & Company: Increasing customer retention by 5% increases profits by 25–95%', true),
       qn('referrals', 'How many referrals do you receive from existing customers per month?', '', 'per month', 'e.g., 3', 'Nielsen: 92% of consumers trust referrals from people they know — referred customers convert at 4× the rate of cold leads'),
       qn('reviews', 'How many new online reviews do you receive per month?', '', 'per month', 'e.g., 5', 'BrightLocal 2023: Businesses with 50+ reviews earn significantly more than those with under 10 — volume matters as much as rating'),
@@ -551,17 +551,17 @@ export const NICHES = [
 
   // ── TIER 3 NICHES ─────────────────────────────────────────
   ...([
-    { id:'restaurants', label:'Restaurants & Food Service', icon:'🍽️', tier:3, tagline:'Restaurants, Cafes, Catering & Food Businesses', avgTicket:52, src1:'Restaurant industry: Online reservation abandonment rate 35% when response is slow', src2:'Toast 2023: Restaurants using automated review responses see 30% more repeat visits' },
-    { id:'salons-spas', label:'Salons & Spas', icon:'💅', tier:3, tagline:'Hair Salons, Day Spas, Nail Studios & Med Spas', avgTicket:90, src1:'Mindbody 2023: 40% of salon bookings happen outside business hours', src2:'Salon data: Clients who receive automated rebooking reminders visit 35% more frequently' },
-    { id:'cleaning', label:'Cleaning Services', icon:'✨', tier:3, tagline:'Residential, Commercial & Specialty Cleaning', avgTicket:185, src1:'Cleaning industry: 70% of recurring clients cancel due to lack of communication, not quality', src2:'Service data: Automated follow-up converts 45% of one-time cleaning clients into recurring contracts' },
-    { id:'coaching', label:'Coaching & Consulting', icon:'🎯', tier:3, tagline:'Business Coaches, Life Coaches & Independent Consultants', avgTicket:4500, src1:'ICF 2023: 60% of coaching clients found their coach through referral', src2:'Coaching data: Average discovery call show rate 55%; reminders increase to 85%' },
-    { id:'events', label:'Event Planning', icon:'🎉', tier:3, tagline:'Wedding Planners, Corporate Events & Coordinators', avgTicket:7500, src1:'Event industry: First responder wins the contract 65% of the time', src2:'Eventbrite 2023: Post-event follow-up increases repeat booking rate by 40%' },
-    { id:'photography', label:'Photography & Videography', icon:'📸', tier:3, tagline:'Wedding, Commercial, Portrait & Video Production', avgTicket:1800, src1:'Photography data: 72% of photography inquiries also contact 3+ other photographers', src2:'Industry data: Automated galleries and review requests generate 3× more referrals' },
+    { id:'restaurants', label:'Restaurants & Food Service', icon:'🍽️', tier:3, tagline:'Restaurants, Cafes, Catering & Food Businesses', avgTicket:52, src1:'Nuvion estimate: Online reservation abandonment rate 35% when response is slow', src2:'Toast 2023: Restaurants using automated review responses see 30% more repeat visits' },
+    { id:'salons-spas', label:'Salons & Spas', icon:'💅', tier:3, tagline:'Hair Salons, Day Spas, Nail Studios & Med Spas', avgTicket:90, src1:'Mindbody 2023: 40% of salon bookings happen outside business hours', src2:'Nuvion estimate: Clients who receive automated rebooking reminders visit 35% more frequently' },
+    { id:'cleaning', label:'Cleaning Services', icon:'✨', tier:3, tagline:'Residential, Commercial & Specialty Cleaning', avgTicket:185, src1:'Nuvion estimate: 70% of recurring clients cancel due to lack of communication, not quality', src2:'Nuvion estimate: Automated follow-up converts 45% of one-time cleaning clients into recurring contracts' },
+    { id:'coaching', label:'Coaching & Consulting', icon:'🎯', tier:3, tagline:'Business Coaches, Life Coaches & Independent Consultants', avgTicket:4500, src1:'ICF 2023: 60% of coaching clients found their coach through referral', src2:'Nuvion estimate: Average discovery call show rate 55%; reminders increase to 85%' },
+    { id:'events', label:'Event Planning', icon:'🎉', tier:3, tagline:'Wedding Planners, Corporate Events & Coordinators', avgTicket:7500, src1:'Nuvion estimate: First responder wins the contract 65% of the time', src2:'Eventbrite 2023: Post-event follow-up increases repeat booking rate by 40%' },
+    { id:'photography', label:'Photography & Videography', icon:'📸', tier:3, tagline:'Wedding, Commercial, Portrait & Video Production', avgTicket:1800, src1:'Nuvion estimate: 72% of photography inquiries also contact 3+ other photographers', src2:'Nuvion estimate: Automated galleries and review requests generate 3× more referrals' },
   ].map(n => ({
     id: n.id, label: n.label, icon: n.icon, tier: n.tier, tagline: n.tagline,
     questions: [
       qn('leads', 'How many inquiries, bookings, or customer contacts do you receive per month?', '', 'per month', 'e.g., 50', n.src1),
-      qn('response', 'What percentage of inquiries receive a same-day response?', '', '%', 'e.g., 50', 'Industry data: First-responder advantage is significant in every service business', true),
+      qn('response', 'What percentage of inquiries receive a same-day response?', '', '%', 'e.g., 50', 'Nuvion estimate: First-responder advantage is significant in every service business', true),
       qn('avgval', 'What is your average transaction or booking value?', '', '$', 'e.g., 300', n.src2),
       qn('admin', 'How many hours per week do you spend on administrative tasks?', '', 'hrs/week', 'e.g., 15', 'McKinsey: Most service businesses have 30%+ of admin tasks that are automatable'),
       qn('followup', 'What percentage of your follow-up is automated?', '', '%', 'e.g., 20', '80% of bookings require multiple touchpoints; most businesses give up too early', true),

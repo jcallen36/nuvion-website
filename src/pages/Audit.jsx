@@ -1,4 +1,4 @@
-﻿import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { NICHES } from './audit-data.js';
@@ -6,9 +6,9 @@ import { BASE_CSS } from './shared.js';
 import SiteNav from '../components/SiteNav.jsx';
 import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ─────────────────────────────────────────────────────────────
    MONEY / NUMBER FORMATTERS
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+───────────────────────────────────────────────────────────── */
 const $$ = (n) => {
   if (!n || isNaN(n)) return '$0';
   if (n >= 1000000) return `$${(n / 1000000).toFixed(1)}M`;
@@ -17,9 +17,9 @@ const $$ = (n) => {
 };
 const nn = (n) => (n ? Math.round(n).toLocaleString() : '0');
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ─────────────────────────────────────────────────────────────
    NICHE GROUPS
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+───────────────────────────────────────────────────────────── */
 const NICHE_GROUPS = [
   { label: 'Home Services', ids: ['hvac', 'roofing', 'plumbing-electrical', 'landscaping', 'cleaning'] },
   { label: 'Real Estate & Property', ids: ['real-estate', 'property-mgmt', 'mortgage'] },
@@ -28,12 +28,12 @@ const NICHE_GROUPS = [
   { label: 'Automotive & Retail', ids: ['auto-dealers', 'ecommerce'] },
   { label: 'Professional Services', ids: ['marketing-agency', 'coaching'] },
   { label: 'Hospitality & Lifestyle', ids: ['restaurants', 'salons-spas', 'events', 'photography'] },
-  { label: "Don't See Your Industry?", ids: ['other'] },
+  { label: "Don’t See Your Industry?", ids: ['other'] },
 ];
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ─────────────────────────────────────────────────────────────
    CSS
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+───────────────────────────────────────────────────────────── */
 const AUDIT_CSS = `
 /* Loss semantics: muted brick. Petrol stays the only accent. */
 :root { --loss: #8A4B42; }
@@ -47,7 +47,7 @@ const AUDIT_CSS = `
 .an-cta { display: inline-flex; align-items: center; padding: 10px 20px; border-radius: 6px; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); font-family: var(--sans); font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: background 0.18s var(--ease-out), border-color 0.18s var(--ease-out), transform 0.18s var(--ease-out); }
 .an-cta:hover { background: var(--petrol-deep); border-color: var(--petrol-deep); transform: translateY(-1px); }
 
-/* â”€â”€ INTRO â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── INTRO ───────────────────────────────────────────── */
 .ai-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 24px 60px; position: relative; }
 .ai-inner { max-width: 740px; text-align: center; position: relative; z-index: 1; }
 .ai-badge { display: inline-flex; align-items: center; gap: 12px; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--petrol); margin-bottom: 30px; }
@@ -64,7 +64,7 @@ const AUDIT_CSS = `
 .ai-trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--muted-2); }
 .ai-trust-item span:first-child { color: var(--petrol); }
 
-/* â”€â”€ NICHE GRID â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── NICHE GRID ──────────────────────────────────────── */
 .ang-wrap { min-height: 100vh; padding: 100px 24px 80px; }
 .ang-inner { max-width: 1100px; margin: 0 auto; }
 .ang-head { text-align: center; margin-bottom: 52px; }
@@ -78,11 +78,10 @@ const AUDIT_CSS = `
 @media (min-width: 1100px) { .ang-grid { grid-template-columns: repeat(5, 1fr); } }
 .ang-card { padding: 20px 14px 18px; border-radius: 8px; cursor: pointer; border: 1px solid var(--hairline); background: var(--card); box-shadow: var(--shadow-1); font-family: var(--sans); transition: border-color 0.22s var(--ease-out), transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out); text-align: center; }
 .ang-card:hover { border-color: var(--petrol); transform: translateY(-2px); box-shadow: var(--shadow-2); }
-.ang-icon { font-size: 1.85rem; margin-bottom: 10px; display: block; }
 .ang-label { font-size: 0.89rem; font-weight: 600; margin-bottom: 4px; color: var(--ink); }
 .ang-tag { font-size: 0.71rem; color: var(--muted-2); line-height: 1.35; }
 
-/* â”€â”€ QUESTIONS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── QUESTIONS ───────────────────────────────────────── */
 .aq-wrap { min-height: 100vh; display: flex; flex-direction: column; padding: 90px 24px 48px; }
 .aq-prog-outer { max-width: 680px; margin: 0 auto 52px; width: 100%; }
 .aq-prog-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
@@ -103,7 +102,7 @@ const AUDIT_CSS = `
 .aq-back { background: none; border: none; color: var(--muted-2); font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; padding: 8px 0; display: flex; align-items: center; gap: 6px; transition: color 0.2s; align-self: flex-start; margin-top: auto; }
 .aq-back:hover { color: var(--ink); }
 
-/* â”€â”€ EMAIL GATE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── EMAIL GATE ──────────────────────────────────────── */
 .ae-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 100px 24px 60px; }
 .ae-card { max-width: 520px; width: 100%; padding: 44px 48px; border-radius: 10px; border: 1px solid var(--hairline); border-top: 2px solid var(--petrol); background: var(--card); box-shadow: var(--shadow-2); }
 @media (max-width: 480px) { .ae-card { padding: 32px 22px; } }
@@ -130,7 +129,7 @@ const AUDIT_CSS = `
 .ae-submit:disabled { opacity: 0.45; cursor: default; box-shadow: none; }
 .ae-privacy { font-size: 0.74rem; color: var(--muted-2); text-align: center; margin-top: 14px; }
 
-/* â”€â”€ LOADING â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── LOADING ─────────────────────────────────────────── */
 .al-wrap { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 24px; text-align: center; }
 @keyframes aud-spin { to { transform: rotate(360deg); } }
 @keyframes aud-pulse { 0%,100% { opacity: 0.4; transform: scale(1); } 50% { opacity: 1; transform: scale(1.08); } }
@@ -146,7 +145,7 @@ const AUDIT_CSS = `
 .al-step.done .al-dot { background: var(--petrol); }
 .al-check { margin-left: auto; color: var(--petrol); font-size: 0.88rem; }
 
-/* â”€â”€ RESULTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── RESULTS ─────────────────────────────────────────── */
 .ar-wrap { padding-top: 68px; padding-bottom: 100px; }
 .ar-header { max-width: 1000px; margin: 0 auto; padding: 52px 24px 8px; text-align: left; }
 .ar-biz { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted-2); margin-bottom: 14px; }
@@ -255,8 +254,8 @@ const AUDIT_CSS = `
 @keyframes aud-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
 .chat-fab { position: fixed; bottom: 28px; right: 28px; z-index: 500; width: 56px; height: 56px; border-radius: 50%; background: var(--ink); color: var(--paper); border: 1px solid var(--ink); cursor: pointer; box-shadow: var(--shadow-2); display: flex; align-items: center; justify-content: center; font-size: 1.15rem; transition: background 0.25s, border-color 0.25s, transform 0.25s; animation: aud-float 3s ease-in-out infinite; }
 .chat-fab:hover { background: var(--petrol-deep); border-color: var(--petrol-deep); transform: scale(1.06); animation: none; }
-.chat-panel { position: fixed; bottom: 96px; right: 28px; z-index: 500; width: 360px; max-height: 500px; border-radius: 10px; overflow: hidden; background: var(--card); border: 1px solid var(--hairline); box-shadow: var(--shadow-2); display: flex; flex-direction: column; transform: scale(0.9) translateY(20px); opacity: 0; transition: all 0.3s var(--ease-out); pointer-events: none; }
-.chat-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
+.chat-panel { position: fixed; bottom: 96px; right: 28px; z-index: 500; width: 360px; max-height: 500px; border-radius: 10px; overflow: hidden; background: var(--card); border: 1px solid var(--hairline); box-shadow: var(--shadow-2); display: flex; flex-direction: column; transform: scale(0.9) translateY(20px); opacity: 0; transition: all 0.3s var(--ease-out); pointer-events: none; visibility: hidden; }
+.chat-panel.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; visibility: visible; }
 @media (max-width: 480px) { .chat-panel { width: calc(100vw - 40px); right: 20px; } }
 .chat-hdr { padding: 14px 18px; background: var(--bone); border-bottom: 1px solid var(--hairline); display: flex; align-items: center; justify-content: space-between; }
 .chat-hdr-info { display: flex; align-items: center; gap: 10px; }
@@ -303,7 +302,7 @@ const AUDIT_CSS = `
 .report-scroll-arrow .arr-ch2 { animation: arrowCascade 1.6s ease-in-out infinite 0.22s; }
 .report-scroll-arrow .arr-ch3 { animation: arrowCascade 1.6s ease-in-out infinite 0.44s; }
 
-/* â”€â”€ NUMBER INPUT (for numeric questions) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ── NUMBER INPUT (for numeric questions) ────────────────── */
 .aq-num-wrap { display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
 .aq-num-row { display: flex; align-items: center; gap: 12px; }
 .aq-num-prefix { font-family: var(--mono); font-size: 1.5rem; color: var(--muted-2); line-height: 1; }
@@ -320,22 +319,22 @@ const AUDIT_CSS = `
 
 const CSS = BASE_CSS + FOOTER_CSS + AUDIT_CSS;
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ─────────────────────────────────────────────────────────────
    INTRO SCREEN
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+───────────────────────────────────────────────────────────── */
 function IntroScreen({ onStart }) {
   return (
     <div className="ai-wrap">
       <div className="ai-inner">
-        <div className="ai-badge">Free AI Business Audit â€” 2 Minutes</div>
+        <div className="ai-badge">Free AI Business Audit — 2 Minutes</div>
         <h1 className="ai-h1">
-          Find Out Exactly How Much<br />
-          <span className="ag">Automation Could Add to Your Business</span>
+          Find out what automation<br />
+          <span className="ag">is worth to your business.</span>
         </h1>
         <p className="ai-sub">
-          Answer 10â€“15 questions about how your business runs today. We'll show you exactly
-          where you're losing revenue, how many hours you're wasting, and give you a
-          step-by-step plan to fix it â€” built specifically for your industry.
+          Answer 8–12 questions about how your business runs today. We’ll show you exactly
+          where you’re losing revenue, how many hours you’re wasting, and give you a
+          step-by-step plan to fix it — built specifically for your industry.
         </p>
         <div className="ai-stats">
           <div>
@@ -352,28 +351,27 @@ function IntroScreen({ onStart }) {
           </div>
         </div>
         <button className="ai-btn" onClick={onStart}>
-          Start My Free Audit â†’
+          Start My Free Audit →
         </button>
         <div className="ai-note">No credit card. No spam. Takes about 2 minutes.</div>
         <div className="ai-trust">
-          <div className="ai-trust-item"><span>âœ“</span> Built on published industry benchmarks</div>
-          <div className="ai-trust-item"><span>âœ“</span> Numbers based on your answers</div>
-          <div className="ai-trust-item"><span>âœ“</span> Custom automation roadmap</div>
+          <div className="ai-trust-item"><span>✓</span> Built on industry benchmarks and our own estimates</div>
+          <div className="ai-trust-item"><span>✓</span> Numbers based on your answers</div>
+          <div className="ai-trust-item"><span>✓</span> Custom automation roadmap</div>
         </div>
       </div>
     </div>
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-   NICHE SELECTION GRID â€” grouped by industry category
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─────────────────────────────────────────────────────────────
+   NICHE SELECTION GRID — grouped by industry category
+───────────────────────────────────────────────────────────── */
 function NicheGrid({ onSelect }) {
   const nicheMap = Object.fromEntries(NICHES.map(n => [n.id, n]));
 
   const NicheCard = ({ n }) => (
     <button className="ang-card" onClick={() => onSelect(n)}>
-      <span className="ang-icon">{n.icon}</span>
       <div className="ang-label">{n.label}</div>
       <div className="ang-tag">{n.tagline}</div>
     </button>
@@ -383,7 +381,7 @@ function NicheGrid({ onSelect }) {
     <div className="ang-wrap">
       <div className="ang-inner">
         <div className="ang-head">
-          <h2>What Type of Business Do You Run?</h2>
+          <h2>What type of business do you run?</h2>
           <p>Select your industry to get questions and results specific to your situation</p>
         </div>
 
@@ -400,9 +398,9 @@ function NicheGrid({ onSelect }) {
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ─────────────────────────────────────────────────────────────
    QUESTION STEP (auto-advances on selection)
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+───────────────────────────────────────────────────────────── */
 function QuestionStep({ niche, qIndex, onAnswer, onBack }) {
   const [selected, setSelected] = useState(null);
   const [numVal, setNumVal] = useState('');
@@ -436,7 +434,6 @@ function QuestionStep({ niche, qIndex, onAnswer, onBack }) {
       <div className="aq-prog-outer">
         <div className="aq-prog-meta">
           <div className="aq-prog-niche">
-            <span>{niche.icon}</span>
             <span>{niche.label}</span>
           </div>
           <div className="aq-prog-count">{qIndex + 1} / {total}</div>
@@ -475,7 +472,7 @@ function QuestionStep({ niche, qIndex, onAnswer, onBack }) {
               onClick={handleNumSubmit}
               disabled={numVal === '' || numVal === null}
             >
-              Continue â†’
+              Continue →
             </button>
           </div>
         ) : (
@@ -499,16 +496,16 @@ function QuestionStep({ niche, qIndex, onAnswer, onBack }) {
         </div>
 
         <button className="aq-back" onClick={onBack}>
-          â† {qIndex === 0 ? 'Change Industry' : 'Previous Question'}
+          ← {qIndex === 0 ? 'Change Industry' : 'Previous Question'}
         </button>
       </div>
     </div>
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ─────────────────────────────────────────────────────────────
    EMAIL GATE (shows blurred preview of results)
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+───────────────────────────────────────────────────────────── */
 function EmailGate({ previewResults, niche, onSubmit }) {
   const [name, setName] = useState('');
   const [biz, setBiz] = useState('');
@@ -533,9 +530,9 @@ function EmailGate({ previewResults, niche, onSubmit }) {
     <div className="ae-wrap">
       <div className="ae-card">
         <div className="ae-kicker">Audit complete</div>
-        <h2 className="ae-h2">Your Results Are Ready</h2>
+        <h2 className="ae-h2">Your results are ready.</h2>
         <p className="ae-sub">
-          We've crunched the numbers for your {niche.label} business. Enter your info below
+          We’ve crunched the numbers for your {niche.label} business. Enter your info below
           to unlock your full personalized automation plan.
         </p>
 
@@ -555,12 +552,12 @@ function EmailGate({ previewResults, niche, onSubmit }) {
         </div>
 
         <form onSubmit={handleSubmit}>
-          <label className="ae-lbl">Your Name</label>
-          <input className="ae-inp" type="text" placeholder="First and last name" value={name} onChange={e => setName(e.target.value)} />
-          <label className="ae-lbl">Business Name</label>
-          <input className="ae-inp" type="text" placeholder="Your company name" value={biz} onChange={e => setBiz(e.target.value)} />
-          <label className="ae-lbl">Email Address</label>
-          <input className="ae-inp" type="email" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} />
+          <label className="ae-lbl" htmlFor="ae-name">Your Name</label>
+          <input className="ae-inp" id="ae-name" type="text" autoComplete="name" placeholder="First and last name" value={name} onChange={e => setName(e.target.value)} />
+          <label className="ae-lbl" htmlFor="ae-biz">Business Name</label>
+          <input className="ae-inp" id="ae-biz" type="text" autoComplete="organization" placeholder="Your company name" value={biz} onChange={e => setBiz(e.target.value)} />
+          <label className="ae-lbl" htmlFor="ae-email">Email Address</label>
+          <input className="ae-inp" id="ae-email" type="email" autoComplete="email" placeholder="your@email.com" value={email} onChange={e => setEmail(e.target.value)} />
           <label className="ae-consent">
             <input
               type="checkbox"
@@ -574,7 +571,7 @@ function EmailGate({ previewResults, niche, onSubmit }) {
             </span>
           </label>
           {err && <div className="ae-err">{err}</div>}
-          <button type="submit" className="ae-submit" disabled={!consent}>Reveal My Full Automation Plan â†’</button>
+          <button type="submit" className="ae-submit">Reveal My Full Automation Plan →</button>
         </form>
 
         <div className="ae-privacy">Your information is never sold or shared with third parties.</div>
@@ -583,9 +580,9 @@ function EmailGate({ previewResults, niche, onSubmit }) {
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ─────────────────────────────────────────────────────────────
    LOADING SCREEN
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+───────────────────────────────────────────────────────────── */
 function LoadingScreen({ niche, onDone }) {
   const [stage, setStage] = useState(0);
 
@@ -620,14 +617,14 @@ function LoadingScreen({ niche, onDone }) {
   return (
     <div className="al-wrap">
       <div className="al-spinner" />
-      <h2 className="al-h">Analyzing Your Business</h2>
+      <h2 className="al-h">Analyzing your business…</h2>
       <div className="al-stage">{STAGES[Math.min(stage, STAGES.length - 1)]}</div>
       <div className="al-steps">
         {ANALYSIS_STEPS.map((s, i) => (
           <div key={i} className={`al-step${stage === i ? ' active' : stage > i ? ' done' : ''}`}>
             <div className="al-dot" />
             <span>{s}</span>
-            {stage > i && <span className="al-check">âœ“</span>}
+            {stage > i && <span className="al-check">✓</span>}
           </div>
         ))}
       </div>
@@ -635,9 +632,9 @@ function LoadingScreen({ niche, onDone }) {
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+/* ─────────────────────────────────────────────────────────────
    RESULTS VIEW
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+───────────────────────────────────────────────────────────── */
 function ResultsView({ results, niche, name, biz, answers, onRestart }) {
   const [showSrc, setShowSrc] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
@@ -663,7 +660,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
     setTimeout(() => {
       setMsgs([{
         role: 'ai',
-        text: `Hi ${firstName}! I've reviewed your ${niche.label} audit results. You're potentially losing ${$$(monthlyRevenueLost)}/month and ${weeklyHoursWasted} hours/week to manual processes. What would you like to know more about â€” your automation plan, how we work, or what results to expect?`,
+        text: `Hi ${firstName}! I’ve reviewed your ${niche.label} audit results. You’re potentially losing ${$$(monthlyRevenueLost)}/month and ${weeklyHoursWasted} hours/week to manual processes. What would you like to know more about — your automation plan, how we work, or what results to expect?`,
       }]);
     }, 800);
   }, []);
@@ -678,12 +675,12 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
     setChatInput('');
     setMsgs(prev => [...prev, { role: 'user', text }]);
     setChatTyping(true);
-    // Phase 3 will wire this to n8n â†’ Claude with full audit context
+    // Phase 3 will wire this to n8n → Claude with full audit context
     setTimeout(() => {
       setChatTyping(false);
       setMsgs(prev => [...prev, {
         role: 'ai',
-        text: `Great question. For your ${niche.label} business specifically, the best way to get a precise answer is on a quick strategy call â€” we'll go through your audit results together and build out the exact plan. Want to book that?`,
+        text: `Great question. For your ${niche.label} business specifically, the best way to get a precise answer is on a quick strategy call — we’ll go through your audit results together and build out the exact plan. Want to book that?`,
       }]);
     }, 1400);
   };
@@ -736,7 +733,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 
     const sourcesHtml = sources.length > 0 ? `
       <div style="margin-top:40px;padding-top:24px;border-top:1px solid #DAD6CA">
-        <div style="color:#8B928D;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px">Research Sources</div>
+        <div style="color:#8B928D;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px">Data Sources</div>
         ${sources.map(s => `<div style="color:#57605C;font-size:11px;line-height:1.6;padding:4px 0;border-bottom:1px solid #EBE8DF">${s}</div>`).join('')}
       </div>` : '';
 
@@ -745,7 +742,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${biz || firstName} â€” AI Automation Audit Report</title>
+  <title>${biz || firstName} — AI Automation Audit Report</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { background: #F4F2EC; color: #141B19; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; padding: 40px 20px; min-height: 100vh; }
@@ -792,10 +789,10 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 <div class="wrap">
   <div class="top-bar"></div>
   <div class="card">
-    <div class="brand">Nuvion Solutions Â· AI Automation Audit</div>
+    <div class="brand">Nuvion Solutions · AI Automation Audit</div>
     <h1>Your AI Automation Report, <span>${firstName}</span></h1>
-    <p class="sub">Personalized for <strong style="color:#0E5F63">${biz || firstName}</strong>${niche?.label ? ` Â· ${niche.label}` : ''}<br>
-    Every number below is an estimate calculated from your answers, using published industry benchmarks. Treat them as directional, not a guarantee.</p>
+    <p class="sub">Personalized for <strong style="color:#0E5F63">${biz || firstName}</strong>${niche?.label ? ` · ${niche.label}` : ''}<br>
+    Every number below is an estimate calculated from your answers, using industry benchmarks and Nuvion estimates. Treat them as directional, not a guarantee.</p>
 
     <div class="metrics">
       <div class="metric">
@@ -829,7 +826,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 
   <div class="sec-card">
     <div class="sec-title">Revenue Recovery Breakdown</div>
-    <div class="sec-sub">How your current losses compare to what's recoverable</div>
+    <div class="sec-sub">How your current losses compare to what’s recoverable</div>
     <div class="bar-wrap">
       <div class="bar-track">
         <div class="bar-loss" style="width:${lossPct}%"></div>
@@ -851,7 +848,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
   ${answerPairs.length > 0 ? `
   <div class="sec-card">
     <div class="sec-title">Your Answers</div>
-    <div class="sec-sub">Exactly what you told us â€” every result above flows from these</div>
+    <div class="sec-sub">Exactly what you told us — every result above flows from these</div>
     <table class="answers-table">
       <thead><tr>
         <th>Question</th>
@@ -864,20 +861,20 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
   ${painPoints.length > 0 ? `
   <div class="sec-card">
     <div class="sec-title">Issues Identified in Your Business</div>
-    <div class="sec-sub">Every issue below was identified directly from your answers â€” not generic assumptions</div>
+    <div class="sec-sub">Every issue below was identified directly from your answers — not generic assumptions</div>
     ${painRows}
   </div>` : ''}
 
   <div class="cta-box">
     <h2>Ready to capture ${fmt(monthlyRevenueGained)}/month?</h2>
-    <p>Book a free 30-minute strategy call. We'll walk through your audit and build a step-by-step roadmap.</p>
+    <p>Book a free 30-minute strategy call. We’ll walk through your audit and build a step-by-step roadmap.</p>
     <a href="https://nuvion-solutions.com/book" class="cta-link">Book Your Free Strategy Call</a>
   </div>
 
   ${sourcesHtml}
 
   <div class="footer">
-    Nuvion Solutions Â· AI Automation for Growing Businesses Â·
+    Nuvion Solutions · AI Automation for Growing Businesses ·
     <a href="https://nuvion-solutions.com">nuvion-solutions.com</a>
   </div>
 </div>
@@ -887,19 +884,19 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
     const filename = `${(biz || firstName).replace(/[^a-z0-9]/gi, '-').toLowerCase()}-audit-report.html`;
     const blob = new Blob([html], { type: 'text/html' });
 
-    // Mobile (iOS/Android): trigger native share sheet â€” Save to Files, Drive, AirDrop, etc.
+    // Mobile (iOS/Android): trigger native share sheet — Save to Files, Drive, AirDrop, etc.
     if (navigator.canShare) {
       const file = new File([blob], filename, { type: 'text/html' });
       if (navigator.canShare({ files: [file] })) {
         try {
           await navigator.share({
-            title: `${biz || firstName} â€” AI Automation Audit Report`,
+            title: `${biz || firstName} — AI Automation Audit Report`,
             files: [file],
           });
           return;
         } catch (e) {
-          if (e.name === 'AbortError') return; // user dismissed the sheet â€” do nothing
-          // unexpected error â€” fall through to desktop download
+          if (e.name === 'AbortError') return; // user dismissed the sheet — do nothing
+          // unexpected error — fall through to desktop download
         }
       }
     }
@@ -919,9 +916,9 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
     <div className="ar-wrap">
       {/* Header */}
       <div className="ar-header">
-        <div className="ar-biz">{biz} Â· {niche.label} Â· Automation Impact Audit</div>
+        <div className="ar-biz">{biz} · {niche.label} · Automation Impact Audit</div>
         <h1 className="ar-title">
-          Here's What We Found,{' '}
+          Here’s what we found,{' '}
           <span className="ag">{firstName}</span>
         </h1>
         <p className="ar-sub">
@@ -931,7 +928,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
       </div>
 
       <div className="ar-header-actions">
-        <button className="restart-btn" onClick={onRestart}>â†º Start Over</button>
+        <button className="restart-btn" onClick={onRestart}>↺ Start Over</button>
         <button className="restart-btn" onClick={handleDownload} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.5 1v7M6.5 8l-3-3M6.5 8l3-3M1 11h11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -941,7 +938,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
         <Link to="/book" className="an-cta">Book a Strategy Call</Link>
       </div>
 
-      {/* â”€â”€ SCROLL-DOWN ARROW â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── SCROLL-DOWN ARROW ─────────────────────────────── */}
       <div className="report-scroll-arrow">
         <svg width="32" height="60" viewBox="0 0 32 60" fill="none" xmlns="http://www.w3.org/2000/svg">
           {/* Three staggered chevrons cascading downward */}
@@ -953,7 +950,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 
       <div className="ar-inner">
 
-        {/* â”€â”€ SUMMARY CARDS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── SUMMARY CARDS ──────────────────────────────────── */}
         <div className="ar-cards anim d1">
           <div className="ar-card red">
             <div className="ar-card-val">{$$(monthlyRevenueLost)}</div>
@@ -979,10 +976,10 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
           </div>
         </div>
 
-        {/* â”€â”€ BEFORE / AFTER â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── BEFORE / AFTER ─────────────────────────────────── */}
         <div className="ar-section anim d3">
           <div className="ar-sec-title">Before vs. After Automation</div>
-          <div className="ar-sec-sub">Your current state compared to what's possible with the right systems in place</div>
+          <div className="ar-sec-sub">Your current state compared to what’s possible with the right systems in place</div>
           <div className="bav-grid">
             <div className="bav-panel bef">
               <div className="bav-head">Without Automation (Today)</div>
@@ -1001,7 +998,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
             </div>
 
             <div className="bav-arrow-wrap">
-              <div className="bav-arrow">â†’</div>
+              <div className="bav-arrow">→</div>
             </div>
 
             <div className="bav-panel aft">
@@ -1022,12 +1019,12 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
           </div>
         </div>
 
-        {/* â”€â”€ PAIN POINTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── PAIN POINTS ────────────────────────────────────── */}
         {painPoints.length > 0 && (
           <div className="ar-section anim d4">
-            <div className="ar-sec-title">Where You're Losing Revenue Right Now</div>
+            <div className="ar-sec-title">Where You’re Losing Revenue Right Now</div>
             <div className="ar-sec-sub">
-              Each issue below was identified from your specific answers â€” not generic assumptions
+              Each issue below was identified from your specific answers — not generic assumptions
             </div>
             <div className="pp-grid">
               {painPoints.map((pp, i) => (
@@ -1035,7 +1032,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
                   <div className="pp-label">{pp.label}</div>
                   <div className="pp-vals">
                     <span className="pp-cur">{pp.currentValue}</span>
-                    <span className="pp-arr">â†’</span>
+                    <span className="pp-arr">→</span>
                     <span className="pp-gain">{pp.gainValue}</span>
                   </div>
                   <div className="pp-desc">{pp.description}</div>
@@ -1049,7 +1046,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
           </div>
         )}
 
-        {/* â”€â”€ AUTOMATION PLAN â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── AUTOMATION PLAN ────────────────────────────────── */}
         {niche.automationPlan && niche.automationPlan.length > 0 && (
           <div className="ar-section anim d5">
             <div className="ar-sec-title">Your Custom Automation Plan</div>
@@ -1099,7 +1096,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
           </div>
         )}
 
-        {/* â”€â”€ SOURCES â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── SOURCES ─────────────────────────────────────────── */}
         {sources.length > 0 && (
           <div className="src-section anim d6">
             <button className="src-toggle" onClick={() => setShowSrc(s => !s)}>
@@ -1108,33 +1105,33 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
             {showSrc && (
               <div className="src-list">
                 {sources.map((s, i) => (
-                  <div key={i} className="src-item">Â· {s}</div>
+                  <div key={i} className="src-item">· {s}</div>
                 ))}
               </div>
             )}
           </div>
         )}
 
-        {/* â”€â”€ CTA â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+        {/* ── CTA ─────────────────────────────────────────────── */}
         <div className="cta-section anim d7">
-          <h2 className="cta-h2">Ready to Put This Plan Into Action?</h2>
+          <h2 className="cta-h2">Ready to put this plan into action?</h2>
           <p className="cta-sub">
-            Book a free 30-minute strategy call with our team. We'll walk through your audit results,
-            answer every question, and show you exactly how we'd build this for your business.
+            Book a free 30-minute strategy call with our team. We’ll walk through your audit results,
+            answer every question, and show you exactly how we’d build this for your business.
             No pressure. No generic proposals. Just a real plan built for {niche.label} businesses like yours.
           </p>
           <div className="cta-pills">
-            <div className="cta-pill"><span>âœ“</span> Free 30-minute call</div>
-            <div className="cta-pill"><span>âœ“</span> No generic pitches</div>
-            <div className="cta-pill"><span>âœ“</span> Built for {niche.label}</div>
-            <div className="cta-pill"><span>âœ“</span> Pricing discussed on the call</div>
+            <div className="cta-pill"><span>✓</span> Free 30-minute call</div>
+            <div className="cta-pill"><span>✓</span> No generic pitches</div>
+            <div className="cta-pill"><span>✓</span> Built for {niche.label}</div>
+            <div className="cta-pill"><span>✓</span> Pricing discussed on the call</div>
           </div>
           <Link to="/book" className="cta-btn">
-            Book My Free Strategy Call â†’
+            Book My Free Strategy Call →
           </Link>
           <div className="cta-note">
-            Bring the report to a free strategy call and we'll tell you, in plain English,
-            what we'd build and what it would cost â€” in writing.
+            Bring the report to a free strategy call and we’ll tell you, in plain English,
+            what we’d build and what it would cost — in writing.
           </div>
         </div>
 
@@ -1142,14 +1139,15 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
 
       <Footer />
 
-      {/* â”€â”€ CHATBOT SHELL â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+      {/* ── CHATBOT SHELL ──────────────────────────────────── */}
       <button
         className="chat-fab"
         onClick={() => setChatOpen(o => !o)}
         title="Ask about your automation plan"
-        aria-label="Open chat"
+        aria-label={chatOpen ? 'Close chat' : 'Open chat'}
+        aria-expanded={chatOpen}
       >
-        {chatOpen ? 'âœ•' : (
+        {chatOpen ? '✕' : (
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M3 4.5C3 3.67 3.67 3 4.5 3h11c.83 0 1.5.67 1.5 1.5v8c0 .83-.67 1.5-1.5 1.5H8l-4 3.5V4.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
           </svg>
@@ -1167,7 +1165,7 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
               </div>
             </div>
           </div>
-          <button className="chat-close" onClick={() => setChatOpen(false)} aria-label="Close chat">âœ•</button>
+          <button className="chat-close" onClick={() => setChatOpen(false)} aria-label="Close chat">✕</button>
         </div>
 
         <div className="chat-msgs">
@@ -1190,11 +1188,11 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
                           setTimeout(() => {
                             setChatTyping(false);
                             const responses = {
-                              'Tell me about the plan': `Your plan has ${niche.automationPlan?.length || 3} key workflows, prioritized by impact. The most critical one is "${niche.automationPlan?.[0]?.name}" â€” this one alone addresses your biggest revenue leak. Want me to break down how it works specifically for your situation?`,
-                              'How long does setup take?': `For most ${niche.label} businesses, we typically have the core systems running within 2â€“3 weeks. The exact timeline depends on your current tools and what we're integrating. We can map this out on a strategy call.`,
-                              'What does it cost?': `We structure every engagement differently based on what each business actually needs â€” we don't believe in one-size-fits-all pricing. The best way to get a real number is a 30-minute call where we understand your situation. Want to book that?`,
+                              'Tell me about the plan': `Your plan has ${niche.automationPlan?.length || 3} key workflows, prioritized by impact. The most critical one is "${niche.automationPlan?.[0]?.name}" — this one alone addresses your biggest revenue leak. Want me to break down how it works specifically for your situation?`,
+                              'How long does setup take?': `For most ${niche.label} businesses, we typically have the core systems running within 2–3 weeks. The exact timeline depends on your current tools and what we’re integrating. We can map this out on a strategy call.`,
+                              'What does it cost?': `Our Virtual Front Desk plans have simple published pricing starting at $297/mo. Custom builds are scoped per engagement — you get the exact price in writing on the strategy call, and the number on the quote is the number you pay.`,
                             };
-                            setMsgs(prev => [...prev, { role: 'ai', text: responses[text] || `Great question. Let's go through that on a strategy call â€” I want to give you a specific answer for your ${niche.label} business, not a generic one.` }]);
+                            setMsgs(prev => [...prev, { role: 'ai', text: responses[text] || `Great question. Let’s go through that on a strategy call — I want to give you a specific answer for your ${niche.label} business, not a generic one.` }]);
                           }, 1200);
                         }, 50);
                       }}
@@ -1222,17 +1220,17 @@ function ResultsView({ results, niche, name, biz, answers, onRestart }) {
             onChange={e => setChatInput(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && handleChatSend()}
           />
-          <button className="chat-send" onClick={handleChatSend} aria-label="Send">â†’</button>
+          <button className="chat-send" onClick={handleChatSend} aria-label="Send">→</button>
         </div>
       </div>
     </div>
   );
 }
 
-/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-   MAIN â€” STATE MACHINE
-   Steps: intro â†’ niche â†’ questions â†’ email â†’ loading â†’ results
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+/* ─────────────────────────────────────────────────────────────
+   MAIN — STATE MACHINE
+   Steps: intro → niche → questions → email → loading → results
+───────────────────────────────────────────────────────────── */
 export default function Audit() {
   const [step, setStep] = useState('intro');
   const [niche, setNiche] = useState(null);
@@ -1258,7 +1256,7 @@ export default function Audit() {
     if (qIndex + 1 < niche.questions.length) {
       setQIndex(qIndex + 1);
     } else {
-      // All questions answered â€” compute results now, show email gate
+      // All questions answered — compute results now, show email gate
       try {
         const r = niche.calculate(newAnswers);
         setResults(r);
@@ -1313,8 +1311,8 @@ export default function Audit() {
   return (
     <>
       <Helmet>
-        <title>Free AI Business Audit â€” Nuvion Solutions</title>
-        <meta name="description" content="Find out exactly how much automation could add to your business. Answer 10â€“15 questions about your industry and get a personalized revenue impact report and automation roadmap." />
+        <title>Free AI Business Audit — Nuvion Solutions</title>
+        <meta name="description" content="Find out exactly how much automation could add to your business. Answer 8–12 questions about your industry and get a personalized revenue impact report and automation roadmap." />
       </Helmet>
 
       <div className="aud">

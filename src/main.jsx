@@ -22,9 +22,23 @@ const Agreement = lazy(() => import('./pages/Agreement.jsx'))
 const Terms = lazy(() => import('./pages/Terms.jsx'))
 const Privacy = lazy(() => import('./pages/Privacy.jsx'))
 
+// eslint-disable-next-line react-refresh/only-export-components -- app entry, fast refresh n/a
 function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  const { pathname, hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
+      // Defer a frame so the (eagerly-loaded) homepage has painted and
+      // Lenis, when active, is initialized. -84 clears the fixed nav.
+      requestAnimationFrame(() => {
+        const el = document.getElementById(decodeURIComponent(hash.slice(1)));
+        if (!el) { window.scrollTo(0, 0); return; }
+        if (window.__lenis) window.__lenis.scrollTo(hash, { offset: -84 });
+        else window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 84);
+      });
+      return;
+    }
+    window.scrollTo(0, 0);
+  }, [pathname, hash]);
   return null;
 }
 

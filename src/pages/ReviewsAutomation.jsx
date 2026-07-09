@@ -78,7 +78,7 @@ const CSS = `
 .rv-col-system .rv-li::before{color:var(--petrol)}
 
 /* CTA band alignment */
-.rv-cta-inner{max-width:1140px;margin:0 auto}
+.rv-cta-inner{max-width:1076px;margin:0 auto}
 .sp-cta .label{color:rgba(244,242,236,.5);display:block;margin-bottom:18px}
 `;
 
@@ -288,7 +288,7 @@ export default function ReviewsAutomation() {
             Book a free call and we’ll set up your entire review engine — and start
             feeding families with every review you earn.
           </p>
-          <Link to="/book" className="sp-cta-btn">Book a free strategy call →</Link>
+          <Link to="/book" className="sp-cta-btn">Book a free strategy call <span aria-hidden="true">→</span></Link>
         </div>
       </section>
 

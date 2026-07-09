@@ -63,7 +63,7 @@ const JOURNEY = [
   { when: '7 days out', title: 'First reminder sent', channel: 'Email', msg: '“Just a heads up — your appointment is one week away.”' },
   { when: '48 hours out', title: 'Urgent reminder', channel: 'SMS', msg: '“Reminder: you’re scheduled for this Thursday at 10am.”' },
   { when: 'Day before', title: 'Confirmation request', channel: 'SMS', msg: '“Can you confirm you’re still coming tomorrow? Reply YES or NO.”' },
-  { when: '1 hour out', title: 'Final nudge', channel: 'SMS', msg: '“See you in an hour! Here’s the address: {address}”' },
+  { when: '1 hour out', title: 'Final nudge', channel: 'SMS', msg: '“See you in an hour — you’re all set for 10am at the shop.”' },
   { when: 'Show time', title: 'Client shows up', channel: '', msg: 'The appointment holds — or the slot has already been offered out again.', final: true },
 ];
 

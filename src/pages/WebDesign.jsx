@@ -111,7 +111,7 @@ const CSS = `
 .wd-stack-desc{font-size:.9rem;color:var(--muted-2);line-height:1.62;max-width:44ch}
 
 /* CTA inner alignment */
-.wd-cta-in{max-width:1140px;margin:0 auto}
+.wd-cta-in{max-width:1076px;margin:0 auto}
 .wd-cta-in .label{color:rgba(244,242,236,.5);margin-bottom:20px;display:block}
 .sp-cta h2 em{font-style:italic;font-weight:400;color:#9BC4C1}
 `;
@@ -356,7 +356,7 @@ export default function WebDesign() {
               what’s costing you leads, and sketch out exactly what a Nuvion
               build would look like.
             </p>
-            <Link to="/book" className="sp-cta-btn">Book a free design call →</Link>
+            <Link to="/book" className="sp-cta-btn">Book a free design call <span aria-hidden="true">→</span></Link>
           </div>
         </section>
       </main>

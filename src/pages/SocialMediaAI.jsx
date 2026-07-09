@@ -47,7 +47,7 @@ const CSS = `
 .sm-list li::before{content:'—';color:var(--petrol);font-family:var(--mono);font-size:.8rem;flex-shrink:0}
 
 /* CTA */
-.sm-cta-inner{max-width:1140px;margin:0 auto}
+.sm-cta-inner{max-width:1076px;margin:0 auto}
 .sp-cta .label{display:block;color:rgba(244,242,236,.5);margin-bottom:18px}
 `;
 

@@ -11,6 +11,8 @@ import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 ───────────────────────────────────────────────────────────── */
 
 const CSS = `
+.sp-cta-in{max-width:1076px;margin:0 auto}
+.sp-cta .label{display:block;color:rgba(244,242,236,.55);margin-bottom:18px}
 /* Section scaffold (homepage sec-head pattern) */
 .ci-sec{padding:calc(var(--pad-section)*.72) 0 0}
 .ci-sec.ci-last{padding-bottom:var(--pad-section)}
@@ -213,9 +215,12 @@ export default function CustomIntegrations() {
       </div>
 
       <section className="sp-cta">
-        <h2>Ready to unify your tech stack?</h2>
-        <p>Book a free call and we’ll map out exactly how your tools can work together.</p>
-        <Link to="/book" className="sp-cta-btn">Book a free strategy call →</Link>
+        <div className="sp-cta-in">
+          <span className="label">№ 03 — Start here</span>
+          <h2>Ready to unify your tech stack?</h2>
+          <p>Book a free call and we’ll map out exactly how your tools can work together.</p>
+          <Link to="/book" className="sp-cta-btn">Book a free strategy call <span aria-hidden="true">→</span></Link>
+        </div>
       </section>
 
       <Footer />

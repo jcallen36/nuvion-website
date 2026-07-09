@@ -12,11 +12,11 @@ const DEMO_CALL_ENDPOINT = import.meta.env.VITE_DEMO_WEBHOOK_URL
   || 'https://nuvion-n8n.zeabur.app/webhook/public-demo-call';
 
 const DEMO_NICHES = [
-  { value: 'plumbing', label: '🔧 Plumbing', available: true },
-  { value: 'hvac', label: '❄️ HVAC', available: false },
-  { value: 'electrical', label: '🔌 Electrical', available: false },
-  { value: 'garage_door', label: '🚪 Garage Door', available: false },
-  { value: 'roofing', label: '🏠 Roofing', available: false },
+  { value: 'plumbing', label: 'Plumbing', available: true },
+  { value: 'hvac', label: 'HVAC', available: false },
+  { value: 'electrical', label: 'Electrical', available: false },
+  { value: 'garage_door', label: 'Garage Door', available: false },
+  { value: 'roofing', label: 'Roofing', available: false },
 ];
 
 const CSS = BASE_CSS + FOOTER_CSS + `
@@ -32,7 +32,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .ar-phone{max-width:340px;width:100%;margin:0 auto}
 @media(min-width:880px){.ar-phone{margin:0;position:sticky;top:96px}}
 .ar-frame{background:var(--card);border:1px solid var(--hairline);border-top:2px solid var(--petrol);border-radius:14px;padding:22px 20px 20px;box-shadow:var(--shadow-2)}
-.ar-phone-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:14px;border-bottom:1px solid var(--hairline);margin-bottom:16px}
+.ar-phone-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:6px 12px;padding-bottom:14px;border-bottom:1px solid var(--hairline);margin-bottom:16px}
 .ar-phone-caller{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);white-space:nowrap}
 .ar-phone-tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--petrol);white-space:nowrap}
 .ar-phone-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--petrol);flex-shrink:0;animation:livePulse 1.6s infinite ease-in-out}
@@ -87,7 +87,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 }
 
 /* CTA inner alignment */
-.sp-cta-in{max-width:1140px;margin:0 auto}
+.sp-cta-in{max-width:1076px;margin:0 auto}
 
 /* ── LIVE DEMO WIDGET ─────────────────────────────────────── */
 .ar-demo{margin-top:clamp(48px,6vw,72px);max-width:720px;padding:36px 34px 32px;border-top:2px solid var(--petrol)}
@@ -100,7 +100,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .ar-demo-form{display:flex;flex-direction:column;gap:14px}
 .ar-demo-row{display:grid;grid-template-columns:1fr 1.5fr;gap:10px}
 @media(max-width:560px){.ar-demo-row{grid-template-columns:1fr}}
-.ar-demo-niche{appearance:none;-webkit-appearance:none;background-color:var(--paper);background-image:linear-gradient(45deg,transparent 50%,var(--muted-2) 50%),linear-gradient(135deg,var(--muted-2) 50%,transparent 50%);background-position:calc(100% - 18px) center,calc(100% - 13px) center;background-size:5px 5px,5px 5px;background-repeat:no-repeat;border:1px solid var(--hairline);border-radius:6px;padding:14px 36px 14px 14px;font-family:var(--sans);font-size:.95rem;color:var(--ink);cursor:pointer;outline:none;transition:border-color .2s}
+.ar-demo-niche{appearance:none;-webkit-appearance:none;background-color:var(--paper);background-image:linear-gradient(45deg,transparent 50%,var(--muted-2) 50%),linear-gradient(135deg,var(--muted-2) 50%,transparent 50%);background-position:calc(100% - 18px) center,calc(100% - 13px) center;background-size:5px 5px,5px 5px;background-repeat:no-repeat;border:1px solid var(--hairline);border-radius:6px;padding:14px 36px 14px 14px;font-family:var(--sans);font-size:1rem;color:var(--ink);cursor:pointer;outline:none;transition:border-color .2s}
 .ar-demo-niche:hover{border-color:var(--muted-2)}
 .ar-demo-niche:focus{border-color:var(--petrol)}
 .ar-demo-input-wrap{display:flex;align-items:stretch;background:var(--paper);border:1px solid var(--hairline);border-radius:6px;overflow:hidden;transition:border-color .2s}
@@ -156,7 +156,7 @@ const PLANS = [
     yearly: '$3,573/yr',
     yearlyDelta: 'Save 3 months',
     featured: true,
-    tagline: 'Everything in Basic, plus a domain-trained AI that handles the calls Basic can\'t.',
+    tagline: 'Everything in Basic, plus a domain-trained AI that handles the calls Basic can’t.',
     minutes: '600 voice minutes/mo · $0.30/min after',
     features: [
       'Everything in Basic',
@@ -253,7 +253,7 @@ function LiveDemoWidget() {
         <div className="ar-demo-success">
           <span className="ar-demo-success-tag">Call placed</span>
           <h3>Calling you in under 10 seconds</h3>
-          <p>Pick up — you'll hear our Virtual Front Desk in action. Talk to it like a real customer would (try booking a job, or describing an emergency).</p>
+          <p>Pick up — you’ll hear our Virtual Front Desk in action. Talk to it like a real customer would (try booking a job, or describing an emergency).</p>
           <button type="button" className="ar-demo-success-again" onClick={reset}>Send another demo</button>
         </div>
       </div>
@@ -267,10 +267,10 @@ function LiveDemoWidget() {
         Live demo · Free · No setup
       </div>
       <h3 className="ar-demo-title">Hear it <em>actually</em> answer your call.</h3>
-      <p className="ar-demo-sub">Pick your trade, drop your number — we'll call you in under 10 seconds. Talk to it like a real customer would.</p>
+      <p className="ar-demo-sub">Pick your trade, drop your number — we’ll call you in under 10 seconds. Talk to it like a real customer would.</p>
       <form className="ar-demo-form" onSubmit={handleSubmit}>
         <div className="ar-demo-row">
-          <select className="ar-demo-niche" value={niche} onChange={(e) => setNiche(e.target.value)} disabled={status === 'submitting'}>
+          <select className="ar-demo-niche" aria-label="Choose your trade" value={niche} onChange={(e) => setNiche(e.target.value)} disabled={status === 'submitting'}>
             {DEMO_NICHES.map((n) => (
               <option key={n.value} value={n.value} disabled={!n.available}>
                 {n.label}{!n.available ? ' (coming soon)' : ''}
@@ -278,10 +278,11 @@ function LiveDemoWidget() {
             ))}
           </select>
           <div className="ar-demo-input-wrap">
-            <span className="ar-demo-prefix">+1</span>
+            <span className="ar-demo-prefix" aria-hidden="true">+1</span>
             <input
               type="tel"
               className="ar-demo-input"
+              aria-label="Your phone number (US, 10 digits)"
               placeholder="(555) 123-4567"
               value={phone}
               onChange={(e) => setPhone(formatPhone(e.target.value))}
@@ -342,10 +343,10 @@ export default function AIReceptionist() {
               </div>
               <div className="ar-messages">
                 <div className="ar-msg ar-msg-ai">Thanks for calling — how can I help?</div>
-                <div className="ar-msg ar-msg-in">Water's backing up through my kitchen sink. Can someone come out today?</div>
-                <div className="ar-msg ar-msg-ai">Sounds urgent — I've got a tech who can be there between 2 and 4. Is your address still the same one on file?</div>
+                <div className="ar-msg ar-msg-in">Water’s backing up through my kitchen sink. Can someone come out today?</div>
+                <div className="ar-msg ar-msg-ai">Sounds urgent — I’ve got a tech who can be there between 2 and 4. Is your address still the same one on file?</div>
                 <div className="ar-msg ar-msg-in">Yeah, that works. Please book it.</div>
-                <div className="ar-msg ar-msg-ai">Perfect — you'll get a confirmation text in just a moment.</div>
+                <div className="ar-msg ar-msg-ai">Perfect — you’ll get a confirmation text in just a moment.</div>
               </div>
               <div className="ar-badges">
                 <span className="ar-badge booked">Booked</span>
@@ -401,7 +402,7 @@ export default function AIReceptionist() {
           <div className="ar-trial plate">
             <span className="ar-trial-tag">14-day free trial</span>
             <h3>$0 today. $0 for 14 days.</h3>
-            <p>You'll save a card at signup to reserve your build slot — but you won't be charged until day 15, and only if you haven't canceled by then. No setup fees, no contracts. Cancel any time during the trial from your account or by replying to any of our emails.</p>
+            <p>You’ll save a card at signup to reserve your build slot — but you won’t be charged until day 15, and only if you haven’t canceled by then. No setup fees, no contracts. Cancel any time during the trial from your account or by replying to any of our emails.</p>
           </div>
         </div>
       </div>
@@ -410,7 +411,7 @@ export default function AIReceptionist() {
         <div className="sp-cta-in">
           <h2>Hear it talk to a real plumber call.</h2>
           <p>Book a 15-minute strategy call and we’ll demo your Virtual Front Desk live with your services + pricing.</p>
-          <Link to="/book" className="sp-cta-btn">Book a Free Strategy Call →</Link>
+          <Link to="/book" className="sp-cta-btn">Book a free strategy call <span aria-hidden="true">→</span></Link>
         </div>
       </div>
       <Footer />

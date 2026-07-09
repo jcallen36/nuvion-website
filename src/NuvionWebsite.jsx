@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -40,8 +40,9 @@ html{scroll-padding-top:90px}
 .nav-burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .nav-burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .nav-burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mobile-menu{position:fixed;top:74px;left:0;right:0;bottom:0;background:var(--paper);z-index:299;display:flex;flex-direction:column;padding:20px 24px 40px;transform:translateX(102%);transition:transform .38s var(--ease-out);border-top:1px solid var(--hairline);overflow-y:auto}
-.mobile-menu.open{transform:translateX(0)}
+.mobile-menu{position:fixed;top:74px;left:0;right:0;bottom:0;background:var(--paper);z-index:299;display:flex;flex-direction:column;padding:20px 24px 40px;transform:translateX(102%);visibility:hidden;transition:transform .38s var(--ease-out),visibility 0s .38s;border-top:1px solid var(--hairline);overflow-y:auto}
+.mobile-menu.open{transform:translateX(0);visibility:visible;transition:transform .38s var(--ease-out),visibility 0s 0s}
+@media(min-width:1020px){.mobile-menu{display:none}}
 .mobile-menu a{display:block;padding:18px 0;font-family:var(--serif);font-size:1.5rem;font-weight:700;color:var(--ink);border-bottom:1px solid var(--hairline)}
 .mobile-menu a:active{color:var(--petrol)}
 .mobile-menu .mm-tel{font-family:var(--mono);font-size:1rem;font-weight:400;color:var(--petrol);border-bottom:1px solid var(--hairline)}
@@ -67,8 +68,9 @@ html{scroll-padding-top:90px}
 @media(min-width:960px){.hero-grid{grid-template-columns:7fr 5fr;gap:24px}}
 .hero-label{margin-bottom:28px;display:flex;align-items:center;gap:12px}
 .hero-label::before{content:'';width:34px;height:1px;background:var(--petrol)}
-.hero-h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,3.75vw,3.55rem);line-height:1.09;letter-spacing:-.022em;margin-bottom:26px;white-space:nowrap}
-@media(max-width:520px){.hero-h1{white-space:normal;font-size:clamp(1.9rem,8.4vw,2.4rem)}}
+.hero-h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.1rem,3.75vw,3.55rem);line-height:1.09;letter-spacing:-.022em;margin-bottom:26px}
+@media(min-width:960px) and (max-width:1180px){.hero-h1{font-size:3.05vw}}
+@media(max-width:520px){.hero-h1{font-size:clamp(1.9rem,8.4vw,2.4rem)}}
 .hero-h1 em{font-style:italic;font-weight:400;color:var(--petrol)}
 .hero-sub{font-size:clamp(1rem,1.4vw,1.14rem);color:var(--muted-2);line-height:1.7;max-width:47ch;margin-bottom:38px}
 .hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px}
@@ -197,9 +199,10 @@ html{scroll-padding-top:90px}
 .faq-x::before{left:50%;top:4px;bottom:4px;width:1.5px;transform:translateX(-50%)}
 .faq-x::after{top:50%;left:4px;right:4px;height:1.5px;transform:translateY(-50%)}
 .faq-item.open .faq-x::before{transform:translateX(-50%) rotate(90deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease-out)}
-.faq-item.open .faq-a{max-height:420px}
-.faq-a-inner{padding:0 40px 26px 6px;font-size:.95rem;color:var(--muted-2);line-height:1.72;max-width:66ch}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease-out)}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a-inner{min-height:0;overflow:hidden;padding:0 40px 0 6px;font-size:.95rem;color:var(--muted-2);line-height:1.72;max-width:66ch}
+.faq-item.open .faq-a-inner{padding-bottom:26px}
 
 /* FINAL CTA */
 .cta{background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
@@ -296,7 +299,7 @@ const FAQS = [
   },
   {
     q: 'How much does business automation cost?',
-    a: 'Every system is scoped to your business, so we don’t publish one-size-fits-all prices. What we do promise: you get the price in writing before we start, the number on your quote is the number you pay, and there are no long-term contracts. The strategy call is free, and you’ll leave it knowing exactly what your build would cost.',
+    a: 'Our Virtual Front Desk plans have simple published pricing — everything else is custom-scoped, so we don’t publish one-size-fits-all prices for builds. What we do promise: you get the price in writing before we start, the number on your quote is the number you pay, and there are no long-term contracts. The strategy call is free, and you’ll leave it knowing exactly what your build would cost.',
   },
 ];
 

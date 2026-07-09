@@ -81,7 +81,7 @@ const CSS = `
 .plat-desc{font-size:.88rem;color:var(--muted-2);line-height:1.64;max-width:60ch}
 
 /* CTA alignment */
-.sp-cta-in{max-width:1140px;margin:0 auto}
+.sp-cta-in{max-width:1076px;margin:0 auto}
 .sp-cta .label{display:block;color:rgba(244,242,236,.5);margin-bottom:18px}
 `;
 

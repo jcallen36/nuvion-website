@@ -16,14 +16,14 @@ export const FOOTER_CSS = `
 .f-contact{display:flex;flex-direction:column;gap:8px}
 .f-contact a{font-family:var(--mono);font-size:.8rem;color:rgba(244,242,236,.62);transition:color .18s;width:fit-content}
 .f-contact a:hover{color:var(--paper)}
-.f-col-title{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,242,236,.45);margin-bottom:18px}
+.f-col-title{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,242,236,.55);margin-bottom:18px}
 .f-links{list-style:none;display:flex;flex-direction:column;gap:11px}
 .f-links a{font-size:.9rem;color:rgba(244,242,236,.72);transition:color .18s,padding-left .18s}
 .f-links a:hover{color:var(--paper);padding-left:4px}
 .footer-bot{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--hairline-dark)}
-.f-copy{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:rgba(244,242,236,.4)}
+.f-copy{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:rgba(244,242,236,.55)}
 .f-leg{display:flex;gap:22px}
-.f-leg a{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:rgba(244,242,236,.4);transition:color .18s}
+.f-leg a{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:rgba(244,242,236,.55);transition:color .18s}
 .f-leg a:hover{color:rgba(244,242,236,.85)}
 `;
 

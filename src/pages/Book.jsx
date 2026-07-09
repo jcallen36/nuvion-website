@@ -195,8 +195,11 @@ export default function Book() {
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
-      const list = Array.isArray(data?.slots) ? [...data.slots].sort() : [];
-      if (!data?.ok || list.length === 0) {
+      // Backend trouble is an error, not "we're fully booked" — only a
+      // healthy response with genuinely zero slots earns the empty state.
+      if (!data?.ok || !Array.isArray(data.slots)) throw new Error('bad availability response');
+      const list = [...data.slots].sort();
+      if (list.length === 0) {
         setSlots([]);
         setStatus('empty');
         return;
@@ -231,7 +234,6 @@ export default function Book() {
 
   const emailValid = EMAIL_RE.test(email.trim());
   const nameValid = name.trim().length > 0;
-  const canSubmit = !!selectedSlot && nameValid && emailValid && consent && !submitting;
 
   function toggleService(slug) {
     setServices((prev) => (prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug]));
@@ -309,7 +311,7 @@ export default function Book() {
           {success ? (
             <div className="bk-success">
               <div className="bk-big-check" aria-hidden="true">✓</div>
-              <h2>You're booked!</h2>
+              <h2>You’re booked!</h2>
               <div className="bk-when">{success.display_time}</div>
               <p className="bk-note">
                 Check your email — a calendar invite is on its way and will be added to your
@@ -333,7 +335,7 @@ export default function Book() {
 
               {status === 'error' && (
                 <div className="bk-msg">
-                  <h3>We couldn't load the calendar</h3>
+                  <h3>We couldn’t load the calendar</h3>
                   <p>Something went wrong reaching our scheduler. Please try again in a moment.</p>
                   <button className="sp-back" onClick={loadAvailability}>Try again</button>
                 </div>
@@ -343,8 +345,8 @@ export default function Book() {
                 <div className="bk-msg">
                   <h3>No open times right now</h3>
                   <p>
-                    Our calendar is fully booked for the next couple of weeks. Email us at{' '}
-                    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> and we'll find a time that works.
+                    We don’t have any open times in the next two weeks. Email us at{' '}
+                    <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> and we’ll find a time that works.
                   </p>
                   <button className="sp-back" onClick={loadAvailability}>Refresh times</button>
                 </div>
@@ -418,7 +420,7 @@ export default function Book() {
 
                       <form className="bk-form" onSubmit={handleSubmit} noValidate>
                         <div className="bk-field">
-                          <label>What are you interested in? <span style={{ color: 'var(--dim)', fontWeight: 400 }}>(optional — pick any)</span></label>
+                          <label>What are you interested in? <span className="opt">(optional — pick any)</span></label>
                           <div className="bk-services" role="group" aria-label="Services you're interested in">
                             {SERVICES.map((s) => {
                               const sel = services.includes(s.slug);
@@ -468,7 +470,7 @@ export default function Book() {
                             {showErrors && !emailValid && <span className="bk-err">Enter a valid email.</span>}
                           </div>
                           <div className="bk-field">
-                            <label htmlFor="bk-phone">Phone <span style={{ color: 'var(--dim)', fontWeight: 400 }}>(optional)</span></label>
+                            <label htmlFor="bk-phone">Phone <span className="opt">(optional)</span></label>
                             <input
                               id="bk-phone"
                               className="bk-input"
@@ -482,7 +484,7 @@ export default function Book() {
                         </div>
 
                         <div className="bk-field">
-                          <label htmlFor="bk-notes">Anything you'd like us to know before the call? <span style={{ color: 'var(--dim)', fontWeight: 400 }}>(optional)</span></label>
+                          <label htmlFor="bk-notes">Anything you'd like us to know before the call? <span className="opt">(optional)</span></label>
                           <textarea
                             id="bk-notes"
                             className="bk-textarea"
@@ -523,7 +525,7 @@ export default function Book() {
                         </div>
                         {showErrors && !consent && <span className="bk-err">Please check the consent box so we're allowed to contact you about your booking.</span>}
 
-                        <button className="bk-submit" type="submit" disabled={!canSubmit}>
+                        <button className="bk-submit" type="submit" disabled={submitting}>
                           {submitting ? 'Booking…' : 'Confirm booking'}
                         </button>
                         {submitError && <div className="bk-submit-err">{submitError}</div>}

@@ -56,7 +56,7 @@ const CSS = `
 .lf-col--with .lf-line-num{color:var(--petrol)}
 
 /* CTA band */
-.sp-cta-inner{max-width:1140px;margin:0 auto}
+.sp-cta-inner{max-width:1076px;margin:0 auto}
 .sp-cta .label{display:block;color:rgba(244,242,236,.5);margin-bottom:20px}
 `;
 
@@ -215,7 +215,7 @@ export default function LeadFollowup() {
           <span className="label">№ 03 — Start here</span>
           <h2>Stop letting leads slip through the cracks.</h2>
           <p>Book a free call and we’ll build your entire follow-up sequence in under a week.</p>
-          <Link to="/book" className="sp-cta-btn">Book a free strategy call<span aria-hidden="true">→</span></Link>
+          <Link to="/book" className="sp-cta-btn">Book a free strategy call <span aria-hidden="true">→</span></Link>
         </div>
       </section>
 
