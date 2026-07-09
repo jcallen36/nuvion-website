@@ -83,15 +83,19 @@ export default function Agreement() {
 
           <div className="ag-item">
             <h2>Price</h2>
-            <p>Pick the option that suits you:</p>
+            <p>
+              Every project is quoted up front, in writing. <strong>Your price is the one on your
+              quote and Stripe invoice</strong> — that number is the agreement, and it doesn't change
+              after you approve it. There are two ways to structure it:
+            </p>
             <div className="ag-plans">
               <div className="ag-plan">
-                <div className="ag-amt">$900 <span>one-time</span></div>
-                <div className="ag-plan-note">Pay once — it's yours to keep. Hosting included; $10 per revision.</div>
+                <div className="ag-amt">One-time <span>build</span></div>
+                <div className="ag-plan-note">Pay once, per your quote — the site is yours to keep. Hosting included.</div>
               </div>
               <div className="ag-plan">
-                <div className="ag-amt grad-amt">$89 <span>/ month</span></div>
-                <div className="ag-plan-note">No big upfront cost. Hosting and free revisions while you're subscribed.</div>
+                <div className="ag-amt grad-amt">Monthly <span>plan</span></div>
+                <div className="ag-plan-note">No big upfront cost, per your quote. Hosting and revisions included while subscribed.</div>
               </div>
             </div>
           </div>
@@ -105,14 +109,15 @@ export default function Agreement() {
             <p>
               <strong>Monthly plan:</strong> you're subscribed to the site and its hosting. It stays live while
               your subscription is active, you can cancel anytime, and if you cancel the site comes down. You can
-              switch to the one-time price anytime to own it outright.
+              switch to a one-time buyout anytime to own it outright (quoted when you ask).
             </p>
           </div>
 
           <div className="ag-item">
             <h2>Revisions</h2>
             <p>
-              <strong>One-time plan:</strong> $10 per change after your site is delivered.
+              <strong>One-time plan:</strong> a small per-change fee after your site is delivered —
+              the amount is on your quote.
               &nbsp;<strong>Monthly plan:</strong> revisions included, free.
             </p>
           </div>
