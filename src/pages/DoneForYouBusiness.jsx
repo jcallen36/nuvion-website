@@ -93,7 +93,7 @@ const CSS = `
 
 /* CTA inner alignment (sp-cta pads 32px; match sp-wrap's content column) */
 .df-cta-inner{max-width:1076px;margin:0 auto}
-.df-cta-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,242,236,.55);margin-bottom:20px}
+.df-cta-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#8A9590;margin-bottom:20px}
 `;
 
 /* ── Data ─────────────────────────────────────────────────── */

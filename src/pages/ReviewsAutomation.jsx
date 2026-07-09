@@ -79,7 +79,7 @@ const CSS = `
 
 /* CTA band alignment */
 .rv-cta-inner{max-width:1076px;margin:0 auto}
-.sp-cta .label{color:rgba(244,242,236,.5);display:block;margin-bottom:18px}
+.sp-cta .label{color:#8A9590;display:block;margin-bottom:18px}
 `;
 
 const STEPS = [

@@ -67,7 +67,7 @@ const CSS = `
 
 /* CTA inner alignment */
 .aa-cta-inner{max-width:1076px;margin:0 auto}
-.aa-cta-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,242,236,.5);margin-bottom:18px}
+.aa-cta-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#8A9590;margin-bottom:18px}
 `;
 
 const LEDGER = [

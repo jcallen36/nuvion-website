@@ -12,7 +12,7 @@ import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
 const CSS = `
 .sp-cta-in{max-width:1076px;margin:0 auto}
-.sp-cta .label{display:block;color:rgba(244,242,236,.55);margin-bottom:18px}
+.sp-cta .label{display:block;color:#8A9590;margin-bottom:18px}
 /* Section scaffold (homepage sec-head pattern) */
 .ci-sec{padding:calc(var(--pad-section)*.72) 0 0}
 .ci-sec.ci-last{padding-bottom:var(--pad-section)}
@@ -35,8 +35,8 @@ const CSS = `
 .ci-orbit{fill:none;stroke:var(--hairline);stroke-width:.25;opacity:.7}
 .ci-spoke{stroke:var(--hairline);stroke-width:.35;stroke-dasharray:1.4 1.6}
 .ci-term{fill:var(--petrol);opacity:.45}
-.ci-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:clamp(86px,22%,114px);aspect-ratio:1;background:var(--petrol);border:1px solid var(--petrol-deep);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:2;box-shadow:var(--shadow-2)}
-.ci-hub-label{font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--paper)}
+.ci-hub{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:clamp(86px,22%,114px);aspect-ratio:1;background:var(--petrol-fill);border:1px solid var(--petrol-deep);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:2;box-shadow:var(--shadow-2)}
+.ci-hub-label{font-family:var(--mono);font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink)}
 .ci-hub-sub{font-family:var(--mono);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(244,242,236,.66);margin-top:4px}
 .ci-node{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2}
 .ci-node-box{width:54px;height:54px;background:var(--card);border:1px solid var(--hairline);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:.78rem;color:var(--ink);font-variant-numeric:tabular-nums;box-shadow:var(--shadow-1);transition:border-color .25s var(--ease-out),color .25s var(--ease-out),transform .25s var(--ease-out),box-shadow .25s var(--ease-out)}

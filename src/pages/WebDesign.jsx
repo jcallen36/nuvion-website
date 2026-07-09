@@ -112,8 +112,8 @@ const CSS = `
 
 /* CTA inner alignment */
 .wd-cta-in{max-width:1076px;margin:0 auto}
-.wd-cta-in .label{color:rgba(244,242,236,.5);margin-bottom:20px;display:block}
-.sp-cta h2 em{font-style:italic;font-weight:400;color:#9BC4C1}
+.wd-cta-in .label{color:#8A9590;margin-bottom:20px;display:block}
+.sp-cta h2 em{font-style:italic;font-weight:400;color:var(--petrol-fill)}
 `;
 
 /* ── Data ─────────────────────────────────────────────────── */

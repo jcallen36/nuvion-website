@@ -5,7 +5,9 @@ import { BASE_CSS } from './shared.js';
 import SiteNav from '../components/SiteNav.jsx';
 import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-/* Terms of Service — typeset like a printed contract on porcelain paper.
+/* Terms of Service — typeset like a printed contract, night edition:
+ * porcelain type on a deep green-black plate. All colors come from the
+ * shared night tokens; nothing is hardcoded here.
  * Legal wording is untouchable; everything here is chrome and styling. */
 const CSS = `
 .lg-updated{font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;color:var(--muted-2);margin:2px 0 18px;font-variant-numeric:tabular-nums}

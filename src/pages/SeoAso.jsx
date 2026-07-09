@@ -82,7 +82,7 @@ const CSS = `
 
 /* CTA alignment */
 .sp-cta-in{max-width:1076px;margin:0 auto}
-.sp-cta .label{display:block;color:rgba(244,242,236,.5);margin-bottom:18px}
+.sp-cta .label{display:block;color:#8A9590;margin-bottom:18px}
 `;
 
 /* ── Data ─────────────────────────────────────────────────── */

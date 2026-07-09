@@ -55,9 +55,9 @@ const CSS = `
 .lf-col--with .lf-line{color:var(--ink)}
 .lf-col--with .lf-line-num{color:var(--petrol)}
 
-/* CTA band */
+/* CTA band — label color comes from shared (#8A9590 on the paper band) */
 .sp-cta-inner{max-width:1076px;margin:0 auto}
-.sp-cta .label{display:block;color:rgba(244,242,236,.5);margin-bottom:20px}
+.sp-cta .label{display:block;margin-bottom:20px}
 `;
 
 /* Illustrative sequence — “Owner” and “Customer” are neutral roles,
