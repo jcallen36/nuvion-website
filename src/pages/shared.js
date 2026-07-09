@@ -38,8 +38,9 @@ img{display:block;max-width:100%}
 :where(a,button,input,select,textarea,summary):focus-visible{outline:2px solid var(--petrol);outline-offset:2px;border-radius:2px}
 h1,h2,h3{text-wrap:balance}
 
-/* Paper grain */
-.grain{position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:.05;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* Paper grain — opacity-only (no blend mode: cheap to composite), desktop only */
+.grain{position:fixed;inset:0;z-index:2000;pointer-events:none;opacity:.04;transform:translateZ(0);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E")}
+@media(max-width:900px){.grain{display:none}}
 
 /* Type kit */
 .label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2)}

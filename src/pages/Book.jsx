@@ -81,7 +81,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .bk-field label{font-size:.85rem;font-weight:600;color:var(--ink)}
 .bk-field label .req{color:var(--petrol);margin-left:2px}
 .bk-field label .opt{color:var(--muted-2);font-weight:400}
-.bk-input,.bk-textarea{width:100%;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:12px 14px;color:var(--ink);font-family:inherit;font-size:.92rem;transition:border-color .16s,box-shadow .16s}
+.bk-input,.bk-textarea{width:100%;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:12px 14px;color:var(--ink);font-family:inherit;font-size:16px;transition:border-color .16s,box-shadow .16s}
 .bk-input::placeholder,.bk-textarea::placeholder{color:#A9AFA9}
 .bk-input:focus,.bk-textarea:focus{outline:none;border-color:var(--petrol);box-shadow:0 0 0 3px rgba(14,95,99,.14)}
 .bk-input.err{border-color:#8A4B42}
