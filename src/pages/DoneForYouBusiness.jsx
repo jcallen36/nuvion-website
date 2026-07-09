@@ -1,112 +1,145 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
-import nuvionLogo from '../assets/nuvion-logo.png';
+import SiteNav from '../components/SiteNav.jsx';
 import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-/* Done-For-You Business — the premium meta-service that bundles every
-   capability Nuvion offers (consulting + website + AI front desk +
-   automations + integrations + custom apps + ongoing optimization).
-   Gold/amber accent against the dark/blue brand base. */
-const CSS = BASE_CSS + FOOTER_CSS + `
-/* PAGE ACCENT — gold/amber gradient for premium feel */
-.df-accent{background:linear-gradient(130deg,#FFC645 0%,#F59E0B 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.sp-eyebrow.df{background:rgba(245,158,11,0.10);border:1px solid rgba(245,158,11,0.30);color:#FFC645}
-.sp-cta-btn.df{background:linear-gradient(130deg,#FFC645,#F59E0B);color:#07090F;box-shadow:0 4px 22px rgba(245,158,11,0.35)}
-.sp-cta-btn.df:hover{opacity:.92;transform:translateY(-1px)}
+/* ─────────────────────────────────────────────────────────────
+   Done-For-You Business — the end-to-end engagement that bundles
+   every Nuvion capability: strategy, website, Virtual Front Desk,
+   automations, integrations, custom apps, ongoing optimization.
+   Ink on porcelain paper — no page accent, petrol only.
+───────────────────────────────────────────────────────────── */
 
-/* Hero gold glow backdrop */
-.df-hero-glow{position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:760px;height:520px;background:radial-gradient(circle at 50% 50%,rgba(245,158,11,0.13) 0%,rgba(245,158,11,0) 65%);pointer-events:none;z-index:0}
+const CSS = `
+/* Section scaffold — homepage sec-head pattern */
+.df-section{padding-top:var(--pad-section)}
+.df-section.df-last{padding-bottom:var(--pad-section)}
+.df-head{margin-bottom:clamp(36px,5vw,56px);display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.df-head{grid-template-columns:230px 1fr;gap:44px;align-items:start}}
+.df-index{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol);padding-top:12px;display:flex;gap:10px;align-items:baseline}
+.df-index::after{content:'';flex:1;height:1px;background:var(--hairline);align-self:center}
+.df-h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.8rem,3.4vw,2.7rem);line-height:1.08;letter-spacing:-.018em;max-width:24ch}
+.df-h2 em{font-style:italic;font-weight:400;color:var(--petrol)}
+.df-sub{font-size:.98rem;color:var(--muted-2);line-height:1.7;max-width:58ch;margin-top:12px}
 
-/* The intro paragraph above sections — used a few places */
-.df-intro{max-width:640px;margin:0 auto 40px;color:var(--muted);font-size:.96rem;line-height:1.7;text-align:center}
+/* № 01 — Inventory index rows */
+.df-inv{border-top:1px solid var(--hairline)}
+.df-inv-row{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:20px 6px;border-bottom:1px solid var(--hairline);align-items:baseline;transition:background .2s,padding-left .2s}
+@media(min-width:760px){.df-inv-row{grid-template-columns:56px 260px 1fr;gap:22px}}
+.df-inv-row:hover{background:var(--card);padding-left:14px}
+.df-inv-num{font-family:var(--mono);font-size:.72rem;color:var(--muted-2);font-variant-numeric:tabular-nums;transition:color .2s}
+.df-inv-row:hover .df-inv-num{color:var(--petrol)}
+.df-inv-name{font-family:var(--serif);font-size:1.12rem;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.df-inv-desc{font-size:.9rem;color:var(--muted-2);line-height:1.62;max-width:60ch}
+@media(max-width:759px){.df-inv-desc{grid-column:2}}
 
-/* INCLUDED — components grid (everything the build covers) */
-.df-included{padding:24px 0 88px}
-.df-included-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.df-pill{display:flex;align-items:flex-start;gap:13px;padding:20px 18px;background:linear-gradient(135deg,rgba(245,158,11,0.045) 0%,var(--surface) 65%);border:1px solid rgba(245,158,11,0.18);border-radius:14px;transition:border-color .25s,transform .25s,box-shadow .25s}
-.df-pill:hover{border-color:rgba(245,158,11,0.42);transform:translateY(-2px);box-shadow:0 8px 24px rgba(245,158,11,0.06)}
-.df-pill-icon{width:38px;height:38px;border-radius:10px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0}
-.df-pill-title{font-size:.93rem;font-weight:700;color:var(--text);letter-spacing:-.01em;margin-bottom:4px}
-.df-pill-desc{font-size:.79rem;color:var(--muted);line-height:1.55}
-@media(max-width:900px){.df-included-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.df-included-grid{grid-template-columns:1fr}}
+/* № 02 — Two starting points (plates) */
+.df-paths{display:grid;grid-template-columns:1fr;gap:22px}
+@media(min-width:820px){.df-paths{grid-template-columns:1fr 1fr}}
+.df-path{padding:32px 30px 26px;border-top:2px solid var(--petrol);display:flex;flex-direction:column;transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out)}
+.df-path:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.df-path-tag{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);padding-bottom:16px;border-bottom:1px solid var(--hairline)}
+.df-path-h{font-family:var(--serif);font-size:clamp(1.3rem,2.2vw,1.7rem);font-weight:700;letter-spacing:-.015em;line-height:1.15;margin:18px 0 10px}
+.df-path-p{font-size:.92rem;color:var(--muted-2);line-height:1.68;margin-bottom:22px;max-width:52ch}
+.df-path-list{list-style:none;margin-top:auto;border-top:1px solid var(--hairline)}
+.df-path-list li{display:flex;gap:12px;align-items:baseline;padding:10px 0;font-size:.88rem;color:var(--ink);border-bottom:1px solid var(--hairline);line-height:1.55}
+.df-path-list li:last-child{border-bottom:none}
+.df-path-list li::before{content:'—';font-family:var(--mono);font-size:.8rem;color:var(--petrol);flex-shrink:0}
 
-/* COMPARISON — vendor stack vs done-for-you */
-.df-compare{padding:0 0 88px}
-.df-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.df-col{padding:30px 26px;border-radius:18px;background:var(--surface);border:1px solid var(--border)}
-.df-col-bad{background:linear-gradient(160deg,rgba(107,114,128,0.05) 0%,var(--surface) 80%)}
-.df-col-good{background:linear-gradient(160deg,rgba(245,158,11,0.08) 0%,var(--surface) 80%);border-color:rgba(245,158,11,0.32);box-shadow:0 0 40px rgba(245,158,11,0.05)}
-.df-col-label{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:8px}
-.df-col-bad .df-col-label{color:#6B7280}
-.df-col-good .df-col-label{color:#FFC645}
-.df-col h3{font-size:1.22rem;font-weight:800;letter-spacing:-.02em;margin-bottom:18px;color:var(--text)}
-.df-col-line{display:flex;align-items:flex-start;gap:10px;padding:11px 0;font-size:.86rem;line-height:1.5;border-top:1px solid rgba(255,255,255,0.04);color:var(--muted)}
-.df-col-line:first-of-type{border-top:none;padding-top:0}
-.df-col-good .df-col-line{color:#E8EAF6}
-.df-col-mark{flex-shrink:0;font-weight:800;font-size:.92rem;line-height:1.55;min-width:14px}
-.df-col-bad .df-col-mark{color:#6B7280}
-.df-col-good .df-col-mark{color:#F59E0B}
-@media(max-width:780px){.df-compare-grid{grid-template-columns:1fr}}
+/* № 03 — Vendor stack vs done-for-you (parallel ruled columns) */
+.df-compare{display:grid;grid-template-columns:1fr;gap:22px}
+@media(min-width:820px){.df-compare{grid-template-columns:1fr 1fr}}
+.df-col{padding:30px 30px 22px;border:1px solid var(--hairline);border-radius:10px}
+.df-col-dfy{border-top:2px solid var(--petrol)}
+.df-col-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;padding-bottom:14px;border-bottom:1px solid var(--hairline)}
+.df-col-vendor .df-col-label{color:var(--muted-2)}
+.df-col-dfy .df-col-label{color:var(--petrol)}
+.df-col h3{font-family:var(--serif);font-size:1.28rem;font-weight:700;letter-spacing:-.012em;margin:18px 0 8px}
+.df-col-vendor h3{color:var(--muted-2)}
+.df-col-line{display:flex;gap:14px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--hairline);font-size:.9rem;line-height:1.55}
+.df-col-line:last-child{border-bottom:none}
+.df-col-vendor .df-col-line{color:var(--muted-2)}
+.df-col-dfy .df-col-line{color:var(--ink)}
+.df-mark{font-family:var(--mono);font-size:.72rem;flex-shrink:0;font-variant-numeric:tabular-nums}
+.df-col-vendor .df-mark{color:var(--muted-2)}
+.df-col-dfy .df-mark{color:var(--petrol)}
 
-/* PROCESS — vertical timeline */
-.df-process{padding:0 0 88px}
-.df-process-list{display:flex;flex-direction:column;gap:14px}
-.df-step{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:flex-start;padding:24px 28px 24px 32px;background:var(--surface);border:1px solid var(--border);border-radius:16px;position:relative;overflow:hidden;transition:border-color .25s}
-.df-step::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#FFC645,#F59E0B)}
-.df-step:hover{border-color:rgba(245,158,11,0.32)}
-.df-step-num{font-size:2.4rem;font-weight:900;background:linear-gradient(130deg,#FFC645,#F59E0B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.04em;line-height:.95;min-width:70px}
-.df-step-title{font-size:1.08rem;font-weight:700;letter-spacing:-.015em;margin-bottom:6px;color:var(--text)}
-.df-step-desc{font-size:.9rem;color:var(--muted);line-height:1.65}
-@media(max-width:560px){.df-step{grid-template-columns:1fr;gap:10px;padding:22px 24px 22px 28px}.df-step-num{font-size:2rem;min-width:0}}
+/* № 04 — Process rows (homepage promise-row pattern) */
+.df-proc{border-top:1px solid var(--hairline)}
+.df-proc-row{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:clamp(22px,3vw,34px) 6px;border-bottom:1px solid var(--hairline);align-items:baseline;transition:background .2s,padding-left .2s}
+@media(min-width:760px){.df-proc-row{grid-template-columns:70px 260px 1fr;gap:24px}}
+.df-proc-row:hover{background:var(--card);padding-left:14px}
+.df-proc-num{font-family:var(--mono);font-size:.75rem;color:var(--petrol);font-variant-numeric:tabular-nums}
+.df-proc-title{font-family:var(--serif);font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:700;letter-spacing:-.012em;line-height:1.18}
+.df-proc-desc{font-size:.92rem;color:var(--muted-2);line-height:1.68;max-width:56ch}
+@media(max-width:759px){.df-proc-desc{grid-column:2}}
 
-/* TWO STARTING POINTS — new vs existing */
-.df-paths{padding:0 0 88px}
-.df-paths-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.df-path{background:linear-gradient(160deg,rgba(245,158,11,0.06) 0%,var(--surface) 80%);border:1px solid rgba(245,158,11,0.22);border-radius:18px;padding:32px 28px;transition:border-color .25s,transform .25s}
-.df-path:hover{border-color:rgba(245,158,11,0.42);transform:translateY(-3px)}
-.df-path-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.30);color:#FFC645;font-size:.68rem;font-weight:800;padding:5px 12px;border-radius:100px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
-.df-path-h{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin-bottom:12px;color:var(--text)}
-.df-path-h em{font-style:normal;background:linear-gradient(130deg,#FFC645,#F59E0B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-.df-path-p{font-size:.92rem;color:var(--muted);line-height:1.7;margin-bottom:18px}
-.df-path-list{display:flex;flex-direction:column;gap:8px;padding-top:18px;border-top:1px solid rgba(245,158,11,0.18)}
-.df-path-line{font-size:.83rem;color:var(--text);display:flex;align-items:flex-start;gap:9px;line-height:1.55}
-.df-path-line::before{content:'→';color:#F59E0B;font-weight:700;flex-shrink:0}
-@media(max-width:780px){.df-paths-grid{grid-template-columns:1fr}}
+/* № 05 — Fit / not-fit (ruled editorial columns: petrol vs muted) */
+.df-fit{display:grid;grid-template-columns:1fr;gap:0 48px;max-width:980px}
+@media(min-width:760px){.df-fit{grid-template-columns:1fr 1fr}}
+.df-fit-col{border-top:1px solid var(--hairline)}
+@media(max-width:759px){.df-fit-no{margin-top:40px}}
+.df-fit-head{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;padding:16px 6px;border-bottom:1px solid var(--hairline)}
+.df-fit-yes .df-fit-head{color:var(--petrol)}
+.df-fit-no .df-fit-head{color:var(--muted-2)}
+.df-fit-line{display:flex;gap:14px;align-items:baseline;padding:15px 6px;border-bottom:1px solid var(--hairline);font-size:.92rem;line-height:1.6;transition:background .2s,padding-left .2s}
+.df-fit-line:hover{background:var(--card);padding-left:14px}
+.df-fit-num{font-family:var(--mono);font-size:.72rem;flex-shrink:0;font-variant-numeric:tabular-nums}
+.df-fit-yes .df-fit-num{color:var(--petrol)}
+.df-fit-yes .df-fit-line{color:var(--ink)}
+.df-fit-no .df-fit-num{color:var(--muted-2)}
+.df-fit-no .df-fit-line{color:var(--muted-2)}
 
-/* WHO IT'S FOR — fit/not-fit comparison */
-.df-fit{padding:0 0 88px}
-.df-fit-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:820px;margin:0 auto}
-.df-fit-card{background:rgba(245,158,11,0.04);border:1px solid rgba(245,158,11,0.22);border-radius:14px;padding:22px 22px}
-.df-fit-card-y{font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#FFC645;margin-bottom:12px}
-.df-fit-card-line{font-size:.84rem;color:var(--text);padding:7px 0;display:flex;gap:9px;align-items:flex-start;line-height:1.5}
-.df-fit-card-line::before{content:'✓';color:#F59E0B;font-weight:700;flex-shrink:0;font-size:.95rem}
-.df-fit-not{background:transparent;border-color:rgba(255,255,255,0.06)}
-.df-fit-not .df-fit-card-y{color:#6B7280}
-.df-fit-not .df-fit-card-line{color:#9CA3AF}
-.df-fit-not .df-fit-card-line::before{content:'×';color:#6B7280;font-weight:800}
-@media(max-width:600px){.df-fit-grid{grid-template-columns:1fr}}
+/* CTA inner alignment (sp-cta pads 32px; match sp-wrap's content column) */
+.df-cta-inner{max-width:1076px;margin:0 auto}
+.df-cta-label{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,242,236,.55);margin-bottom:20px}
 `;
 
+/* ── Data ─────────────────────────────────────────────────── */
 const INCLUDED = [
-  { icon: '🧭', title: 'Strategy & Consulting',          desc: 'We start by getting deeply inside your business — customers, bottlenecks, goals — before writing a single line of anything.' },
-  { icon: '🖥️', title: 'Website + Branding',              desc: 'A custom site built for conversion, mobile-first, wired into your operations — not a static brochure.' },
-  { icon: '📞', title: 'Virtual Front Desk',               desc: '24/7 AI receptionist that answers every call, books appointments, triages emergencies, and runs reminders.' },
-  { icon: '📈', title: 'Lead Follow-Up Automation',        desc: 'Every new lead gets a personalized response within seconds — SMS, email, voicemail. Nothing slips.' },
-  { icon: '🔗', title: 'Custom Integrations',              desc: 'Your CRM, calendar, billing, comms — all connected so your systems talk to each other automatically.' },
-  { icon: '🤖', title: 'Custom AI Features',               desc: 'Bespoke AI built for your business — quote bots, lead scorers, intake assistants, whatever moves the needle.' },
-  { icon: '📱', title: 'Custom Internal Apps',             desc: 'Replace clunky spreadsheets and tab-shuffling with tools built around how your team actually works.' },
-  { icon: '🔎', title: 'SEO & AI Search Optimization',     desc: 'Get found by Google AND by AI assistants like ChatGPT, Gemini, and Perplexity — where attention is moving.' },
-  { icon: '🔔', title: 'Reminders & Review Requests',      desc: 'Auto-nudge customers to reduce no-shows and grow your Google rating — all on autopilot.' },
+  { title: 'Strategy & Consulting', desc: 'We start by getting deeply inside your business — customers, bottlenecks, goals — before writing a single line of anything.' },
+  { title: 'Website + Branding', desc: 'A custom site built for conversion, mobile-first, wired into your operations — not a static brochure.' },
+  { title: 'Virtual Front Desk', desc: 'A 24/7 AI receptionist that answers every call, books appointments, triages emergencies, and runs reminders.' },
+  { title: 'Lead Follow-Up Automation', desc: 'Every new lead gets a personalized response within seconds — SMS, email, voicemail. Nothing slips.' },
+  { title: 'Custom Integrations', desc: 'Your CRM, calendar, billing, comms — all connected so your systems talk to each other automatically.' },
+  { title: 'Custom AI Features', desc: 'Bespoke AI built for your business — quote bots, lead scorers, intake assistants, whatever moves the needle.' },
+  { title: 'Custom Internal Apps', desc: 'Replace clunky spreadsheets and tab-shuffling with tools built around how your team actually works.' },
+  { title: 'SEO & AI Search Optimization', desc: 'Get found by Google — and by AI assistants like ChatGPT, Gemini, and Perplexity, where attention is moving.' },
+  { title: 'Reminders & Review Requests', desc: 'Automatic nudges that reduce no-shows and grow your Google rating — all without you touching it.' },
+];
+
+const PATHS = [
+  {
+    tag: 'Path A — Launching a new business',
+    headline: 'Start with the whole operation, not just a website.',
+    body: 'Most new founders cobble together a logo, a Squarespace site, a Calendly link, and start hustling. Six months in, they’re drowning in manual tasks and rebuilding everything. We skip that — you launch with strategy, brand, site, AI front desk, and automations from day one.',
+    lines: [
+      'Strategic positioning + brand identity from scratch',
+      'Site + booking + AI receptionist live on launch day',
+      'Lead capture + follow-up automated from your first lead',
+      'No “we’ll fix the systems later” — built right the first time',
+    ],
+  },
+  {
+    tag: 'Path B — Already running',
+    headline: 'Stop juggling vendors and tools.',
+    body: 'You’ve been making it work with a patchwork — a website here, a CRM there, a missed-call texting tool that doesn’t talk to your calendar. We replace that with one connected system, take it off your plate, and tune it monthly.',
+    lines: [
+      'Audit your current stack — keep what works, replace what doesn’t',
+      'Connect everything you already use into one operation',
+      'Free up the owner from coordination and admin',
+      'Ongoing monthly optimization based on what’s actually performing',
+    ],
+  },
 ];
 
 const VENDOR_PROBLEMS = [
   'Manage 3–5 different vendors yourself',
-  'Tools that don\'t talk to each other',
-  '"Wait, who handles that part?"',
+  'Tools that don’t talk to each other',
+  '“Wait, who handles that part?”',
   'Constant coordination overhead',
-  'You\'re still the operations bottleneck',
+  'You’re still the operations bottleneck',
   'Vendors disappear after launch day',
 ];
 
@@ -120,45 +153,16 @@ const DFY_WINS = [
 ];
 
 const PROCESS = [
-  { n: '01', title: 'Discovery Deep-Dive',
-    desc: 'A 90-minute working session where we map your business — customers, daily workflows, every manual task you wish would just happen on its own. We leave with a clear picture of what we\'re building and why.' },
-  { n: '02', title: 'Custom Blueprint',
-    desc: 'Within a week, you get a written spec: every system we\'ll build, how they\'ll connect, who owns what. You sign off on the plan before we touch a single line of code.' },
-  { n: '03', title: 'Parallel Build',
-    desc: 'Our team builds every component in parallel — website, AI receptionist, automations, integrations, custom apps. We coordinate so it all hits production at the same time, not piece by piece.' },
-  { n: '04', title: 'Coordinated Launch',
-    desc: 'Everything goes live together. One onboarding session for the whole system, plus a written runbook so you know exactly what to do if anything ever needs adjusting from your side.' },
-  { n: '05', title: 'Continuous Optimization',
-    desc: 'We don\'t disappear after launch. Monthly review calls, real-time monitoring, and tweaks based on what\'s actually working in your specific business. Your operation gets sharper every month.' },
+  { title: 'Discovery deep-dive', desc: 'A 90-minute working session where we map your business — customers, daily workflows, every manual task you wish would just happen on its own. We leave with a clear picture of what we’re building and why.' },
+  { title: 'Custom blueprint', desc: 'Within a week, you get a written spec: every system we’ll build, how they’ll connect, who owns what. You sign off on the plan before we touch a single line of code.' },
+  { title: 'Parallel build', desc: 'We build every component in parallel — website, AI receptionist, automations, integrations, custom apps — and coordinate so it all hits production at the same time, not piece by piece.' },
+  { title: 'Coordinated launch', desc: 'Everything goes live together. One onboarding session for the whole system, plus a written runbook so you know exactly what to do if anything ever needs adjusting from your side.' },
+  { title: 'Continuous optimization', desc: 'We don’t disappear after launch. Monthly review calls, real-time monitoring, and tweaks based on what’s actually working in your specific business. Your operation gets sharper every month.' },
 ];
-
-const PATH_NEW = {
-  tag: 'Launching a new business',
-  headline: 'Start with the whole operation, not just a website.',
-  body: 'Most new founders cobble together a logo, a Squarespace site, a Calendly link, and start hustling. Six months in, they\'re drowning in manual tasks and rebuilding everything. We skip that — you launch with strategy, brand, site, AI front desk, and automations from day one.',
-  lines: [
-    'Strategic positioning + brand identity from scratch',
-    'Site + booking + AI receptionist live on launch day',
-    'Lead capture + follow-up automated from your first lead',
-    'No "we\'ll fix the systems later" — built right the first time',
-  ],
-};
-
-const PATH_EXISTING = {
-  tag: 'Already running',
-  headline: 'Stop juggling vendors and tools.',
-  body: 'You\'ve been making it work with a patchwork — a website here, a CRM there, a missed-call texting tool that doesn\'t talk to your calendar. We replace that with one connected system, take it off your plate, and tune it monthly.',
-  lines: [
-    'Audit your current stack — keep what works, replace what doesn\'t',
-    'Connect everything you already use into one operation',
-    'Free up the owner from coordination and admin',
-    'Ongoing monthly optimization based on what\'s actually performing',
-  ],
-};
 
 const RIGHT_FIT = [
   'Launching a new service business and want to start right',
-  'OR running one and tired of juggling multiple vendors',
+  'Or running one and tired of juggling multiple vendors',
   'Want a real operation, not a patchwork of tools',
   'Ready to invest in something built around you',
 ];
@@ -170,6 +174,7 @@ const NOT_FIT = [
   'Not ready for a 3–6 month engagement',
 ];
 
+/* ── Page ─────────────────────────────────────────────────── */
 export default function DoneForYouBusiness() {
   return (
     <>
@@ -178,117 +183,169 @@ export default function DoneForYouBusiness() {
         <meta name="description" content="The full Nuvion Solutions build — strategy, website, AI Virtual Front Desk, automations, integrations, custom apps, and ongoing optimization. One team, end-to-end, everything connected. Custom-scoped." />
         <link rel="canonical" href="https://nuvion-solutions.com/services/done-for-you-business" />
       </Helmet>
-      <style dangerouslySetInnerHTML={{ __html: CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: BASE_CSS + FOOTER_CSS + CSS }} />
+      <div className="grain" aria-hidden="true" />
 
-      <nav className="sp-nav">
-        <Link to="/" className="sp-logo"><img src={nuvionLogo} className="sp-logo-img" alt="Nuvion Solutions" /></Link>
-        <Link to="/" className="sp-back">← Back to Home</Link>
-      </nav>
+      <SiteNav />
 
-      <div className="sp-hero" style={{ position: 'relative' }}>
-        <div className="df-hero-glow" aria-hidden="true" />
-        <div className="sp-eyebrow df">🏗️ Done-For-You Business</div>
-        <h1 className="sp-h1">One team.<br /><em className="df-accent">The whole business.</em></h1>
-        <p className="sp-sub">Whether you're launching a brand-new business or scaling one that's already running — we build out and connect your entire operation. Strategy, website, AI receptionist, automations, integrations, custom apps. One team, end to end, everything talking to each other.</p>
-      </div>
+      <header className="sp-hero">
+        <div className="sp-eyebrow">Service № 10 — Done-For-You Business</div>
+        <h1 className="sp-h1">One team. <em>The whole business.</em></h1>
+        <p className="sp-sub">
+          Whether you’re launching a brand-new business or scaling one that’s
+          already running — we build out and connect your entire operation.
+          Strategy, website, AI receptionist, automations, integrations, custom
+          apps. One team, end to end, everything talking to each other.
+        </p>
+      </header>
 
-      <div className="sp-wrap">
-        {/* WHAT'S INCLUDED */}
-        <div className="df-included">
-          <div className="sp-section-title">What's Included</div>
-          <p className="df-intro">Every component of a modern service business — built, connected, and tuned to your specific operation. Take everything, or take only the pieces you need. We tailor scope to fit.</p>
-          <div className="df-included-grid">
-            {INCLUDED.map(item => (
-              <div key={item.title} className="df-pill">
-                <div className="df-pill-icon">{item.icon}</div>
-                <div>
-                  <div className="df-pill-title">{item.title}</div>
-                  <div className="df-pill-desc">{item.desc}</div>
-                </div>
+      <main className="sp-wrap">
+        {/* № 01 — WHAT'S INCLUDED */}
+        <section className="df-section">
+          <div className="df-head">
+            <div className="df-index">№ 01 — What’s included</div>
+            <div>
+              <h2 className="df-h2">Every system a modern service business runs on — <em>in one build</em>.</h2>
+              <p className="df-sub">
+                Built, connected, and tuned to your specific operation. Take
+                everything, or take only the pieces you need — we tailor scope to fit.
+              </p>
+            </div>
+          </div>
+          <div className="df-inv" role="list">
+            {INCLUDED.map((item, i) => (
+              <div key={item.title} className="df-inv-row" role="listitem">
+                <span className="df-inv-num">{String(i + 1).padStart(2, '0')}</span>
+                <span className="df-inv-name">{item.title}</span>
+                <span className="df-inv-desc">{item.desc}</span>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* TWO STARTING POINTS — new vs existing */}
-        <div className="df-paths">
-          <div className="sp-section-title">Two Starting Points</div>
-          <p className="df-intro">Done-For-You Business works whether you're launching from zero or scaling something that already exists. The build process is the same — only the starting context changes.</p>
-          <div className="df-paths-grid">
-            {[PATH_NEW, PATH_EXISTING].map(p => (
-              <div key={p.tag} className="df-path">
+        {/* № 02 — TWO STARTING POINTS */}
+        <section className="df-section">
+          <div className="df-head">
+            <div className="df-index">№ 02 — Two starting points</div>
+            <div>
+              <h2 className="df-h2">Launching from zero, or <em>already running</em>.</h2>
+              <p className="df-sub">
+                Done-For-You Business works from either starting point. The build
+                process is the same — only the starting context changes.
+              </p>
+            </div>
+          </div>
+          <div className="df-paths">
+            {PATHS.map(p => (
+              <article key={p.tag} className="plate df-path">
                 <div className="df-path-tag">{p.tag}</div>
                 <h3 className="df-path-h">{p.headline}</h3>
                 <p className="df-path-p">{p.body}</p>
-                <div className="df-path-list">
-                  {p.lines.map(line => <div key={line} className="df-path-line">{line}</div>)}
-                </div>
-              </div>
+                <ul className="df-path-list">
+                  {p.lines.map(line => <li key={line}>{line}</li>)}
+                </ul>
+              </article>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* WHY NOT JUST HIRE 5 FREELANCERS */}
-        <div className="df-compare">
-          <div className="sp-section-title">Why Not Just Hire 5 Freelancers?</div>
-          <p className="df-intro">You can. People do. Here's what that looks like vs. what we do.</p>
-          <div className="df-compare-grid">
-            <div className="df-col df-col-bad">
-              <div className="df-col-label">⚠ The Vendor Stack</div>
-              <h3>Juggling 5 contractors</h3>
-              {VENDOR_PROBLEMS.map(line => (
-                <div key={line} className="df-col-line"><span className="df-col-mark">✕</span>{line}</div>
+        {/* № 03 — THE ALTERNATIVE */}
+        <section className="df-section">
+          <div className="df-head">
+            <div className="df-index">№ 03 — The alternative</div>
+            <div>
+              <h2 className="df-h2">Why not just hire <em>five freelancers</em>?</h2>
+              <p className="df-sub">You can. People do. Here’s what that looks like next to what we do.</p>
+            </div>
+          </div>
+          <div className="df-compare">
+            <div className="df-col df-col-vendor">
+              <div className="df-col-label">The vendor stack</div>
+              <h3>Juggling five contractors</h3>
+              {VENDOR_PROBLEMS.map((line, i) => (
+                <div key={line} className="df-col-line">
+                  <span className="df-mark">{String(i + 1).padStart(2, '0')}</span>{line}
+                </div>
               ))}
             </div>
-            <div className="df-col df-col-good">
-              <div className="df-col-label">✓ Done-For-You</div>
+            <div className="df-col df-col-dfy">
+              <div className="df-col-label">Done-for-you</div>
               <h3>One team, one operation</h3>
-              {DFY_WINS.map(line => (
-                <div key={line} className="df-col-line"><span className="df-col-mark">✓</span>{line}</div>
+              {DFY_WINS.map((line, i) => (
+                <div key={line} className="df-col-line">
+                  <span className="df-mark">{String(i + 1).padStart(2, '0')}</span>{line}
+                </div>
               ))}
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* PROCESS */}
-        <div className="df-process">
-          <div className="sp-section-title">How It Works</div>
-          <p className="df-intro">Five phases, all under one roof. No handoffs between agencies, no "that's not our department."</p>
-          <div className="df-process-list">
-            {PROCESS.map(s => (
-              <div key={s.n} className="df-step">
-                <div className="df-step-num">{s.n}</div>
-                <div>
-                  <div className="df-step-title">{s.title}</div>
-                  <div className="df-step-desc">{s.desc}</div>
-                </div>
+        {/* № 04 — THE PROCESS */}
+        <section className="df-section">
+          <div className="df-head">
+            <div className="df-index">№ 04 — The process</div>
+            <div>
+              <h2 className="df-h2">Five phases, <em>one roof</em>.</h2>
+              <p className="df-sub">No handoffs between agencies, no “that’s not our department.”</p>
+            </div>
+          </div>
+          <div className="df-proc">
+            {PROCESS.map((s, i) => (
+              <div key={s.title} className="df-proc-row">
+                <span className="df-proc-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="df-proc-title">{s.title}</h3>
+                <p className="df-proc-desc">{s.desc}</p>
               </div>
             ))}
           </div>
-        </div>
+        </section>
 
-        {/* WHO IT'S FOR */}
-        <div className="df-fit">
-          <div className="sp-section-title">Who This Is For</div>
-          <p className="df-intro">This is a premium engagement. Worth being upfront about who it does and doesn't fit.</p>
-          <div className="df-fit-grid">
-            <div className="df-fit-card">
-              <div className="df-fit-card-y">Right fit if you...</div>
-              {RIGHT_FIT.map(line => <div key={line} className="df-fit-card-line">{line}</div>)}
-            </div>
-            <div className="df-fit-card df-fit-not">
-              <div className="df-fit-card-y">Not the right fit if you...</div>
-              {NOT_FIT.map(line => <div key={line} className="df-fit-card-line">{line}</div>)}
+        {/* № 05 — WHO IT'S FOR */}
+        <section className="df-section df-last">
+          <div className="df-head">
+            <div className="df-index">№ 05 — Who it’s for</div>
+            <div>
+              <h2 className="df-h2">A serious engagement — <em>worth being upfront about</em>.</h2>
+              <p className="df-sub">
+                Done-For-You Business does its best work in specific situations.
+                Here’s an honest read on both sides.
+              </p>
             </div>
           </div>
-        </div>
-      </div>
+          <div className="df-fit">
+            <div className="df-fit-col df-fit-yes">
+              <div className="df-fit-head">Right fit if you…</div>
+              {RIGHT_FIT.map((line, i) => (
+                <div key={line} className="df-fit-line">
+                  <span className="df-fit-num">{String(i + 1).padStart(2, '0')}</span>{line}
+                </div>
+              ))}
+            </div>
+            <div className="df-fit-col df-fit-no">
+              <div className="df-fit-head">Not the right fit if you…</div>
+              {NOT_FIT.map((line, i) => (
+                <div key={line} className="df-fit-line">
+                  <span className="df-fit-num">{String(i + 1).padStart(2, '0')}</span>{line}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
 
-      <div className="sp-cta">
-        <h2>Let's scope what your business actually needs.</h2>
-        <p>Every engagement is custom — book a strategy call and we'll walk through what your business looks like 6 months from now if we built it for you.</p>
-        <Link to="/book" className="sp-cta-btn df">Book a Strategy Call →</Link>
-      </div>
+      <section className="sp-cta">
+        <div className="df-cta-inner">
+          <div className="df-cta-label">№ 06 — Start here</div>
+          <h2>Let’s scope what your business actually needs.</h2>
+          <p>
+            Every engagement is custom — book a strategy call and we’ll walk
+            through what your business looks like six months from now if we
+            built it for you.
+          </p>
+          <Link to="/book" className="sp-cta-btn">Book a strategy call <span aria-hidden="true">→</span></Link>
+        </div>
+      </section>
+
       <Footer />
     </>
   );

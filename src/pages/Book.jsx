@@ -1,8 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
-import nuvionLogo from '../assets/nuvion-logo.png';
+import SiteNav from '../components/SiteNav.jsx';
 import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
 // ── n8n booking backend (webhooks live under this base) ──────────────────────
@@ -25,95 +24,105 @@ const SERVICES = [
 ];
 
 const CSS = BASE_CSS + FOOTER_CSS + `
-.bk-hero{padding:48px 32px 28px;max-width:700px;margin:0 auto;text-align:center}
-.bk-hero h1{font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:14px}
-.bk-hero p{color:var(--muted);font-size:.95rem;line-height:1.7}
+.bk-hero{padding:clamp(48px,7vw,84px) 32px 26px;max-width:820px;margin:0 auto;text-align:left}
+.bk-hero .sp-eyebrow{margin-bottom:20px}
+.bk-hero h1{font-family:var(--serif);font-size:clamp(2rem,4.4vw,3.2rem);font-weight:700;letter-spacing:-.02em;line-height:1.05;margin-bottom:16px}
+.bk-hero h1 .grad{font-style:italic;font-weight:400}
+.bk-hero p{color:var(--muted-2);font-size:1rem;line-height:1.7;max-width:56ch}
 
-.bk-book{max-width:720px;margin:0 auto;padding:0 32px 72px}
-.bk-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px 26px}
+.bk-book{max-width:820px;margin:0 auto;padding:18px 32px 88px}
+.bk-card{background:var(--card);border:1px solid var(--hairline);border-top:2px solid var(--petrol);border-radius:8px;box-shadow:var(--shadow-1);padding:30px 28px}
 
 /* step heads */
-.bk-step-label{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
-.bk-step-num{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--cyan));color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:800}
+.bk-step-label{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol);margin-bottom:18px}
+.bk-step-num{width:22px;height:22px;border-radius:50%;border:1px solid var(--petrol);color:var(--petrol);display:inline-flex;align-items:center;justify-content:center;font-size:.7rem}
 
 /* loading */
-.bk-loading{display:flex;flex-direction:column;align-items:center;gap:16px;padding:44px 0;color:var(--muted);font-size:.9rem}
-.bk-spin{width:34px;height:34px;border-radius:50%;border:3px solid var(--border);border-top-color:var(--primary);animation:bkspin .8s linear infinite}
+.bk-loading{display:flex;flex-direction:column;align-items:center;gap:16px;padding:44px 0;color:var(--muted-2);font-size:.9rem}
+.bk-spin{width:34px;height:34px;border-radius:50%;border:2px solid var(--hairline);border-top-color:var(--petrol);animation:bkspin .8s linear infinite}
 @keyframes bkspin{to{transform:rotate(360deg)}}
 
 /* state message (empty / error) */
 .bk-msg{text-align:center;padding:34px 8px}
-.bk-msg h3{font-size:1.1rem;font-weight:700;margin-bottom:10px}
-.bk-msg p{color:var(--muted);font-size:.9rem;line-height:1.7;margin-bottom:20px}
-.bk-msg a{color:var(--cyan);font-weight:600}
+.bk-msg h3{font-family:var(--serif);font-size:1.25rem;font-weight:700;margin-bottom:10px}
+.bk-msg p{color:var(--muted-2);font-size:.92rem;line-height:1.7;margin-bottom:20px}
+.bk-msg a{color:var(--petrol);font-weight:600;border-bottom:1px solid var(--hairline)}
 
 /* day selector */
 .bk-days{display:flex;gap:9px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:thin}
 .bk-days::-webkit-scrollbar{height:6px}
-.bk-days::-webkit-scrollbar-thumb{background:var(--dim);border-radius:6px}
-.bk-day{flex:0 0 auto;min-width:82px;padding:11px 10px;border-radius:13px;border:1px solid var(--border);background:var(--surface2);color:var(--text);cursor:pointer;text-align:center;transition:all .18s;font-family:inherit}
-.bk-day:hover{border-color:rgba(79,110,247,.4)}
-.bk-day.sel{border-color:var(--primary);background:rgba(79,110,247,.14)}
-.bk-day .bk-dow{display:block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-.bk-day.sel .bk-dow{color:var(--cyan)}
-.bk-day .bk-dnum{display:block;font-size:1.02rem;font-weight:800;line-height:1}
-.bk-day .bk-dmon{display:block;font-size:.64rem;color:var(--muted);margin-top:3px}
+.bk-days::-webkit-scrollbar-thumb{background:var(--hairline);border-radius:6px}
+.bk-day{flex:0 0 auto;min-width:82px;padding:11px 10px;border-radius:6px;border:1px solid var(--hairline);background:var(--paper);color:var(--ink);cursor:pointer;text-align:center;transition:all .18s;font-family:inherit}
+.bk-day:hover{border-color:var(--ink)}
+.bk-day.sel{border-color:var(--petrol);background:var(--card);box-shadow:inset 0 2px 0 var(--petrol)}
+.bk-day .bk-dow{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);margin-bottom:3px}
+.bk-day.sel .bk-dow{color:var(--petrol)}
+.bk-day .bk-dnum{display:block;font-family:var(--serif);font-size:1.15rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.bk-day .bk-dmon{display:block;font-size:.66rem;color:var(--muted-2);margin-top:3px}
 
 /* time grid */
 .bk-times{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;margin-top:20px}
-.bk-slot{padding:12px 8px;border-radius:11px;border:1px solid var(--border);background:var(--surface2);color:var(--text);cursor:pointer;font-size:.9rem;font-weight:600;transition:all .16s;font-family:inherit}
-.bk-slot:hover{border-color:rgba(79,110,247,.5);transform:translateY(-1px)}
-.bk-slot.sel{background:linear-gradient(130deg,var(--cyan),var(--primary) 60%,var(--violet));border-color:transparent;color:#fff}
-.bk-tz{margin-top:16px;font-size:.78rem;color:var(--dim);text-align:center}
+.bk-slot{padding:12px 8px;border-radius:6px;border:1px solid var(--hairline);background:var(--paper);color:var(--ink);cursor:pointer;font-size:.9rem;font-weight:600;transition:all .16s;font-family:inherit;font-variant-numeric:tabular-nums}
+.bk-slot:hover{border-color:var(--ink);transform:translateY(-1px)}
+.bk-slot.sel{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.bk-tz{margin-top:16px;font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;color:var(--muted-2);text-align:center}
 
 /* selected-time banner */
-.bk-selbar{display:flex;align-items:center;gap:12px;background:rgba(79,110,247,.08);border:1px solid var(--border);border-radius:12px;padding:13px 16px;margin-bottom:22px}
-.bk-selbar .bk-check{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--cyan));display:flex;align-items:center;justify-content:center;color:#fff;font-size:.8rem;font-weight:900}
-.bk-selbar .bk-seltime{font-weight:700;font-size:.92rem}
-.bk-selbar .bk-seltime span{display:block;font-size:.74rem;font-weight:500;color:var(--muted);margin-top:2px}
-.bk-selbar .bk-change{margin-left:auto;font-size:.78rem;color:var(--cyan);background:none;border:none;cursor:pointer;font-family:inherit;font-weight:600;padding:6px}
+.bk-selbar{display:flex;align-items:center;gap:12px;background:var(--paper);border:1px solid var(--hairline);border-left:2px solid var(--petrol);border-radius:6px;padding:13px 16px;margin-bottom:22px}
+.bk-selbar .bk-check{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:var(--petrol);display:flex;align-items:center;justify-content:center;color:var(--paper);font-size:.8rem}
+.bk-selbar .bk-seltime{font-weight:600;font-size:.92rem}
+.bk-selbar .bk-seltime span{display:block;font-size:.74rem;font-weight:400;color:var(--muted-2);margin-top:2px}
+.bk-selbar .bk-change{margin-left:auto;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--petrol);background:none;border:none;cursor:pointer;padding:6px}
+.bk-selbar .bk-change:hover{color:var(--petrol-deep)}
 
 /* form */
 .bk-form{display:flex;flex-direction:column;gap:16px}
 .bk-field{display:flex;flex-direction:column;gap:7px}
-.bk-field label{font-size:.82rem;font-weight:600;color:var(--text)}
-.bk-field label .req{color:var(--pink);margin-left:2px}
-.bk-input,.bk-textarea{width:100%;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;color:var(--text);font-family:inherit;font-size:.92rem;transition:border-color .16s,box-shadow .16s}
-.bk-input::placeholder,.bk-textarea::placeholder{color:var(--dim)}
-.bk-input:focus,.bk-textarea:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,110,247,.18)}
-.bk-input.err{border-color:var(--pink)}
+.bk-field label{font-size:.85rem;font-weight:600;color:var(--ink)}
+.bk-field label .req{color:var(--petrol);margin-left:2px}
+.bk-field label .opt{color:var(--muted-2);font-weight:400}
+.bk-input,.bk-textarea{width:100%;background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:12px 14px;color:var(--ink);font-family:inherit;font-size:.92rem;transition:border-color .16s,box-shadow .16s}
+.bk-input::placeholder,.bk-textarea::placeholder{color:#A9AFA9}
+.bk-input:focus,.bk-textarea:focus{outline:none;border-color:var(--petrol);box-shadow:0 0 0 3px rgba(14,95,99,.14)}
+.bk-input.err{border-color:#8A4B42}
 .bk-textarea{resize:vertical;min-height:88px}
-.bk-err{font-size:.76rem;color:var(--pink)}
+.bk-err{font-size:.76rem;color:#8A4B42}
 .bk-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 
 /* service chips */
 .bk-services{display:flex;flex-wrap:wrap;gap:9px}
-.bk-chip{padding:9px 14px;border-radius:999px;border:1px solid var(--border);background:var(--surface2);color:var(--text);cursor:pointer;font-size:.85rem;font-weight:600;transition:all .16s;font-family:inherit}
-.bk-chip:hover{border-color:rgba(79,110,247,.5)}
-.bk-chip.sel{background:linear-gradient(130deg,var(--cyan),var(--primary) 60%,var(--violet));border-color:transparent;color:#fff}
+.bk-chip{padding:9px 14px;border-radius:6px;border:1px solid var(--hairline);background:var(--paper);color:var(--ink);cursor:pointer;font-size:.85rem;font-weight:500;transition:all .16s;font-family:inherit}
+.bk-chip:hover{border-color:var(--ink)}
+.bk-chip.sel{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+
+/* TCPA consent */
+.bk-consent{display:flex;align-items:flex-start;gap:11px;padding:14px 16px;background:var(--paper);border:1px solid var(--hairline);border-radius:6px}
+.bk-consent input{margin-top:3px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--petrol);cursor:pointer}
+.bk-consent label{font-size:.78rem;color:var(--muted-2);line-height:1.6;cursor:pointer}
+.bk-consent.err{border-color:#8A4B42}
 
 /* honeypot */
 .bk-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
 
 /* submit */
-.bk-submit{width:100%;margin-top:4px;background:linear-gradient(130deg,var(--cyan),var(--primary) 55%,var(--violet));color:#fff;font-weight:700;font-size:.96rem;padding:14px;border-radius:11px;border:none;cursor:pointer;transition:opacity .18s;font-family:inherit}
-.bk-submit:hover:not(:disabled){opacity:.9}
+.bk-submit{width:100%;margin-top:4px;background:var(--ink);color:var(--paper);font-weight:600;font-size:.96rem;padding:15px;border-radius:6px;border:1px solid var(--ink);cursor:pointer;transition:background .18s,transform .18s;font-family:inherit}
+.bk-submit:hover:not(:disabled){background:var(--petrol-deep);border-color:var(--petrol-deep);transform:translateY(-1px)}
 .bk-submit:disabled{opacity:.45;cursor:not-allowed}
-.bk-submit-err{margin-top:12px;font-size:.82rem;color:var(--pink);text-align:center}
+.bk-submit-err{margin-top:12px;font-size:.82rem;color:#8A4B42;text-align:center}
 
 /* success */
 .bk-success{text-align:center;padding:20px 8px}
-.bk-success .bk-big-check{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--cyan));display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;margin:0 auto 20px}
-.bk-success h2{font-size:1.4rem;font-weight:800;margin-bottom:10px}
-.bk-success .bk-when{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px}
-.bk-success .bk-note{color:var(--muted);font-size:.9rem;line-height:1.7;max-width:420px;margin:0 auto 22px}
-.bk-meet{display:inline-flex;align-items:center;gap:9px;background:var(--surface2);border:1px solid var(--border);border-radius:11px;padding:12px 18px;color:var(--text);font-weight:600;font-size:.9rem;transition:border-color .18s}
-.bk-meet:hover{border-color:var(--primary)}
-.bk-meet .bk-meet-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.bk-success .bk-big-check{width:58px;height:58px;border-radius:50%;background:var(--petrol);display:flex;align-items:center;justify-content:center;color:var(--paper);font-size:1.7rem;margin:0 auto 20px}
+.bk-success h2{font-family:var(--serif);font-size:1.6rem;font-weight:700;margin-bottom:10px}
+.bk-success .bk-when{font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:6px;font-variant-numeric:tabular-nums}
+.bk-success .bk-note{color:var(--muted-2);font-size:.9rem;line-height:1.7;max-width:420px;margin:0 auto 22px}
+.bk-meet{display:inline-flex;align-items:center;gap:9px;background:var(--paper);border:1px solid var(--hairline);border-radius:6px;padding:12px 18px;color:var(--ink);font-weight:600;font-size:.9rem;transition:border-color .18s}
+.bk-meet:hover{border-color:var(--petrol)}
+.bk-meet .bk-meet-dot{width:8px;height:8px;border-radius:50%;background:var(--petrol)}
 
 @media(max-width:680px){
-  .bk-hero{padding:32px 20px 20px}
-  .bk-book{padding:0 16px 52px}
+  .bk-hero{padding:36px 20px 18px}
+  .bk-book{padding:8px 16px 56px}
   .bk-card{padding:22px 18px}
   .bk-row2{grid-template-columns:1fr}
 }
@@ -167,6 +176,7 @@ export default function Book() {
   const [notes, setNotes] = useState('');
   const [hp, setHp] = useState(''); // honeypot
   const [services, setServices] = useState([]);
+  const [consent, setConsent] = useState(false); // required TCPA consent
   const [showErrors, setShowErrors] = useState(false);
 
   const [submitting, setSubmitting] = useState(false);
@@ -221,7 +231,7 @@ export default function Book() {
 
   const emailValid = EMAIL_RE.test(email.trim());
   const nameValid = name.trim().length > 0;
-  const canSubmit = !!selectedSlot && nameValid && emailValid && !submitting;
+  const canSubmit = !!selectedSlot && nameValid && emailValid && consent && !submitting;
 
   function toggleService(slug) {
     setServices((prev) => (prev.includes(slug) ? prev.filter((s) => s !== slug) : [...prev, slug]));
@@ -237,7 +247,7 @@ export default function Book() {
       setSuccess({ display_time: fmtFull(selectedSlot, visitorTz), meeting_link: '' });
       return;
     }
-    if (!nameValid || !emailValid) return;
+    if (!nameValid || !emailValid || !consent) return;
 
     setSubmitting(true);
     setSubmitError('');
@@ -258,6 +268,7 @@ export default function Book() {
           notes: notes.trim() || null,
           business_name: null,
           hp: '',
+          tcpa_consent: true,
         }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -279,19 +290,18 @@ export default function Book() {
     <>
       <Helmet>
         <title>Book a Free Strategy Call | Nuvion Solutions</title>
-        <meta name="description" content="Book your free AI automation strategy call with Nuvion Solutions. We'll map your workflows and show you exactly how to save 10+ hours per week with custom automation." />
+        <meta name="description" content="Book a free strategy call with Nuvion Solutions. We'll map your workflows, show you what's automatable, and put a price on it in writing — no obligation." />
         <link rel="canonical" href="https://nuvion-solutions.com/book" />
       </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
+      <div className="grain" aria-hidden="true" />
 
-      <nav className="sp-nav">
-        <Link to="/" className="sp-logo"><img src={nuvionLogo} className="sp-logo-img" alt="Nuvion Solutions" /></Link>
-        <Link to="/" className="sp-back">← Back to Home</Link>
-      </nav>
+      <SiteNav />
 
       <div className="bk-hero">
-        <h1>Book a Free <span className="grad">Strategy Call</span></h1>
-        <p>Pick a time that works for you. We'll walk through your business, identify automation opportunities, and outline exactly what we'd build for you — no commitment required.</p>
+        <div className="sp-eyebrow">Free strategy call · 30 minutes</div>
+        <h1>Pick a time. <span className="grad">We’ll do the rest.</span></h1>
+        <p>We’ll walk through your business, identify what’s automatable, and outline exactly what we’d build for you — with the price in writing. No commitment required.</p>
       </div>
 
       <div className="bk-book">
@@ -495,6 +505,23 @@ export default function Book() {
                             onChange={(e) => setHp(e.target.value)}
                           />
                         </div>
+
+                        <div className={`bk-consent${showErrors && !consent ? ' err' : ''}`}>
+                          <input
+                            id="bk-consent"
+                            type="checkbox"
+                            checked={consent}
+                            onChange={(e) => setConsent(e.target.checked)}
+                            aria-invalid={showErrors && !consent}
+                          />
+                          <label htmlFor="bk-consent">
+                            I agree that Nuvion Solutions may contact me about this request by
+                            email, phone, or text message (including automated technology) at the
+                            contact details I provided. Consent is not a condition of purchase;
+                            message and data rates may apply. Reply STOP to opt out of texts.
+                          </label>
+                        </div>
+                        {showErrors && !consent && <span className="bk-err">Please check the consent box so we're allowed to contact you about your booking.</span>}
 
                         <button className="bk-submit" type="submit" disabled={!canSubmit}>
                           {submitting ? 'Booking…' : 'Confirm booking'}

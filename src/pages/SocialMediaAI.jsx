@@ -1,104 +1,133 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
-import nuvionLogo from '../assets/nuvion-logo.png';
+import SiteNav from '../components/SiteNav.jsx';
 import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-const CSS = BASE_CSS + FOOTER_CSS + `
-.sp-eyebrow.sm{background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.22);color:#F59E0B}
-.sm-accent{color:#F59E0B}
-.sp-cta-btn.sm{background:#F59E0B;color:#07090F}
+/* ─────────────────────────────────────────────────────────────
+   Social Media AI — service page.
+   Ink on porcelain paper; Zodiak / General Sans / Fragment Mono.
+───────────────────────────────────────────────────────────── */
 
-/* CALENDAR */
-.sm-calendar{padding:20px 0 56px}
-.sm-cal-header{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:10px}
-.sm-day-label{font-size:.72rem;font-weight:700;color:var(--dim);text-align:center;text-transform:uppercase;letter-spacing:.07em;padding:6px}
-.sm-cal-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.sm-cell{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:12px 10px;min-height:90px;display:flex;flex-direction:column;gap:6px}
-.sm-post{border-radius:6px;padding:6px 8px;font-size:.72rem;font-weight:600;line-height:1.35;cursor:default}
-.sm-post-ig{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.18);color:#F59E0B}
-.sm-post-li{background:rgba(79,110,247,0.1);border:1px solid rgba(79,110,247,0.18);color:#818CF8}
-.sm-post-fb{background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.18);color:#60A5FA}
-.sm-post-time{font-size:.6rem;color:var(--dim);margin-top:2px}
+const CSS = `
+/* SECTIONS */
+.sm-section{padding:clamp(56px,8vw,96px) 0 0}
+.sm-section.sm-last{padding-bottom:var(--pad-section)}
+.sm-head{margin-bottom:clamp(28px,4vw,44px)}
+.sm-head .sp-section-title{margin-bottom:0}
+.sm-index{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol);margin-bottom:16px}
+.sm-index::after{content:'';flex:1;max-width:220px;height:1px;background:var(--hairline)}
+.sm-lede{font-size:.98rem;color:var(--muted-2);line-height:1.7;max-width:60ch;margin-top:12px}
 
-/* PLATFORM CARDS */
-.sm-platforms{padding:0 0 72px}
-.sm-plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.sm-plat{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden}
-.sm-plat-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.sm-plat-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-.sm-plat-name{font-size:.95rem;font-weight:700}
-.sm-plat-feature{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);margin-bottom:8px;line-height:1.4}
-.sm-plat-feature::before{content:'→';color:var(--dim);flex-shrink:0}
-.sm-plat-ig .sm-plat-icon{background:rgba(245,158,11,0.12)}
-.sm-plat-li .sm-plat-icon{background:rgba(79,110,247,0.12)}
-.sm-plat-fb .sm-plat-icon{background:rgba(59,130,246,0.12)}
+/* CONTENT LEDGER — a sample managed week */
+.sm-ledger{border-top:1px solid var(--hairline)}
+.sm-row{display:grid;grid-template-columns:56px 1fr;gap:4px 16px;padding:16px 6px;border-bottom:1px solid var(--hairline);transition:background .18s,padding-left .18s}
+@media(min-width:720px){.sm-row{grid-template-columns:64px 1fr 300px;align-items:baseline;gap:20px}}
+.sm-row:hover{background:var(--card);padding-left:14px}
+.sm-day{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);padding-top:4px}
+.sm-post{font-family:var(--serif);font-size:1.08rem;font-weight:700;letter-spacing:-.008em;line-height:1.3}
+.sm-meta{grid-column:2;display:flex;gap:16px;align-items:baseline}
+@media(min-width:720px){.sm-meta{grid-column:auto;justify-content:space-between}}
+.sm-net{font-family:var(--mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--petrol)}
+.sm-time{font-family:var(--mono);font-size:.72rem;color:var(--muted-2);font-variant-numeric:tabular-nums}
+.sm-note{margin-top:16px;font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--muted-2)}
 
-/* PAID ADS SECTION */
-.sm-ads{padding:0 0 72px}
-.sm-ads-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.sm-ad-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
-.sm-ad-card:hover{transform:translateY(-3px);border-color:rgba(245,158,11,0.3)}
-.sm-ad-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#F59E0B,transparent);opacity:0;transition:opacity .3s}
-.sm-ad-card:hover::after{opacity:1}
-.sm-ad-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.sm-ad-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
-.sm-ad-name{font-size:1rem;font-weight:700}
-.sm-ad-desc{font-size:.82rem;color:var(--muted);line-height:1.6;margin-bottom:14px}
-.sm-ad-features{display:flex;flex-direction:column;gap:8px}
-.sm-ad-feat{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted);line-height:1.4}
-.sm-ad-feat::before{content:'✓';color:#F59E0B;font-weight:700;flex-shrink:0}
-.sm-ad-fb .sm-ad-icon{background:rgba(59,130,246,0.12)}
-.sm-ad-tt .sm-ad-icon{background:rgba(236,72,153,0.12)}
-.sm-ad-gg .sm-ad-icon{background:rgba(52,211,153,0.12)}
+/* PLATES — platforms & paid ads */
+.sm-grid{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:880px){.sm-grid{grid-template-columns:repeat(3,1fr)}}
+.sm-plate{padding:28px 26px 24px;display:flex;flex-direction:column;transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out)}
+.sm-plate:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.sm-kicker{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);padding-bottom:14px;border-bottom:1px solid var(--hairline);margin-bottom:18px}
+.sm-kicker .sm-n{color:var(--muted-2);font-variant-numeric:tabular-nums}
+.sm-plate h3{font-family:var(--serif);font-size:1.35rem;font-weight:700;letter-spacing:-.012em;line-height:1.15;margin-bottom:12px}
+.sm-desc{font-size:.9rem;color:var(--muted-2);line-height:1.66;margin-bottom:16px;max-width:44ch}
+.sm-list{list-style:none;display:flex;flex-direction:column;margin-top:auto}
+.sm-list li{display:flex;align-items:baseline;gap:12px;padding:9px 0;font-size:.88rem;color:var(--ink);line-height:1.5;border-bottom:1px solid var(--hairline)}
+.sm-list li:last-child{border-bottom:none;padding-bottom:0}
+.sm-list li::before{content:'—';color:var(--petrol);font-family:var(--mono);font-size:.8rem;flex-shrink:0}
 
-@media(max-width:700px){
-  .sm-cal-header{grid-template-columns:repeat(3,1fr)}
-  .sm-cal-grid{grid-template-columns:repeat(3,1fr)}
-  .sm-cal-header > *:nth-child(n+4),
-  .sm-cal-grid > *:nth-child(n+4){display:none}
-  .sm-plat-grid{grid-template-columns:1fr}
-  .sm-ads-grid{grid-template-columns:1fr}
-}
+/* CTA */
+.sm-cta-inner{max-width:1140px;margin:0 auto}
+.sp-cta .label{display:block;color:rgba(244,242,236,.5);margin-bottom:18px}
 `;
 
-const CALENDAR = [
+/* ── Data ─────────────────────────────────────────────────── */
+const WEEK = [
+  { day: 'Mon', post: 'Before & after showcase', net: 'Instagram', time: '9:00 AM' },
+  { day: 'Mon', post: 'Industry tip carousel', net: 'LinkedIn', time: '12:00 PM' },
+  { day: 'Tue', post: 'Client spotlight post', net: 'Facebook', time: '10:00 AM' },
+  { day: 'Wed', post: 'Reel: behind the scenes', net: 'Instagram', time: '11:00 AM' },
+  { day: 'Wed', post: 'Thought leadership article', net: 'LinkedIn', time: '2:00 PM' },
+  { day: 'Thu', post: 'Promo offer + CTA', net: 'Facebook', time: '9:30 AM' },
+  { day: 'Thu', post: 'Story: poll + Q&A', net: 'Instagram', time: '4:00 PM' },
+  { day: 'Fri', post: 'Week recap', net: 'LinkedIn', time: '11:00 AM' },
+  { day: 'Fri', post: 'Team / culture post', net: 'Instagram', time: '3:00 PM' },
+];
+
+const PLATFORMS = [
   {
-    day: 'Mon',
-    posts: [
-      { type: 'ig', text: 'Before & After showcase', time: '9:00 AM' },
-      { type: 'li', text: 'Industry tip carousel', time: '12:00 PM' },
+    name: 'Instagram',
+    items: [
+      'AI-generated images and visual content',
+      'AI-written captions with hashtag strategy',
+      'Reels scripts and Story content',
+      'Optimal posting time scheduling',
     ],
   },
   {
-    day: 'Tue',
-    posts: [
-      { type: 'fb', text: 'Client spotlight post', time: '10:00 AM' },
+    name: 'LinkedIn',
+    items: [
+      'Thought leadership articles and carousels',
+      'Company updates and industry insights',
+      'Connection outreach message sequences',
+      'Weekly analytics and performance recap',
     ],
   },
   {
-    day: 'Wed',
-    posts: [
-      { type: 'ig', text: 'Reel: behind the scenes', time: '11:00 AM' },
-      { type: 'li', text: 'Thought leadership article', time: '2:00 PM' },
-    ],
-  },
-  {
-    day: 'Thu',
-    posts: [
-      { type: 'fb', text: 'Promo offer + CTA', time: '9:30 AM' },
-      { type: 'ig', text: 'Story: poll + Q&A', time: '4:00 PM' },
-    ],
-  },
-  {
-    day: 'Fri',
-    posts: [
-      { type: 'li', text: 'Week recap + results', time: '11:00 AM' },
-      { type: 'ig', text: 'Team / culture post', time: '3:00 PM' },
+    name: 'Facebook',
+    items: [
+      'Community posts and client spotlights',
+      'Ad-ready content creation',
+      'Event promotion and announcements',
+      'Review response automation',
     ],
   },
 ];
 
+const ADS = [
+  {
+    name: 'Facebook & Instagram Ads',
+    desc: 'Targeted ad campaigns across Meta’s platforms — reaching the audiences most likely to convert into paying customers.',
+    items: [
+      'Custom audience building and lookalikes',
+      'AI-optimized ad creative and copy',
+      'Retargeting campaigns that recapture lost leads',
+      'A/B testing and continuous optimization',
+    ],
+  },
+  {
+    name: 'TikTok Ads',
+    desc: 'Short-form video ads that feel native to the feed, built to reach TikTok’s engaged audience.',
+    items: [
+      'Scroll-stopping creative production',
+      'Interest and behavior-based targeting',
+      'Spark Ads and in-feed video campaigns',
+      'Performance tracking and scaling strategies',
+    ],
+  },
+  {
+    name: 'Google Ads',
+    desc: 'Capture high-intent buyers actively searching for your services with Google Search, Display, and YouTube ad campaigns.',
+    items: [
+      'Keyword research and bid strategy optimization',
+      'Search, Display, and YouTube campaigns',
+      'Landing page alignment for higher conversions',
+      'Monthly reporting with clear ROI tracking',
+    ],
+  },
+];
+
+/* ── Page ─────────────────────────────────────────────────── */
 export default function SocialMediaAI() {
   return (
     <>
@@ -107,127 +136,107 @@ export default function SocialMediaAI() {
         <meta name="description" content="AI-powered social media management and paid advertising for busy business owners. Content creation, scheduling, engagement, plus Facebook Ads, TikTok Ads, and Google Ads management." />
         <link rel="canonical" href="https://nuvion-solutions.com/services/social-media-ai" />
       </Helmet>
-      <style dangerouslySetInnerHTML={{ __html: CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: BASE_CSS + FOOTER_CSS + CSS }} />
+      <div className="grain" aria-hidden="true" />
 
-      <nav className="sp-nav">
-        <Link to="/" className="sp-logo"><img src={nuvionLogo} className="sp-logo-img" alt="Nuvion Solutions" /></Link>
-        <Link to="/" className="sp-back">← Back to Home</Link>
-      </nav>
+      <SiteNav />
 
-      <div className="sp-hero">
-        <div className="sp-eyebrow sm">📱 Social Media AI Management</div>
-        <h1 className="sp-h1">Your brand, always<br /><em className="sm-accent">active and growing</em></h1>
-        <p className="sp-sub">AI-powered content creation, scheduling, engagement, and paid advertising — your social media and ad campaigns run on autopilot while you focus on running your business.</p>
-      </div>
+      <header className="sp-hero">
+        <div className="sp-eyebrow">Social Media AI Management</div>
+        <h1 className="sp-h1">Your brand, always <em>active and growing</em>.</h1>
+        <p className="sp-sub">
+          AI-powered content creation, scheduling, engagement, and paid
+          advertising — your social media and ad campaigns run on autopilot
+          while you focus on running your business.
+        </p>
+      </header>
 
-      <div className="sp-wrap">
-        <div className="sm-calendar">
-          <div className="sp-section-title">Your Week, Handled</div>
-          <div className="sm-cal-header">
-            {CALENDAR.map(d => <div key={d.day} className="sm-day-label">{d.day}</div>)}
+      <main className="sp-wrap">
+        <section className="sm-section">
+          <div className="sm-head">
+            <div className="sm-index">№ 01 — The calendar</div>
+            <h2 className="sp-section-title">Your week, handled.</h2>
+            <p className="sm-lede">
+              Planned, written, and scheduled ahead of time — a full content
+              calendar across the platforms your customers actually use.
+            </p>
           </div>
-          <div className="sm-cal-grid">
-            {CALENDAR.map(d => (
-              <div key={d.day} className="sm-cell">
-                {d.posts.map(p => (
-                  <div key={p.text} className={`sm-post sm-post-${p.type}`}>
-                    {p.text}
-                    <div className="sm-post-time">{p.time}</div>
-                  </div>
-                ))}
+          <div className="sm-ledger" role="list">
+            {WEEK.map((r, i) => (
+              <div key={`${r.day}-${r.time}`} className="sm-row" role="listitem">
+                <span className="sm-day">{i === 0 || WEEK[i - 1].day !== r.day ? r.day : ''}</span>
+                <span className="sm-post">{r.post}</span>
+                <span className="sm-meta">
+                  <span className="sm-net">{r.net}</span>
+                  <span className="sm-time">{r.time}</span>
+                </span>
               </div>
             ))}
           </div>
-        </div>
+          <p className="sm-note">A representative week — every calendar is planned around your business.</p>
+        </section>
 
-        <div className="sm-platforms">
-          <div className="sp-section-title">What We Manage Per Platform</div>
-          <div className="sm-plat-grid">
-            <div className="sm-plat sm-plat-ig">
-              <div className="sm-plat-top">
-                <div className="sm-plat-icon">📸</div>
-                <div className="sm-plat-name">Instagram</div>
-              </div>
-              <div className="sm-plat-feature">AI-generated images and visual content</div>
-              <div className="sm-plat-feature">AI-written captions with hashtag strategy</div>
-              <div className="sm-plat-feature">Reels scripts and Story content</div>
-              <div className="sm-plat-feature">Optimal posting time scheduling</div>
-            </div>
-            <div className="sm-plat sm-plat-li">
-              <div className="sm-plat-top">
-                <div className="sm-plat-icon">💼</div>
-                <div className="sm-plat-name">LinkedIn</div>
-              </div>
-              <div className="sm-plat-feature">Thought leadership articles and carousels</div>
-              <div className="sm-plat-feature">Company updates and industry insights</div>
-              <div className="sm-plat-feature">Connection outreach message sequences</div>
-              <div className="sm-plat-feature">Weekly analytics and performance recap</div>
-            </div>
-            <div className="sm-plat sm-plat-fb">
-              <div className="sm-plat-top">
-                <div className="sm-plat-icon">👥</div>
-                <div className="sm-plat-name">Facebook</div>
-              </div>
-              <div className="sm-plat-feature">Community posts and client spotlights</div>
-              <div className="sm-plat-feature">Ad-ready content creation</div>
-              <div className="sm-plat-feature">Event promotion and announcements</div>
-              <div className="sm-plat-feature">Review response automation</div>
-            </div>
+        <section className="sm-section">
+          <div className="sm-head">
+            <div className="sm-index">№ 02 — Per platform</div>
+            <h2 className="sp-section-title">What we manage, platform by platform.</h2>
           </div>
-        </div>
-
-        <div className="sm-ads">
-          <div className="sp-section-title">Paid Ads Management</div>
-          <div className="sm-ads-grid">
-            <div className="sm-ad-card sm-ad-fb">
-              <div className="sm-ad-top">
-                <div className="sm-ad-icon">📘</div>
-                <div className="sm-ad-name">Facebook & Instagram Ads</div>
+          <div className="sm-grid">
+            {PLATFORMS.map((p, i) => (
+              <div key={p.name} className="plate sm-plate">
+                <div className="sm-kicker">
+                  <span>Channel</span>
+                  <span className="sm-n">{String(i + 1).padStart(2, '0')}</span>
+                </div>
+                <h3>{p.name}</h3>
+                <ul className="sm-list">
+                  {p.items.map(item => <li key={item}>{item}</li>)}
+                </ul>
               </div>
-              <div className="sm-ad-desc">Targeted ad campaigns across Meta's platforms — reaching the exact audiences most likely to convert into paying customers.</div>
-              <div className="sm-ad-features">
-                <div className="sm-ad-feat">Custom audience building and lookalikes</div>
-                <div className="sm-ad-feat">AI-optimized ad creative and copy</div>
-                <div className="sm-ad-feat">Retargeting campaigns that recapture lost leads</div>
-                <div className="sm-ad-feat">A/B testing and continuous optimization</div>
-              </div>
-            </div>
-            <div className="sm-ad-card sm-ad-tt">
-              <div className="sm-ad-top">
-                <div className="sm-ad-icon">🎵</div>
-                <div className="sm-ad-name">TikTok Ads</div>
-              </div>
-              <div className="sm-ad-desc">Tap into TikTok's massive, engaged audience with short-form video ads that feel native and drive real results.</div>
-              <div className="sm-ad-features">
-                <div className="sm-ad-feat">Scroll-stopping creative production</div>
-                <div className="sm-ad-feat">Interest and behavior-based targeting</div>
-                <div className="sm-ad-feat">Spark Ads and in-feed video campaigns</div>
-                <div className="sm-ad-feat">Performance tracking and scaling strategies</div>
-              </div>
-            </div>
-            <div className="sm-ad-card sm-ad-gg">
-              <div className="sm-ad-top">
-                <div className="sm-ad-icon">🔍</div>
-                <div className="sm-ad-name">Google Ads</div>
-              </div>
-              <div className="sm-ad-desc">Capture high-intent buyers actively searching for your services with Google Search, Display, and YouTube ad campaigns.</div>
-              <div className="sm-ad-features">
-                <div className="sm-ad-feat">Keyword research and bid strategy optimization</div>
-                <div className="sm-ad-feat">Search, Display, and YouTube campaigns</div>
-                <div className="sm-ad-feat">Landing page alignment for higher conversions</div>
-                <div className="sm-ad-feat">Monthly reporting with clear ROI tracking</div>
-              </div>
-            </div>
+            ))}
           </div>
-        </div>
-      </div>
+        </section>
 
-      <div className="sp-cta">
-        <h2>Ready to grow without the grind?</h2>
-        <p>Book a free call and we'll show you exactly what a month of AI-managed content looks like for your business.</p>
-        <Link to="/book" className="sp-cta-btn sm">Book a Free Strategy Call →</Link>
-      </div>
-          <Footer />
+        <section className="sm-section sm-last">
+          <div className="sm-head">
+            <div className="sm-index">№ 03 — Paid ads</div>
+            <h2 className="sp-section-title">Paid ads management.</h2>
+            <p className="sm-lede">
+              Organic content keeps your brand present; paid campaigns put it
+              in front of new customers. We build, run, and report on both.
+            </p>
+          </div>
+          <div className="sm-grid">
+            {ADS.map((a, i) => (
+              <div key={a.name} className="plate sm-plate">
+                <div className="sm-kicker">
+                  <span>Campaign</span>
+                  <span className="sm-n">{String(i + 1).padStart(2, '0')}</span>
+                </div>
+                <h3>{a.name}</h3>
+                <p className="sm-desc">{a.desc}</p>
+                <ul className="sm-list">
+                  {a.items.map(item => <li key={item}>{item}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      <section className="sp-cta">
+        <div className="sm-cta-inner">
+          <div className="label">№ 04 — Start here</div>
+          <h2>Ready to grow without the grind?</h2>
+          <p>
+            Book a free call and we’ll show you exactly what a month of
+            AI-managed content looks like for your business.
+          </p>
+          <Link to="/book" className="sp-cta-btn">Book a free strategy call <span aria-hidden="true">→</span></Link>
+        </div>
+      </section>
+
+      <Footer />
     </>
   );
 }

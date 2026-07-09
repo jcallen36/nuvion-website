@@ -1,23 +1,26 @@
-import { StrictMode, useEffect } from 'react'
+import { StrictMode, useEffect, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import NuvionWebsite from './NuvionWebsite.jsx'
-import AIAutomation from './pages/AIAutomation.jsx'
-import AIReceptionist from './pages/AIReceptionist.jsx'
-import CustomIntegrations from './pages/CustomIntegrations.jsx'
-import LeadFollowup from './pages/LeadFollowup.jsx'
-import SocialMediaAI from './pages/SocialMediaAI.jsx'
-import Reminders from './pages/Reminders.jsx'
-import SeoAso from './pages/SeoAso.jsx'
-import WebDesign from './pages/WebDesign.jsx'
-import ReviewsAutomation from './pages/ReviewsAutomation.jsx'
-import DoneForYouBusiness from './pages/DoneForYouBusiness.jsx'
-import Book from './pages/Book.jsx'
-import Audit from './pages/Audit.jsx'
-import Agreement from './pages/Agreement.jsx'
-import Terms from './pages/Terms.jsx'
-import Privacy from './pages/Privacy.jsx'
+
+// Route-level code splitting: the home page loads eagerly; everything else
+// (notably Audit with its ~100KB niche dataset) loads on navigation.
+const AIAutomation = lazy(() => import('./pages/AIAutomation.jsx'))
+const AIReceptionist = lazy(() => import('./pages/AIReceptionist.jsx'))
+const CustomIntegrations = lazy(() => import('./pages/CustomIntegrations.jsx'))
+const LeadFollowup = lazy(() => import('./pages/LeadFollowup.jsx'))
+const SocialMediaAI = lazy(() => import('./pages/SocialMediaAI.jsx'))
+const Reminders = lazy(() => import('./pages/Reminders.jsx'))
+const SeoAso = lazy(() => import('./pages/SeoAso.jsx'))
+const WebDesign = lazy(() => import('./pages/WebDesign.jsx'))
+const ReviewsAutomation = lazy(() => import('./pages/ReviewsAutomation.jsx'))
+const DoneForYouBusiness = lazy(() => import('./pages/DoneForYouBusiness.jsx'))
+const Book = lazy(() => import('./pages/Book.jsx'))
+const Audit = lazy(() => import('./pages/Audit.jsx'))
+const Agreement = lazy(() => import('./pages/Agreement.jsx'))
+const Terms = lazy(() => import('./pages/Terms.jsx'))
+const Privacy = lazy(() => import('./pages/Privacy.jsx'))
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -25,11 +28,16 @@ function ScrollToTop() {
   return null;
 }
 
+const fallback = (
+  <div style={{ minHeight: '100vh', background: '#F4F2EC' }} aria-busy="true" />
+);
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HelmetProvider>
     <BrowserRouter>
       <ScrollToTop />
+      <Suspense fallback={fallback}>
       <Routes>
         <Route path="/" element={<NuvionWebsite />} />
         <Route path="/services/ai-automation" element={<AIAutomation />} />
@@ -48,6 +56,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
       </Routes>
+      </Suspense>
     </BrowserRouter>
     </HelmetProvider>
   </StrictMode>,

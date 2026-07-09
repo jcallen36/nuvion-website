@@ -1,94 +1,173 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
-import nuvionLogo from '../assets/nuvion-logo.png';
+import SiteNav from '../components/SiteNav.jsx';
 import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-const CSS = BASE_CSS + FOOTER_CSS + `
-/* PAGE ACCENT */
-.wd-accent{color:#F59E0B}
-.sp-eyebrow.wd{background:rgba(245,158,11,0.08);border:1px solid rgba(245,158,11,0.22);color:#F59E0B}
-.sp-cta-btn.wd{background:#F59E0B;color:#07090F}
+/* ─────────────────────────────────────────────────────────────
+   Web Design & Development — Flagship № 01.
+   Ink on porcelain paper; Zodiak / General Sans / Fragment Mono.
+───────────────────────────────────────────────────────────── */
 
-/* PILLARS */
-.wd-pillars{padding:20px 0 72px}
-.wd-pillar-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
-.wd-pillar{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
-.wd-pillar:hover{border-color:rgba(245,158,11,0.3);transform:translateY(-3px)}
-.wd-pillar::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#F59E0B,transparent)}
-.wd-pillar-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;background:rgba(245,158,11,0.12);margin-bottom:16px}
-.wd-pillar-title{font-size:1.05rem;font-weight:700;margin-bottom:10px;color:var(--text)}
-.wd-pillar-desc{font-size:.85rem;color:var(--muted);line-height:1.65}
+const CSS = `
+/* Hero refinements */
+.sp-hero .sp-h1{max-width:24ch}
+.wd-proof{margin-top:26px;display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;color:var(--ink)}
+.wd-proof::before{content:'';width:26px;height:1px;background:var(--petrol)}
+.wd-proof b{color:var(--petrol);font-weight:400}
 
-/* WHAT YOU GET */
-.wd-get{padding:0 0 72px}
-.wd-get-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.wd-get-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 20px;text-align:center;transition:border-color .3s,transform .3s}
-.wd-get-card:hover{border-color:rgba(245,158,11,0.3);transform:translateY(-3px)}
-.wd-get-icon{font-size:1.6rem;margin-bottom:12px}
-.wd-get-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:6px}
-.wd-get-desc{font-size:.78rem;color:var(--muted);line-height:1.55}
+/* Section scaffold (homepage pattern) */
+.wd-section{padding-top:var(--pad-section)}
+.wd-section.last{padding-bottom:var(--pad-section)}
+.wd-head{margin-bottom:clamp(36px,4.5vw,56px);display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.wd-head{grid-template-columns:230px 1fr;gap:44px;align-items:start}}
+.wd-idx{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol);padding-top:12px;display:flex;gap:10px;align-items:baseline}
+.wd-idx::after{content:'';flex:1;height:1px;background:var(--hairline);align-self:center}
+.wd-h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.8rem,3.2vw,2.6rem);line-height:1.08;letter-spacing:-.018em;max-width:22ch}
+.wd-h2 em{font-style:italic;font-weight:400;color:var(--petrol)}
+.wd-sub{font-size:.98rem;color:var(--muted-2);line-height:1.7;max-width:56ch;margin-top:12px}
 
-/* COMPARISON: OLD vs NEW */
-.wd-compare{padding:0 0 72px}
-.wd-compare-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:stretch}
-.wd-panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 24px}
-.wd-panel-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:8px}
-.wd-label-old{color:#6B7280}
-.wd-label-new{color:#F59E0B}
-.wd-item{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:10px;font-size:.82rem;font-weight:600;margin-bottom:9px}
-.wd-item-old{background:rgba(107,114,128,0.1);border:1px solid rgba(107,114,128,0.18);color:#9CA3AF}
-.wd-item-new{background:rgba(245,158,11,0.07);border:1px solid rgba(245,158,11,0.18);color:#FDE68A}
-.wd-item-icon{font-size:1rem;flex-shrink:0}
-.wd-middle{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:0 8px}
-.wd-divider-pill{background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.25);border-radius:100px;padding:6px 12px;font-size:.68rem;font-weight:700;color:#F59E0B;letter-spacing:.06em;text-transform:uppercase}
+/* Pillars */
+.wd-pillars{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:880px){.wd-pillars{grid-template-columns:repeat(3,1fr)}}
+.wd-pillar{padding:28px 26px 26px;border-top:2px solid var(--petrol);transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out)}
+.wd-pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.wd-pillar-k{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);padding-bottom:16px;border-bottom:1px solid var(--hairline);margin-bottom:18px}
+.wd-pillar-k span:last-child{color:var(--muted-2)}
+.wd-pillar h3{font-family:var(--serif);font-size:1.35rem;font-weight:700;letter-spacing:-.012em;line-height:1.15;margin-bottom:10px}
+.wd-pillar p{font-size:.92rem;color:var(--muted-2);line-height:1.66;max-width:44ch}
 
-/* PROCESS */
-.wd-process{padding:0 0 72px}
-.wd-process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;position:relative}
-.wd-step{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 20px;position:relative}
-.wd-step-num{font-size:.7rem;font-weight:800;letter-spacing:.12em;color:#F59E0B;margin-bottom:10px}
-.wd-step-title{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:8px}
-.wd-step-desc{font-size:.8rem;color:var(--muted);line-height:1.55}
-
-/* STACK */
-.wd-stack{padding:0 0 72px}
-.wd-stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.wd-stack-card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px 22px;transition:border-color .3s,transform .3s}
-.wd-stack-card:hover{border-color:rgba(245,158,11,0.3);transform:translateY(-3px)}
-.wd-stack-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.wd-stack-icon{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.25rem;background:rgba(245,158,11,0.1);flex-shrink:0}
-.wd-stack-name{font-size:.95rem;font-weight:700}
-.wd-stack-desc{font-size:.8rem;color:var(--muted);line-height:1.55}
-
-@media(max-width:900px){
-  .wd-pillar-grid{grid-template-columns:1fr}
-  .wd-get-grid{grid-template-columns:repeat(2,1fr)}
-  .wd-process-grid{grid-template-columns:repeat(2,1fr)}
-  .wd-stack-grid{grid-template-columns:1fr}
+/* Ledger — template site vs Nuvion build */
+.wd-ledger{border-top:1px solid var(--hairline)}
+.wd-ledger-head{display:none}
+@media(min-width:860px){
+  .wd-ledger-head{display:grid;grid-template-columns:44px 1fr 44px 1fr;gap:16px;padding:14px 6px;border-bottom:1px solid var(--hairline)}
+  .wd-ledger-head span{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase}
+  .wd-lh-old{color:var(--muted-2);grid-column:2}
+  .wd-lh-new{color:var(--petrol);grid-column:4}
 }
-@media(max-width:700px){
-  .wd-compare-grid{grid-template-columns:1fr;gap:16px}
-  .wd-middle{flex-direction:row;padding:8px 0}
+.wd-legend{margin-bottom:14px}
+@media(min-width:860px){.wd-legend{display:none}}
+.wd-lrow{display:grid;grid-template-columns:44px 1fr;gap:8px 16px;padding:20px 6px;border-bottom:1px solid var(--hairline);transition:background .18s,padding-left .18s}
+@media(min-width:860px){.wd-lrow{grid-template-columns:44px 1fr 44px 1fr;align-items:baseline}}
+.wd-lrow:hover{background:var(--card);padding-left:14px}
+.wd-lnum{font-family:var(--mono);font-size:.72rem;color:var(--muted-2);font-variant-numeric:tabular-nums;padding-top:3px}
+.wd-lold{font-size:.9rem;color:var(--muted-2);line-height:1.6}
+@media(max-width:859px){.wd-lold{grid-column:2}}
+.wd-larr{display:none}
+@media(min-width:860px){.wd-larr{display:block;font-family:var(--mono);font-size:.85rem;color:var(--petrol);text-align:center}}
+.wd-lnew{font-size:.94rem;font-weight:600;color:var(--ink);line-height:1.6}
+@media(max-width:859px){.wd-lnew{grid-column:2}.wd-lnew::before{content:'→';font-family:var(--mono);font-weight:400;color:var(--petrol);margin-right:10px}}
+
+/* Included — ruled index */
+.wd-inc{border-top:1px solid var(--hairline)}
+.wd-inc-row{display:grid;grid-template-columns:44px 1fr;gap:4px 16px;padding:18px 6px;border-bottom:1px solid var(--hairline);transition:background .18s,padding-left .18s}
+@media(min-width:760px){.wd-inc-row{grid-template-columns:56px 240px 1fr;align-items:baseline}}
+.wd-inc-row:hover{background:var(--card);padding-left:14px}
+.wd-inc-num{font-family:var(--mono);font-size:.72rem;color:var(--petrol);font-variant-numeric:tabular-nums}
+.wd-inc-name{font-family:var(--serif);font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
+.wd-inc-desc{font-size:.9rem;color:var(--muted-2);line-height:1.6;max-width:60ch}
+@media(max-width:759px){.wd-inc-desc{grid-column:2}}
+
+/* Two plans */
+.wd-plans{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:820px){.wd-plans{grid-template-columns:1fr 1fr}}
+.wd-plan{padding:30px 30px 28px;border-top:2px solid var(--petrol);transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out)}
+.wd-plan:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.wd-plan-k{display:flex;justify-content:space-between;align-items:baseline;font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);padding-bottom:16px;border-bottom:1px solid var(--hairline);margin-bottom:20px}
+.wd-plan h3{font-family:var(--serif);font-size:clamp(1.5rem,2.2vw,1.85rem);font-weight:700;letter-spacing:-.015em;margin-bottom:8px}
+.wd-plan>p{font-size:.92rem;color:var(--muted-2);line-height:1.66;margin-bottom:18px;max-width:48ch}
+.wd-plan ul{list-style:none;margin:0;display:flex;flex-direction:column}
+.wd-plan li{display:flex;align-items:baseline;gap:12px;padding:9px 0;font-size:.88rem;color:var(--ink);border-bottom:1px solid var(--hairline)}
+.wd-plan li:last-child{border-bottom:none}
+.wd-plan li::before{content:'—';color:var(--petrol);font-family:var(--mono);font-size:.8rem}
+.wd-plan-note{margin-top:26px;padding-top:20px;border-top:1px solid var(--hairline);display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;justify-content:space-between}
+.wd-plan-note p{font-size:.94rem;color:var(--ink);max-width:52ch}
+.wd-plan-note p b{color:var(--petrol);font-weight:600}
+.wd-agree{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--petrol);white-space:nowrap}
+.wd-agree::after{content:'→';transition:transform .2s}
+.wd-agree:hover::after{transform:translateX(4px)}
+
+/* Process */
+.wd-steps{display:grid;grid-template-columns:1fr;border-top:1px solid var(--hairline)}
+@media(min-width:880px){.wd-steps{grid-template-columns:repeat(4,1fr)}}
+.wd-step{padding:30px 6px 26px;border-bottom:1px solid var(--hairline)}
+@media(min-width:880px){
+  .wd-step{padding:38px 30px 10px 0;border-bottom:none;border-left:1px solid var(--hairline);padding-left:26px}
+  .wd-step:first-child{border-left:none;padding-left:0}
 }
+.wd-step-num{font-family:var(--serif);font-weight:700;font-size:clamp(3.2rem,5.2vw,4.6rem);line-height:.9;color:transparent;-webkit-text-stroke:1.4px var(--muted-2);letter-spacing:-.03em;margin-bottom:16px;opacity:.7;transition:color .3s,opacity .3s}
+.wd-step:hover .wd-step-num{color:var(--petrol);-webkit-text-stroke:1.4px var(--petrol);opacity:1}
+.wd-step h3{font-family:var(--serif);font-size:1.2rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+.wd-step p{font-size:.9rem;color:var(--muted-2);line-height:1.66;max-width:36ch}
+
+/* Stack */
+.wd-stack{display:grid;grid-template-columns:1fr;gap:20px}
+@media(min-width:880px){.wd-stack{grid-template-columns:repeat(3,1fr)}}
+.wd-stack-card{padding:26px 26px 24px;transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out)}
+.wd-stack-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-2)}
+.wd-stack-k{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);margin-bottom:14px}
+.wd-stack-name{font-family:var(--serif);font-size:1.2rem;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+.wd-stack-desc{font-size:.9rem;color:var(--muted-2);line-height:1.62;max-width:44ch}
+
+/* CTA inner alignment */
+.wd-cta-in{max-width:1140px;margin:0 auto}
+.wd-cta-in .label{color:rgba(244,242,236,.5);margin-bottom:20px;display:block}
+.sp-cta h2 em{font-style:italic;font-weight:400;color:#9BC4C1}
 `;
 
-const OLD_WAY = [
-  ['🐌', 'Bloated template sites that load in 8+ seconds'],
-  ['📱', 'Broken or clunky on mobile'],
-  ['🎭', 'Generic designs that look like every competitor'],
-  ['🔌', 'No integrations — forms email you and that\'s it'],
-  ['🛠️', 'You pay monthly forever and never own a thing'],
+/* ── Data ─────────────────────────────────────────────────── */
+const PILLARS = [
+  {
+    label: 'Pillar',
+    title: 'Performance first',
+    desc: 'Lean pages, optimized images, clean code — built and tested against Core Web Vitals, because fast sites rank higher and convert more.',
+  },
+  {
+    label: 'Pillar',
+    title: 'Designed to convert',
+    desc: 'Every section, button, and headline is crafted with one goal in mind: turning visitors into booked calls, qualified leads, and paying customers.',
+  },
+  {
+    label: 'Pillar',
+    title: 'Wired into automation',
+    desc: 'Forms, bookings, and chat connect directly to your CRM, calendar, and Virtual Front Desk — so leads flow into your pipeline automatically.',
+  },
 ];
 
-const NEW_WAY = [
-  ['⚡', 'Blazing-fast custom sites built for Core Web Vitals'],
-  ['📲', 'Mobile-first, pixel-perfect on every device'],
-  ['🎨', 'Distinctive branding that actually stands out'],
-  ['🔗', 'Plugged into your CRM, calendar, and AI workflows'],
-  ['🔑', 'You own the code, hosting, and domain — forever'],
+const COMPARE = [
+  ['A bloated template that takes ages to load', 'A lean custom build, tuned for Core Web Vitals'],
+  ['Broken or clunky on mobile', 'Mobile-first — designed for the phone screen before the desktop'],
+  ['A generic design that looks like every competitor', 'Distinctive branding that actually stands out'],
+  ['No integrations — the form emails you, and that’s it', 'Plugged into your CRM, calendar, and follow-up automations'],
+  ['Renting a page you’ll never own', 'Own it outright on the one-time build — design, files, and content'],
 ];
 
+const INCLUDED = [
+  { name: 'Custom design', desc: 'Bespoke visual identity, typography, and layouts — no cookie-cutter templates.' },
+  { name: 'Fully responsive', desc: 'Looks and performs flawlessly on phones, tablets, laptops, and widescreen monitors.' },
+  { name: 'SEO foundation', desc: 'Semantic HTML, schema markup, meta tags, and sitemaps baked in from day one.' },
+  { name: 'Copy that converts', desc: 'Headlines, CTAs, and page structure written to turn visitors into customers.' },
+  { name: 'Booking integration', desc: 'Calendly, GHL, or your preferred scheduler embedded right where leads will use it.' },
+  { name: 'Lead capture forms', desc: 'Forms that feed directly into your CRM and trigger instant follow-up automations.' },
+  { name: 'Analytics setup', desc: 'Google Analytics, conversion tracking, and heatmaps configured so you know what works.' },
+  { name: 'SSL & security', desc: 'HTTPS, spam protection, and modern security best practices from the day it goes live.' },
+];
+
+const STEPS = [
+  { title: 'Discovery & strategy', desc: 'We dig into your brand, audience, and goals — and map exactly what the site needs to do to move your business forward.' },
+  { title: 'Design & wireframes', desc: 'Custom mockups and wireframes for every key page. You approve the look and feel before a single line of code gets written.' },
+  { title: 'Build & integrate', desc: 'We build the site with modern tooling, plug in your CRM and automations, and test relentlessly across devices and browsers.' },
+  { title: 'Launch & support', desc: 'We handle deployment, DNS, and launch QA — then stick around for ongoing tweaks, updates, and optimization.' },
+];
+
+const STACK = [
+  { kicker: 'Front-end', name: 'React & modern JavaScript', desc: 'Fast, component-driven front ends built with React and Vite — the same tools powering the world’s top product sites.' },
+  { kicker: 'Hosting', name: 'Vercel hosting', desc: 'Global edge network, instant deploys, and automatic SSL — fast, reliable hosting included, everywhere in the world.' },
+  { kicker: 'Integrations', name: 'CRM & automation hooks', desc: 'Direct integrations with GoHighLevel, HubSpot, Stripe, Calendly, n8n, and any API — your site plugs into your stack.' },
+];
+
+/* ── Page ─────────────────────────────────────────────────── */
 export default function WebDesign() {
   return (
     <>
@@ -97,178 +176,191 @@ export default function WebDesign() {
         <meta name="description" content="Custom-built, high-converting websites for service businesses. Fast, mobile-first, SEO-ready, and wired into the automations that grow your business." />
         <link rel="canonical" href="https://nuvion-solutions.com/services/web-design" />
       </Helmet>
-      <style dangerouslySetInnerHTML={{ __html: CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: BASE_CSS + FOOTER_CSS + CSS }} />
+      <div className="grain" aria-hidden="true" />
 
-      <nav className="sp-nav">
-        <Link to="/" className="sp-logo"><img src={nuvionLogo} className="sp-logo-img" alt="Nuvion Solutions" /></Link>
-        <Link to="/" className="sp-back">&larr; Back to Home</Link>
-      </nav>
+      <SiteNav />
 
-      <div className="sp-hero">
-        <div className="sp-eyebrow wd">🎨 Web Design & Development</div>
-        <h1 className="sp-h1">Websites that look sharp<br /><em className="wd-accent">and actually convert</em></h1>
-        <p className="sp-sub">Custom-built, mobile-first websites designed around your brand and wired into your automations — so your site doesn't just sit there, it books appointments, captures leads, and closes deals 24/7.</p>
-      </div>
+      <header className="sp-hero">
+        <div className="sp-eyebrow">Web Design &amp; Development — Flagship № 01</div>
+        <h1 className="sp-h1">Websites that look sharp<br /><em>and actually convert</em>.</h1>
+        <p className="sp-sub">
+          Custom-built, mobile-first websites designed around your brand and wired
+          into your automations — so your site doesn’t just sit there, it books
+          appointments, captures leads, and closes deals 24/7.
+        </p>
+        <div className="wd-proof">You see the finished site <b>before you pay a dollar</b></div>
+      </header>
 
-      <div className="sp-wrap">
+      <main>
+        <div className="sp-wrap">
 
-        {/* THREE PILLARS */}
-        <div className="wd-pillars">
-          <div className="sp-section-title">Built Around Three Things That Matter</div>
-          <div className="wd-pillar-grid">
-            <div className="wd-pillar">
-              <div className="wd-pillar-icon">⚡</div>
-              <div className="wd-pillar-title">Performance First</div>
-              <div className="wd-pillar-desc">Lightning-fast load times, optimized images, clean code, and perfect Core Web Vitals scores. Fast sites rank higher and convert more — no exceptions.</div>
+          {/* № 01 — PILLARS */}
+          <section className="wd-section">
+            <div className="wd-head">
+              <div className="wd-idx">№ 01 — The standard</div>
+              <div>
+                <h2 className="wd-h2">Built around three things <em>that matter</em>.</h2>
+              </div>
             </div>
-            <div className="wd-pillar">
-              <div className="wd-pillar-icon">🎯</div>
-              <div className="wd-pillar-title">Designed to Convert</div>
-              <div className="wd-pillar-desc">Every section, button, and headline is crafted with one goal in mind: turning visitors into booked calls, qualified leads, and paying customers.</div>
-            </div>
-            <div className="wd-pillar">
-              <div className="wd-pillar-icon">🔗</div>
-              <div className="wd-pillar-title">Wired Into Automation</div>
-              <div className="wd-pillar-desc">Forms, bookings, and chat are connected directly to your CRM, calendar, and Virtual Front Desk — so leads flow into your pipeline automatically.</div>
-            </div>
-          </div>
-        </div>
-
-        {/* BEFORE / AFTER COMPARISON */}
-        <div className="wd-compare">
-          <div className="sp-section-title">The Old Way vs. The Nuvion Way</div>
-          <div className="wd-compare-grid">
-            <div className="wd-panel">
-              <div className="wd-panel-label wd-label-old">Template Site</div>
-              {OLD_WAY.map(([icon, text]) => (
-                <div key={text} className="wd-item wd-item-old">
-                  <span className="wd-item-icon">{icon}</span>{text}
+            <div className="wd-pillars">
+              {PILLARS.map((p, i) => (
+                <div key={p.title} className="plate wd-pillar">
+                  <div className="wd-pillar-k"><span>{p.label}</span><span className="tnum">{String(i + 1).padStart(2, '0')}</span></div>
+                  <h3>{p.title}</h3>
+                  <p>{p.desc}</p>
                 </div>
               ))}
             </div>
-            <div className="wd-middle">
-              <div className="wd-divider-pill">VS</div>
+          </section>
+
+          {/* № 02 — LEDGER */}
+          <section className="wd-section">
+            <div className="wd-head">
+              <div className="wd-idx">№ 02 — The difference</div>
+              <div>
+                <h2 className="wd-h2">The template site, <em>retired</em>.</h2>
+                <p className="wd-sub">
+                  Five ways a Nuvion build leaves the off-the-shelf website behind —
+                  line by line.
+                </p>
+              </div>
             </div>
-            <div className="wd-panel">
-              <div className="wd-panel-label wd-label-new">Nuvion Custom Build</div>
-              {NEW_WAY.map(([icon, text]) => (
-                <div key={text} className="wd-item wd-item-new">
-                  <span className="wd-item-icon">{icon}</span>{text}
+            <div className="wd-legend label">The template site <b>→ the Nuvion build</b></div>
+            <div className="wd-ledger">
+              <div className="wd-ledger-head" aria-hidden="true">
+                <span className="wd-lh-old">The template site</span>
+                <span className="wd-lh-new">The Nuvion build</span>
+              </div>
+              {COMPARE.map(([oldWay, newWay], i) => (
+                <div key={newWay} className="wd-lrow">
+                  <span className="wd-lnum">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="wd-lold">{oldWay}</span>
+                  <span className="wd-larr" aria-hidden="true">→</span>
+                  <span className="wd-lnew">{newWay}</span>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
+          </section>
 
-        {/* WHAT YOU GET */}
-        <div className="wd-get">
-          <div className="sp-section-title">What's Included in Every Build</div>
-          <div className="wd-get-grid">
-            <div className="wd-get-card">
-              <div className="wd-get-icon">🎨</div>
-              <div className="wd-get-title">Custom Design</div>
-              <div className="wd-get-desc">Bespoke visual identity, typography, and layouts — no cookie-cutter templates.</div>
-            </div>
-            <div className="wd-get-card">
-              <div className="wd-get-icon">📱</div>
-              <div className="wd-get-title">Fully Responsive</div>
-              <div className="wd-get-desc">Looks and performs flawlessly on phones, tablets, laptops, and giant monitors.</div>
-            </div>
-            <div className="wd-get-card">
-              <div className="wd-get-icon">🔎</div>
-              <div className="wd-get-title">SEO Foundation</div>
-              <div className="wd-get-desc">Semantic HTML, schema markup, meta tags, and sitemaps baked in from day one.</div>
-            </div>
-            <div className="wd-get-card">
-              <div className="wd-get-icon">📝</div>
-              <div className="wd-get-title">Copy That Converts</div>
-              <div className="wd-get-desc">Headlines, CTAs, and page structure written to turn visitors into customers.</div>
-            </div>
-            <div className="wd-get-card">
-              <div className="wd-get-icon">📅</div>
-              <div className="wd-get-title">Booking Integration</div>
-              <div className="wd-get-desc">Calendly, GHL, or your preferred scheduler embedded right where leads will use it.</div>
-            </div>
-            <div className="wd-get-card">
-              <div className="wd-get-icon">💬</div>
-              <div className="wd-get-title">Lead Capture Forms</div>
-              <div className="wd-get-desc">Forms that feed directly into your CRM and trigger instant follow-up automations.</div>
-            </div>
-            <div className="wd-get-card">
-              <div className="wd-get-icon">📊</div>
-              <div className="wd-get-title">Analytics Setup</div>
-              <div className="wd-get-desc">Google Analytics, conversion tracking, and heatmaps configured so you know what works.</div>
-            </div>
-            <div className="wd-get-card">
-              <div className="wd-get-icon">🛡️</div>
-              <div className="wd-get-title">SSL & Security</div>
-              <div className="wd-get-desc">HTTPS, spam protection, and modern security best practices — locked down out of the gate.</div>
-            </div>
-          </div>
-        </div>
-
-        {/* PROCESS */}
-        <div className="wd-process">
-          <div className="sp-section-title">From Kickoff to Live Site</div>
-          <div className="wd-process-grid">
-            <div className="wd-step">
-              <div className="wd-step-num">STEP 01</div>
-              <div className="wd-step-title">Discovery & Strategy</div>
-              <div className="wd-step-desc">We dig into your brand, audience, and goals — and map exactly what the site needs to do to move your business forward.</div>
-            </div>
-            <div className="wd-step">
-              <div className="wd-step-num">STEP 02</div>
-              <div className="wd-step-title">Design & Wireframes</div>
-              <div className="wd-step-desc">Custom mockups and wireframes for every key page. You approve the look and feel before a single line of code gets written.</div>
-            </div>
-            <div className="wd-step">
-              <div className="wd-step-num">STEP 03</div>
-              <div className="wd-step-title">Build & Integrate</div>
-              <div className="wd-step-desc">We build the site with modern tooling, plug in your CRM and automations, and test relentlessly across devices and browsers.</div>
-            </div>
-            <div className="wd-step">
-              <div className="wd-step-num">STEP 04</div>
-              <div className="wd-step-title">Launch & Support</div>
-              <div className="wd-step-desc">We handle deployment, DNS, and launch QA — then stick around for ongoing tweaks, updates, and optimization.</div>
-            </div>
-          </div>
-        </div>
-
-        {/* STACK */}
-        <div className="wd-stack">
-          <div className="sp-section-title">The Tech We Build With</div>
-          <div className="wd-stack-grid">
-            <div className="wd-stack-card">
-              <div className="wd-stack-top">
-                <div className="wd-stack-icon">⚛️</div>
-                <div className="wd-stack-name">React & Modern JS</div>
+          {/* № 03 — INCLUDED */}
+          <section className="wd-section">
+            <div className="wd-head">
+              <div className="wd-idx">№ 03 — What’s included</div>
+              <div>
+                <h2 className="wd-h2">Every build ships with <em>all of it</em>.</h2>
+                <p className="wd-sub">
+                  Not a menu of paid add-ons — the baseline. Eight things that come
+                  standard with every website we deliver.
+                </p>
               </div>
-              <div className="wd-stack-desc">Fast, component-driven front-ends built with React, Vite, and the same tools powering the world's top product sites.</div>
             </div>
-            <div className="wd-stack-card">
-              <div className="wd-stack-top">
-                <div className="wd-stack-icon">▲</div>
-                <div className="wd-stack-name">Vercel Hosting</div>
+            <div className="wd-inc" role="list">
+              {INCLUDED.map((item, i) => (
+                <div key={item.name} className="wd-inc-row" role="listitem">
+                  <span className="wd-inc-num">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="wd-inc-name">{item.name}</span>
+                  <span className="wd-inc-desc">{item.desc}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* № 04 — TWO PLANS */}
+          <section className="wd-section">
+            <div className="wd-head">
+              <div className="wd-idx">№ 04 — Two ways to pay</div>
+              <div>
+                <h2 className="wd-h2">Own it outright, or <em>subscribe to it</em>.</h2>
+                <p className="wd-sub">
+                  Same build quality either way. The amounts live on your written
+                  quote — the structure is simple enough to fit on this page.
+                </p>
               </div>
-              <div className="wd-stack-desc">Global edge network, instant deploys, automatic SSL, and 99.99% uptime — your site stays fast everywhere in the world.</div>
             </div>
-            <div className="wd-stack-card">
-              <div className="wd-stack-top">
-                <div className="wd-stack-icon">🔌</div>
-                <div className="wd-stack-name">CRM & Automation Hooks</div>
+            <div className="wd-plans">
+              <div className="plate wd-plan">
+                <div className="wd-plan-k"><span>Plan A</span><span>Pay once</span></div>
+                <h3>One-time build</h3>
+                <p>Pay once, per your quote — the site is yours to keep.</p>
+                <ul>
+                  <li>The design, files, and content are yours outright</li>
+                  <li>Hosting included — no separate hosting fee</li>
+                  <li>Revisions after delivery are a small per-change fee</li>
+                </ul>
               </div>
-              <div className="wd-stack-desc">Native integrations with GoHighLevel, HubSpot, Stripe, Calendly, n8n, and any API — your site plugs into your stack.</div>
+              <div className="plate wd-plan">
+                <div className="wd-plan-k"><span>Plan B</span><span>Monthly</span></div>
+                <h3>Monthly plan</h3>
+                <p>No big upfront cost — a flat monthly rate, per your quote.</p>
+                <ul>
+                  <li>Hosting and revisions included while subscribed</li>
+                  <li>Cancel anytime — no long-term contract</li>
+                  <li>Switch to a one-time buyout whenever you want to own it</li>
+                </ul>
+              </div>
             </div>
-          </div>
+            <div className="wd-plan-note">
+              <p>Either way, <b>you see the finished website before you pay a dollar</b>.</p>
+              <Link to="/agreement" className="wd-agree">Read the plain-English agreement</Link>
+            </div>
+          </section>
+
+          {/* № 05 — PROCESS */}
+          <section className="wd-section">
+            <div className="wd-head">
+              <div className="wd-idx">№ 05 — The process</div>
+              <div>
+                <h2 className="wd-h2">From kickoff <em>to live site</em>.</h2>
+              </div>
+            </div>
+            <div className="wd-steps">
+              {STEPS.map((s, i) => (
+                <div key={s.title} className="wd-step">
+                  <div className="wd-step-num tnum" aria-hidden="true">{String(i + 1).padStart(2, '0')}</div>
+                  <h3>{s.title}</h3>
+                  <p>{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* № 06 — STACK */}
+          <section className="wd-section last">
+            <div className="wd-head">
+              <div className="wd-idx">№ 06 — The stack</div>
+              <div>
+                <h2 className="wd-h2">The tech we <em>build with</em>.</h2>
+              </div>
+            </div>
+            <div className="wd-stack">
+              {STACK.map(t => (
+                <div key={t.name} className="plate wd-stack-card">
+                  <div className="wd-stack-k">{t.kicker}</div>
+                  <div className="wd-stack-name">{t.name}</div>
+                  <p className="wd-stack-desc">{t.desc}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
         </div>
 
-      </div>
+        {/* CTA */}
+        <section className="sp-cta">
+          <div className="wd-cta-in">
+            <div className="label">№ 07 — Start here</div>
+            <h2>Ready for a website that actually <em>earns its keep</em>?</h2>
+            <p>
+              Book a free design call — we’ll audit your current site, show you
+              what’s costing you leads, and sketch out exactly what a Nuvion
+              build would look like.
+            </p>
+            <Link to="/book" className="sp-cta-btn">Book a free design call →</Link>
+          </div>
+        </section>
+      </main>
 
-      <div className="sp-cta">
-        <h2>Ready for a website that actually earns its keep?</h2>
-        <p>Book a free design call and we'll audit your current site, show you what's costing you leads, and sketch out exactly what a Nuvion build would look like.</p>
-        <Link to="/book" className="sp-cta-btn wd">Book a Free Design Call &rarr;</Link>
-      </div>
       <Footer />
     </>
   );

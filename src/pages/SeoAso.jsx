@@ -1,91 +1,140 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
-import nuvionLogo from '../assets/nuvion-logo.png';
+import SiteNav from '../components/SiteNav.jsx';
 import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-const CSS = BASE_CSS + FOOTER_CSS + `
-/* PAGE ACCENT */
-.seo-accent{color:#34D399}
-.sp-eyebrow.seo{background:rgba(52,211,153,0.08);border:1px solid rgba(52,211,153,0.22);color:#34D399}
-.sp-cta-btn.seo{background:#34D399;color:#07090F}
+/* ─────────────────────────────────────────────────────────────
+   SEO & AI Search Optimization — service page.
+   Ink on porcelain paper; Zodiak / General Sans / Fragment Mono.
+───────────────────────────────────────────────────────────── */
 
-/* DUAL PILLARS */
-.seo-pillars{padding:20px 0 72px}
-.seo-pillar-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.seo-pillar{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px 28px;position:relative;overflow:hidden}
-.seo-pillar::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#34D399,transparent)}
-.seo-pillar-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:100px;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
-.seo-badge-trad{background:rgba(79,110,247,0.1);border:1px solid rgba(79,110,247,0.2);color:#818CF8}
-.seo-badge-ai{background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.2);color:#34D399}
-.seo-pillar-title{font-size:1.15rem;font-weight:700;margin-bottom:10px;color:var(--text)}
-.seo-pillar-desc{font-size:.85rem;color:var(--muted);line-height:1.65;margin-bottom:20px}
-.seo-pillar-features{display:flex;flex-direction:column;gap:10px}
-.seo-feat{display:flex;align-items:flex-start;gap:10px;font-size:.82rem;color:var(--muted);line-height:1.5}
-.seo-feat-icon{flex-shrink:0;font-size:.9rem;margin-top:1px}
+const CSS = `
+/* SECTION SCAFFOLD */
+.seo-sec{padding-top:var(--pad-section)}
+.seo-sec:last-of-type{padding-bottom:var(--pad-section)}
+.seo-head{margin-bottom:clamp(34px,4.5vw,54px);display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:900px){.seo-head{grid-template-columns:230px 1fr;gap:44px;align-items:start}}
+.seo-index{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--petrol);padding-top:12px;display:flex;gap:10px;align-items:baseline}
+.seo-index::after{content:'';flex:1;height:1px;background:var(--hairline);align-self:center}
+.seo-h2{font-family:var(--serif);font-weight:700;font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.08;letter-spacing:-.018em;max-width:22ch}
+.seo-h2 em{font-style:italic;font-weight:400;color:var(--petrol)}
+.seo-lede{font-size:.98rem;color:var(--muted-2);line-height:1.7;max-width:58ch;margin-top:12px}
 
-/* WHAT WE DO MONTHLY */
-.seo-monthly{padding:0 0 72px}
-.seo-month-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.seo-month-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:24px 20px;text-align:center;transition:border-color .3s,transform .3s}
-.seo-month-card:hover{border-color:rgba(52,211,153,0.3);transform:translateY(-3px)}
-.seo-month-icon{font-size:1.6rem;margin-bottom:12px}
-.seo-month-title{font-size:.88rem;font-weight:700;color:var(--text);margin-bottom:6px}
-.seo-month-desc{font-size:.78rem;color:var(--muted);line-height:1.55}
-
-/* COMPARISON: OLD vs NEW */
-.seo-compare{padding:0 0 72px}
-.seo-compare-grid{display:grid;grid-template-columns:1fr 60px 1fr;gap:0;align-items:stretch}
-.seo-panel{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px 24px}
-.seo-panel-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:8px}
-.seo-label-old{color:#6B7280}
-.seo-label-new{color:#34D399}
-.seo-item{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:10px;font-size:.82rem;font-weight:600;margin-bottom:9px}
-.seo-item-old{background:rgba(107,114,128,0.1);border:1px solid rgba(107,114,128,0.18);color:#9CA3AF}
-.seo-item-new{background:rgba(52,211,153,0.07);border:1px solid rgba(52,211,153,0.18);color:#D1FAE5}
-.seo-item-icon{font-size:1rem;flex-shrink:0}
-.seo-middle{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:0 8px}
-.seo-divider-pill{background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.25);border-radius:100px;padding:6px 12px;font-size:.68rem;font-weight:700;color:#34D399;letter-spacing:.06em;text-transform:uppercase}
-
-/* PLATFORMS */
-.seo-engines{padding:0 0 72px}
-.seo-engine-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.seo-engine{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:28px 24px;position:relative;overflow:hidden;transition:border-color .3s,transform .3s}
-.seo-engine:hover{border-color:rgba(52,211,153,0.3);transform:translateY(-3px)}
-.seo-engine-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.seo-engine-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
-.seo-engine-name{font-size:.95rem;font-weight:700}
-.seo-engine-desc{font-size:.8rem;color:var(--muted);line-height:1.55}
-.seo-engine-google .seo-engine-icon{background:rgba(59,130,246,0.12)}
-.seo-engine-bing .seo-engine-icon{background:rgba(0,220,255,0.12)}
-.seo-engine-chatgpt .seo-engine-icon{background:rgba(52,211,153,0.12)}
-.seo-engine-perplexity .seo-engine-icon{background:rgba(167,139,250,0.12)}
-.seo-engine-gemini .seo-engine-icon{background:rgba(245,158,11,0.12)}
-.seo-engine-claude .seo-engine-icon{background:rgba(236,72,153,0.12)}
-
-@media(max-width:700px){
-  .seo-pillar-grid{grid-template-columns:1fr}
-  .seo-month-grid{grid-template-columns:repeat(2,1fr)}
-  .seo-compare-grid{grid-template-columns:1fr;gap:16px}
-  .seo-middle{flex-direction:row;padding:8px 0}
-  .seo-engine-grid{grid-template-columns:1fr}
+/* № 01 — TWO PILLARS, ruled two-column editorial */
+.pillars{display:grid;grid-template-columns:1fr;border-top:1px solid var(--hairline)}
+@media(min-width:860px){.pillars{grid-template-columns:1fr 1fr}}
+.pillar{padding:34px 0 8px}
+@media(max-width:859px){.pillar+.pillar{border-top:1px solid var(--hairline)}}
+@media(min-width:860px){
+  .pillar{padding:38px 44px 12px 0}
+  .pillar+.pillar{border-left:1px solid var(--hairline);padding-left:44px;padding-right:0}
 }
+.pillar-kicker{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.pillar-kicker::before{content:'';width:22px;height:1px;background:var(--petrol)}
+.pillar-title{font-family:var(--serif);font-size:clamp(1.4rem,2.3vw,1.85rem);font-weight:700;letter-spacing:-.015em;line-height:1.12;margin-bottom:12px}
+.pillar-desc{font-size:.94rem;color:var(--muted-2);line-height:1.68;max-width:52ch}
+.pillar-list{list-style:none;margin-top:22px}
+.pillar-list li{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid var(--hairline);font-size:.9rem;color:var(--ink);line-height:1.55;max-width:60ch}
+.pillar-list li:last-child{border-bottom:none}
+.pillar-list .pl-n{font-family:var(--mono);font-size:.68rem;color:var(--muted-2);font-variant-numeric:tabular-nums}
+
+/* № 02 — OLD WAY vs NUVION WAY, ruled ledger */
+.vs{border-top:1px solid var(--hairline)}
+.vs-legend{display:none}
+@media(min-width:760px){
+  .vs-legend{display:grid;grid-template-columns:56px 1fr 1fr;gap:24px;padding:14px 6px;border-bottom:1px solid var(--hairline)}
+  .vs-legend span{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-2)}
+  .vs-legend .lit{color:var(--petrol)}
+}
+.vs-row{display:grid;grid-template-columns:44px 1fr;gap:12px 16px;padding:18px 6px;border-bottom:1px solid var(--hairline);transition:background .18s,padding-left .18s}
+@media(min-width:760px){.vs-row{grid-template-columns:56px 1fr 1fr;gap:24px;align-items:baseline;padding:20px 6px}}
+.vs-row:hover{background:var(--card);padding-left:14px}
+.vs-num{font-family:var(--mono);font-size:.72rem;color:var(--petrol);font-variant-numeric:tabular-nums;grid-row:span 2}
+@media(min-width:760px){.vs-num{grid-row:auto}}
+.vs-tag{display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);margin-bottom:3px}
+.vs-new .vs-tag{color:var(--petrol)}
+@media(min-width:760px){.vs-tag{display:none}}
+.vs-old{font-size:.92rem;color:var(--muted-2);line-height:1.55;max-width:44ch}
+.vs-new{font-size:.92rem;font-weight:600;color:var(--ink);line-height:1.55;max-width:44ch}
+
+/* № 03 — MONTHLY CADENCE, index rows */
+.month{border-top:1px solid var(--hairline)}
+.month-row{display:grid;grid-template-columns:44px 1fr;gap:8px 16px;align-items:baseline;padding:clamp(22px,3vw,32px) 6px;border-bottom:1px solid var(--hairline);transition:background .18s,padding-left .18s}
+@media(min-width:760px){.month-row{grid-template-columns:56px 250px 1fr;gap:24px}}
+.month-row:hover{background:var(--card);padding-left:14px}
+.month-num{font-family:var(--mono);font-size:.75rem;color:var(--petrol);font-variant-numeric:tabular-nums}
+.month-title{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,1.5rem);font-weight:700;letter-spacing:-.012em;line-height:1.2}
+.month-desc{font-size:.93rem;color:var(--muted-2);line-height:1.68;max-width:58ch}
+@media(max-width:759px){.month-desc{grid-column:2}}
+
+/* № 04 — PLATFORMS, plate grid */
+.plat-grid{display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:680px){.plat-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.plat-grid{grid-template-columns:repeat(3,1fr)}}
+.plat{padding:24px 26px 24px;display:flex;flex-direction:column;gap:12px;transition:transform .22s var(--ease-out),box-shadow .22s var(--ease-out)}
+.plat:hover{transform:translateY(-3px);box-shadow:var(--shadow-2)}
+.plat-top{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--hairline)}
+.plat-name{font-family:var(--serif);font-size:1.14rem;font-weight:700;letter-spacing:-.01em;transition:color .18s}
+.plat:hover .plat-name{color:var(--petrol)}
+.plat-num{font-family:var(--mono);font-size:.68rem;color:var(--muted-2);font-variant-numeric:tabular-nums}
+.plat-desc{font-size:.88rem;color:var(--muted-2);line-height:1.64;max-width:60ch}
+
+/* CTA alignment */
+.sp-cta-in{max-width:1140px;margin:0 auto}
+.sp-cta .label{display:block;color:rgba(244,242,236,.5);margin-bottom:18px}
 `;
 
-const OLD_WAY = [
-  ['😴', 'Set-and-forget SEO from years ago'],
-  ['📉', 'Invisible to AI search assistants'],
-  ['🔇', 'No structured data or schema markup'],
-  ['❌', 'Generic content that ranks nowhere'],
-  ['📋', 'No monthly reporting or adjustments'],
+/* ── Data ─────────────────────────────────────────────────── */
+const PILLARS = [
+  {
+    kicker: 'Pillar 01 — Traditional SEO',
+    title: 'Rank on Google, Bing & Yahoo',
+    desc: 'Classic search engine optimization, executed monthly with modern best practices — not a one-time setup that gathers dust.',
+    points: [
+      'Keyword research and content gap analysis',
+      'On-page optimization — titles, meta, headers, internal links',
+      'Technical SEO audits — speed, mobile, crawlability',
+      'Strategic backlink building and outreach',
+      'Local SEO and Google Business Profile optimization',
+    ],
+  },
+  {
+    kicker: 'Pillar 02 — AI Answer Optimization',
+    title: 'Get cited by AI assistants',
+    desc: 'More of your customers ask an AI assistant first. When someone asks ChatGPT, Claude, Perplexity, or Gemini for a recommendation, your business should be the answer.',
+    points: [
+      'Entity and knowledge graph optimization',
+      'Structured data and schema markup for AI crawlers',
+      'Conversational content optimized for AI citation',
+      'Authority building across AI training sources',
+      'AI visibility monitoring and citation tracking',
+    ],
+  },
 ];
 
-const NEW_WAY = [
-  ['🚀', 'Monthly optimized SEO + AI search'],
-  ['🤖', 'Structured for ChatGPT, Claude, Perplexity, Gemini'],
-  ['📊', 'Schema markup and entity optimization'],
-  ['✍️', 'Authority content that ranks and gets cited'],
-  ['📈', 'Monthly reporting with clear growth metrics'],
+const COMPARE = [
+  { old: 'Set-and-forget SEO from years ago', now: 'Monthly optimized SEO + AI search' },
+  { old: 'Invisible to AI search assistants', now: 'Structured for ChatGPT, Claude, Perplexity, Gemini' },
+  { old: 'No structured data or schema markup', now: 'Schema markup and entity optimization' },
+  { old: 'Generic content that ranks nowhere', now: 'Authority content that ranks and gets cited' },
+  { old: 'No monthly reporting or adjustments', now: 'Monthly reporting with clear growth metrics' },
+];
+
+const MONTHLY = [
+  { title: 'Audit & analyze', desc: 'Full technical audit, rank tracking, and an AI visibility check to find where the growth opportunities are.' },
+  { title: 'Optimize & create', desc: 'On-page tweaks, new authority content, and structured data updates for both traditional search and AI answers.' },
+  { title: 'Build & outreach', desc: 'Strategic backlink acquisition and entity mentions that build domain authority and AI trust signals.' },
+  { title: 'Report & refine', desc: 'A clear monthly report showing rankings, traffic, and AI citations — with a refined plan for the month ahead.' },
+];
+
+const PLATFORMS = [
+  { name: 'Google Search', desc: 'The foundation. We optimize for Google’s ever-evolving algorithm, including AI Overviews and featured snippets.' },
+  { name: 'Bing & Copilot', desc: 'Microsoft’s search engine powers Copilot’s AI answers. Optimizing here means visibility across Microsoft’s ecosystem.' },
+  { name: 'ChatGPT Search', desc: 'People increasingly ask ChatGPT the questions they used to type into a search bar. We structure your content so it can be found and cited when those questions are about what you do.' },
+  { name: 'Perplexity AI', desc: 'An answer engine that cites its sources in every response. We optimize your content to be sourced and cited in Perplexity’s answers.' },
+  { name: 'Google Gemini', desc: 'Google’s AI assistant pulls from web content to answer questions. Structured, authoritative content gets cited first.' },
+  { name: 'Claude & others', desc: 'As more AI assistants emerge, the same structural work keeps your business visible across them — without starting over each time.' },
 ];
 
 export default function SeoAso() {
@@ -96,161 +145,135 @@ export default function SeoAso() {
         <meta name="description" content="Monthly optimized SEO for traditional search engines and AI Answer Optimization. Get found by Google, ChatGPT, Claude, Perplexity, Gemini, and more." />
         <link rel="canonical" href="https://nuvion-solutions.com/services/seo-aso" />
       </Helmet>
-      <style dangerouslySetInnerHTML={{ __html: CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: BASE_CSS + FOOTER_CSS + CSS }} />
+      <div className="grain" aria-hidden="true" />
+      <SiteNav />
 
-      <nav className="sp-nav">
-        <Link to="/" className="sp-logo"><img src={nuvionLogo} className="sp-logo-img" alt="Nuvion Solutions" /></Link>
-        <Link to="/" className="sp-back">&larr; Back to Home</Link>
-      </nav>
-
-      <div className="sp-hero">
-        <div className="sp-eyebrow seo">🔎 SEO & AI Search Optimization</div>
-        <h1 className="sp-h1">Get found by Google<br /><em className="seo-accent">and AI assistants</em></h1>
-        <p className="sp-sub">Monthly optimized SEO for traditional search engines plus AI Answer Optimization — so your business shows up whether customers search Google or ask ChatGPT, Claude, or any AI assistant.</p>
-      </div>
+      <header className="sp-hero">
+        <div className="sp-eyebrow">SEO & AI Search Optimization</div>
+        <h1 className="sp-h1">Get found — on Google, and <em>wherever people ask</em>.</h1>
+        <p className="sp-sub">
+          Monthly optimized SEO for traditional search engines, plus AI Answer
+          Optimization — so your business shows up whether customers type it into
+          Google or ask ChatGPT, Claude, or another AI assistant.
+        </p>
+      </header>
 
       <div className="sp-wrap">
 
-        {/* TWO PILLARS: Traditional SEO + AI ASO */}
-        <div className="seo-pillars">
-          <div className="sp-section-title">Two Pillars, One Strategy</div>
-          <div className="seo-pillar-grid">
-            <div className="seo-pillar">
-              <div className="seo-pillar-badge seo-badge-trad">Traditional SEO</div>
-              <div className="seo-pillar-title">Rank on Google, Bing & Yahoo</div>
-              <div className="seo-pillar-desc">Classic search engine optimization, executed monthly with modern best practices — not a one-time setup that gathers dust.</div>
-              <div className="seo-pillar-features">
-                <div className="seo-feat"><span className="seo-feat-icon">🔑</span> Keyword research and content gap analysis</div>
-                <div className="seo-feat"><span className="seo-feat-icon">📝</span> On-page optimization (titles, meta, headers, internal links)</div>
-                <div className="seo-feat"><span className="seo-feat-icon">⚡</span> Technical SEO audits (speed, mobile, crawlability)</div>
-                <div className="seo-feat"><span className="seo-feat-icon">🔗</span> Strategic backlink building and outreach</div>
-                <div className="seo-feat"><span className="seo-feat-icon">📍</span> Local SEO and Google Business Profile optimization</div>
-              </div>
-            </div>
-            <div className="seo-pillar">
-              <div className="seo-pillar-badge seo-badge-ai">AI Answer Optimization</div>
-              <div className="seo-pillar-title">Get Cited by AI Assistants</div>
-              <div className="seo-pillar-desc">The rapidly growing world of AI-powered search. When someone asks ChatGPT, Claude, Perplexity, or Gemini for a recommendation, your business should be the answer.</div>
-              <div className="seo-pillar-features">
-                <div className="seo-feat"><span className="seo-feat-icon">🧠</span> Entity and knowledge graph optimization</div>
-                <div className="seo-feat"><span className="seo-feat-icon">📋</span> Structured data and schema markup for AI crawlers</div>
-                <div className="seo-feat"><span className="seo-feat-icon">💬</span> Conversational content optimized for AI citation</div>
-                <div className="seo-feat"><span className="seo-feat-icon">🏆</span> Authority building across AI training sources</div>
-                <div className="seo-feat"><span className="seo-feat-icon">📊</span> AI visibility monitoring and citation tracking</div>
-              </div>
+        {/* № 01 — TWO PILLARS */}
+        <section className="seo-sec">
+          <div className="seo-head">
+            <div className="seo-index">№ 01 — The strategy</div>
+            <div>
+              <h2 className="seo-h2">Two pillars, <em>one strategy</em>.</h2>
+              <p className="seo-lede">
+                Search didn’t stop at the results page. We work both surfaces at
+                once — the rankings you already know, and the AI answers your
+                customers are starting to trust.
+              </p>
             </div>
           </div>
-        </div>
+          <div className="pillars">
+            {PILLARS.map(p => (
+              <div key={p.kicker} className="pillar">
+                <div className="pillar-kicker">{p.kicker}</div>
+                <h3 className="pillar-title">{p.title}</h3>
+                <p className="pillar-desc">{p.desc}</p>
+                <ul className="pillar-list">
+                  {p.points.map((pt, i) => (
+                    <li key={pt}>
+                      <span className="pl-n">{String(i + 1).padStart(2, '0')}</span>
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
 
-        {/* BEFORE / AFTER COMPARISON */}
-        <div className="seo-compare">
-          <div className="sp-section-title">The Old Way vs. The Nuvion Way</div>
-          <div className="seo-compare-grid">
-            <div className="seo-panel">
-              <div className="seo-panel-label seo-label-old">Without Nuvion</div>
-              {OLD_WAY.map(([icon, text]) => (
-                <div key={text} className="seo-item seo-item-old">
-                  <span className="seo-item-icon">{icon}</span>{text}
+        {/* № 02 — OLD WAY vs NUVION WAY */}
+        <section className="seo-sec">
+          <div className="seo-head">
+            <div className="seo-index">№ 02 — The difference</div>
+            <div>
+              <h2 className="seo-h2">The old way vs. <em>the Nuvion way</em>.</h2>
+            </div>
+          </div>
+          <div className="vs">
+            <div className="vs-legend" aria-hidden="true">
+              <span>№</span>
+              <span>The old way</span>
+              <span className="lit">The Nuvion way</span>
+            </div>
+            {COMPARE.map((row, i) => (
+              <div key={row.old} className="vs-row">
+                <span className="vs-num">{String(i + 1).padStart(2, '0')}</span>
+                <div className="vs-old"><span className="vs-tag">The old way</span>{row.old}</div>
+                <div className="vs-new"><span className="vs-tag">The Nuvion way</span>{row.now}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* № 03 — MONTHLY CADENCE */}
+        <section className="seo-sec">
+          <div className="seo-head">
+            <div className="seo-index">№ 03 — The cadence</div>
+            <div>
+              <h2 className="seo-h2">What we do <em>every month</em>.</h2>
+              <p className="seo-lede">
+                Search optimization isn’t a launch event — it’s a discipline.
+                Every month runs the same four-step loop, in the open.
+              </p>
+            </div>
+          </div>
+          <div className="month">
+            {MONTHLY.map((m, i) => (
+              <div key={m.title} className="month-row">
+                <span className="month-num">{String(i + 1).padStart(2, '0')}</span>
+                <h3 className="month-title">{m.title}</h3>
+                <p className="month-desc">{m.desc}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* № 04 — PLATFORMS */}
+        <section className="seo-sec">
+          <div className="seo-head">
+            <div className="seo-index">№ 04 — The surfaces</div>
+            <div>
+              <h2 className="seo-h2">Platforms we <em>optimize for</em>.</h2>
+            </div>
+          </div>
+          <div className="plat-grid">
+            {PLATFORMS.map((p, i) => (
+              <div key={p.name} className="plate plat">
+                <div className="plat-top">
+                  <span className="plat-name">{p.name}</span>
+                  <span className="plat-num">{String(i + 1).padStart(2, '0')}</span>
                 </div>
-              ))}
-            </div>
-            <div className="seo-middle">
-              <div className="seo-divider-pill">VS</div>
-            </div>
-            <div className="seo-panel">
-              <div className="seo-panel-label seo-label-new">With Nuvion</div>
-              {NEW_WAY.map(([icon, text]) => (
-                <div key={text} className="seo-item seo-item-new">
-                  <span className="seo-item-icon">{icon}</span>{text}
-                </div>
-              ))}
-            </div>
+                <p className="plat-desc">{p.desc}</p>
+              </div>
+            ))}
           </div>
-        </div>
-
-        {/* WHAT WE DO MONTHLY */}
-        <div className="seo-monthly">
-          <div className="sp-section-title">What We Do Every Month</div>
-          <div className="seo-month-grid">
-            <div className="seo-month-card">
-              <div className="seo-month-icon">🔍</div>
-              <div className="seo-month-title">Audit & Analyze</div>
-              <div className="seo-month-desc">Full technical audit, rank tracking, and AI visibility check to identify growth opportunities.</div>
-            </div>
-            <div className="seo-month-card">
-              <div className="seo-month-icon">✍️</div>
-              <div className="seo-month-title">Optimize & Create</div>
-              <div className="seo-month-desc">On-page tweaks, new authority content, and structured data updates for both search and AI.</div>
-            </div>
-            <div className="seo-month-card">
-              <div className="seo-month-icon">🔗</div>
-              <div className="seo-month-title">Build & Outreach</div>
-              <div className="seo-month-desc">Strategic backlink acquisition and entity mentions to build domain authority and AI trust signals.</div>
-            </div>
-            <div className="seo-month-card">
-              <div className="seo-month-icon">📈</div>
-              <div className="seo-month-title">Report & Refine</div>
-              <div className="seo-month-desc">Clear monthly report showing rankings, traffic, and AI citations — with a refined plan for next month.</div>
-            </div>
-          </div>
-        </div>
-
-        {/* PLATFORMS WE OPTIMIZE FOR */}
-        <div className="seo-engines">
-          <div className="sp-section-title">Platforms We Optimize For</div>
-          <div className="seo-engine-grid">
-            <div className="seo-engine seo-engine-google">
-              <div className="seo-engine-top">
-                <div className="seo-engine-icon">🔵</div>
-                <div className="seo-engine-name">Google Search</div>
-              </div>
-              <div className="seo-engine-desc">The foundation. We optimize for Google's ever-evolving algorithm, including AI Overviews and featured snippets.</div>
-            </div>
-            <div className="seo-engine seo-engine-bing">
-              <div className="seo-engine-top">
-                <div className="seo-engine-icon">🌐</div>
-                <div className="seo-engine-name">Bing & Copilot</div>
-              </div>
-              <div className="seo-engine-desc">Microsoft's search engine powers Copilot's AI answers. Optimizing here means visibility across Microsoft's ecosystem.</div>
-            </div>
-            <div className="seo-engine seo-engine-chatgpt">
-              <div className="seo-engine-top">
-                <div className="seo-engine-icon">🤖</div>
-                <div className="seo-engine-name">ChatGPT Search</div>
-              </div>
-              <div className="seo-engine-desc">Millions now search via ChatGPT. We ensure your business is cited when users ask for recommendations.</div>
-            </div>
-            <div className="seo-engine seo-engine-perplexity">
-              <div className="seo-engine-top">
-                <div className="seo-engine-icon">🟣</div>
-                <div className="seo-engine-name">Perplexity AI</div>
-              </div>
-              <div className="seo-engine-desc">The fastest-growing AI search engine. We optimize your content to be sourced and cited in Perplexity answers.</div>
-            </div>
-            <div className="seo-engine seo-engine-gemini">
-              <div className="seo-engine-top">
-                <div className="seo-engine-icon">🟡</div>
-                <div className="seo-engine-name">Google Gemini</div>
-              </div>
-              <div className="seo-engine-desc">Google's AI assistant pulls from web content to answer questions. Structured, authoritative content gets cited first.</div>
-            </div>
-            <div className="seo-engine seo-engine-claude">
-              <div className="seo-engine-top">
-                <div className="seo-engine-icon">🟠</div>
-                <div className="seo-engine-name">Claude & Others</div>
-              </div>
-              <div className="seo-engine-desc">As more AI assistants emerge, our optimization strategy ensures you're visible across all of them.</div>
-            </div>
-          </div>
-        </div>
+        </section>
 
       </div>
 
-      <div className="sp-cta">
-        <h2>Ready to dominate search — traditional and AI?</h2>
-        <p>Book a free call and we'll audit your current search visibility and show you exactly where the opportunities are.</p>
-        <Link to="/book" className="sp-cta-btn seo">Book a Free SEO Audit Call &rarr;</Link>
-      </div>
+      <section className="sp-cta">
+        <div className="sp-cta-in">
+          <span className="label">№ 05 — Start here</span>
+          <h2>Ready to be found — in search results and AI answers?</h2>
+          <p>
+            Book a free call and we’ll audit your current search visibility and
+            show you exactly where the opportunities are.
+          </p>
+          <Link to="/book" className="sp-cta-btn">Book a free SEO audit call <span aria-hidden="true">→</span></Link>
+        </div>
+      </section>
       <Footer />
     </>
   );

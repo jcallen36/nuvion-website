@@ -1,44 +1,44 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
-import nuvionLogo from '../assets/nuvion-logo.png';
+import SiteNav from '../components/SiteNav.jsx';
 import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
-const CSS = BASE_CSS + FOOTER_CSS + `
-.ag-hero{padding:56px 32px 8px;max-width:720px;margin:0 auto;text-align:center}
-.ag-eyebrow{display:inline-flex;align-items:center;gap:8px;border-radius:100px;padding:6px 16px;font-size:.72rem;font-weight:700;margin-bottom:20px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);background:rgba(0,220,255,.07);border:1px solid var(--border)}
-.ag-hero h1{font-size:clamp(1.9rem,4.5vw,2.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:14px}
-.ag-lede{color:var(--muted);font-size:1rem;line-height:1.7;max-width:56ch;margin:0 auto}
+/* ─────────────────────────────────────────────────────────────
+   Website Agreement — typeset terms.
+   Quiet, print-like: numbered clauses, hairline rules, serif heads.
+───────────────────────────────────────────────────────────── */
+const CSS = `
+.ag-doc{max-width:820px;padding:clamp(40px,6vw,72px) 0 var(--pad-section)}
 
-.ag-wrap{max-width:680px;margin:0 auto;padding:32px 32px 72px}
-.ag-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:14px 40px}
+.ag-terms{border-top:1px solid var(--hairline)}
+.ag-term{display:grid;grid-template-columns:64px 1fr;gap:10px 22px;padding:clamp(26px,3.4vw,38px) 6px;border-bottom:1px solid var(--hairline);transition:background .2s,padding-left .2s}
+.ag-term:hover{background:var(--card);padding-left:14px}
+.ag-num{font-family:var(--mono);font-size:.75rem;color:var(--petrol);font-variant-numeric:tabular-nums;padding-top:8px}
+.ag-term h2{font-family:var(--serif);font-size:clamp(1.25rem,2vw,1.5rem);font-weight:700;letter-spacing:-.012em;line-height:1.2;margin-bottom:10px}
+.ag-term p{font-size:.96rem;color:var(--muted-2);line-height:1.72;max-width:62ch}
+.ag-term p + p{margin-top:12px}
+.ag-term strong{color:var(--ink);font-weight:600}
 
-.ag-item{padding:26px 0;border-bottom:1px solid var(--border)}
-.ag-item:last-child{border-bottom:none}
-.ag-item h2{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin-bottom:9px;color:var(--text)}
-.ag-item p{color:var(--muted);font-size:.95rem;line-height:1.72;max-width:62ch}
-.ag-item p + p{margin-top:10px}
-.ag-item strong{color:var(--text);font-weight:600}
+/* the two pricing structures — equal-weight plates */
+.ag-plans{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;max-width:62ch}
+.ag-plan{padding:20px 22px;transition:transform .2s var(--ease-out),box-shadow .2s var(--ease-out)}
+.ag-plan:hover{transform:translateY(-2px);box-shadow:var(--shadow-2)}
+.ag-amt{font-family:var(--serif);font-size:1.22rem;font-weight:700;letter-spacing:-.014em;line-height:1.15;margin-bottom:8px;display:flex;align-items:baseline;gap:9px}
+.ag-amt span{font-family:var(--mono);font-size:.64rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--petrol)}
+.ag-plan-note{font-size:.88rem;color:var(--muted-2);line-height:1.64}
 
-/* price highlight row */
-.ag-plans{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-.ag-plan{border:1px solid var(--border);background:var(--surface2);border-radius:13px;padding:16px 18px}
-.ag-plan .ag-amt{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;line-height:1.1;margin-bottom:4px}
-.ag-plan .ag-amt span{font-size:.85rem;font-weight:600;color:var(--muted)}
-.ag-plan .ag-plan-note{font-size:.86rem;color:var(--muted);line-height:1.6}
-.ag-plan .ag-amt.grad-amt{background:linear-gradient(130deg,var(--cyan),var(--primary) 60%,var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-
-.ag-signoff{margin-top:28px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;text-align:center}
-.ag-signoff p{color:var(--muted);font-size:.92rem;line-height:1.7}
-.ag-signoff .ag-agree{color:var(--text);font-weight:600}
-.ag-signoff a{color:var(--cyan);font-weight:600}
-.ag-signoff .ag-brand{margin-top:10px;font-size:.82rem;color:var(--dim)}
+/* sign-off */
+.ag-signoff{margin-top:clamp(36px,5vw,56px);padding:clamp(26px,4vw,40px)}
+.ag-signoff p{font-size:.95rem;color:var(--muted-2);line-height:1.72;max-width:62ch}
+.ag-agree{color:var(--ink);font-weight:600}
+.ag-signoff a{color:var(--petrol);border-bottom:1px solid var(--hairline);padding-bottom:1px;transition:color .18s,border-color .18s}
+.ag-signoff a:hover{color:var(--petrol-deep);border-color:var(--petrol)}
+.ag-brand{margin-top:14px;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:var(--muted-2)}
 
 @media(max-width:680px){
-  .ag-hero{padding:40px 20px 4px}
-  .ag-wrap{padding:24px 16px 52px}
-  .ag-card{padding:8px 22px}
+  .ag-term{grid-template-columns:1fr;gap:6px;padding:24px 2px}
+  .ag-num{padding-top:0}
   .ag-plans{grid-template-columns:1fr}
 }
 `;
@@ -56,129 +56,162 @@ export default function Agreement() {
         />
         <link rel="canonical" href="https://nuvion-solutions.com/agreement" />
       </Helmet>
-      <style dangerouslySetInnerHTML={{ __html: CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: BASE_CSS + FOOTER_CSS + CSS }} />
+      <div className="grain" aria-hidden="true" />
 
-      <nav className="sp-nav">
-        <Link to="/" className="sp-logo"><img src={nuvionLogo} className="sp-logo-img" alt="Nuvion Solutions" /></Link>
-        <a href="https://nuvion-solutions.com" className="sp-back">← Back to nuvion-solutions.com</a>
-      </nav>
+      <SiteNav backTo="https://nuvion-solutions.com" backLabel="Back to nuvion-solutions.com" />
 
-      <div className="ag-hero">
-        <span className="ag-eyebrow">Website Agreement</span>
-        <h1>Simple, <span className="grad">honest terms</span></h1>
-        <p className="ag-lede">
+      <header className="sp-hero">
+        <span className="sp-eyebrow">Website Agreement</span>
+        <h1 className="sp-h1">Simple, <span className="grad">honest terms</span></h1>
+        <p className="sp-sub">
           Plain and simple — this covers the website Nuvion Solutions builds for you. No fine print, no surprises.
         </p>
-      </div>
+      </header>
 
-      <div className="ag-wrap">
-        <div className="ag-card">
+      <div className="sp-wrap">
+        <div className="ag-doc">
+          <div className="ag-terms">
 
-          <div className="ag-item">
-            <h2>What you get</h2>
-            <p>
-              A custom, mobile-friendly website for your business — designed, built, and hosted by Nuvion Solutions LLC, with your real business info on it.
-            </p>
-          </div>
-
-          <div className="ag-item">
-            <h2>Price</h2>
-            <p>
-              Every project is quoted up front, in writing. <strong>Your price is the one on your
-              quote and Stripe invoice</strong> — that number is the agreement, and it doesn't change
-              after you approve it. There are two ways to structure it:
-            </p>
-            <div className="ag-plans">
-              <div className="ag-plan">
-                <div className="ag-amt">One-time <span>build</span></div>
-                <div className="ag-plan-note">Pay once, per your quote — the site is yours to keep. Hosting included.</div>
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">01</span>
+              <div>
+                <h2>What you get</h2>
+                <p>
+                  A custom, mobile-friendly website for your business — designed, built, and hosted by Nuvion Solutions LLC, with your real business info on it.
+                </p>
               </div>
-              <div className="ag-plan">
-                <div className="ag-amt grad-amt">Monthly <span>plan</span></div>
-                <div className="ag-plan-note">No big upfront cost, per your quote. Hosting and revisions included while subscribed.</div>
+            </section>
+
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">02</span>
+              <div>
+                <h2>Price</h2>
+                <p>
+                  Every project is quoted up front, in writing. <strong>Your price is the one on your
+                  quote and Stripe invoice</strong> — that number is the agreement, and it doesn't change
+                  after you approve it. There are two ways to structure it:
+                </p>
+                <div className="ag-plans">
+                  <div className="ag-plan plate">
+                    <div className="ag-amt">One-time <span>build</span></div>
+                    <div className="ag-plan-note">Pay once, per your quote — the site is yours to keep. Hosting included.</div>
+                  </div>
+                  <div className="ag-plan plate">
+                    <div className="ag-amt">Monthly <span>plan</span></div>
+                    <div className="ag-plan-note">No big upfront cost, per your quote. Hosting and revisions included while subscribed.</div>
+                  </div>
+                </div>
               </div>
-            </div>
+            </section>
+
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">03</span>
+              <div>
+                <h2>Who owns it</h2>
+                <p>
+                  <strong>One-time plan:</strong> once you've paid in full, the website — design, files, and content —
+                  is yours to keep. We host it for you free, and you're free to move it or host it elsewhere anytime.
+                </p>
+                <p>
+                  <strong>Monthly plan:</strong> you're subscribed to the site and its hosting. It stays live while
+                  your subscription is active, you can cancel anytime, and if you cancel the site comes down. You can
+                  switch to a one-time buyout anytime to own it outright (quoted when you ask).
+                </p>
+              </div>
+            </section>
+
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">04</span>
+              <div>
+                <h2>Revisions</h2>
+                <p>
+                  <strong>One-time plan:</strong> a small per-change fee after your site is delivered —
+                  the amount is on your quote.
+                  &nbsp;<strong>Monthly plan:</strong> revisions included, free.
+                </p>
+              </div>
+            </section>
+
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">05</span>
+              <div>
+                <h2>Your domain</h2>
+                <p>
+                  Connect a domain you already own, or Nuvion sets one up for you at no charge — you just cover the
+                  domain's yearly registration fee (usually about $15–20/year, paid to the registrar).
+                </p>
+              </div>
+            </section>
+
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">06</span>
+              <div>
+                <h2>Hosting</h2>
+                <p>Free on both plans — no separate hosting fee. Your site is hosted, secured with HTTPS, and kept online by Nuvion.</p>
+              </div>
+            </section>
+
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">07</span>
+              <div>
+                <h2>Your content</h2>
+                <p>
+                  You confirm you have the right to use any logo, photos, text, or reviews you give us. Nuvion Solutions LLC isn't
+                  responsible for content you provide.
+                </p>
+              </div>
+            </section>
+
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">08</span>
+              <div>
+                <h2>Timeline</h2>
+                <p>Once you approve and pay, your site goes live within a few business days.</p>
+              </div>
+            </section>
+
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">09</span>
+              <div>
+                <h2>Results</h2>
+                <p>
+                  We build fast, modern, search-ready sites, but we can't promise specific Google rankings, traffic,
+                  or sales — and you should be cautious of anyone who does.
+                </p>
+              </div>
+            </section>
+
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">10</span>
+              <div>
+                <h2>Refunds</h2>
+                <p>
+                  You see the finished website before you pay a dollar, so the one-time fee is non-refundable once your
+                  site is delivered and live. On the monthly plan, cancel anytime; the current month isn't refunded.
+                </p>
+              </div>
+            </section>
+
+            <section className="ag-term">
+              <span className="ag-num" aria-hidden="true">11</span>
+              <div>
+                <h2>Liability</h2>
+                <p>Nuvion Solutions LLC's total responsibility is limited to the amount you've paid.</p>
+              </div>
+            </section>
+
           </div>
 
-          <div className="ag-item">
-            <h2>Who owns it</h2>
+          <div className="ag-signoff plate">
             <p>
-              <strong>One-time plan:</strong> once you've paid in full, the website — design, files, and content —
-              is yours to keep. We host it for you free, and you're free to move it or host it elsewhere anytime.
+              That's it. Questions? Reply to your invoice email or text us.{' '}
+              <span className="ag-agree">By paying your invoice, you agree to these terms.</span>
             </p>
-            <p>
-              <strong>Monthly plan:</strong> you're subscribed to the site and its hosting. It stays live while
-              your subscription is active, you can cancel anytime, and if you cancel the site comes down. You can
-              switch to a one-time buyout anytime to own it outright (quoted when you ask).
+            <p className="ag-brand">
+              Nuvion Solutions · <a href="https://nuvion-solutions.com">nuvion-solutions.com</a>
             </p>
           </div>
-
-          <div className="ag-item">
-            <h2>Revisions</h2>
-            <p>
-              <strong>One-time plan:</strong> a small per-change fee after your site is delivered —
-              the amount is on your quote.
-              &nbsp;<strong>Monthly plan:</strong> revisions included, free.
-            </p>
-          </div>
-
-          <div className="ag-item">
-            <h2>Your domain</h2>
-            <p>
-              Connect a domain you already own, or Nuvion sets one up for you at no charge — you just cover the
-              domain's yearly registration fee (usually about $15–20/year, paid to the registrar).
-            </p>
-          </div>
-
-          <div className="ag-item">
-            <h2>Hosting</h2>
-            <p>Free on both plans — no separate hosting fee. Your site is hosted, secured with HTTPS, and kept online by Nuvion.</p>
-          </div>
-
-          <div className="ag-item">
-            <h2>Your content</h2>
-            <p>
-              You confirm you have the right to use any logo, photos, text, or reviews you give us. Nuvion Solutions LLC isn't
-              responsible for content you provide.
-            </p>
-          </div>
-
-          <div className="ag-item">
-            <h2>Timeline</h2>
-            <p>Once you approve and pay, your site goes live within a few business days.</p>
-          </div>
-
-          <div className="ag-item">
-            <h2>Results</h2>
-            <p>
-              We build fast, modern, search-ready sites, but we can't promise specific Google rankings, traffic,
-              or sales — and you should be cautious of anyone who does.
-            </p>
-          </div>
-
-          <div className="ag-item">
-            <h2>Refunds</h2>
-            <p>
-              You see the finished website before you pay a dollar, so the one-time fee is non-refundable once your
-              site is delivered and live. On the monthly plan, cancel anytime; the current month isn't refunded.
-            </p>
-          </div>
-
-          <div className="ag-item">
-            <h2>Liability</h2>
-            <p>Nuvion Solutions LLC's total responsibility is limited to the amount you've paid.</p>
-          </div>
-
-        </div>
-
-        <div className="ag-signoff">
-          <p>
-            That's it. Questions? Reply to your invoice email or text us.{' '}
-            <span className="ag-agree">By paying your invoice, you agree to these terms.</span>
-          </p>
-          <p className="ag-brand">
-            Nuvion Solutions · <a href="https://nuvion-solutions.com">nuvion-solutions.com</a>
-          </p>
         </div>
       </div>
 

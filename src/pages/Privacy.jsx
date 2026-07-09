@@ -1,36 +1,40 @@
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { BASE_CSS } from './shared.js';
-import nuvionLogo from '../assets/nuvion-logo.png';
+import SiteNav from '../components/SiteNav.jsx';
 import Footer, { FOOTER_CSS } from '../components/Footer.jsx';
 
+/* Legal page chrome — quiet, print-like typesetting on paper.
+ * The legal wording itself is untouched; this CSS is layout only. */
 const LEGAL_CSS = `
-.lg-hero{padding:56px 32px 8px;max-width:760px;margin:0 auto;text-align:center}
-.lg-eyebrow{display:inline-flex;align-items:center;gap:8px;border-radius:100px;padding:6px 16px;font-size:.72rem;font-weight:700;margin-bottom:20px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);background:rgba(0,220,255,.07);border:1px solid var(--border)}
-.lg-hero h1{font-size:clamp(1.9rem,4.5vw,2.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:10px}
-.lg-updated{color:var(--dim);font-size:.8rem;letter-spacing:.02em}
-.lg-lede{color:var(--muted);font-size:1rem;line-height:1.7;max-width:60ch;margin:14px auto 0}
-.lg-wrap{max-width:760px;margin:0 auto;padding:32px 32px 72px}
-.lg-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:14px 40px}
-.lg-item{padding:26px 0;border-bottom:1px solid var(--border)}
-.lg-item:last-child{border-bottom:none}
-.lg-item h2{font-size:1.05rem;font-weight:700;letter-spacing:-.01em;margin-bottom:9px;color:var(--text)}
-.lg-item p{color:var(--muted);font-size:.95rem;line-height:1.72;max-width:66ch}
-.lg-item p + p{margin-top:10px}
-.lg-item ul{margin:10px 0 0;padding-left:20px;color:var(--muted);font-size:.95rem;line-height:1.72}
-.lg-item li{margin-bottom:7px}
-.lg-item strong{color:var(--text);font-weight:600}
-.lg-item a{color:var(--cyan);font-weight:600;text-decoration:none}
-.lg-item a:hover{text-decoration:underline}
-.lg-signoff{margin-top:28px;padding:22px 24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;text-align:center}
-.lg-signoff p{color:var(--muted);font-size:.92rem;line-height:1.7}
-.lg-signoff .lg-brand{margin-top:10px;font-size:.82rem;color:var(--dim)}
-.lg-signoff a{color:var(--cyan);font-weight:600;text-decoration:none}
+.lg-hero{max-width:820px;padding-bottom:0}
+.lg-updated{margin-bottom:18px;font-family:var(--mono);font-size:.75rem;letter-spacing:.08em;color:var(--muted-2);font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:12px}
+.lg-updated::after{content:'';flex:1;max-width:180px;height:1px;background:var(--hairline)}
+.lg-lede{margin-top:2px}
+
+.lg-wrap{max-width:820px;margin:0 auto;padding:clamp(44px,6vw,72px) 32px var(--pad-section)}
+.lg-doc{border-top:1px solid var(--hairline)}
+.lg-item{padding:clamp(28px,4vw,42px) 0;border-bottom:1px solid var(--hairline)}
+.lg-item h2{font-family:var(--serif);font-size:clamp(1.14rem,1.9vw,1.32rem);font-weight:700;letter-spacing:-.012em;line-height:1.3;margin-bottom:12px;color:var(--ink)}
+.lg-item p{color:var(--muted-2);font-size:.95rem;line-height:1.75;max-width:66ch}
+.lg-item p + p{margin-top:12px}
+.lg-item strong{color:var(--ink);font-weight:600}
+.lg-item a{color:var(--petrol);font-weight:600;border-bottom:1px solid var(--hairline);padding-bottom:1px;transition:color .18s var(--ease-out),border-color .18s var(--ease-out)}
+.lg-item a:hover{color:var(--petrol-deep);border-color:var(--petrol)}
+.lg-item ul{list-style:none;margin:14px 0 0;padding:0;max-width:66ch}
+.lg-item li{display:flex;align-items:baseline;gap:12px;padding:9px 0;border-bottom:1px solid var(--hairline);font-size:.93rem;color:var(--ink);line-height:1.6}
+.lg-item li:last-child{border-bottom:none}
+.lg-item li::before{content:'—';color:var(--petrol);font-family:var(--mono);font-size:.8rem;flex-shrink:0}
+
+.lg-signoff{margin-top:clamp(36px,5vw,56px);padding:clamp(26px,4vw,38px) clamp(26px,4vw,40px)}
+.lg-signoff p{font-family:var(--serif);font-style:italic;font-size:clamp(1.05rem,1.9vw,1.28rem);font-weight:400;line-height:1.5;letter-spacing:-.008em;color:var(--ink);max-width:52ch}
+.lg-signoff .lg-brand{margin-top:16px;padding-top:16px;border-top:1px solid var(--hairline);font-family:var(--mono);font-style:normal;font-size:.74rem;letter-spacing:.1em;color:var(--muted-2)}
+.lg-signoff .lg-brand a{color:var(--petrol);border-bottom:1px solid var(--hairline);padding-bottom:1px;transition:color .18s var(--ease-out),border-color .18s var(--ease-out)}
+.lg-signoff .lg-brand a:hover{color:var(--petrol-deep);border-color:var(--petrol)}
+
 @media(max-width:680px){
-  .lg-hero{padding:40px 20px 4px}
-  .lg-wrap{padding:24px 16px 52px}
-  .lg-card{padding:8px 22px}
+  .lg-wrap{padding:36px 20px 72px}
+  .lg-signoff{padding:24px 22px}
 }
 `;
 
@@ -50,24 +54,22 @@ export default function Privacy() {
         <link rel="canonical" href="https://nuvion-solutions.com/privacy" />
       </Helmet>
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
+      <div className="grain" aria-hidden="true" />
 
-      <nav className="sp-nav">
-        <Link to="/" className="sp-logo"><img src={nuvionLogo} className="sp-logo-img" alt="Nuvion Solutions" /></Link>
-        <a href="https://nuvion-solutions.com" className="sp-back">← Back to nuvion-solutions.com</a>
-      </nav>
+      <SiteNav />
 
-      <div className="lg-hero">
-        <span className="lg-eyebrow">Legal</span>
-        <h1>Privacy <span className="grad">Policy</span></h1>
+      <header className="sp-hero lg-hero">
+        <span className="sp-eyebrow">Legal</span>
+        <h1 className="sp-h1">Privacy <span className="grad">Policy</span></h1>
         <div className="lg-updated">Last updated: July 5, 2026</div>
-        <p className="lg-lede">
+        <p className="sp-sub lg-lede">
           This policy explains what information Nuvion Solutions collects on nuvion-solutions.com, how we use it,
           and the choices you have. We keep it short and honest — we don't sell your data.
         </p>
-      </div>
+      </header>
 
       <div className="lg-wrap">
-        <div className="lg-card">
+        <div className="lg-doc">
 
           <div className="lg-item">
             <h2>1. Who we are</h2>
@@ -186,7 +188,7 @@ export default function Privacy() {
 
         </div>
 
-        <div className="lg-signoff">
+        <div className="lg-signoff plate">
           <p>We keep it simple: we collect only what we need, we protect it, and we never sell it.</p>
           <p className="lg-brand">
             Nuvion Solutions · <a href="https://nuvion-solutions.com">nuvion-solutions.com</a>
