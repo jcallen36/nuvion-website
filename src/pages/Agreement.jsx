@@ -126,9 +126,10 @@ export default function Agreement() {
               <div>
                 <h2>Revisions</h2>
                 <p>
-                  <strong>One-time plan:</strong> simple revisions — text changes, photo swaps, small
-                  tweaks — are free. Larger revisions, new features, or integrations are quoted
-                  before we build them.
+                  <strong>Every plan:</strong> unlimited free revisions for the first 7 days after launch —
+                  we keep tweaking until it's right. After that: <strong>one-time plan</strong> — simple
+                  revisions (text changes, photo swaps, small tweaks) are free; larger revisions, new
+                  features, or integrations are quoted before we build them.
                   &nbsp;<strong>Monthly plan:</strong> revisions included, free — within reason.
                 </p>
               </div>
