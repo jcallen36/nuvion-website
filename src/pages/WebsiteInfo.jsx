@@ -140,8 +140,13 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .w2-toggle button{position:relative;z-index:1;border:none;cursor:pointer;font-family:var(--bodyf);font-size:.88rem;font-weight:700;padding:11px 26px;border-radius:100px;color:var(--mut);background:transparent;width:130px;transition:color .2s}
 .w2-toggle button[aria-pressed="true"]{color:#04121A}
 .w2-toggle-note{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--dim)}
-.w2-plans{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(18px,2.4vw,28px);max-width:860px;margin:0 auto;align-items:stretch}
+.w2-plans{max-width:660px;margin:0 auto}
 .w2-plan{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:clamp(26px,3vw,36px);box-shadow:0 1px 0 var(--topline) inset;display:flex;flex-direction:column}
+/* single merged package */
+.w2-plan-top{text-align:center;padding-bottom:22px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+.w2-plan-solo .w2-price{margin-bottom:6px}
+.w2-plan-solo .w2-price-alt{margin-top:0}
+.w2-plan.w2-plan-solo ul{display:grid;grid-template-columns:1fr 1fr;gap:12px 28px;align-content:start}
 .w2-plan.hot{border-color:rgba(0,220,255,.32);background:linear-gradient(180deg,rgba(0,220,255,.06),var(--bg2) 42%);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 0 70px -26px rgba(0,220,255,.3)}
 .w2-tag{position:absolute;top:-12px;left:clamp(26px,3vw,36px);font-family:var(--mono);font-size:.62rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;background:var(--acc);color:#04121A;border-radius:100px;padding:6px 13px;white-space:nowrap}
 .w2-plan-name{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
@@ -226,7 +231,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
   .w2-work-grid::-webkit-scrollbar{display:none}
   .w2-card{flex:0 0 68vw;scroll-snap-align:center}
   .w2-proc-grid{grid-template-columns:1fr;row-gap:34px}
-  .w2-plans{grid-template-columns:1fr}
+  .w2-plan.w2-plan-solo ul{grid-template-columns:1fr}
   .w2-faq details p{padding-right:8px}
 }
 `;
@@ -240,27 +245,27 @@ const WORK = [
 
 const SPECS = [
   ['Built from your real business', 'Your reviews, your jobs, your towns, your photos — gathered before we write a line of code. No two come out the same.'],
-  ['Local SEO — set up + updated monthly, free', 'Google understands what you do and where you do it. Free monthly updates on every plan.'],
+  ['Local SEO — set up + updated monthly, free', 'Google understands what you do and where you do it. Free monthly updates, always.'],
   ['Hosting + security included', 'Fast hosting and the padlock (SSL) — no “Not Secure” warning scaring people off.'],
   ['Lead capture', 'Quote requests land in your email the moment they’re sent.'],
   ['Your domain, handled', 'Use one you own or we set one up — you just cover the ~$15–20/yr registration.'],
 ];
 
 const STEPS = [
-  ['Today', 'Text “go”', 'To the number that sent you this page. That’s the whole first step.'],
-  ['+5 minutes', 'One short form', 'Five minutes. Add photos of your work and your logo if you have them — we pull the rest from what’s already public.'],
-  ['Inside a week', 'Your site, live, on your phone', <>We build it and text you the live link. Like it? You approve a written quote. <strong>Nothing’s owed before that.</strong></>],
-  ['First 7 days live', 'Tweak it till you’d show it off', 'Unlimited free revisions for the first 7 days after launch — colors, photos, wording, layout. On every plan.'],
+  ['Today', 'Text “go” — or just say you’re ready', 'To the number that sent you this page. That’s the whole first step — no form yet, no commitment.'],
+  ['This week', 'Your details + a time', 'A quick 5-minute form so we build from your real business — then we pick a time together for me to show you the result.'],
+  ['The walkthrough', 'I show you your site, live', 'We hop on a quick call and I walk you through the site I built for you, section by section — your questions answered on the spot.'],
+  ['If you like it', 'We put it online', <>You approve a written quote and your site goes live. Then unlimited free tweaks for the first 7 days. <strong>Nothing’s owed until you say go.</strong></>],
 ];
 
 const FAQS = [
   ['We already have a website.', 'Then compare it side by side with what we build — that’s the whole test. Pull both up on your phone: which one loads faster, shows your reviews, and makes it easier to call? If yours wins, keep it, no hard feelings.'],
   ['I’m not a tech person.', 'You never touch anything. We build it, host it, secure it, and update it. Your only job is a 5-minute form and sending us photos of your work.'],
-  ['Who owns the site?', 'One-time plans: you do — design, files, domain, all of it, and you can host it anywhere. Monthly plans: it’s a subscription — cancel anytime, and you can buy it out to own it outright whenever you want.'],
+  ['Who owns the site?', 'Pay once and you do — design, files, domain, all of it, and you can host it anywhere. Go monthly and it’s a subscription — cancel anytime, and you can buy it out to own it outright whenever you want.'],
   ['How long does it take?', 'Days, not months. Plan on live inside a week of your onboarding form coming back.'],
   ['What do you need from me?', 'A 5-minute onboarding form, photos of your work if you have them, and your logo if you have one. That’s it — we pull the rest from what’s already public.'],
-  ['What if I don’t like what you build?', 'Then you say no and owe nothing. We build the site first and text you the live link — you only pay once you’ve seen it and approved a written quote. There’s no deposit and no obligation to keep it. Worst case, you got a free look at what your site could be.'],
-  ['What if I want changes later?', 'Every plan gets unlimited free revisions for the first 7 days after launch. After that: monthly plans include day-to-day updates (within reason), and one-time plans keep small text and photo swaps free — bigger work is quoted in writing before we touch it.'],
+  ['What if I don’t like what you build?', 'Then you say no and owe nothing. We build it and walk you through it live — you only pay once you’ve seen it and want it online. There’s no deposit and no obligation to keep it. Worst case, you got a free look at what your site could be.'],
+  ['What if I want changes later?', 'You get unlimited free revisions for the first 7 days after it goes live. After that: pay monthly and day-to-day updates are included (within reason); pay once and small text and photo swaps stay free — bigger work is quoted in writing before we touch it.'],
 ];
 
 function Phone({ img, alt, scrub }) {
@@ -362,7 +367,7 @@ export default function WebsiteInfo() {
                   <Link to="/book" className="w2-btn-ghost">Book a 10-minute call</Link>
                 </div>
                 <div className="w2-hero-spec">
-                  <div><b>2</b><span>Packages, exact prices</span></div>
+                  <div><b>2 ways</b><span>Pay once or monthly</span></div>
                   <div><b>$0</b><span>Owed before approval</span></div>
                   <div><b>7 days</b><span>Free revisions</span></div>
                 </div>
@@ -412,7 +417,7 @@ export default function WebsiteInfo() {
             <div className="w2-inc-grid">
               <div data-rv>
                 <div className="w2-kick">Standard equipment</div>
-                <h2 className="w2-h2">Included with every site — every plan.</h2>
+                <h2 className="w2-h2">Included with every build.</h2>
                 <p className="w2-sub">Not add-ons. Not an upsell later. This is the floor.</p>
                 <div className="w2-spec">
                   {SPECS.map(([t, d], i) => (
@@ -461,44 +466,36 @@ export default function WebsiteInfo() {
         <section className="w2-sec" id="w2-pricing">
           <div className="w2-wrap">
             <div className="w2-price-head" data-rv>
-              <div className="w2-kick">Packages</div>
-              <h2 className="w2-h2">Two ways to do this. Exact prices, no asterisks.</h2>
-              <p className="w2-sub" style={{ margin: '0 auto' }}>Pay once and own it outright, or go monthly with everything handled. Same custom build either way.</p>
+              <div className="w2-kick">The package</div>
+              <h2 className="w2-h2">One complete build. Two ways to pay.</h2>
+              <p className="w2-sub" style={{ margin: '0 auto' }}>Everything below, every time — no stripped-down tier. Pay once and own it outright, or keep it simple monthly.</p>
             </div>
             <div className="w2-toggle-row" data-rv>
-              <div className={onetime ? 'w2-toggle' : 'w2-toggle mo'} role="group" aria-label="Billing period">
+              <div className={onetime ? 'w2-toggle' : 'w2-toggle mo'} role="group" aria-label="Payment option">
                 <button aria-pressed={onetime} onClick={() => setBilling('onetime')}>Pay once</button>
                 <button aria-pressed={!onetime} onClick={() => setBilling('monthly')}>Monthly</button>
               </div>
-              <span className="w2-toggle-note">{onetime ? 'YOU OWN IT — FILES, DOMAIN, EVERYTHING' : 'CANCEL ANYTIME · BUY IT OUT WHENEVER'}</span>
+              <span className="w2-toggle-note">{onetime ? 'YOU OWN IT — FILES, DOMAIN, EVERYTHING' : 'EVERYTHING HANDLED · CANCEL ANYTIME'}</span>
             </div>
             <div className="w2-plans" aria-live="polite">
-              <div className="w2-plan" data-rv>
-                <div className="w2-plan-name">Standard</div>
-                <div className="w2-price" key={billing}>{onetime ? '$900' : <>$89<span>/mo</span></>}</div>
-                <div className="w2-price-alt">{onetime ? 'OR $89/MO' : 'OR $900 ONCE — YOU OWN IT'}</div>
+              <div className="w2-plan hot w2-plan-solo" data-rv>
+                <div className="w2-plan-top">
+                  <div className="w2-plan-name">Everything included</div>
+                  <div className="w2-price" key={billing}>{onetime ? '$1,800' : <>$129<span>/mo</span></>}</div>
+                  <div className="w2-price-alt">{onetime ? 'ONE-TIME — OR $129/MO' : 'PER MONTH — OR $1,800 ONCE, YOU OWN IT'}</div>
+                </div>
                 <ul>
-                  <li>Full multi-section custom build — services, photo gallery, service area</li>
-                  <li>Mobile-first with one-tap calling</li>
-                  <li>Your Google reviews on the page</li>
-                  <li>Quote form — leads straight to your email</li>
-                  <li>Hosting, security + domain handled</li>
-                  <li>Local SEO — set up, updated monthly, free</li>
-                  <li><strong>7 days of unlimited free revisions</strong></li>
-                </ul>
-              </div>
-              <div className="w2-plan hot" data-rv>
-                <div className="w2-tag">Every service · every town</div>
-                <div className="w2-plan-name">Flagship</div>
-                <div className="w2-price" key={billing + 'f'}>{onetime ? '$1,800' : <>$129<span>/mo</span></>}</div>
-                <div className="w2-price-alt">{onetime ? 'OR $129/MO' : 'OR $1,800 ONCE — YOU OWN IT'}</div>
-                <ul>
-                  <li className="plus">Everything in Standard, plus:</li>
+                  <li>Full multi-section custom site — services, photo gallery, service area</li>
                   <li>A dedicated page for each service you offer</li>
                   <li>A page for every town you work — built to help you show up when that town searches</li>
+                  <li>Mobile-first with one-tap calling</li>
+                  <li>Your Google reviews on the page</li>
                   <li>Google Business Profile optimization</li>
                   <li>One-tap review link + printable QR card to grow your stars</li>
-                  <li>Priority turnaround — your requests handled first</li>
+                  <li>Quote form — leads straight to your email</li>
+                  <li>Hosting, security + domain handled</li>
+                  <li>Local + on-page SEO — set up, updated monthly, free</li>
+                  <li><strong>7 days of unlimited free revisions</strong></li>
                 </ul>
               </div>
             </div>
@@ -517,12 +514,12 @@ export default function WebsiteInfo() {
               <div className="w2-after-card" data-rv>
                 <i>Days 1–7</i>
                 <h3>Change anything</h3>
-                <p><strong>Unlimited free revisions for 7 days after launch, on every plan.</strong> Colors, photos, wording, layout — we keep tweaking until you’d show it off.</p>
+                <p><strong>Unlimited free revisions for the first 7 days after it goes live.</strong> Colors, photos, wording, layout — we keep tweaking until you’d show it off.</p>
               </div>
               <div className="w2-after-card" data-rv>
                 <i>Day 8 onward</i>
                 <h3>Still covered</h3>
-                <p>Monthly plans: day-to-day updates included, free (within reason — the agreement spells it out). One-time plans: small text and photo swaps stay free — anything bigger gets a <strong>written quote first</strong>, so nothing ever costs money by surprise.</p>
+                <p>Pay monthly and day-to-day updates are included, free (within reason — the agreement spells it out). Pay once and small text and photo swaps stay free — anything bigger gets a <strong>written quote first</strong>, so nothing ever costs money by surprise.</p>
               </div>
               <div className="w2-after-card" data-rv>
                 <i>Any day</i>
@@ -534,7 +531,7 @@ export default function WebsiteInfo() {
               <i>What we won’t promise you</i>
               <p>
                 A guaranteed #1 spot on Google. <strong>Nobody can honestly promise that</strong> — anyone who does is selling you something.
-                What we do promise: a site built and SEO’d properly — updated monthly, free, on every plan — that makes you the easiest
+                What we do promise: a site built and SEO’d properly — updated monthly, free — that makes you the easiest
                 company in town to size up and call. The full plain-English terms are at{' '}
                 <Link to="/agreement">nuvion-solutions.com/agreement</Link> — two minutes, no legal wall.
               </p>
@@ -565,11 +562,11 @@ export default function WebsiteInfo() {
           <div className="w2-wrap">
             <div data-rv>
               <h2>Seen enough?</h2>
-              <p className="w2-sub">One reply starts the whole thing. No form to fill out here, no card, no call unless you want one.</p>
+              <p className="w2-sub">One reply starts the whole thing — no form here, no card, no commitment. You decide once you’ve seen your site.</p>
               <div className="w2-reply">
                 <div className="w2-reply-tag">In the text thread that sent you this</div>
-                <div className="w2-reply-line">Reply <b>“go”</b> — we build your site and text you the live link.</div>
-                <div className="w2-reply-sub">You only approve a written quote after you’ve seen it. Nothing’s owed before that.</div>
+                <div className="w2-reply-line">Reply <b>“go”</b> — we set a time and I walk you through the site I built for you.</div>
+                <div className="w2-reply-sub">Like it? We put it online. You only approve a written quote once you’ve seen it — nothing’s owed before that.</div>
               </div>
               <div className="w2-cta-row">
                 <Link to="/book" className="w2-cta-alt">Prefer to talk first? Book a 10-minute call</Link>
