@@ -246,7 +246,7 @@ const WORK = [
 
 const SPECS = [
   ['Built from your real business', 'Your reviews, your jobs, your towns, your photos — gathered before we write a line of code. No two come out the same.'],
-  ['Local SEO — set up + updated monthly, free', 'Google understands what you do and where you do it. Free monthly updates, always.'],
+  ['Local SEO — set up + updated monthly, free', 'SEO is what helps customers Googling your service find you instead of scrolling past to a competitor. We set it up so Google understands what you do and where — and keep it updated monthly, free.'],
   ['Hosting + security included', 'Fast hosting and the padlock (SSL) — no “Not Secure” warning scaring people off.'],
   ['Lead capture', 'Quote requests land in your email the moment they’re sent.'],
   ['Your domain, handled', 'Use one you own or we set one up — you just cover the ~$15–20/yr registration.'],
@@ -491,11 +491,11 @@ export default function WebsiteInfo() {
                   <li>A page for every town you work — built to help you show up when that town searches</li>
                   <li>Mobile-first with one-tap calling</li>
                   <li>Your Google reviews on the page</li>
-                  <li>Google Business Profile optimization</li>
+                  <li>Google Business Profile optimization — your Google Maps listing, tuned so locals find and call you</li>
                   <li>One-tap review link + printable QR card to grow your stars</li>
                   <li>Quote form — leads straight to your email</li>
                   <li>Hosting, security + domain handled</li>
-                  <li>Local + on-page SEO — set up, updated monthly, free</li>
+                  <li>Local + on-page SEO — helps customers find you on Google, not just your competitors. Set up, updated monthly, free</li>
                   <li><strong>7 days of unlimited free revisions</strong></li>
                 </ul>
               </div>
@@ -532,8 +532,8 @@ export default function WebsiteInfo() {
               <i>What we won’t promise you</i>
               <p>
                 A guaranteed #1 spot on Google. <strong>Nobody can honestly promise that</strong> — anyone who does is selling you something.
-                What we do promise: a site built and SEO’d properly — updated monthly, free — that makes you the easiest
-                company in town to size up and call. The full plain-English terms are at{' '}
+                What we do promise: a site built and SEO’d properly — updated monthly, free — so more of the people
+                searching for your service actually find you, and find you the easiest company in town to size up and call. The full plain-English terms are at{' '}
                 <Link to="/agreement">nuvion-solutions.com/agreement</Link> — two minutes, no legal wall.
               </p>
             </div>
