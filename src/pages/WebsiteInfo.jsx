@@ -53,7 +53,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .wi-toggle-note{font-size:.78rem;color:var(--dim)}
 
 /* pricing plates */
-.wi-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.wi-plans{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;align-items:stretch;max-width:780px;margin:0 auto}
 .wi-plan{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:26px 24px;display:flex;flex-direction:column;transition:transform .2s,border-color .2s}
 .wi-plan:hover{transform:translateY(-3px);border-color:rgba(0,220,255,.25)}
 .wi-plan.hot{border-color:rgba(0,220,255,.35);background:linear-gradient(180deg,rgba(0,220,255,.05),var(--surface) 45%)}
@@ -140,7 +140,7 @@ export default function WebsiteInfo() {
         <title>Websites — Everything Included, Every Price | Nuvion Solutions</title>
         <meta
           name="description"
-          content="The full rundown on Nuvion Solutions websites: what every custom build includes, all three packages with exact prices, how revisions work, and live examples."
+          content="The full rundown on Nuvion Solutions websites: what every custom build includes, both packages with exact prices, how revisions work, and live examples."
         />
         <link rel="canonical" href="https://nuvion-solutions.com/websites" />
       </Helmet>
@@ -156,7 +156,7 @@ export default function WebsiteInfo() {
         <h1 className="sp-h1">You asked for the info.<br /><span className="grad">Here's all of it.</span></h1>
         <p className="wi-lede">
           No sales fluff, no "book a discovery call to learn more." What every site includes,
-          all three packages with exact prices, how changes work, and where to see the real thing.
+          both packages with exact prices, how changes work, and where to see the real thing.
           Three minutes, start to finish.
         </p>
       </header>
@@ -220,7 +220,7 @@ export default function WebsiteInfo() {
         {/* PACKAGES */}
         <section className="wi-sec">
           <div className="wi-kicker">Packages</div>
-          <h2 className="wi-h2">Three ways to do this. Exact prices, no asterisks.</h2>
+          <h2 className="wi-h2">Two ways to do this. Exact prices, no asterisks.</h2>
           <p className="wi-p">Pay once and own it outright, or go monthly with everything handled. Same custom build either way.</p>
 
           <div className="wi-toggle-row">
@@ -233,28 +233,17 @@ export default function WebsiteInfo() {
 
           <div className="wi-plans">
             <div className="wi-plan">
-              <div className="wi-plan-name">Starter</div>
-              <div className="wi-price">$29<span>/mo</span></div>
-              <div className="wi-price-alt">{onetime ? 'Monthly only — the easy way in' : 'The easy way in'}</div>
-              <ul>
-                <li>One-page custom site — still built from your reviews and photos, never a template</li>
-                <li>Mobile-first with one-tap calling</li>
-                <li>Your Google reviews on the page</li>
-                <li>Hosting, security + domain handled</li>
-                <li>Local + on-page SEO, set up and updated monthly — free</li>
-                <li>7 days of unlimited free revisions</li>
-              </ul>
-            </div>
-
-            <div className="wi-plan">
               <div className="wi-plan-name">Standard</div>
               <div className="wi-price">{onetime ? '$900' : <>$89<span>/mo</span></>}</div>
               <div className="wi-price-alt">{onetime ? 'or $89/mo' : 'or $900 once — you own it'}</div>
               <ul>
-                <li className="plus">Everything in Starter, plus:</li>
-                <li>Full multi-section build — services, photo gallery, service area</li>
+                <li>Full multi-section custom build — services, photo gallery, service area</li>
+                <li>Mobile-first with one-tap calling</li>
+                <li>Your Google reviews on the page</li>
                 <li>Quote request form — leads straight to your email</li>
-                <li>Way more SEO surface — more sections for Google to rank you on</li>
+                <li>Hosting, security + domain handled</li>
+                <li>Local + on-page SEO, set up and updated monthly — free</li>
+                <li>7 days of unlimited free revisions</li>
               </ul>
             </div>
 
