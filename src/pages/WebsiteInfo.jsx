@@ -101,6 +101,16 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .w2-card:hover .w2-card-arrow{background:var(--acc);border-color:var(--acc);color:#04121A;transform:rotate(-45deg)}
 .w2-work-note{margin-top:22px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--dim);line-height:1.8}
 
+/* ── WHY IT MATTERS / benefits ── */
+.w2-why{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.w2-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2.2vw,26px);margin-top:clamp(32px,4.5vw,52px)}
+.w2-why-card{position:relative;background:var(--bg1);border:1px solid var(--line);border-radius:20px;padding:clamp(24px,3vw,34px);box-shadow:0 1px 0 var(--topline) inset;transition:transform .22s cubic-bezier(.16,1,.3,1),border-color .22s}
+.w2-why-card:hover{transform:translateY(-4px);border-color:rgba(0,220,255,.28)}
+.w2-why-n{font-family:var(--mono);font-size:.78rem;font-weight:500;letter-spacing:.12em;color:var(--acc);margin-bottom:14px}
+.w2-why-card h3{font-family:var(--disp);font-size:clamp(1.18rem,1.9vw,1.5rem);font-weight:600;letter-spacing:-.015em;line-height:1.12;margin-bottom:10px;text-wrap:balance}
+.w2-why-card p{font-size:.93rem;color:var(--mut);line-height:1.65}
+.w2-why-card p strong{color:var(--ink);font-weight:700}
+
 /* ── INCLUDED / annotated device ── */
 .w2-inc-grid{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(36px,5vw,72px);align-items:center}
 .w2-spec{margin-top:34px;border-top:1px solid var(--line)}
@@ -233,6 +243,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
   .w2-card{flex:0 0 68vw;scroll-snap-align:center}
   .w2-proc-grid{grid-template-columns:1fr;row-gap:34px}
   .w2-plan.w2-plan-solo ul{grid-template-columns:1fr}
+  .w2-why-grid{grid-template-columns:1fr}
   .w2-faq details p{padding-right:8px}
 }
 `;
@@ -409,6 +420,39 @@ export default function WebsiteInfo() {
               ))}
             </div>
             <p className="w2-work-note" data-rv>These are examples of our work — we don’t put live client sites on our portfolio, for obvious reasons.</p>
+          </div>
+        </section>
+
+        {/* WHY IT MATTERS — benefits */}
+        <section className="w2-sec w2-why">
+          <div className="w2-wrap">
+            <div data-rv>
+              <div className="w2-kick">Why it matters</div>
+              <h2 className="w2-h2">What a site like this does for your business.</h2>
+              <p className="w2-sub">A website isn’t decoration. Done right, it’s the hardest-working salesperson you’ve got — online 24/7, turning people who’ve never met you into booked jobs.</p>
+            </div>
+            <div className="w2-why-grid">
+              <div className="w2-why-card" data-rv>
+                <div className="w2-why-n">01</div>
+                <h3>Customers can actually find you</h3>
+                <p>Built and SEO’d so the people Googling your service in your area land on <strong>you</strong> — not the competitor three towns over.</p>
+              </div>
+              <div className="w2-why-card" data-rv>
+                <div className="w2-why-n">02</div>
+                <h3>They reach you in one tap</h3>
+                <p>Your number’s tappable from the first second, and a quote form drops straight into your inbox. <strong>No hunting, no friction</strong> — the call comes to you.</p>
+              </div>
+              <div className="w2-why-card" data-rv>
+                <div className="w2-why-n">03</div>
+                <h3>You stand out from the other guys</h3>
+                <p>A custom design built around your business — <strong>not a template with your logo dropped in</strong>. Clean, fast, and easy to get around, so you look a clear step above the competition.</p>
+              </div>
+              <div className="w2-why-card" data-rv>
+                <div className="w2-why-n">04</div>
+                <h3>They trust you before you meet</h3>
+                <p>Your real work, your reviews, your finished jobs — right up front. Customers show up <strong>already sold</strong>, so you spend less time convincing and more time booking.</p>
+              </div>
+            </div>
           </div>
         </section>
 
