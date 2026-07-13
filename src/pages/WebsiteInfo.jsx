@@ -11,7 +11,7 @@ import sonomaTall from '../assets/work/sonoma-tall.jpg';
 
 /* ─────────────────────────────────────────────────────────────
    /websites — the "send me the information" page.
-   Texted to prospects who ask for "everything." The page sells
+   Sent to prospects (by email or text) who ask for "everything." The page sells
    websites, so the websites ARE the page: real builds glowing on
    phone screens, features annotated on a real fold, the process
    as a day-by-day rail. Spec-sheet honesty voice, showroom body.
@@ -192,12 +192,12 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .w2-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(560px 300px at 50% 0%,rgba(0,220,255,.09),transparent 70%);pointer-events:none}
 .w2-cta h2{font-family:var(--disp);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:600;letter-spacing:-.025em;margin-bottom:16px}
 .w2-cta .w2-sub{margin:0 auto 30px;max-width:46ch}
-/* two ways to start: a real "book a call" button, then an "or reply to the text" instruction */
+/* two ways to start: a real "book a call" button, then an "or reply to the email/text that reached you" instruction */
 .w2-cta-two{display:flex;flex-direction:column;align-items:center;gap:20px;max-width:460px;margin:0 auto}
 .w2-btn-lg{font-size:1.02rem;padding:17px 34px}
 .w2-cta-or{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
 .w2-cta-or::before,.w2-cta-or::after{content:'';width:40px;height:1px;background:var(--line)}
-/* reply bubble — a real-world instruction styled as a text message (not a clickable button, because the sending number isn't knowable client-side) */
+/* reply bubble — a real-world instruction styled as a message (not a clickable button, because the sender's reply target — email address or phone number — isn't knowable client-side) */
 .w2-reply{position:relative;width:100%;text-align:left;background:linear-gradient(180deg,#12303A,#0E2730);border:1px solid rgba(0,220,255,.28);border-radius:20px 20px 20px 6px;padding:20px 24px;box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 18px 44px -18px rgba(0,220,255,.35)}
 .w2-reply-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:8px}
 .w2-reply-line{font-family:var(--disp);font-size:clamp(1.35rem,3.2vw,1.75rem);font-weight:600;letter-spacing:-.02em;line-height:1.15;color:var(--ink)}
@@ -253,9 +253,9 @@ const SPECS = [
 ];
 
 const STEPS = [
-  ['Today', 'Text “go” — or just say you’re ready', 'To the number that sent you this page. That’s the whole first step — no form yet, no commitment.'],
-  ['This week', 'Your details + a time', 'A quick 5-minute form so we build from your real business — then we pick a time together for me to show you the result.'],
-  ['The walkthrough', 'I show you your site, live', 'We hop on a quick call and I walk you through the site I built for you, section by section — your questions answered on the spot.'],
+  ['Today', 'Just say you’re ready', 'Reply to the message that sent you this — email or text, whichever it was. That’s the whole first step: no form yet, no commitment.'],
+  ['This week', 'Your details + a time', 'A quick 5-minute form so we build from your real business — then we pick a time together to show you the result.'],
+  ['The walkthrough', 'We show you your site, live', 'We hop on a quick call and walk you through the site we built for you, section by section — your questions answered on the spot.'],
   ['If you like it', 'We put it online', <>You approve a written quote and your site goes live. Then unlimited free tweaks for the first 7 days. <strong>Nothing’s owed until you say go.</strong></>],
 ];
 
@@ -331,10 +331,10 @@ export default function WebsiteInfo() {
   return (
     <div className="w2" ref={rootRef}>
       <Helmet>
-        <title>Websites — See the Work, the Process, the Prices | Nuvion Solutions</title>
+        <title>Websites — See the Work, the Process, the Price | Nuvion Solutions</title>
         <meta
           name="description"
-          content="The full rundown on Nuvion Solutions websites: live examples you can tap through, what every build includes, both packages with exact prices, and how revisions work."
+          content="The full rundown on Nuvion Solutions websites: live examples you can tap through, what every build includes, the exact price (pay once or monthly), and how revisions work."
         />
         <link rel="canonical" href="https://nuvion-solutions.com/websites" />
         <link rel="preconnect" href="https://api.fontshare.com" />
@@ -360,11 +360,11 @@ export default function WebsiteInfo() {
                 <div className="w2-kick w2-kick-hero">The full rundown · no sales fluff</div>
                 <h1 className="w2-h1">You asked for the info. <em>Here’s all of it.</em></h1>
                 <p className="w2-lede">
-                  What every site includes, both packages with <strong>exact prices</strong>, how changes work —
-                  and real, tappable builds further down the page. <strong>Three minutes to read, start to finish.</strong>
+                  What every site includes, the <strong>exact price</strong>, how changes work —
+                  and real, tappable examples further down the page. <strong>Three minutes to read, start to finish.</strong>
                 </p>
                 <div className="w2-hero-cta">
-                  <a className="w2-btn" href="#w2-pricing">See the prices <span aria-hidden="true">↓</span></a>
+                  <a className="w2-btn" href="#w2-pricing">See the price <span aria-hidden="true">↓</span></a>
                   <Link to="/book" className="w2-btn-ghost">Book a 10-minute call</Link>
                 </div>
                 <div className="w2-hero-spec">
@@ -417,7 +417,7 @@ export default function WebsiteInfo() {
           <div className="w2-wrap">
             <div className="w2-inc-grid">
               <div data-rv>
-                <div className="w2-kick">Standard equipment</div>
+                <div className="w2-kick">Comes standard</div>
                 <h2 className="w2-h2">Included with every build.</h2>
                 <p className="w2-sub">Not add-ons. Not an upsell later. This is the floor.</p>
                 <div className="w2-spec">
@@ -432,7 +432,7 @@ export default function WebsiteInfo() {
               <div data-rv>
                 <div className="w2-inc-stage">
                   <Phone img={ironTall} alt="Mobile homepage design with one-tap calling and a reviews section" />
-                  <div className="w2-chip w2-chip-1"><span>06</span><b>Mobile-first — designed here first</b></div>
+                  <div className="w2-chip w2-chip-1"><span>06</span><b>Mobile-first — built for the phone</b></div>
                   <div className="w2-chip w2-chip-2"><span>07</span><b>One-tap calling, everywhere</b></div>
                   <div className="w2-chip w2-chip-3"><span>08</span><b>Your Google reviews, on the page</b></div>
                 </div>
@@ -447,7 +447,7 @@ export default function WebsiteInfo() {
           <div className="w2-wrap">
             <div data-rv>
               <div className="w2-kick">The process</div>
-              <h2 className="w2-h2">From a text to a live site. Days, not months.</h2>
+              <h2 className="w2-h2">From your reply to a live site. Days, not months.</h2>
               <p className="w2-sub">The whole chain, start to finish — and where the money does <strong>not</strong> change hands.</p>
             </div>
             <div className="w2-proc-grid">
@@ -500,7 +500,7 @@ export default function WebsiteInfo() {
                 </ul>
               </div>
             </div>
-            <p className="w2-quote-note" data-rv>THE PRICE YOU SEE IS THE PRICE — WE JUST PUT IT IN A <strong>WRITTEN QUOTE</strong> FIRST, SO IT’S IN WRITING BEFORE YOU OWE A CENT.</p>
+            <p className="w2-quote-note" data-rv>THE PRICE YOU SEE IS THE PRICE — YOU GET IT IN A <strong>WRITTEN QUOTE</strong> BEFORE YOU OWE A CENT.</p>
           </div>
         </section>
 
@@ -568,9 +568,9 @@ export default function WebsiteInfo() {
                 <Link to="/book" className="w2-btn w2-btn-lg">Book a call with us <span aria-hidden="true">→</span></Link>
                 <div className="w2-cta-or">or</div>
                 <div className="w2-reply">
-                  <div className="w2-reply-tag">In the text thread that sent you this</div>
-                  <div className="w2-reply-line"><b>Reply</b> to the message that sent you — just say you’re ready.</div>
-                  <div className="w2-reply-sub">We’ll set a time, I’ll walk you through the site I built for you, and it only goes online if you love it.</div>
+                  <div className="w2-reply-tag">The email or text that sent you this</div>
+                  <div className="w2-reply-line"><b>Reply</b> to it and say you’re ready.</div>
+                  <div className="w2-reply-sub">We’ll set a time, walk you through the site we built for you, and it only goes online if you love it.</div>
                 </div>
               </div>
             </div>
