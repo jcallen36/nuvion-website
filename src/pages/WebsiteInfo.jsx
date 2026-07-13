@@ -65,8 +65,8 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .w2-h1 em{font-style:normal;color:var(--acc)}
 .w2-lede{color:var(--mut);font-size:clamp(1rem,1.4vw,1.13rem);line-height:1.65;max-width:44ch;margin-bottom:30px}
 .w2-lede strong{color:var(--ink);font-weight:700}
-.w2-hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:26px}
-.w2-hero-spec{display:flex;gap:clamp(18px,2.4vw,32px);border-top:1px solid var(--line);padding-top:20px;max-width:560px}
+.w2-hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.w2-hero-spec{display:flex;gap:clamp(18px,2.4vw,32px);border-top:1px solid var(--line);padding-top:40px;max-width:560px}
 .w2-hero-spec div{flex:1;min-width:0;padding-left:14px;border-left:1px solid rgba(0,220,255,.35)}
 .w2-hero-spec b{display:block;font-family:var(--disp);font-size:1.3rem;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1}
 .w2-hero-spec span{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-top:6px}
@@ -78,10 +78,11 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .w2-deck-c{transform:translateX(9%) rotate(8deg) scale(.86);z-index:2}
 .w2-deck-note{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);z-index:5;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
 @media(prefers-reduced-motion:no-preference){
-  .w2-deck-b{animation:w2float 7s ease-in-out infinite alternate}
-  .w2-deck-a{animation:w2float 8s .6s ease-in-out infinite alternate}
-  .w2-deck-c{animation:w2float 9s 1.1s ease-in-out infinite alternate}
-  @keyframes w2float{from{margin-top:0}to{margin-top:-10px}}
+  /* float via the compositor-only translate property (independent of the base transform) — animating margin/top forces a layout reflow every frame and looks jerky */
+  .w2-deck-b{animation:w2float 7s ease-in-out infinite alternate;will-change:translate}
+  .w2-deck-a{animation:w2float 8s .6s ease-in-out infinite alternate;will-change:translate}
+  .w2-deck-c{animation:w2float 9s 1.1s ease-in-out infinite alternate;will-change:translate}
+  @keyframes w2float{from{translate:0 0}to{translate:0 -12px}}
 }
 
 /* ── PROOF RAIL ── */
@@ -96,8 +97,6 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .w2-card-meta{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:16px 6px 4px}
 .w2-card-meta b{font-size:.92rem;font-weight:700;letter-spacing:-.01em}
 .w2-card-meta span{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:#7C89A1;margin-top:4px}
-.w2-card-meta span.live{color:var(--grn)}
-.w2-card-meta span.live::before{content:'●' / '';font-size:.5rem;margin-right:6px;vertical-align:1px}
 .w2-card-arrow{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--mut);font-size:.85rem;transition:all .2s}
 .w2-card:hover .w2-card-arrow{background:var(--acc);border-color:var(--acc);color:#04121A;transform:rotate(-45deg)}
 .w2-work-note{margin-top:22px;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--dim);line-height:1.8}
@@ -193,15 +192,17 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .w2-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(560px 300px at 50% 0%,rgba(0,220,255,.09),transparent 70%);pointer-events:none}
 .w2-cta h2{font-family:var(--disp);font-size:clamp(2.2rem,5vw,3.4rem);font-weight:600;letter-spacing:-.025em;margin-bottom:16px}
 .w2-cta .w2-sub{margin:0 auto 30px;max-width:46ch}
-.w2-cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;align-items:center}
-/* reply-'go' bubble — the dominant, zero-commitment action, styled as a text message (not a clickable button, because the sending number isn't knowable client-side) */
-.w2-reply{position:relative;max-width:440px;margin:0 auto 22px;text-align:left;background:linear-gradient(180deg,#12303A,#0E2730);border:1px solid rgba(0,220,255,.28);border-radius:20px 20px 20px 6px;padding:20px 24px;box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 18px 44px -18px rgba(0,220,255,.35)}
+/* two ways to start: a real "book a call" button, then an "or reply to the text" instruction */
+.w2-cta-two{display:flex;flex-direction:column;align-items:center;gap:20px;max-width:460px;margin:0 auto}
+.w2-btn-lg{font-size:1.02rem;padding:17px 34px}
+.w2-cta-or{display:flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim)}
+.w2-cta-or::before,.w2-cta-or::after{content:'';width:40px;height:1px;background:var(--line)}
+/* reply bubble — a real-world instruction styled as a text message (not a clickable button, because the sending number isn't knowable client-side) */
+.w2-reply{position:relative;width:100%;text-align:left;background:linear-gradient(180deg,#12303A,#0E2730);border:1px solid rgba(0,220,255,.28);border-radius:20px 20px 20px 6px;padding:20px 24px;box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 18px 44px -18px rgba(0,220,255,.35)}
 .w2-reply-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--acc);margin-bottom:8px}
-.w2-reply-line{font-family:var(--disp);font-size:clamp(1.4rem,3.4vw,1.9rem);font-weight:600;letter-spacing:-.02em;line-height:1.15;color:var(--ink)}
+.w2-reply-line{font-family:var(--disp);font-size:clamp(1.35rem,3.2vw,1.75rem);font-weight:600;letter-spacing:-.02em;line-height:1.15;color:var(--ink)}
 .w2-reply-line b{color:var(--acc);font-weight:600}
 .w2-reply-sub{margin-top:8px;font-size:.86rem;color:var(--mut);line-height:1.5}
-.w2-cta-alt{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.92rem;color:var(--mut);border-bottom:1px solid var(--line);padding-bottom:3px;transition:color .18s,border-color .18s}
-.w2-cta-alt:hover{color:var(--ink);border-color:rgba(255,255,255,.3)}
 
 /* grain — desktop only, cheap opacity compositing */
 .w2-grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")}
@@ -237,10 +238,10 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 `;
 
 const WORK = [
-  { img: sonomaTall, name: 'Floors for Sonoma', tag: 'Live client site', live: true, href: 'https://floors-for-sonoma.vercel.app/', alt: 'Warm editorial flooring-studio homepage design, mobile view' },
-  { img: ironTall, name: 'Iron River Plumbing', tag: 'Concept build', live: false, href: 'https://websites.nuvion-solutions.com/iron-river-plumbing', alt: 'Retro-Americana plumbing homepage design, mobile view' },
-  { img: timberTall, name: 'Timberline Tree Service', tag: 'Concept build', live: false, href: 'https://websites.nuvion-solutions.com/timberline-tree-service', alt: 'Dark dramatic forest tree-service homepage design, mobile view' },
-  { img: cabanaTall, name: 'Blue Cabana Pool Care', tag: 'Concept build', live: false, href: 'https://websites.nuvion-solutions.com/blue-cabana-pools', alt: 'Retro Palm-Springs resort pool-care homepage design, mobile view' },
+  { img: sonomaTall, name: 'Floors for Sonoma', href: 'https://floors-for-sonoma.vercel.app/', alt: 'Warm editorial flooring-studio homepage design, mobile view' },
+  { img: ironTall, name: 'Iron River Plumbing', href: 'https://websites.nuvion-solutions.com/iron-river-plumbing', alt: 'Retro-Americana plumbing homepage design, mobile view' },
+  { img: timberTall, name: 'Timberline Tree Service', href: 'https://websites.nuvion-solutions.com/timberline-tree-service', alt: 'Dark dramatic forest tree-service homepage design, mobile view' },
+  { img: cabanaTall, name: 'Blue Cabana Pool Care', href: 'https://websites.nuvion-solutions.com/blue-cabana-pools', alt: 'Retro Palm-Springs resort pool-care homepage design, mobile view' },
 ];
 
 const SPECS = [
@@ -376,7 +377,7 @@ export default function WebsiteInfo() {
                 <div className="w2-phone w2-deck-a"><div className="w2-screen"><img src={ironTall} alt="" decoding="async" /></div></div>
                 <div className="w2-phone w2-deck-b"><div className="w2-screen"><img src={timberTall} alt="" decoding="async" /></div></div>
                 <div className="w2-phone w2-deck-c"><div className="w2-screen"><img src={cabanaTall} alt="" decoding="async" /></div></div>
-                <span className="w2-deck-note">Concept builds — real ones below</span>
+                <span className="w2-deck-note">Demo sites — tap any below</span>
               </div>
             </div>
           </div>
@@ -389,7 +390,7 @@ export default function WebsiteInfo() {
               <div>
                 <div className="w2-kick">The work</div>
                 <h2 className="w2-h2">Don’t take our word for it.<br />Tap through the real thing.</h2>
-                <p className="w2-sub">Keep scrolling — the sites scroll right inside the phones. Tap any one to open the real, live build.</p>
+                <p className="w2-sub">Keep scrolling — the sites scroll right inside the phones. Tap any one to open the full demo site.</p>
               </div>
               <a className="w2-work-link" href="https://websites.nuvion-solutions.com" target="_blank" rel="noopener noreferrer">Full portfolio ↗</a>
             </div>
@@ -400,14 +401,14 @@ export default function WebsiteInfo() {
                   <div className="w2-card-meta">
                     <div>
                       <b>{w.name}</b>
-                      <span className={w.live ? 'live' : ''}>{w.tag}</span>
+                      <span>Demo site</span>
                     </div>
                     <div className="w2-card-arrow" aria-hidden="true">→</div>
                   </div>
                 </a>
               ))}
             </div>
-            <p className="w2-work-note" data-rv>Concept builds are fictional companies we designed to show the range. Floors for Sonoma is a real client — real business, really live.</p>
+            <p className="w2-work-note" data-rv>These are examples of our work — we don’t put live client sites on our portfolio, for obvious reasons.</p>
           </div>
         </section>
 
@@ -435,7 +436,7 @@ export default function WebsiteInfo() {
                   <div className="w2-chip w2-chip-2"><span>07</span><b>One-tap calling, everywhere</b></div>
                   <div className="w2-chip w2-chip-3"><span>08</span><b>Your Google reviews, on the page</b></div>
                 </div>
-                <p className="w2-inc-caption">Shown on our Iron River concept build</p>
+                <p className="w2-inc-caption">Shown on our Iron River demo site</p>
               </div>
             </div>
           </div>
@@ -562,14 +563,15 @@ export default function WebsiteInfo() {
           <div className="w2-wrap">
             <div data-rv>
               <h2>Seen enough?</h2>
-              <p className="w2-sub">One reply starts the whole thing — no form here, no card, no commitment. You decide once you’ve seen your site.</p>
-              <div className="w2-reply">
-                <div className="w2-reply-tag">In the text thread that sent you this</div>
-                <div className="w2-reply-line">Reply <b>“go”</b> — we set a time and I walk you through the site I built for you.</div>
-                <div className="w2-reply-sub">Like it? We put it online. You only approve a written quote once you’ve seen it — nothing’s owed before that.</div>
-              </div>
-              <div className="w2-cta-row">
-                <Link to="/book" className="w2-cta-alt">Prefer to talk first? Book a 10-minute call</Link>
+              <p className="w2-sub">Two easy ways to get started — whichever’s simpler. No form here, no card, no commitment; you only decide once you’ve seen your site.</p>
+              <div className="w2-cta-two">
+                <Link to="/book" className="w2-btn w2-btn-lg">Book a call with us <span aria-hidden="true">→</span></Link>
+                <div className="w2-cta-or">or</div>
+                <div className="w2-reply">
+                  <div className="w2-reply-tag">In the text thread that sent you this</div>
+                  <div className="w2-reply-line"><b>Reply</b> to the message that sent you — just say you’re ready.</div>
+                  <div className="w2-reply-sub">We’ll set a time, I’ll walk you through the site I built for you, and it only goes online if you love it.</div>
+                </div>
               </div>
             </div>
           </div>
