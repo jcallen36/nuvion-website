@@ -66,7 +66,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .w2-lede{color:var(--mut);font-size:clamp(1rem,1.4vw,1.13rem);line-height:1.65;max-width:44ch;margin-bottom:30px}
 .w2-lede strong{color:var(--ink);font-weight:700}
 .w2-hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
-.w2-hero-spec{display:flex;gap:clamp(18px,2.4vw,32px);border-top:1px solid var(--line);padding-top:40px;max-width:560px}
+.w2-hero-spec{display:flex;gap:clamp(18px,2.4vw,32px);border-top:1px solid var(--line);padding-top:64px;max-width:560px}
 .w2-hero-spec div{flex:1;min-width:0;padding-left:14px;border-left:1px solid rgba(0,220,255,.35)}
 .w2-hero-spec b{display:block;font-family:var(--disp);font-size:1.3rem;font-weight:600;letter-spacing:-.01em;font-variant-numeric:tabular-nums;line-height:1}
 .w2-hero-spec span{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-top:6px}
