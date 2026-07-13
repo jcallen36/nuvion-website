@@ -58,7 +58,7 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .w2-screen img{position:absolute;top:0;left:0;display:block;width:100%;height:auto;will-change:transform}
 
 /* ── HERO ── */
-.w2-hero{position:relative;overflow:hidden;padding:clamp(64px,8.5vw,116px) 0 0}
+.w2-hero{position:relative;overflow:hidden;padding:clamp(64px,8.5vw,116px) 0 clamp(48px,5vw,72px)}
 .w2-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(720px 420px at 72% 12%,rgba(0,220,255,.09),transparent 68%),radial-gradient(520px 380px at 8% 82%,rgba(79,110,247,.07),transparent 70%);pointer-events:none}
 .w2-hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,56px);align-items:center}
 .w2-h1{font-family:var(--disp);font-size:clamp(2.7rem,6.4vw,4.7rem);font-weight:600;letter-spacing:-.028em;line-height:.98;text-wrap:balance;margin:0 0 20px}
