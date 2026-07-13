@@ -526,8 +526,8 @@ export default function WebsiteInfo() {
               <div className="w2-plan hot w2-plan-solo" data-rv>
                 <div className="w2-plan-top">
                   <div className="w2-plan-name">Everything included</div>
-                  <div className="w2-price" key={billing}>{onetime ? '$1,800' : <>$129<span>/mo</span></>}</div>
-                  <div className="w2-price-alt">{onetime ? 'ONE-TIME — OR $129/MO' : 'PER MONTH — OR $1,800 ONCE, YOU OWN IT'}</div>
+                  <div className="w2-price" key={billing}>{onetime ? '$900' : <>$89<span>/mo</span></>}</div>
+                  <div className="w2-price-alt">{onetime ? 'ONE-TIME — OR $89/MO' : 'PER MONTH — OR $900 ONCE, YOU OWN IT'}</div>
                 </div>
                 <ul>
                   <li>Full multi-section custom site — services, photo gallery, service area</li>
