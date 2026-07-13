@@ -78,7 +78,7 @@ export default function Agreement() {
               <div>
                 <h2>What you get</h2>
                 <p>
-                  A custom, mobile-friendly website for your business — designed, built, and hosted by Nuvion Solutions LLC, with your real business info on it.
+                  A custom, mobile-friendly website for your business — designed, built, and hosted by Nuvion Solutions LLC, with your real business info on it. Every site includes a full SEO setup — local and on-page — with free monthly SEO updates to help you rank on Google.
                 </p>
               </div>
             </section>
@@ -95,11 +95,11 @@ export default function Agreement() {
                 <div className="ag-plans">
                   <div className="ag-plan plate">
                     <div className="ag-amt">One-time <span>build</span></div>
-                    <div className="ag-plan-note">Pay once, per your quote — the site is yours to keep. Hosting included.</div>
+                    <div className="ag-plan-note">Pay once, per your quote — the site is yours to keep. Hosting, monthly SEO updates, and simple revisions included free; larger changes are quoted.</div>
                   </div>
                   <div className="ag-plan plate">
                     <div className="ag-amt">Monthly <span>plan</span></div>
-                    <div className="ag-plan-note">No big upfront cost, per your quote. Hosting and revisions included while subscribed.</div>
+                    <div className="ag-plan-note">No big upfront cost, per your quote. Hosting, revisions, and monthly SEO updates included while subscribed.</div>
                   </div>
                 </div>
               </div>
@@ -126,9 +126,10 @@ export default function Agreement() {
               <div>
                 <h2>Revisions</h2>
                 <p>
-                  <strong>One-time plan:</strong> a small per-change fee after your site is delivered —
-                  the amount is on your quote.
-                  &nbsp;<strong>Monthly plan:</strong> revisions included, free.
+                  <strong>One-time plan:</strong> simple revisions — text changes, photo swaps, small
+                  tweaks — are free. Larger revisions, new features, or integrations are quoted
+                  before we build them.
+                  &nbsp;<strong>Monthly plan:</strong> revisions included, free — within reason.
                 </p>
               </div>
             </section>
