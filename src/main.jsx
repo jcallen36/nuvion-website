@@ -47,6 +47,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/audit" element={<Audit />} />
         <Route path="/websites" element={<WebsiteInfo />} />
         <Route path="/websites2" element={<WebsiteInfo price={{ once: '1,800', monthly: '129' }} canonical="https://nuvion-solutions.com/websites2" />} />
+        <Route path="/websiteinfo" element={<WebsiteInfo price={{ once: '2,000', monthly: '150' }} canonical="https://nuvion-solutions.com/websiteinfo" />} />
         <Route path="/agreement" element={<Agreement />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
