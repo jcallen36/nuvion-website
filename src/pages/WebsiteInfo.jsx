@@ -290,7 +290,7 @@ function Phone({ img, alt, scrub }) {
   );
 }
 
-export default function WebsiteInfo() {
+export default function WebsiteInfo({ price = { once: '900', monthly: '89' }, canonical = 'https://nuvion-solutions.com/websites' }) {
   const rootRef = useRef(null);
   const [billing, setBilling] = useState('onetime');
   const onetime = billing === 'onetime';
@@ -347,7 +347,7 @@ export default function WebsiteInfo() {
           name="description"
           content="The full rundown on Nuvion Solutions websites: live examples you can tap through, what every build includes, the exact price (pay once or monthly), and how revisions work."
         />
-        <link rel="canonical" href="https://nuvion-solutions.com/websites" />
+        <link rel="canonical" href={canonical} />
         <link rel="preconnect" href="https://api.fontshare.com" />
         <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
         <link href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
@@ -526,8 +526,8 @@ export default function WebsiteInfo() {
               <div className="w2-plan hot w2-plan-solo" data-rv>
                 <div className="w2-plan-top">
                   <div className="w2-plan-name">Everything included</div>
-                  <div className="w2-price" key={billing}>{onetime ? '$900' : <>$89<span>/mo</span></>}</div>
-                  <div className="w2-price-alt">{onetime ? 'ONE-TIME — OR $89/MO' : 'PER MONTH — OR $900 ONCE, YOU OWN IT'}</div>
+                  <div className="w2-price" key={billing}>{onetime ? <>${price.once}</> : <>${price.monthly}<span>/mo</span></>}</div>
+                  <div className="w2-price-alt">{onetime ? `ONE-TIME — OR $${price.monthly}/MO` : `PER MONTH — OR $${price.once} ONCE, YOU OWN IT`}</div>
                 </div>
                 <ul>
                   <li>Full multi-section custom site — services, photo gallery, service area</li>
