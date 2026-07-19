@@ -150,6 +150,8 @@ const CSS = BASE_CSS + FOOTER_CSS + `
 .w2-toggle button[aria-pressed="true"]{color:#04121A}
 .w2-toggle-note{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--dim)}
 .w2-plans{max-width:660px;margin:0 auto}
+.w2-plan-care{margin-top:18px}
+.w2-care-note{font-size:.85rem;color:var(--dim);line-height:1.6;margin:18px 0 0;padding-top:16px;border-top:1px solid var(--line)}
 .w2-plan{position:relative;background:var(--bg2);border:1px solid var(--line);border-radius:24px;padding:clamp(26px,3vw,36px);box-shadow:0 1px 0 var(--topline) inset;display:flex;flex-direction:column}
 /* single merged package */
 .w2-plan-top{text-align:center;padding-bottom:22px;margin-bottom:8px;border-bottom:1px solid var(--line)}
@@ -257,9 +259,9 @@ const WORK = [
 
 const SPECS = [
   ['Built from your real business', 'Your reviews, your jobs, your towns, your photos — gathered before we write a line of code. No two come out the same.'],
-  ['Local SEO — set up + updated monthly, free', 'Set up so Google understands what you do and where you do it — and kept updated monthly, free.'],
-  ['Hosting + security included', 'Fast hosting and the padlock (SSL) — no “Not Secure” warning scaring people off.'],
-  ['Lead capture', 'Quote requests land in your email the moment they’re sent.'],
+  ['You own it', 'One payment and the site is yours — design, files, domain, all of it. Not a lease, not a subscription.'],
+  ['Local + on-page SEO, set up right', 'Built so Google understands what you do and where you do it. The care plan keeps it tuned monthly.'],
+  ['Quote form built in', 'A lead-capture form on the site — the care plan keeps requests landing in your inbox the moment they’re sent.'],
   ['Your domain, handled', 'Use one you own or we set one up — you just cover the ~$15–20/yr registration.'],
 ];
 
@@ -272,12 +274,13 @@ const STEPS = [
 
 const FAQS = [
   ['We already have a website.', 'Then compare it side by side with what we build — that’s the whole test. Pull both up on your phone: which one loads faster, shows your reviews, and makes it easier to call? If yours wins, keep it, no hard feelings.'],
-  ['I’m not a tech person.', 'You never touch anything. We build it, host it, secure it, and update it. Your only job is a 5-minute form and sending us photos of your work.'],
-  ['Who owns the site?', 'Pay once and you do — design, files, domain, all of it, and you can host it anywhere. Go monthly and it’s a subscription — cancel anytime, and you can buy it out to own it outright whenever you want.'],
+  ['I’m not a tech person.', 'You never touch anything. We build it and put it online, and on the care plan we host it, secure it, and keep it updated. Your only job is a 5-minute form and sending us photos of your work.'],
+  ['Who owns the site?', 'You do — the moment the build is paid. Design, files, domain, all of it, and you can host it anywhere. The care plan doesn’t change that: it’s just us handling hosting, security, your quote-form leads, and monthly SEO for you.'],
+  ['What’s the $29/month for? Do I have to take it?', 'It covers us hosting the site (fast, SSL-secured), keeping your quote form wired to your inbox, and updating your SEO every month to stay in line with what Google rewards. It’s optional — skip it or cancel anytime and the site is still 100% yours; you’d just handle hosting and the form yourself. Most owners take it.'],
   ['How long does it take?', 'Days, not months. Plan on live inside a week of your onboarding form coming back.'],
   ['What do you need from me?', 'A 5-minute onboarding form, photos of your work if you have them, and your logo if you have one. That’s it — we pull the rest from what’s already public.'],
   ['What if I don’t like what you build?', 'Then you say no and owe nothing. We build it and walk you through it live — you only pay once you’ve seen it and want it online. There’s no deposit and no obligation to keep it. Worst case, you got a free look at what your site could be.'],
-  ['What if I want changes later?', 'You get unlimited free revisions for the first 7 days after it goes live. After that: pay monthly and day-to-day updates are included (within reason); pay once and small text and photo swaps stay free — bigger work is quoted in writing before we touch it.'],
+  ['What if I want changes later?', 'You get unlimited free revisions for the first 7 days after it goes live. After that, small text and photo swaps stay free — bigger work is quoted in writing before we touch it. On the care plan, your SEO keeps getting updated monthly on top of that.'],
 ];
 
 function Phone({ img, alt, scrub }) {
@@ -290,10 +293,8 @@ function Phone({ img, alt, scrub }) {
   );
 }
 
-export default function WebsiteInfo({ price = { once: '900', monthly: '89' }, canonical = 'https://nuvion-solutions.com/websites' }) {
+export default function WebsiteInfo({ price = { once: '900', care: '29' }, canonical = 'https://nuvion-solutions.com/websites' }) {
   const rootRef = useRef(null);
-  const [billing, setBilling] = useState('onetime');
-  const onetime = billing === 'onetime';
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -345,7 +346,7 @@ export default function WebsiteInfo({ price = { once: '900', monthly: '89' }, ca
         <title>Websites — See the Work, the Process, the Price | Nuvion Solutions</title>
         <meta
           name="description"
-          content="The full rundown on Nuvion Solutions websites: live examples you can tap through, what every build includes, the exact price (pay once or monthly), and how revisions work."
+          content="The full rundown on Nuvion Solutions websites: live examples you can tap through, everything the build includes, the exact price (one payment, you own it — plus an optional care plan), and how revisions work."
         />
         <link rel="canonical" href={canonical} />
         <link rel="preconnect" href="https://api.fontshare.com" />
@@ -511,23 +512,16 @@ export default function WebsiteInfo({ price = { once: '900', monthly: '89' }, ca
         <section className="w2-sec" id="w2-pricing">
           <div className="w2-wrap">
             <div className="w2-price-head" data-rv>
-              <div className="w2-kick">The package</div>
-              <h2 className="w2-h2">One complete build. Two ways to pay.</h2>
-              <p className="w2-sub" style={{ margin: '0 auto' }}>Everything below, every time — no stripped-down tier. Pay once and own it outright, or keep it simple monthly.</p>
+              <div className="w2-kick">The deal</div>
+              <h2 className="w2-h2">One build. One price. You own it.</h2>
+              <p className="w2-sub" style={{ margin: '0 auto' }}>${price.once} builds the whole thing — everything below, every time, no stripped-down tier. ${price.care}/mo keeps it hosted, secure, and tuned — optional, and recommended.</p>
             </div>
-            <div className="w2-toggle-row" data-rv>
-              <div className={onetime ? 'w2-toggle' : 'w2-toggle mo'} role="group" aria-label="Payment option">
-                <button aria-pressed={onetime} onClick={() => setBilling('onetime')}>Pay once</button>
-                <button aria-pressed={!onetime} onClick={() => setBilling('monthly')}>Monthly</button>
-              </div>
-              <span className="w2-toggle-note">{onetime ? 'YOU OWN IT — FILES, DOMAIN, EVERYTHING' : 'EVERYTHING HANDLED · CANCEL ANYTIME'}</span>
-            </div>
-            <div className="w2-plans" aria-live="polite">
+            <div className="w2-plans">
               <div className="w2-plan hot w2-plan-solo" data-rv>
                 <div className="w2-plan-top">
-                  <div className="w2-plan-name">Everything included</div>
-                  <div className="w2-price" key={billing}>{onetime ? <>${price.once}</> : <>${price.monthly}<span>/mo</span></>}</div>
-                  <div className="w2-price-alt">{onetime ? `ONE-TIME — OR $${price.monthly}/MO` : `PER MONTH — OR $${price.once} ONCE, YOU OWN IT`}</div>
+                  <div className="w2-plan-name">The build — everything included</div>
+                  <div className="w2-price">${price.once}</div>
+                  <div className="w2-price-alt">ONE-TIME — YOU OWN IT: DESIGN, FILES, DOMAIN, EVERYTHING</div>
                 </div>
                 <ul>
                   <li>Full multi-section custom site — services, photo gallery, service area</li>
@@ -537,11 +531,24 @@ export default function WebsiteInfo({ price = { once: '900', monthly: '89' }, ca
                   <li>Your Google reviews on the page</li>
                   <li>Google Business Profile optimization — your Google Maps listing, set up right</li>
                   <li>One-tap review link + printable QR card to grow your stars</li>
-                  <li>Quote form — leads straight to your email</li>
-                  <li>Hosting, security + domain handled</li>
-                  <li>Local + on-page SEO — helps customers find you on Google, not just your competitors. Set up, updated monthly, free</li>
+                  <li>Quote form built into the site</li>
+                  <li>Local + on-page SEO, set up right</li>
+                  <li>Your domain handled — you just cover the ~$15–20/yr registration</li>
                   <li><strong>7 days of unlimited free revisions</strong></li>
                 </ul>
+              </div>
+              <div className="w2-plan w2-plan-care" data-rv>
+                <div className="w2-plan-top">
+                  <div className="w2-plan-name">The care plan — optional, recommended</div>
+                  <div className="w2-price">${price.care}<span>/mo</span></div>
+                  <div className="w2-price-alt">CANCEL ANYTIME — THE SITE STAYS YOURS EITHER WAY</div>
+                </div>
+                <ul>
+                  <li>We host it — fast, secured with SSL, no “Not Secure” warning</li>
+                  <li>Your quote form wired to your inbox — leads land the moment they’re sent</li>
+                  <li>Monthly SEO updates — kept in line with what Google currently rewards</li>
+                </ul>
+                <p className="w2-care-note">Skip it and the site is still 100% yours — you’d just handle hosting and the form on your own. Most owners take it; it’s less than one tank of diesel.</p>
               </div>
             </div>
             <p className="w2-quote-note" data-rv>THE PRICE YOU SEE IS THE PRICE — YOU GET IT IN A <strong>WRITTEN QUOTE</strong> BEFORE YOU OWE A CENT.</p>
@@ -564,20 +571,20 @@ export default function WebsiteInfo({ price = { once: '900', monthly: '89' }, ca
               <div className="w2-after-card" data-rv>
                 <i>Day 8 onward</i>
                 <h3>Still covered</h3>
-                <p>Pay monthly and day-to-day updates are included, free (within reason — the agreement spells it out). Pay once and small text and photo swaps stay free — anything bigger gets a <strong>written quote first</strong>, so nothing ever costs money by surprise.</p>
+                <p>Small text and photo swaps stay free — anything bigger gets a <strong>written quote first</strong>, so nothing ever costs money by surprise. On the care plan, your SEO keeps getting tuned every month too.</p>
               </div>
               <div className="w2-after-card" data-rv>
                 <i>Any day</i>
                 <h3>No trap doors</h3>
-                <p>One-time: <strong>you own the site and the domain</strong>, full stop — and we keep hosting it free. Monthly: cancel anytime, no lock-in — or buy it out whenever; the buyout price goes in writing before you decide anything.</p>
+                <p><strong>You own the site and the domain</strong> the moment the build is paid — full stop. The care plan is optional and cancel-anytime: cancel and the site is still yours; we hand over the files and you host it wherever you want.</p>
               </div>
             </div>
             <div className="w2-honest" data-rv>
               <i>What we won’t promise you</i>
               <p>
                 A guaranteed #1 spot on Google. <strong>Nobody can honestly promise that</strong> — anyone who does is selling you something.
-                What we do promise: a site built and SEO’d properly — updated monthly, free — that makes you the easiest
-                company in town to size up and call. The full plain-English terms are at{' '}
+                What we do promise: a site built and SEO’d properly — kept tuned monthly on the care plan — that makes you
+                the easiest company in town to size up and call. The full plain-English terms are at{' '}
                 <Link to="/agreement">nuvion-solutions.com/agreement</Link> — two minutes, no legal wall.
               </p>
             </div>

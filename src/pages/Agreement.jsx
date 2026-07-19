@@ -77,7 +77,7 @@ export default function Agreement() {
           <div className="ag-item">
             <h2>What you get</h2>
             <p>
-              A custom, mobile-friendly website for your business — designed, built, and hosted by Nuvion Solutions LLC, with your real business info on it. Every site includes a full SEO setup — local and on-page — with free monthly SEO updates to help you rank on Google.
+              A custom, mobile-friendly website for your business — designed and built by Nuvion Solutions LLC, with your real business info on it. Every site includes a full SEO setup — local and on-page. The optional care plan adds hosting, security, your quote-form leads delivered to your inbox, and monthly SEO updates.
             </p>
           </div>
 
@@ -86,16 +86,16 @@ export default function Agreement() {
             <p>
               Every project is quoted up front, in writing. <strong>Your price is the one on your
               quote and Stripe invoice</strong> — that number is the agreement, and it doesn't change
-              after you approve it. There are two ways to structure it:
+              after you approve it. It has two parts:
             </p>
             <div className="ag-plans">
               <div className="ag-plan">
-                <div className="ag-amt">One-time <span>build</span></div>
-                <div className="ag-plan-note">Pay once, per your quote — the site is yours to keep. Hosting, monthly SEO updates, and simple revisions included free; larger changes are quoted.</div>
+                <div className="ag-amt">The <span>build</span></div>
+                <div className="ag-plan-note">One payment, per your quote — the site is yours to keep: design, files, and domain. Simple revisions stay free; larger changes are quoted first.</div>
               </div>
               <div className="ag-plan">
-                <div className="ag-amt grad-amt">Monthly <span>plan</span></div>
-                <div className="ag-plan-note">No big upfront cost, per your quote. Hosting, revisions, and monthly SEO updates included while subscribed.</div>
+                <div className="ag-amt grad-amt">Care <span>plan · optional</span></div>
+                <div className="ag-plan-note">A small monthly fee, per your quote. Covers hosting and security, your quote-form leads delivered to your inbox, and monthly SEO updates. Cancel anytime — the site stays yours.</div>
               </div>
             </div>
           </div>
@@ -103,24 +103,23 @@ export default function Agreement() {
           <div className="ag-item">
             <h2>Who owns it</h2>
             <p>
-              <strong>One-time plan:</strong> once you've paid in full, the website — design, files, and content —
-              is yours to keep. We host it for you free, and you're free to move it or host it elsewhere anytime.
+              Once the build is paid in full, the website — design, files, content, and domain — is
+              <strong> yours to keep</strong>, and you're free to move it or host it elsewhere anytime.
             </p>
             <p>
-              <strong>Monthly plan:</strong> you're subscribed to the site and its hosting. It stays live while
-              your subscription is active, you can cancel anytime, and if you cancel the site comes down. You can
-              switch to a one-time buyout anytime to own it outright (quoted when you ask).
+              <strong>The care plan doesn't change ownership.</strong> It's a service subscription — hosting,
+              security, lead delivery, and monthly SEO — that you can cancel anytime. If you cancel, the site is
+              still yours: we hand over the files and you host it wherever you like.
             </p>
           </div>
 
           <div className="ag-item">
             <h2>Revisions</h2>
             <p>
-              <strong>Every plan:</strong> unlimited free revisions for the first 7 days after launch —
-              we keep tweaking until it's right. After that: <strong>one-time plan</strong> — simple
-              revisions (text changes, photo swaps, small tweaks) are free; larger revisions, new
-              features, or integrations are quoted before we build them.
-              &nbsp;<strong>Monthly plan:</strong> revisions included, free — within reason.
+              <strong>Unlimited free revisions for the first 7 days after launch</strong> —
+              we keep tweaking until it's right. After that, simple revisions (text changes, photo
+              swaps, small tweaks) are free — within reason — and larger revisions, new features, or
+              integrations are quoted in writing before we build them.
             </p>
           </div>
 
@@ -134,7 +133,7 @@ export default function Agreement() {
 
           <div className="ag-item">
             <h2>Hosting</h2>
-            <p>Free on both plans — no separate hosting fee. Your site is hosted, secured with HTTPS, and kept online by Nuvion.</p>
+            <p>Included with the care plan — your site is hosted, secured with HTTPS, and kept online by Nuvion. If you skip or cancel the care plan, you own the files and handle hosting yourself (we'll hand everything over cleanly).</p>
           </div>
 
           <div className="ag-item">
