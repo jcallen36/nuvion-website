@@ -548,7 +548,7 @@ export default function WebsiteInfo({ price = { once: '900', care: '29' }, canon
                   <li>Your quote form wired to your inbox — leads land the moment they’re sent</li>
                   <li>Monthly SEO updates — kept in line with what Google currently rewards</li>
                 </ul>
-                <p className="w2-care-note">Skip it and the site is still 100% yours — you’d just handle hosting and the form on your own. Most owners take it; it’s less than one tank of diesel.</p>
+                <p className="w2-care-note">Skip it and the site is still 100% yours — you’d just handle hosting and the form on your own. Most owners take it.</p>
               </div>
             </div>
             <p className="w2-quote-note" data-rv>THE PRICE YOU SEE IS THE PRICE — YOU GET IT IN A <strong>WRITTEN QUOTE</strong> BEFORE YOU OWE A CENT.</p>
