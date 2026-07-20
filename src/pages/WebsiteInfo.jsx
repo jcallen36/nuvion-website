@@ -369,7 +369,7 @@ export default function WebsiteInfo({ price = { once: '900', care: '29' }, canon
           <div className="w2-wrap">
             <div className="w2-hero-grid">
               <div>
-                <div className="w2-kick w2-kick-hero">The full rundown · no sales fluff</div>
+                <div className="w2-kick w2-kick-hero">The full rundown</div>
                 <h1 className="w2-h1">You asked for the info. <em>Here’s all of it.</em></h1>
                 <p className="w2-lede">
                   What every site includes, the <strong>exact price</strong>, how changes work —
