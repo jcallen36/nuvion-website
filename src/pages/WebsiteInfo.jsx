@@ -298,11 +298,27 @@ export default function WebsiteInfo({ price = { once: '900', care: '29' }, canon
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    let ctx, killed = false;
+    let ctx, killed = false, rescueTimer = null, onScrollRescue = null;
+
+    // Every section below the hero is hidden by gsap.from({autoAlpha:0}) and
+    // only JS can un-hide it. That makes "the reveal didn't fire" indis-
+    // tinguishable from "the page is blank" — the failure mode is a blank
+    // sales page, so treat visibility as a guarantee, not an animation.
+    const revealAll = () => {
+      rootRef.current?.querySelectorAll('[data-rv]').forEach((el) => {
+        el.style.opacity = '1';
+        el.style.visibility = 'visible';
+        el.style.transform = 'none';
+      });
+    };
+
     (async () => {
       const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')]);
       if (killed || !rootRef.current) return;
       gsap.registerPlugin(ScrollTrigger);
+      // A phone hiding its URL bar mid-scroll changes innerHeight, which
+      // otherwise invalidates every trigger position at the worst moment.
+      ScrollTrigger.config({ ignoreMobileResize: true });
       ctx = gsap.context(() => {
         // hero choreography
         gsap.timeline({ defaults: { ease: 'expo.out' } })
@@ -336,8 +352,51 @@ export default function WebsiteInfo({ price = { once: '900', care: '29' }, canon
       rootRef.current.querySelectorAll('.w2-scrub').forEach((img) => {
         if (!img.complete) img.addEventListener('load', () => { if (!killed) ScrollTrigger.refresh(); }, { once: true });
       });
-    })().catch(() => { /* GSAP chunk failed to load — page stays fully functional without motion */ });
-    return () => { killed = true; ctx?.revert(); };
+
+      // Trigger positions are computed once, against whatever layout exists at
+      // that instant. On a slow phone the fonts and images are still landing,
+      // so every position is stale by the time the user scrolls — recompute
+      // once the page has genuinely settled.
+      const refresh = () => { if (!killed) ScrollTrigger.refresh(); };
+      document.fonts?.ready?.then(refresh).catch(() => {});
+      if (document.readyState === 'complete') refresh();
+      else window.addEventListener('load', refresh, { once: true });
+
+      // Safety net. Anything at or above the fold that is STILL invisible had
+      // its trigger miss — reveal it. Sections genuinely below the fold are
+      // left alone so they still animate in normally.
+      const rescueVisible = () => {
+        if (killed || !rootRef.current) return;
+        const vh = window.innerHeight;
+        rootRef.current.querySelectorAll('[data-rv]').forEach((el) => {
+          if (el.getBoundingClientRect().top > vh * 0.95) return;
+          const cs = getComputedStyle(el);
+          if (parseFloat(cs.opacity) < 0.05 || cs.visibility === 'hidden') {
+            gsap.set(el, { autoAlpha: 1, y: 0 });
+          }
+        });
+      };
+      onScrollRescue = rescueVisible;
+      window.addEventListener('scroll', onScrollRescue, { passive: true });
+      window.addEventListener('resize', onScrollRescue);
+      // Cover the first seconds too, when late layout shifts do the damage.
+      rescueTimer = setInterval(rescueVisible, 1500);
+      setTimeout(() => { clearInterval(rescueTimer); rescueTimer = null; }, 20000);
+    })().catch(() => {
+      // GSAP loaded far enough to hide things and then failed — without this
+      // the page stays permanently blank below the hero.
+      if (!killed) revealAll();
+    });
+
+    return () => {
+      killed = true;
+      if (rescueTimer) clearInterval(rescueTimer);
+      if (onScrollRescue) {
+        window.removeEventListener('scroll', onScrollRescue);
+        window.removeEventListener('resize', onScrollRescue);
+      }
+      ctx?.revert();
+    };
   }, []);
 
   return (
