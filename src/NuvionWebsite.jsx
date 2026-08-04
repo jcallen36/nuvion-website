@@ -188,8 +188,8 @@ img{max-width:100%;display:block}
 .nv-work-thumb{overflow:hidden;border-bottom:1px solid var(--line);background:var(--bg-soft)}
 .nv-work-bar{height:28px;background:#F1F4F9;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:5px;padding:0 11px}
 .nv-work-bar i{width:7px;height:7px;border-radius:50%;background:#CBD4E1}
-.nv-work-shot{height:186px;overflow:hidden}
-.nv-work-shot img{width:100%;height:100%;object-fit:cover;object-position:center;transition:object-position 3.5s ease}
+.nv-work-shot{aspect-ratio:16/9;overflow:hidden}
+.nv-work-shot img{width:100%;height:100%;object-fit:cover;object-position:center bottom;transition:object-position 3.5s ease}
 .nv-work-card:hover .nv-work-shot img{object-position:center bottom}
 .nv-work-meta{padding:16px 18px}
 .nv-work-meta h4{color:var(--ink);font-size:1.04rem;margin-bottom:9px}
