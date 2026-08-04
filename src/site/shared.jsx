@@ -102,7 +102,7 @@ img{max-width:100%;display:block}
 /* FOOTER */
 .nv-foot{background:#fff;border-top:1px solid var(--line);padding:58px 0 32px}
 .nv-foot-grid{display:grid;grid-template-columns:1fr;gap:38px}
-@media(min-width:820px){.nv-foot-grid{grid-template-columns:2fr 1fr 1fr}}
+@media(min-width:820px){.nv-foot-grid{grid-template-columns:1.7fr 1fr 1fr 1fr}}
 .nv-foot .tag{color:var(--muted);font-size:.9rem;max-width:290px;margin:14px 0 16px;line-height:1.65}
 .nv-foot .con a{display:block;color:var(--body);font-size:.9rem;margin-bottom:7px;font-weight:600}
 .nv-foot h5{color:var(--ink);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:15px}
@@ -272,6 +272,17 @@ export function Footer({ phone = COMPANY_PHONE }) {
           <Link to="/about">{t('About', 'Nosotros')}</Link>
           <Link to="/guides">{t('Guides', 'Guías')}</Link>
           <Link to="/book">{t('Book a Call', 'Reserva una llamada')}</Link>
+        </div>
+        <div className="links">
+          <h5>{t('Industries', 'Industrias')}</h5>
+          <Link to="/web-design-for/restaurants">{t('Restaurants', 'Restaurantes')}</Link>
+          <Link to="/web-design-for/wineries">{t('Wineries', 'Bodegas')}</Link>
+          <Link to="/web-design-for/real-estate">{t('Real Estate', 'Bienes raíces')}</Link>
+          <Link to="/web-design-for/med-spas">{t('Med Spas & Salons', 'Med spas y salones')}</Link>
+          <Link to="/web-design-for/dental-medical">{t('Dental & Medical', 'Dental y médico')}</Link>
+          <Link to="/web-design-for/fitness">{t('Gyms & Fitness', 'Gimnasios')}</Link>
+          <Link to="/web-design-for/professional-services">{t('Professional Svcs', 'Servicios profesionales')}</Link>
+          <Link to="/web-design-for/nonprofits">{t('Nonprofits', 'Sin fines de lucro')}</Link>
         </div>
       </div>
       <div className="nv-foot-bot">

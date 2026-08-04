@@ -18,6 +18,7 @@ const CompanyAbout = lazy(() => import('./site/CompanyAbout.jsx'))
 const BookPage = lazy(() => import('./site/BookPage.jsx'))
 const JaedenPage = lazy(() => import('./site/JaedenPage.jsx'))
 const LocalPage = lazy(() => import('./site/LocalPage.jsx'))
+const IndustryPage = lazy(() => import('./site/IndustryPage.jsx'))
 const PlanBuilder = lazy(() => import('./site/PlanBuilder.jsx'))
 const BusinessPage = lazy(() => import('./site/BusinessPage.jsx'))
 const TradesPage = lazy(() => import('./site/TradesPage.jsx'))
@@ -61,6 +62,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/david/:variant" element={<AboutPage />} />
         <Route path="/jaeden" element={<JaedenPage />} />
         <Route path="/web-design/:town" element={<LocalPage />} />
+        <Route path="/web-design-for/:industry" element={<IndustryPage />} />
         <Route path="/plan" element={<PlanBuilder />} />
         <Route path="/for-business" element={<BusinessPage />} />
         <Route path="/trades" element={<TradesPage />} />

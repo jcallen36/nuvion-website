@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { BASE_CSS, Nav, Footer, useReveal, Arrow, Check, LogoWall, WALL_CSS, IconWeb, IconSeo, IconMkt } from './shared.jsx';
 import { useLang } from './i18n.jsx';
+import { TOWN_INFO } from './towns-data.js';
 import sonomaHills from '../assets/local/sonoma-hills.webp';
 import workFloors from '../assets/work/floors.webp';
 import workDumolin from '../assets/work/dumolin.webp';
@@ -20,6 +21,13 @@ export const LOCAL_TOWNS = {
   'cloverdale': 'Cloverdale',
   'guerneville': 'Guerneville',
   'forestville': 'Forestville',
+  'glen-ellen': 'Glen Ellen',
+  'kenwood': 'Kenwood',
+  'penngrove': 'Penngrove',
+  'bodega-bay': 'Bodega Bay',
+  'occidental': 'Occidental',
+  'geyserville': 'Geyserville',
+  'graton': 'Graton',
 };
 
 const LP_CSS = `
@@ -53,6 +61,7 @@ const LP_CSS = `
 .lp-faq summary::after{content:"+";color:var(--brand);font-weight:800;font-size:1.3rem;line-height:1}
 .lp-faq details[open] summary::after{content:"–"}
 .lp-faq .a{padding:0 20px 18px;color:var(--body);font-size:.95rem;line-height:1.65}
+.lp-local{max-width:730px;margin:0 auto;text-align:center;color:var(--body);font-size:1.1rem;line-height:1.72}
 `;
 
 export default function LocalPage() {
@@ -61,6 +70,7 @@ export default function LocalPage() {
   const { town: slug } = useParams();
   const town = LOCAL_TOWNS[slug] || 'Sonoma County';
   const known = !!LOCAL_TOWNS[slug];
+  const info = TOWN_INFO[slug];
   const canonical = `https://nuvion-solutions.com/web-design/${slug}`;
 
   const ld = {
@@ -109,6 +119,13 @@ export default function LocalPage() {
           </div>
         </div></section>
 
+        {/* UNIQUE LOCAL INTRO (per-town, differentiates each page for SEO) */}
+        {info && (
+          <section className="nv-sec" style={{ paddingBottom: 0 }}><div className="nv-wrap">
+            <p className="lp-local rv">{info.intro}</p>
+          </div></section>
+        )}
+
         {/* WHY A LOCAL SITE */}
         <section className="nv-sec"><div className="nv-wrap">
           <div className="nv-center rv"><div className="nv-kicker">{t('Why it matters', 'Por qué importa')}</div><h2 className="nv-h2">{t(`What a great website does for a ${town} business`, `Lo que un buen sitio web hace por un negocio de ${town}`)}</h2></div>
@@ -146,6 +163,7 @@ export default function LocalPage() {
         <section className="nv-sec soft"><div className="nv-wrap">
           <div className="nv-center rv"><div className="nv-kicker">FAQ</div><h2 className="nv-h2">{t(`Web design in ${town} — common questions`, `Diseño web en ${town} — preguntas frecuentes`)}</h2></div>
           <div className="lp-faq">
+            {info && <details className="rv"><summary>{t(`What kind of ${town} businesses do you build websites for?`, `¿Para qué tipo de negocios de ${town} construyen sitios?`)}</summary><div className="a">{info.faqA}</div></details>}
             <details className="rv"><summary>{t(`Do you work with ${town} businesses?`, `¿Trabajan con negocios de ${town}?`)}</summary><div className="a">{t(`Yes — we're based in Santa Rosa, right nearby, and we work with businesses across ${town} and all of Sonoma County. We can meet in person or handle everything remotely, whichever you prefer.`, `Sí — estamos en Santa Rosa, muy cerca, y trabajamos con negocios en ${town} y en todo Sonoma County. Podemos vernos en persona o manejar todo de forma remota, como prefieras.`)}</div></details>
             <details className="rv"><summary>{t(`How fast can my ${town} website launch?`, `¿Qué tan rápido puede lanzarse mi sitio en ${town}?`)}</summary><div className="a">{t("One week — guaranteed. Once we have your content and go-ahead, your custom site goes live within a week. If we miss it, you don't pay.", 'Una semana — garantizado. Una vez que tenemos tu contenido y luz verde, tu sitio personalizado se lanza en una semana. Si no lo logramos, no pagas.')}</div></details>
             <details className="rv"><summary>{t('How much does a website cost?', '¿Cuánto cuesta un sitio web?')}</summary><div className="a">{t('Two easy ways. Own it outright from $600 one-time (Launch $600 · Business $900 · Growth from $1,800), or go monthly from $49/mo with $0 down — hosting and care included, and the site is yours to keep after 18 months. Optional care plans start at $29/mo (hosting, security & backups); the $50 plan adds ongoing edits and the $149 plan adds ongoing local SEO. You get a written quote before you owe a cent.', 'Dos formas fáciles. Págalo una vez desde $600 (Launch $600 · Business $900 · Growth desde $1,800), o ve mensual desde $49/mes con $0 inicial — hosting y mantenimiento incluidos, y el sitio es tuyo para siempre después de 18 meses. Los planes de mantenimiento opcionales empiezan en $29/mes (hosting, seguridad y respaldos); el plan de $50 agrega ediciones continuas y el de $149 agrega SEO local continuo. Recibes una cotización por escrito antes de deber un centavo.')}</div></details>

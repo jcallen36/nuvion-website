@@ -20,10 +20,18 @@ const DIST = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', 'd
 const ARTICLE_SLUGS = [
   'website-cost-sonoma-county', 'do-i-own-my-website', 'choose-web-designer-santa-rosa',
   'local-seo-sonoma-county', 'ai-website-builder-vs-real-designer',
+  'do-i-need-a-website-small-business', 'how-long-to-build-a-website', 'website-vs-facebook-page',
+  'get-found-on-google-maps', 'why-my-website-gets-no-customers', 'what-makes-a-website-look-professional',
+  'move-website-off-wix-squarespace', 'small-business-website-checklist',
 ];
 const TOWNS = [
   'santa-rosa', 'petaluma', 'rohnert-park', 'windsor', 'healdsburg', 'sonoma',
   'sebastopol', 'cotati', 'cloverdale', 'guerneville', 'forestville',
+  'glen-ellen', 'kenwood', 'penngrove', 'bodega-bay', 'occidental', 'geyserville', 'graton',
+];
+const INDUSTRIES = [
+  'restaurants', 'wineries', 'real-estate', 'med-spas',
+  'dental-medical', 'fitness', 'professional-services', 'nonprofits',
 ];
 const ROUTES = [
   '/',
@@ -32,6 +40,7 @@ const ROUTES = [
   '/work', '/about', '/book', '/jaeden', '/for-business', '/trades', '/plan', '/david',
   '/guides', ...ARTICLE_SLUGS.map((s) => `/guides/${s}`),
   ...TOWNS.map((t) => `/web-design/${t}`),
+  ...INDUSTRIES.map((i) => `/web-design-for/${i}`),
   '/websites', '/websites2', '/websiteinfo',
   '/privacy', '/terms',
 ];
