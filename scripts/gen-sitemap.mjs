@@ -38,8 +38,11 @@ for (const t of TOWNS) lines.push(u(`/web-design/${t}`, '0.7'));
 lines.push('\n  <!-- Industries -->');
 for (const i of INDUSTRIES) lines.push(u(`/web-design-for/${i}`, '0.7'));
 
-lines.push('\n  <!-- Service x town -->');
-for (const s of SERVICES) for (const t of TOWNS) lines.push(u(`/${s}/${t}`, '0.6'));
+// Only index the service×town pages with real local search demand.
+// automation/custom-builds ×town are noindex (kept live + linked, out of the index).
+const INDEXED_SERVICES = SERVICES.filter((s) => s === 'seo' || s === 'marketing');
+lines.push('\n  <!-- Service x town (search-intent services only) -->');
+for (const s of INDEXED_SERVICES) for (const t of TOWNS) lines.push(u(`/${s}/${t}`, '0.6'));
 
 lines.push('\n  <!-- Legal -->');
 lines.push(u('/privacy', '0.3', 'yearly'));

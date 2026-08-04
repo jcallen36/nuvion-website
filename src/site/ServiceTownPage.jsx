@@ -12,7 +12,13 @@ import workDumolin from '../assets/work/dumolin.webp';
 /* Service × town landing pages: /:service/:town (e.g. /seo/petaluma).
    Combines per-SERVICE content (service-town-data) with the UNIQUE per-town
    content (towns-data) so every page is substantively different, not a
-   doorway/thin page. */
+   doorway/thin page.
+
+   INDEXING POLICY: web design / SEO / marketing have real "[service] [town]"
+   local search demand, so those are indexed. Automation and custom builds
+   don't get searched by town — kept live + internally linked, but noindex,
+   so Google isn't asked to index low-demand pages (quality-forward). */
+const NOINDEX_SERVICES = new Set(['automation', 'custom-builds']);
 
 const ST_CSS = `
 .st-hero{padding:64px 0 46px;text-align:center;background:linear-gradient(180deg, rgba(246,249,253,.95), rgba(246,249,253,.82) 45%, rgba(246,249,253,.72)), url(${sonomaHills});background-size:cover;background-position:center 28%}
@@ -101,6 +107,7 @@ export default function ServiceTownPage({ service }) {
       <title>{`${svc.metaLead} in ${town}, CA | Nuvion Solutions`}</title>
       <meta name="description" content={fill(svc.metaDescTpl)} />
       <link rel="canonical" href={canonical} />
+      {NOINDEX_SERVICES.has(service) && <meta name="robots" content="noindex, follow" />}
       <meta property="og:title" content={`${svc.metaLead} in ${town}, CA | Nuvion Solutions`} />
       <meta property="og:description" content={fill(svc.metaDescTpl)} />
       <meta property="og:type" content="website" />
