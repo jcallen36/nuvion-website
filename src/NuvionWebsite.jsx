@@ -495,7 +495,7 @@ function Pricing() {
         t('A page for every service & town', 'Una página por cada servicio y pueblo'),
         t('Your reviews + quote request form', 'Tus reseñas + formulario de cotización'),
         t('Local SEO + Google Business Profile', 'SEO local + Perfil de Negocio de Google'),
-        t('Own it — outright or after 24 months', 'Es tuyo — de una vez o tras 24 meses'),
+        t('Own it — outright or after 18 months', 'Es tuyo — de una vez o tras 18 meses'),
       ],
     },
     {
@@ -546,7 +546,7 @@ function Pricing() {
       </div>
       <div className="nv-price-note rv">
         {monthly
-          ? t(<><b>$0 down</b>, everything included — hosting, care &amp; updates — and <b>cancel anytime</b>. Stay with us and <b>the site is yours to keep after 24 months</b>. Live in 1 week, guaranteed.</>, <><b>$0 inicial</b>, todo incluido — hosting, cuidado y actualizaciones — y <b>cancela cuando quieras</b>. Quédate con nosotros y <b>el sitio es tuyo para siempre después de 24 meses</b>. En vivo en 1 semana, garantizado.</>)
+          ? t(<><b>$0 down</b>, everything included — hosting, care &amp; updates — on an <b>18-month plan</b>, and <b>the site is yours to keep at the end</b>. Live in 1 week, guaranteed.</>, <><b>$0 inicial</b>, todo incluido — hosting, cuidado y actualizaciones — en un <b>plan de 18 meses</b>, y <b>el sitio es tuyo al final</b>. En vivo en 1 semana, garantizado.</>)
           : t(<>Every plan includes a <b>written quote before you owe a cent</b>, your site <b>live in 1 week or you don't pay</b>, and optional care from <b>$29/mo</b> (cancel anytime).</>, <>Cada plan incluye una <b>cotización por escrito antes de deber un centavo</b>, tu sitio <b>en vivo en 1 semana o no pagas</b>, y mantenimiento opcional desde <b>$29/mes</b> (cancela cuando quieras).</>)}
       </div>
       <div className="nv-price-extra rv">
@@ -678,7 +678,7 @@ function Hero() {
           <a href="#work" className="nv-btn nv-btn-ghost nv-btn-lg">{t('See our work', 'Ve nuestro trabajo')}</a>
         </div>
         <div className="nv-ticks">
-          <span><Check /> {t('No long-term contracts', 'Sin contratos a largo plazo')}</span>
+          <span><Check /> {t('You own it', 'Es tuyo')}</span>
           <span><Check /> {t('Same-day responses', 'Respuestas el mismo día')}</span>
           <span><Check /> {t('Built for your customers', 'Hecho para tus clientes')}</span>
         </div>
@@ -988,7 +988,7 @@ function GuaranteeBand() {
         <h2>{t(<>Your website live in <em>1 week</em> — or you don't pay.</>, <>Tu sitio web en vivo en <em>1 semana</em> — o no pagas.</>)}</h2>
         <p>{t("We're that confident. Once we have your content, your custom site goes live within one week. If we miss it, it's on us — you don't pay a cent.", 'Estamos así de seguros. En cuanto tengamos tu contenido, tu sitio personalizado sale en vivo dentro de una semana. Si no lo logramos, corre por nuestra cuenta — no pagas ni un centavo.')}</p>
         <Link to="/book" className="nv-btn nv-btn-white nv-btn-lg">{t('Start my 1-week build', 'Empieza mi sitio en 1 semana')} <Arrow /></Link>
-        <div className="nv-guar-sub">{t('You approve before you pay · You own everything · No long-term contracts', 'Apruebas antes de pagar · Todo es tuyo · Sin contratos a largo plazo')}</div>
+        <div className="nv-guar-sub">{t('You approve before you pay · You own everything · Written quote first', 'Apruebas antes de pagar · Todo es tuyo · Cotización por escrito primero')}</div>
       </div>
     </div></section>
   );

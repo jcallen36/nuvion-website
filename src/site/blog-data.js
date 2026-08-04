@@ -44,7 +44,7 @@ export const ARTICLES = [
         body: [
           `There are two honest ways to pay for a website, and the right one depends on your cash flow, not on a sales pitch.`,
           `Paying once means you own the finished site outright from day one. Our one-time website pricing is $600, $900, or from $1,800 depending on how much you need, and that is yours to keep — design, files, and code.`,
-          `Paying monthly spreads the cost so you are not out a lump sum up front. Our monthly plans are $49, $89, or $149 a month with $0 down, and hosting plus ongoing care are included. The important part: after 24 months the site is yours to keep. It is rent-to-own, not rent-forever. Be careful with any offer that keeps charging you monthly but never hands you the finished site.`,
+          `Paying monthly spreads the cost so you are not out a lump sum up front. Our monthly plans are $49, $89, or $149 a month with $0 down, and hosting plus ongoing care are included. The important part: after 18 months the site is yours to keep. It is rent-to-own, not rent-forever. Be careful with any offer that keeps charging you monthly but never hands you the finished site.`,
         ],
       },
       {
@@ -74,7 +74,7 @@ export const ARTICLES = [
       },
       {
         q: `What is the difference between paying once and paying monthly?`,
-        a: `Paying once means you own the site outright from day one. Paying monthly spreads the cost with $0 down and includes hosting and care, and after 24 months the site is still yours to keep. Both end in ownership — the difference is cash flow.`,
+        a: `Paying once means you own the site outright from day one. Paying monthly spreads the cost with $0 down and includes hosting and care, and after 18 months the site is still yours to keep. Both end in ownership — the difference is cash flow.`,
       },
       {
         q: `Are there ongoing costs after the website is built?`,
@@ -143,7 +143,7 @@ export const ARTICLES = [
       {
         h: `Rent-to-own, done honestly`,
         body: [
-          `Monthly pricing is a great fit when you would rather not pay a lump sum up front — but it should still lead to ownership. Our monthly plans are $49, $89, or $149 a month with $0 down, and they include hosting and care. After 24 months, the site is yours to keep.`,
+          `Monthly pricing is a great fit when you would rather not pay a lump sum up front — but it should still lead to ownership. Our monthly plans are $49, $89, or $149 a month with $0 down, and they include hosting and care. After 18 months, the site is yours to keep.`,
           `That is the honest version of rent-to-own: you are paying toward something you will actually own, not renting it indefinitely. If a monthly offer never ends in ownership, treat it as rent — and price it accordingly, because you will be paying it for as long as you have the site.`,
         ],
       },
@@ -155,7 +155,7 @@ export const ARTICLES = [
       },
       {
         q: `What happens to my website if I stop paying a monthly plan?`,
-        a: `It depends entirely on the contract. With honest rent-to-own plans like ours, the site becomes yours after 24 months. With rent-forever plans, the site can go offline the moment you cancel and you keep nothing — so always ask this question before signing.`,
+        a: `It depends entirely on the contract. With honest rent-to-own plans like ours, the site becomes yours after 18 months. With rent-forever plans, the site can go offline the moment you cancel and you keep nothing — so always ask this question before signing.`,
       },
       {
         q: `Should my web designer own my domain name?`,

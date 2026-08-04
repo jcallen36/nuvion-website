@@ -92,20 +92,18 @@ export default function Agreement() {
               <p>
                 Instead of paying for the build up front, you can choose a <strong>monthly plan with $0
                 down</strong>, at the rate on your quote (currently $49, $89, or $149/month depending on the
-                build). That single monthly payment covers your website plus hosting, care, and updates for as
-                long as you're subscribed.
+                build). That single monthly payment covers your website plus hosting, care, and updates.
               </p>
               <p>
-                The monthly plan is <strong>month-to-month — cancel anytime</strong>, with no long-term contract.
-                While you're subscribed, your site stays live and maintained. If you cancel before the ownership
-                term below is complete, the site is taken offline — you owe nothing further, and there's no
-                penalty.
+                The monthly plan is an <strong>18-month commitment</strong>. For those 18 months your site
+                stays live and fully maintained, and your monthly payment stays the same.
               </p>
               <p>
-                <strong>After 24 months of on-time monthly payments, the website is yours to keep</strong> —
-                design, files, and content, the same as if you'd paid once up front — and you're free to host it
-                anywhere. You can also take ownership early by paying the remaining balance; just ask and we'll
-                put it in writing.
+                <strong>After 18 months of on-time payments, the website is yours to keep</strong> — design,
+                files, and content, the same as if you'd paid once up front — and you're free to host it
+                anywhere. Prefer to own it sooner? Pay off the remaining balance and take ownership early —
+                just ask and we'll put it in writing. If you cancel before the 18-month term is complete, the
+                site is taken offline and doesn't transfer to you.
               </p>
             </div>
 
@@ -180,7 +178,8 @@ export default function Agreement() {
               <h2>Refunds</h2>
               <p>
                 You see the finished website before you pay a dollar, so the one-time fee is non-refundable once your
-                site is delivered and live. On the monthly plan, cancel anytime; the current month isn't refunded.
+                site is delivered and live. On the monthly plan, payments already made aren't refunded, and the plan
+                runs for the 18-month term described above.
               </p>
             </div>
 

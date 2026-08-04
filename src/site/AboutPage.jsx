@@ -233,9 +233,9 @@ const OFFER_ANGLES = {
   'zero-down': {
     eyebrow: { en: '$0 Down · Sonoma County', es: '$0 inicial · Sonoma County' },
     h1: { en: `Hi, I'm David — get a custom website for <span class="nv-grad">$0 down</span>.`, es: `Hola, soy David — obtén un sitio web personalizado con <span class="nv-grad">$0 inicial</span>.` },
-    sub: { en: "No big upfront cost. I'll design and build your site for as little as $49/mo — hosting, care and updates included — and it's yours to keep after 24 months. Live in a week.", es: 'Sin gran costo inicial. Diseño y construyo tu sitio desde $49/mes — hosting, cuidado y actualizaciones incluidos — y es tuyo para siempre después de 24 meses. En vivo en una semana.' },
+    sub: { en: "No big upfront cost. I'll design and build your site for as little as $49/mo — hosting, care and updates included — and it's yours to keep after 18 months. Live in a week.", es: 'Sin gran costo inicial. Diseño y construyo tu sitio desde $49/mes — hosting, cuidado y actualizaciones incluidos — y es tuyo para siempre después de 18 meses. En vivo en una semana.' },
     title: "David — Websites for $0 Down ($49/mo) in Sonoma County | Nuvion Solutions",
-    desc: "I'm David — get a custom website for $0 down, from $49/mo (hosting & care included), yours to keep after 24 months. Live in 1 week.",
+    desc: "I'm David — get a custom website for $0 down, from $49/mo (hosting & care included), yours to keep after 18 months. Live in 1 week.",
     noindex: true,
   },
   'guarantee': {

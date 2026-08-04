@@ -312,7 +312,7 @@ export default function PlanBuilder() {
                   <span className="val">{t('From $600 once — or $49/mo, $0 down', 'Desde $600 único — o $49/mes, $0 inicial')}</span>
                 </div>
                 <p style={{ color: 'var(--muted)', fontSize: '.9rem', textAlign: 'center', marginBottom: 20 }}>
-                  {t('Own it outright or pay monthly (yours to keep after 24 months). Custom builds & integrations are scoped to your project — a written quote before you owe a cent.', 'Cómpralo de una vez o paga mensual (es tuyo tras 24 meses). Los desarrollos a medida y las integraciones se cotizan según tu proyecto — con una cotización por escrito antes de deber un centavo.')}
+                  {t('Own it outright or pay monthly (yours to keep after 18 months). Custom builds & integrations are scoped to your project — a written quote before you owe a cent.', 'Cómpralo de una vez o paga mensual (es tuyo tras 18 meses). Los desarrollos a medida y las integraciones se cotizan según tu proyecto — con una cotización por escrito antes de deber un centavo.')}
                 </p>
                 <div style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}>
                   <a href="tel:+17075209179" className="nv-btn nv-btn-primary nv-btn-lg">{t('Talk to us now', 'Habla con nosotros ahora')} <Arrow /></a>

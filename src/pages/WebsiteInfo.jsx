@@ -337,7 +337,7 @@ export default function WebsiteInfo({ price = { once: '900', care: '29' }, canon
             </div>
           </div>
           <p className="wi-quote-note rv">{t(<>The price you see is the price — you get it in a <strong>written quote</strong> before you owe a cent.</>, <>El precio que ves es el precio — lo recibes en una <strong>cotización por escrito</strong> antes de que debas un centavo.</>)}</p>
-          <p className="wi-quote-note rv" style={{ marginTop: 8 }}>{t(<>Prefer $0 down? We also build for <strong>${monthly}/mo</strong> — hosting &amp; care included, yours to keep after 24 months. Just ask.</>, <>¿Prefieres $0 inicial? También construimos por <strong>${monthly}/mes</strong> — hosting y cuidado incluidos, tuyo después de 24 meses. Solo pregunta.</>)}</p>
+          <p className="wi-quote-note rv" style={{ marginTop: 8 }}>{t(<>Prefer $0 down? We also build for <strong>${monthly}/mo</strong> — hosting &amp; care included, yours to keep after 18 months. Just ask.</>, <>¿Prefieres $0 inicial? También construimos por <strong>${monthly}/mes</strong> — hosting y cuidado incluidos, tuyo después de 18 meses. Solo pregunta.</>)}</p>
         </div></section>
 
         {/* AFTER LAUNCH */}
