@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:ssg": "vite build && node scripts/prerender.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -14,9 +15,12 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-helmet-async": "^2.0.5",
-    "react-router-dom": "^7.13.1"
+    "react-router-dom": "^7.13.1",
+    "resend": "^6.18.1"
   },
   "devDependencies": {
+    "@sparticuz/chromium": "^131.0.0",
+    "puppeteer-core": "^23.10.0",
     "@eslint/js": "^9.39.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
