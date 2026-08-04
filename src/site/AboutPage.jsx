@@ -320,7 +320,7 @@ export default function AboutPage() {
     <>
       <title>{angle.title}</title>
       <meta name="description" content={angle.desc} />
-      <link rel="canonical" href={`https://nuvion-solutions.com/david${variant ? '/' + variant : ''}`} />
+      <link rel="canonical" href={`https://www.nuvion-solutions.com/david${variant ? '/' + variant : ''}`} />
       {angle.noindex && <meta name="robots" content="noindex, follow" />}
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + ABOUT_CSS }} />
       <MiniNav />

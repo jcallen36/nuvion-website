@@ -33,7 +33,7 @@ export default function Privacy() {
     <>
       <title>Privacy Policy | Nuvion Solutions</title>
       <meta name="description" content="The Privacy Policy for Nuvion Solutions — what information we collect on nuvion-solutions.com, how we use it, who we share it with, and your choices." />
-      <link rel="canonical" href="https://nuvion-solutions.com/privacy" />
+      <link rel="canonical" href="https://www.nuvion-solutions.com/privacy" />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + LEGAL_CSS }} />
 
       <Nav />
@@ -172,7 +172,7 @@ export default function Privacy() {
           <div className="lg-signoff">
             <p>We keep it simple: we collect only what we need, we protect it, and we never sell it.</p>
             <p className="lg-brand">
-              Nuvion Solutions · <a href="https://nuvion-solutions.com">nuvion-solutions.com</a>
+              Nuvion Solutions · <a href="https://www.nuvion-solutions.com">nuvion-solutions.com</a>
             </p>
           </div>
         </div>

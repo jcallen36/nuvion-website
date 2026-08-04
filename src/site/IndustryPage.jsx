@@ -70,7 +70,7 @@ export default function IndustryPage() {
     );
   }
 
-  const canonical = `https://nuvion-solutions.com/web-design-for/${slug}`;
+  const canonical = `https://www.nuvion-solutions.com/web-design-for/${slug}`;
   const others = Object.values(INDUSTRIES).filter((i) => i.slug !== slug);
 
   const ld = [
@@ -78,12 +78,12 @@ export default function IndustryPage() {
       '@context': 'https://schema.org', '@type': 'Service',
       name: `${cfg.name} Web Design`, serviceType: `Web design for ${cfg.name.toLowerCase()}`,
       areaServed: 'Sonoma County, CA', url: canonical,
-      provider: { '@type': 'ProfessionalService', name: 'Nuvion Solutions', telephone: '+1-707-520-9179', url: 'https://nuvion-solutions.com' },
+      provider: { '@type': 'ProfessionalService', name: 'Nuvion Solutions', telephone: '+1-707-520-9179', url: 'https://www.nuvion-solutions.com' },
     },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: cfg.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nuvion-solutions.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Web Design', item: 'https://nuvion-solutions.com/services/web-design' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.nuvion-solutions.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Web Design', item: 'https://www.nuvion-solutions.com/services/web-design' },
       { '@type': 'ListItem', position: 3, name: `${cfg.name} Web Design`, item: canonical },
     ] },
   ];

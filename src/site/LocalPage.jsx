@@ -71,7 +71,7 @@ export default function LocalPage() {
   const town = LOCAL_TOWNS[slug] || 'Sonoma County';
   const known = !!LOCAL_TOWNS[slug];
   const info = TOWN_INFO[slug];
-  const canonical = `https://nuvion-solutions.com/web-design/${slug}`;
+  const canonical = `https://www.nuvion-solutions.com/web-design/${slug}`;
 
   const ld = {
     '@context': 'https://schema.org',
@@ -80,7 +80,7 @@ export default function LocalPage() {
     url: canonical,
     telephone: '+1-707-520-9179',
     email: 'team@nuvion-solutions.com',
-    image: 'https://nuvion-solutions.com/og-image.png',
+    image: 'https://www.nuvion-solutions.com/og-image.png',
     priceRange: '$$',
     areaServed: { '@type': 'City', name: town },
     address: { '@type': 'PostalAddress', addressLocality: 'Santa Rosa', addressRegion: 'CA', addressCountry: 'US' },

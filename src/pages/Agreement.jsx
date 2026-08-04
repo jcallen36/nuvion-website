@@ -44,7 +44,7 @@ export default function Agreement() {
     <>
       <title>Website Agreement | Nuvion Solutions</title>
       <meta name="description" content="The plain-English agreement for the website Nuvion Solutions builds for you — what you get, pricing, ownership, revisions, hosting, and refunds. No legal wall, just the facts." />
-      <link rel="canonical" href="https://nuvion-solutions.com/agreement" />
+      <link rel="canonical" href="https://www.nuvion-solutions.com/agreement" />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + LEGAL_CSS }} />
 
       <Nav />
@@ -196,7 +196,7 @@ export default function Agreement() {
               <span className="lg-agree">By paying your invoice, you agree to these terms.</span>
             </p>
             <p className="lg-brand">
-              Nuvion Solutions · <a href="https://nuvion-solutions.com">nuvion-solutions.com</a>
+              Nuvion Solutions · <a href="https://www.nuvion-solutions.com">nuvion-solutions.com</a>
             </p>
           </div>
         </div>

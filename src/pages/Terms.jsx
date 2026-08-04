@@ -34,7 +34,7 @@ export default function Terms() {
     <>
       <title>Terms of Service | Nuvion Solutions</title>
       <meta name="description" content="The Terms of Service for Nuvion Solutions — the rules for using nuvion-solutions.com and our AI automation, web design, and related services." />
-      <link rel="canonical" href="https://nuvion-solutions.com/terms" />
+      <link rel="canonical" href="https://www.nuvion-solutions.com/terms" />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + LEGAL_CSS }} />
 
       <Nav />
@@ -175,7 +175,7 @@ export default function Terms() {
           <div className="lg-signoff">
             <p>By using nuvion-solutions.com or engaging our services, you agree to these Terms of Service.</p>
             <p className="lg-brand">
-              Nuvion Solutions · <a href="https://nuvion-solutions.com">nuvion-solutions.com</a>
+              Nuvion Solutions · <a href="https://www.nuvion-solutions.com">nuvion-solutions.com</a>
             </p>
           </div>
         </div>

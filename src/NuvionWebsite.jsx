@@ -1171,7 +1171,7 @@ export default function NuvionWebsite() {
     <>
       <title>Web Design & SEO in Sonoma County | Nuvion Solutions</title>
       <meta name="description" content="Custom web design and SEO for local businesses in Sonoma County — beautiful, fast websites built and cared for by a real team that answers same-day. Book a free call." />
-      <link rel="canonical" href="https://nuvion-solutions.com/" />
+      <link rel="canonical" href="https://www.nuvion-solutions.com/" />
       <style dangerouslySetInnerHTML={{ __html: CSS + WALL_CSS + MCTA_CSS + LANG_CSS }} />
       <Nav />
       <main>

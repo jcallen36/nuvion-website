@@ -130,7 +130,7 @@ function Phone({ img, alt }) {
   );
 }
 
-export default function WebsiteInfo({ price = { once: '900', care: '29' }, canonical = 'https://nuvion-solutions.com/websites' }) {
+export default function WebsiteInfo({ price = { once: '900', care: '29' }, canonical = 'https://www.nuvion-solutions.com/websites' }) {
   useReveal();
   const { t } = useLang();
   const once = price.once;

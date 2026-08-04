@@ -41,7 +41,7 @@ export default function JaedenPage() {
     <>
       <title>Meet Jaeden — Co-founder | Nuvion Solutions</title>
       <meta name="description" content="Meet Jaeden Callender of Nuvion Solutions — making sure every client gets exactly what they need. Get in touch to talk about your project." />
-      <link rel="canonical" href="https://nuvion-solutions.com/jaeden" />
+      <link rel="canonical" href="https://www.nuvion-solutions.com/jaeden" />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + JD_CSS + FORM_CSS }} />
       <Nav />
       <main>

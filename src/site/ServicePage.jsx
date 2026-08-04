@@ -207,7 +207,7 @@ export default function ServicePage({ cfg }) {
   useReveal();
   const { lang, t } = useLang();
   const c = lang === 'es' && cfg.es ? { ...cfg, ...cfg.es } : cfg;
-  const svcUrl = `https://nuvion-solutions.com/services/${cfg.slug}`;
+  const svcUrl = `https://www.nuvion-solutions.com/services/${cfg.slug}`;
   const svcName = String(cfg.title).split('|')[0].trim();
   const faqLd = c.faqs && c.faqs.length ? {
     '@context': 'https://schema.org', '@type': 'FAQPage',
@@ -216,13 +216,13 @@ export default function ServicePage({ cfg }) {
   const serviceLd = {
     '@context': 'https://schema.org', '@type': 'Service', name: svcName, serviceType: cfg.slug, url: svcUrl,
     description: cfg.description, areaServed: { '@type': 'AdministrativeArea', name: 'Sonoma County, California' },
-    provider: { '@type': 'ProfessionalService', name: 'Nuvion Solutions', telephone: '+1-707-520-9179', areaServed: 'Sonoma County, CA', url: 'https://nuvion-solutions.com' },
+    provider: { '@type': 'ProfessionalService', name: 'Nuvion Solutions', telephone: '+1-707-520-9179', areaServed: 'Sonoma County, CA', url: 'https://www.nuvion-solutions.com' },
   };
   const crumbLd = {
     '@context': 'https://schema.org', '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nuvion-solutions.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://nuvion-solutions.com/#services' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.nuvion-solutions.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://www.nuvion-solutions.com/#services' },
       { '@type': 'ListItem', position: 3, name: svcName, item: svcUrl },
     ],
   };

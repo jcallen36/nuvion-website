@@ -8,7 +8,7 @@ import sonomaHills from '../assets/local/sonoma-hills.webp';
    Each post renders BlogPosting + FAQPage + BreadcrumbList JSON-LD.
    Articles are English for now (chrome stays bilingual); ES translation next. */
 
-const BASE_URL = 'https://nuvion-solutions.com';
+const BASE_URL = 'https://www.nuvion-solutions.com';
 
 const BLOG_CSS = `
 .bg-hero{padding:60px 0 16px;text-align:center;background:linear-gradient(180deg, rgba(246,249,253,.95), rgba(246,249,253,.86) 50%, rgba(246,249,253,.78)), url(${sonomaHills});background-size:cover;background-position:center 24%}

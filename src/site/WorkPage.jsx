@@ -191,10 +191,10 @@ export default function WorkPage() {
     <>
       <title>Our Work — Websites We've Built | Nuvion Solutions</title>
       <meta name="description" content="Real websites built by Nuvion Solutions for local businesses and nonprofits across Sonoma County and beyond — plus concept builds showing our range." />
-      <link rel="canonical" href="https://nuvion-solutions.com/work" />
+      <link rel="canonical" href="https://www.nuvion-solutions.com/work" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Our Work — Nuvion Solutions',
-        url: 'https://nuvion-solutions.com/work',
+        url: 'https://www.nuvion-solutions.com/work',
         mainEntity: {
           '@type': 'ItemList',
           itemListElement: PROJECTS.map((p, i) => ({

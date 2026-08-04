@@ -80,18 +80,18 @@ export default function ServiceTownPage({ service }) {
   }
 
   const fill = (s) => (s || '').replaceAll('{town}', town);
-  const canonical = `https://nuvion-solutions.com/${service}/${slug}`;
+  const canonical = `https://www.nuvion-solutions.com/${service}/${slug}`;
   const otherServices = Object.values(SERVICES).filter((s) => s.slug !== service);
 
   const ld = [
     {
       '@context': 'https://schema.org', '@type': 'Service',
       name: `${svc.metaLead} in ${town}`, serviceType: svc.metaLead, areaServed: { '@type': 'City', name: town }, url: canonical,
-      provider: { '@type': 'ProfessionalService', name: 'Nuvion Solutions', telephone: '+1-707-520-9179', url: 'https://nuvion-solutions.com', address: { '@type': 'PostalAddress', addressLocality: 'Santa Rosa', addressRegion: 'CA', addressCountry: 'US' } },
+      provider: { '@type': 'ProfessionalService', name: 'Nuvion Solutions', telephone: '+1-707-520-9179', url: 'https://www.nuvion-solutions.com', address: { '@type': 'PostalAddress', addressLocality: 'Santa Rosa', addressRegion: 'CA', addressCountry: 'US' } },
     },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: svc.faqs.map((f) => ({ '@type': 'Question', name: fill(f.q), acceptedAnswer: { '@type': 'Answer', text: fill(f.a) } })) },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://nuvion-solutions.com/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.nuvion-solutions.com/' },
       { '@type': 'ListItem', position: 2, name: svc.name, item: canonical },
     ] },
   ];

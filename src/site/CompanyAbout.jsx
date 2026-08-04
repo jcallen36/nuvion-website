@@ -49,10 +49,10 @@ export default function CompanyAbout() {
     <>
       <title>About Nuvion Solutions — Web Design in Sonoma County</title>
       <meta name="description" content="Nuvion Solutions is a Sonoma County web design studio — two real people who design, build, and care for your website, and actually answer. Meet the team." />
-      <link rel="canonical" href="https://nuvion-solutions.com/about" />
+      <link rel="canonical" href="https://www.nuvion-solutions.com/about" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         '@context': 'https://schema.org', '@type': 'Organization', name: 'Nuvion Solutions',
-        url: 'https://nuvion-solutions.com', telephone: '+1-707-520-9179', email: 'team@nuvion-solutions.com',
+        url: 'https://www.nuvion-solutions.com', telephone: '+1-707-520-9179', email: 'team@nuvion-solutions.com',
         areaServed: 'Sonoma County, California',
         founder: [
           { '@type': 'Person', name: 'David Prudhomme', jobTitle: 'Co-founder', worksFor: { '@type': 'Organization', name: 'Nuvion Solutions' } },

@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BASE = 'https://nuvion-solutions.com';
+const BASE = 'https://www.nuvion-solutions.com';
 const TODAY = '2026-08-03';
 
 const TOWNS = ['santa-rosa','petaluma','rohnert-park','windsor','healdsburg','sonoma','sebastopol','cotati','cloverdale','guerneville','forestville','glen-ellen','kenwood','penngrove','bodega-bay','occidental','geyserville','graton'];

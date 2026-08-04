@@ -52,8 +52,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/services/web-design" element={<ServicePage cfg={WEB_DESIGN} />} />
         <Route path="/book" element={<BookPage />} />
         <Route path="/websites" element={<WebsiteInfo />} />
-        <Route path="/websites2" element={<WebsiteInfo price={{ once: '1,800', care: '29', monthly: '149' }} canonical="https://nuvion-solutions.com/websites2" />} />
-        <Route path="/websiteinfo" element={<WebsiteInfo price={{ once: '600', care: '29', monthly: '49' }} canonical="https://nuvion-solutions.com/websiteinfo" />} />
+        <Route path="/websites2" element={<WebsiteInfo price={{ once: '1,800', care: '29', monthly: '149' }} canonical="https://www.nuvion-solutions.com/websites2" />} />
+        <Route path="/websiteinfo" element={<WebsiteInfo price={{ once: '600', care: '29', monthly: '49' }} canonical="https://www.nuvion-solutions.com/websiteinfo" />} />
         <Route path="/agreement" element={<Agreement />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
