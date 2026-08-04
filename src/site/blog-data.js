@@ -1167,4 +1167,684 @@ export const ARTICLES = [
     ],
     related: ['do-i-need-a-website-small-business', 'what-makes-a-website-look-professional', 'how-long-to-build-a-website'],
   },
+
+  {
+    slug: 'how-to-write-website-copy',
+    metaTitle: 'How to Write Website Copy That Converts (2026) | Nuvion Solutions',
+    title: 'How to Write Website Copy That Actually Converts',
+    metaDesc: `Website copy that converts is clear, not clever. Here is how to write copy that says what you do, earns trust, and turns visitors into customers — with plain examples.`,
+    excerpt: `The plain-language rules for website copy that turns visitors into customers — lead with what they want, write like you talk, and give every page one clear next step.`,
+    category: 'Getting started',
+    date: '2026-06-20',
+    readMins: 8,
+    intro: [
+      `The website copy that actually brings in customers is almost never the cleverest — it is the clearest. Good copy says exactly what you do, who you help, and what to do next, in the same plain words a customer would use if they described your business to a friend. Fancy taglines and marketing-speak feel impressive to write and do very little to convince anyone.`,
+      `Most small business owners freeze up at this stage, because writing about yourself is genuinely hard. The trick is to stop trying to sound like a brochure and start answering the handful of questions every visitor is quietly asking. Do that, in order, and even simple copy converts. Here is how to write it, whether you run a Petaluma bakery or a Santa Rosa HVAC company.`,
+    ],
+    sections: [
+      {
+        h: `Lead with the customer, not your story`,
+        body: [
+          `The single most common copywriting mistake is opening with yourself: "Welcome to our website. Founded in 2009, we are a family-owned company committed to excellence." Nobody cares yet. A visitor lands on your page with a problem and about three seconds of patience, and the first thing they want to know is whether you solve it.`,
+          `So lead with them. The top of your home page should make it instantly obvious what you do, who you do it for, and where — before a single word about your history. "Emergency plumbing repair in Santa Rosa, same day" tells a visitor more in six words than three paragraphs of mission statement. Your story matters, and it belongs on your About page, where someone who is already interested goes to decide whether they like you. It just does not belong first.`,
+        ],
+      },
+      {
+        h: `Write the way you actually talk`,
+        body: [
+          `Read your copy out loud. If it sounds like something you would never say to a customer standing in front of you, rewrite it. "We leverage industry-leading solutions to deliver best-in-class results" is not something a human says. "We fix it right the first time, or we come back for free" is.`,
+          `Plain and specific beats clever and vague every time. Customers trust copy that sounds like a real person because it feels honest, and they distrust jargon because it feels like hiding. You are not writing to impress other marketers — you are writing to a busy person deciding whether to call you. Short sentences, normal words, and concrete details win. When in doubt, say the true, specific thing simply.`,
+        ],
+      },
+      {
+        h: `Make your headlines do the heavy lifting`,
+        body: [
+          `Most visitors skim before they read. They scan your headlines and subheadings and only slow down for the parts that catch them. That means your headlines carry most of the weight — if someone read nothing but the big text on the page, they should still understand what you do and why to choose you.`,
+          `Weak headlines describe; strong headlines promise or clarify. "Our Services" is a label. "Reliable electricians serving Sonoma County since 2011" is a headline that works. Every section heading is a chance to move the visitor one step closer, so use each to answer the next question a customer would have, not just to name the section.`,
+        ],
+      },
+      {
+        h: `Give every page one clear next step`,
+        body: [
+          `Copy that informs but never asks for anything is copy that quietly fails. Every page should build toward a single, obvious next step, and it should tell the visitor exactly what that step is: call this number, book here, get a free quote, come visit. Do not make people guess how to become a customer.`,
+          `Pick one primary action per page and make it unmissable — usually your phone number at the top and a clear button in the body. Ending a page without a call to action is like ending a sales conversation by walking away in silence. The visitor was ready; you just did not ask.`,
+        ],
+      },
+      {
+        h: `Cut everything that is not pulling its weight`,
+        body: [
+          `The final pass is deletion. Most first drafts are twice as long as they need to be, padded with filler that dilutes the message. Read every sentence and ask whether it helps the customer decide. If not, cut it. These are the usual offenders:`,
+        ],
+        list: [
+          `Empty phrases — "committed to excellence," "quality you can trust," "second to none." They say nothing and everyone uses them.`,
+          `Long windups — get to the point in the first line instead of clearing your throat for a paragraph.`,
+          `Inside jargon — words your customers would never use to describe what you do.`,
+          `Walls of text — break long paragraphs up so a skimming visitor can follow the thread.`,
+          `Vague claims — replace "we do great work" with a specific, provable detail a customer can picture.`,
+        ],
+      },
+      {
+        h: `A structure that works for almost any page`,
+        body: [
+          `If a blank page is the problem, borrow a proven order. Most high-converting small business pages follow roughly the same flow, and you can fill it in for any service:`,
+        ],
+        list: [
+          `A clear headline — what you do, for whom, and where.`,
+          `A short line of proof — how long you have done it, what makes you different, or a real result.`,
+          `The specifics — your services, laid out plainly, with pricing where you are comfortable.`,
+          `Trust — real photos, genuine reviews, and the reasons someone would choose you.`,
+          `The next step — one obvious call to action, repeated where it makes sense.`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: `What makes website copy convert?`,
+        a: `Clarity, not cleverness. Copy converts when it quickly says what you do, who you help, and what to do next, in the plain words a customer would actually use. Lead with the customer's problem instead of your history, write the way you talk, and end every page with one obvious next step.`,
+      },
+      {
+        q: `How do I start writing copy for my website?`,
+        a: `Start by answering the questions every visitor has: what do you do, who is it for, why should they choose you, and how do they take the next step. Write those answers in normal language, as if you were talking to a customer in person. Rough drafts are fine — a good designer can polish the wording, but the honest, specific substance has to come from you.`,
+      },
+      {
+        q: `How long should my website copy be?`,
+        a: `Long enough to answer the customer's real questions and no longer. Most first drafts are twice the length they need. Say the true, specific thing simply, break up long paragraphs so skimmers can follow, and cut empty phrases like "committed to excellence." Clear and short beats padded and vague.`,
+      },
+      {
+        q: `Should I write my own copy or hire someone?`,
+        a: `Either can work, but the substance has to come from you — nobody knows your business, your customers, and what makes you different better than you do. If putting it into words is the sticking point, we can write from a short interview so the copy still sounds like you. The goal is honest, specific copy, however it gets on the page.`,
+      },
+    ],
+    related: ['website-photos-that-sell', 'what-makes-a-website-look-professional', 'why-my-website-gets-no-customers'],
+  },
+
+  {
+    slug: 'website-photos-that-sell',
+    metaTitle: 'Website Photos That Sell (and What Kills Trust) | Nuvion Solutions',
+    title: 'Website Photos: What Works (and What Kills Trust)',
+    metaDesc: `The photos on your website decide whether visitors trust you in a fraction of a second. What to shoot, what to avoid, and how to get great images without a photographer.`,
+    excerpt: `Why real photos beat stock every time, exactly what to photograph, the images that quietly kill trust, and how to get usable website photos with just your phone.`,
+    category: 'Getting started',
+    date: '2026-06-23',
+    readMins: 7,
+    intro: [
+      `The photos on your website do more than decorate it — they decide, in a fraction of a second, whether a visitor believes you are a real, trustworthy business. Real images of your actual work, space, and team build trust instantly. Obvious stock photos do the opposite: they quietly signal "template" and make a visitor wonder what else about you is generic.`,
+      `The good news is that great website photos are within reach of any small business, and you almost certainly do not need a pricey photographer to start. What you need is real images, shot with a little care, of the things a customer actually wants to see. Here is what works, what to avoid, and how to get usable photos even on a shoestring.`,
+    ],
+    sections: [
+      {
+        h: `Real always beats polished`,
+        body: [
+          `If you take one thing from this, take this: a clear, honest photo of your actual work beats a glossy generic image every single time. Customers have seen the smiling headset call-center photo and the staged "team high-five" on a hundred websites, and they read as filler. When they see a real photo of your shop, your crew, or the job you finished last week, something clicks — this is a real business, run by real people.`,
+          `This matters even more for a local business. A visitor comparing two Sonoma County contractors will trust the one whose site shows actual local work — a deck in Sebastopol, a kitchen remodel in Windsor — over the one padded with anonymous stock. Real photos quietly prove you are here, doing the work, not a faceless outfit that could be anywhere.`,
+        ],
+      },
+      {
+        h: `What actually to photograph`,
+        body: [
+          `Customers do not want art. They want to see the things that help them decide, so aim your camera at those:`,
+        ],
+        list: [
+          `Your work — before-and-after shots, finished jobs, your products, the results you deliver.`,
+          `Your space — the shop, studio, restaurant, or office, so people know what to expect when they arrive.`,
+          `Your team — real faces build trust faster than almost anything; people hire people.`,
+          `Your process — you in the middle of the work, which shows craft and builds confidence.`,
+          `Details that matter — the things a customer would lean in to inspect if they were standing there.`,
+        ],
+      },
+      {
+        h: `The photos that quietly kill trust`,
+        body: [
+          `Some images do more harm than no image at all. If your site leans on these, they are working against you:`,
+        ],
+        list: [
+          `Obvious stock photos — the recognizable models and staged scenes that scream "not really us."`,
+          `Blurry, dark, or crooked shots — poor quality reads as careless, and customers transfer that to your work.`,
+          `Mismatched sizes and styles — a jumble of orientations and filters looks amateur and cluttered.`,
+          `Wildly outdated photos — last decade's storefront or a dated look undercuts your credibility.`,
+          `Misleading images — photos of work that is not yours, which customers eventually catch and never forgive.`,
+        ],
+      },
+      {
+        h: `How to get good photos without a photographer`,
+        body: [
+          `You do not need expensive gear. A modern phone camera is more than good enough for a website, as long as you handle a few basics. The difference between an amateur snapshot and a usable website photo is mostly light and steadiness, not the camera.`,
+          `Shoot in good light — natural daylight near a window or outdoors beats harsh indoor bulbs almost every time, and softer light is kinder than direct midday sun. Hold the phone steady or brace it, take far more shots than you need and pick the best, and keep backgrounds clean so the subject stands out. Wipe the lens first — a smudged phone camera is the most common reason photos come out hazy. A dozen careful shots of your real work will serve your site better than any stock library.`,
+        ],
+      },
+      {
+        h: `When it is worth hiring a professional`,
+        body: [
+          `Phone photos are the right starting point, and for many businesses they are enough. But there are moments when professional photography earns its cost. If your business sells on visual appeal — a restaurant, a salon, a wedding venue, a boutique in Healdsburg — the food, the space, and the craft need to look their best, and a pro makes a real difference.`,
+          `Professional headshots of your team, a proper shoot of your finished projects, or a set of polished product photos can lift a site from good to genuinely impressive. The smart approach is a mix: start with real phone photos so your site is honest and live, then invest in professional images for the few places where appearance drives the sale. You do not need to photograph everything professionally — just the shots that do the most work.`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: `Do I need professional photos for my website?`,
+        a: `Not to start. A modern phone camera, decent light, and a steady hand are enough for most small business sites, and real phone photos of your actual work build more trust than glossy stock images. Consider a professional for the places appearance drives the sale — food, spaces, headshots, or hero product shots.`,
+      },
+      {
+        q: `Are stock photos bad for my website?`,
+        a: `Generic, recognizable stock photos usually hurt more than help — they signal "template" and quietly erode trust, especially the staged office and call-center shots everyone has seen. If you must use a placeholder, choose understated, non-obvious images, but real photos of your own work, space, and team are far more convincing.`,
+      },
+      {
+        q: `What photos should a small business website have?`,
+        a: `Show what helps a customer decide: your actual work or products, your space, your team's real faces, and your process. Before-and-after shots and finished jobs are especially persuasive. For a local business, genuine local photos also prove you are really here and doing the work.`,
+      },
+      {
+        q: `How do I take good website photos with my phone?`,
+        a: `Wipe the lens first, shoot in good natural light, hold the phone steady, and keep the background clean. Take many more shots than you need and pick the best. A dozen careful, well-lit phone photos of your real work will serve your site better than any stock library.`,
+      },
+    ],
+    related: ['how-to-write-website-copy', 'what-makes-a-website-look-professional', 'small-business-website-checklist'],
+  },
+
+  {
+    slug: 'google-business-profile-guide',
+    metaTitle: 'How to Set Up and Optimize Your Google Business Profile | Nuvion',
+    title: 'How to Set Up and Optimize Your Google Business Profile',
+    metaDesc: `A plain, step-by-step guide to claiming, completing, and optimizing your Google Business Profile so your business shows up when nearby customers search on Maps.`,
+    excerpt: `Step by step: claim your Google Business Profile, complete every field the right way, and keep it active so you actually show up on Google Maps in Sonoma County.`,
+    category: 'Local SEO',
+    date: '2026-06-26',
+    readMins: 8,
+    intro: [
+      `Your Google Business Profile is the free listing that shows your business in Google Maps and in the local results when someone searches for what you do. For most local businesses it is the single most valuable piece of online real estate there is — often driving more calls and visits than the website itself. And setting one up costs nothing but an hour of your time.`,
+      `The catch is that most profiles are half-finished, which is exactly why so many good businesses stay invisible. This is a plain, step-by-step guide to claiming your profile, filling it out the right way, and optimizing it so you actually show up when a nearby customer in Santa Rosa, Petaluma, or anywhere in Sonoma County goes looking.`,
+    ],
+    sections: [
+      {
+        h: `Step one: claim or create your profile`,
+        body: [
+          `Before anything else, find out whether a listing for your business already exists. Google often creates unclaimed profiles automatically, so search your business name in Google Maps first. If a listing is there, claim it; if not, create one at google.com/business. Either way it is free.`,
+          `You will need to verify that you own the business, usually by phone, text, email, or a postcard Google mails to your address. Do not skip this — an unverified profile cannot be fully edited and will not perform. Verification can take a few days if it is by mail, so start it early. Once you are verified, the listing is yours to control.`,
+        ],
+      },
+      {
+        h: `Step two: complete every single field`,
+        body: [
+          `A half-empty profile is the number-one reason good businesses stay invisible on Maps, and completeness is something Google rewards directly. Fill in all of it, accurately:`,
+        ],
+        list: [
+          `Exact business name — your real name, not stuffed with keywords, which can get you penalized.`,
+          `Primary category — the most specific one that fits, since "Italian restaurant" ranks differently than just "restaurant."`,
+          `Address or service area — a physical address if customers come to you, or the towns you serve if you travel to them.`,
+          `Phone and website — a local number and a link to your real site both strengthen the listing.`,
+          `Hours — complete and accurate, including holidays, so you never show as closed when you are open.`,
+        ],
+      },
+      {
+        h: `Step three: keep your details identical everywhere`,
+        body: [
+          `Google cross-checks your business information against the rest of the web to decide whether to trust you. If your name, address, and phone number — often called your NAP — read one way on your website, another on Yelp, and a third on your old Facebook page, that inconsistency confuses Google and can hold your ranking back.`,
+          `So pick one exact format for your business name, address, and phone number, and make it identical everywhere it appears — your website, your social profiles, directories, everything. "Suite 5" in one place and "Ste. 5" in another counts as a mismatch to a machine. It is tedious, but cleaning up inconsistent listings is one of the highest-value local SEO chores there is.`,
+        ],
+      },
+      {
+        h: `Step four: add photos and the details that help you rank`,
+        body: [
+          `Google favors profiles that look alive and complete, and photos are a big part of that signal. Add real images of your storefront, your interior, your team, your work, and your products, and refresh them now and then. A business that posted photos last month reads as open and thriving; one whose newest photo is from three years ago reads as maybe-closed.`,
+          `Then fill in the extras Google offers, because each one is a chance to match more searches. Add secondary categories that genuinely apply, list your services with short descriptions, set attributes like "wheelchair accessible," "family-owned," or "free parking," and write a real, specific business description. These details help Google understand exactly what you do and surface you for the right searches.`,
+        ],
+      },
+      {
+        h: `Step five: keep it active`,
+        body: [
+          `A Google Business Profile is not set-and-forget. The profiles that rank and convert are the ones that stay active, and staying active takes only a few minutes now and then:`,
+        ],
+        list: [
+          `Post updates — use Google Posts to share offers, news, or events; it signals an open, engaged business.`,
+          `Answer questions — reply to the questions customers post, and seed a few common ones yourself.`,
+          `Respond to reviews — reply to every review, positive or negative, calmly and professionally.`,
+          `Keep hours current — update them for holidays and any changes so you never show as wrongly closed.`,
+          `Add fresh photos — a steady trickle of new images keeps the profile looking current.`,
+        ],
+      },
+      {
+        h: `The mistakes to avoid`,
+        body: [
+          `A few errors quietly sink otherwise-good profiles, and they are easy to fix once you know them. Stuffing keywords into your business name, picking a category that is too broad, leaving the profile unverified, letting the information go stale, or ignoring reviews all drag you down. So do duplicate listings, which split your signal — if you find duplicates, have them merged.`,
+          `Set up well and kept active, your profile becomes a steady source of calls and visits at no ongoing cost. If maintaining it is more than you have time for, that is exactly the kind of ongoing work our Pro care plan at $149 a month covers — Google Business Profile management, along with local SEO, content, and reviews. But there is nothing here you cannot do yourself, and doing it is worth the hour.`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: `How do I set up a Google Business Profile?`,
+        a: `Search your business name in Google Maps to see if a listing already exists — if so, claim it; if not, create one at google.com/business. Verify that you own the business (by phone, email, or a mailed postcard), then fill out every field: name, category, address or service area, phone, website, and hours. It is free and takes about an hour.`,
+      },
+      {
+        q: `Why is my Google Business Profile not showing up?`,
+        a: `The usual reasons are an unverified or incomplete profile, a business name or address that does not match your other listings, the wrong or too-broad category, or a profile that has gone stale. Verify it, complete every field, keep your name, address, and phone identical everywhere, and stay active with photos and posts.`,
+      },
+      {
+        q: `Does my Google Business Profile affect my ranking on Google Maps?`,
+        a: `Directly. Google rewards complete, accurate, active profiles, and it weighs relevance, distance, and prominence when ranking local results. A fully filled-out profile with the right category, consistent details, genuine reviews, and fresh photos is what gets you into the local map results.`,
+      },
+      {
+        q: `How often should I update my Google Business Profile?`,
+        a: `A few minutes now and then goes a long way. Post updates, respond to reviews as they come in, refresh photos every month or two, and always keep your hours current, especially around holidays. An active profile signals a real, open business to both Google and customers.`,
+      },
+    ],
+    related: ['how-to-get-more-google-reviews', 'get-found-on-google-maps', 'local-seo-sonoma-county'],
+  },
+
+  {
+    slug: 'website-mistakes-small-business',
+    metaTitle: '9 Website Mistakes That Cost Small Businesses Customers | Nuvion',
+    title: '9 Website Mistakes That Cost Small Businesses Customers',
+    metaDesc: `The nine most common small business website mistakes — from a buried phone number to a slow, non-mobile site — and how to spot and fix each one on your own site.`,
+    excerpt: `The nine small, common, fixable website mistakes that quietly cost small businesses customers — and how to audit your own site on your phone to catch them.`,
+    category: 'Getting started',
+    date: '2026-06-29',
+    readMins: 8,
+    intro: [
+      `Most small business websites do not fail because of one big catastrophe. They bleed customers through a handful of small, common, entirely fixable mistakes — a hidden phone number here, a slow page there, a stock photo that whispers "not quite real." Each one seems minor. Together they are the difference between a site that brings in work and one that just sits there.`,
+      `The encouraging part is that these mistakes are the same ones over and over, across every industry, and none of them are hard to fix once you see them. Here are the nine we run into most with Sonoma County businesses, and how to spot each on your own site. Pull yours up on your phone as you read — you will likely find three or four.`,
+    ],
+    sections: [
+      {
+        h: `Mistakes 1–2: Nobody can find you`,
+        body: [
+          `A site can be flawless and still be useless if it is invisible. The first two mistakes are the ones that keep the right people from ever landing on your pages.`,
+        ],
+        list: [
+          `1. No local SEO or Google Business Profile — you are relying on people typing your exact name, so no new customers searching for what you do ever find you.`,
+          `2. Only ranking for your business name — the site shows up when someone already knows you, but not for "plumber in Santa Rosa" or the services people actually search.`,
+        ],
+      },
+      {
+        h: `Mistakes 3–5: The site quietly kills trust`,
+        body: [
+          `Even when visitors arrive, small signals decide in seconds whether they believe you are a real, competent business. These three plant doubt:`,
+        ],
+        list: [
+          `3. Stock photos instead of real ones — recognizable staged images read as "template" and make visitors wonder what else is generic.`,
+          `4. Outdated information — last year's hours, a copyright date from three years ago, or services you no longer offer make the whole business look neglected.`,
+          `5. Missing trust signals — no reviews, no real address, or a "Not Secure" warning in the browser all give a cautious visitor a reason to leave.`,
+        ],
+      },
+      {
+        h: `Mistakes 6–7: The site never asks for the sale`,
+        body: [
+          `This is where the most customers leak away, because the traffic is there and the visitor was willing — the site just never closed the deal:`,
+        ],
+        list: [
+          `6. No clear call to action — the site informs but never plainly tells the visitor what to do next, so they do nothing.`,
+          `7. A buried phone number — your contact info sits in the footer instead of at the top of every page, forcing people to hunt for how to become a customer.`,
+        ],
+      },
+      {
+        h: `Mistakes 8–9: The basics are broken`,
+        body: [
+          `The last two are invisible when they work and fatal when they do not. They undercut everything else on the site:`,
+        ],
+        list: [
+          `8. Not mobile-friendly — most local visitors are on a phone, and a site that is awkward to use on one loses them instantly.`,
+          `9. Slow loading — when a page takes more than a few seconds, a large share of people leave before they ever see it.`,
+        ],
+      },
+      {
+        h: `How to find and fix them`,
+        body: [
+          `Work through this like an audit. Pull your site up on your own phone and try to become your own customer: search Google for a business like yours and see if you appear, then land on your site and try to book or call. You will feel exactly where it breaks down — the moment you have to hunt, squint, or wait is a mistake on this list.`,
+          `Most of these fixes are small and fast: move the phone number to the top, swap stock images for real photos, update the hours, add a clear button, speed up the pages. If it feels like more than you want to untangle alone, that is fixable too — we help local businesses turn leaky sites into ones that bring in work, and we are glad to take an honest look. You can reach us at (707) 520-9179.`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: `What is the most common website mistake small businesses make?`,
+        a: `A missing or buried call to action, usually paired with a phone number hidden in the footer. The whole point of the site is to turn a visitor into a customer, and many sites never plainly ask them to act or make it easy to reach you. Putting a clear next step and your phone number at the top of every page is often the fastest win there is.`,
+      },
+      {
+        q: `Why is my website losing customers?`,
+        a: `It is usually a few small, common mistakes stacking up: no clear call to action, a slow or non-mobile-friendly site, stock photos, buried contact info, or outdated information. Each seems minor, but together they cost you customers. Pull your site up on your phone and try to become your own customer — you will spot the friction fast.`,
+      },
+      {
+        q: `How do I know if my website has these problems?`,
+        a: `Audit it yourself on your phone. Search Google for a business like yours to see whether you appear, then land on your own site and try to book or call. Anywhere you have to hunt for contact info, wait for a slow page, squint on mobile, or guess the next step is a mistake worth fixing.`,
+      },
+      {
+        q: `Are these website mistakes expensive to fix?`,
+        a: `Usually not. Most are small changes — move the phone number up, swap in real photos, update the hours, add a clear button, speed up the pages. The costliest thing is leaving them unfixed, because they quietly lose customers you never hear from. Many sites improve a lot with an afternoon of focused cleanup.`,
+      },
+    ],
+    related: ['website-launch-checklist', 'why-my-website-gets-no-customers', 'small-business-website-checklist'],
+  },
+
+  {
+    slug: 'how-to-get-more-google-reviews',
+    metaTitle: 'How to Get More Google Reviews (the Right Way) | Nuvion Solutions',
+    title: 'How to Get More Google Reviews (the Right Way)',
+    metaDesc: `Google reviews help you rank and win customers. Here is how to get more of them the honest way — make it easy, ask at the right moment, and respond to every one.`,
+    excerpt: `How to build a steady stream of genuine Google reviews the right way — make it effortless, ask at the right moment, respond to every one, and avoid the rule-breaking shortcuts.`,
+    category: 'Local SEO',
+    date: '2026-07-02',
+    readMins: 7,
+    intro: [
+      `Google reviews do two big jobs for a local business at once: they help you rank higher in local search and Maps, and they are often the deciding factor when a customer is choosing between you and the shop listed right below you. A steady stream of recent, genuine reviews is one of the most valuable things a small business can build — and the good news is that getting them is mostly about asking, consistently and well.`,
+      `The important phrase is "the right way." Buying fake reviews or gaming the system violates Google's rules, gets reviews removed, and customers can usually smell it. What actually works is simpler and honest: make it easy for happy customers to leave a review, ask at the right moment, and respond to the ones you get. Here is how to build that habit without being pushy.`,
+    ],
+    sections: [
+      {
+        h: `Why reviews matter more than owners think`,
+        body: [
+          `Reviews punch above their weight because they work on two audiences at the same time. Google treats a steady flow of genuine reviews as a prominence signal that helps you rank in the local results, and customers treat them as the closest thing to a personal recommendation. When two Sonoma County businesses look otherwise equal, the one with recent, thoughtful reviews almost always gets the call.`,
+          `Recency matters as much as the count. A handful of reviews from this month often does more than a big pile from three years ago, because both Google and customers read fresh reviews as proof you are active and consistent right now. That is why the goal is not a one-time push to hit some number — it is a slow, steady trickle that never really stops.`,
+        ],
+      },
+      {
+        h: `Make it effortless to leave one`,
+        body: [
+          `The single biggest reason customers do not leave reviews is friction. A happy customer is willing but busy, and if leaving a review means logging in, searching for your business, and hunting for the button, most give up. Your job is to remove every step you can:`,
+        ],
+        list: [
+          `Use your Google review link — Google gives every profile a short direct link that opens straight to the review box; use it everywhere.`,
+          `Text or email the link — the easiest path for most people is tapping a link on their phone, so send it directly.`,
+          `Add a QR code — on a receipt, a counter card, or an invoice, so a customer can scan and review on the spot.`,
+          `Put it where customers already are — your website, your email signature, your thank-you page, your printed materials.`,
+        ],
+      },
+      {
+        h: `Ask at the right moment, and just ask`,
+        body: [
+          `Timing changes everything. The best moment to ask is right after a customer has had a good experience and said so — the job is done and they are happy, the meal was great, the repair worked. That window of goodwill is when someone is most willing to take two minutes for you. Wait a week and the moment has passed.`,
+          `And do not overthink the ask. A simple, sincere request works better than anything scripted: "If you were happy with the work, a quick Google review really helps a small business like ours — here's a link." Most people are glad to help; they just never get asked. Train your team to ask as a natural part of finishing a job, and the reviews follow.`,
+        ],
+      },
+      {
+        h: `Respond to every review you get`,
+        body: [
+          `Replying to reviews is not optional politeness — it is part of the system, and it is visible to every future customer reading your profile. Respond to the good ones with a genuine thank-you, and respond to the critical ones calmly and constructively. A thoughtful, professional reply to a rough review often wins over the next person reading it more than the review itself hurt you.`,
+          `Responding also signals to Google that you are an active, engaged business, and it signals to customers that you actually care what people think. Never argue, never get defensive, and never share private details in a reply. Thank the person, address the issue plainly, and offer to make it right offline. Handled well, even a negative review becomes a quiet advertisement for how you treat people.`,
+        ],
+      },
+      {
+        h: `What not to do`,
+        body: [
+          `The fastest way to undo all of this is to try to cheat, so be clear about the lines you do not cross:`,
+        ],
+        list: [
+          `Never buy reviews or use review-writing services — Google removes them and it can get your profile penalized.`,
+          `Do not review your own business or have staff post fake reviews from personal accounts.`,
+          `Do not offer discounts or freebies in exchange for reviews, which violates Google's policies.`,
+          `Do not only ask customers you know will rave — a few honest, less-than-perfect reviews actually make the rest more believable.`,
+          `Do not "gate" reviews — sending only happy customers to Google while steering unhappy ones away is against the rules.`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: `How do I get more Google reviews?`,
+        a: `Mostly by asking, consistently and easily. Send happy customers your direct Google review link by text or email, ask right after a good experience while the goodwill is fresh, and make the path a single tap. Add the link to your website, email signature, receipts, and a QR code. Most customers are willing — they just never get asked.`,
+      },
+      {
+        q: `Is it against the rules to ask customers for reviews?`,
+        a: `No — asking is fine and encouraged. What violates Google's rules is buying reviews, posting fake ones, offering rewards in exchange for reviews, or "gating" (sending only happy customers to Google while steering unhappy ones away). Genuine requests to real customers are exactly the right way to build reviews.`,
+      },
+      {
+        q: `Should I respond to negative reviews?`,
+        a: `Yes, always — calmly and professionally. A thoughtful reply to a critical review often wins over the next person reading it more than the review hurt you. Thank the person, address the issue plainly, avoid arguing or sharing private details, and offer to make it right offline. It signals to both customers and Google that you care.`,
+      },
+      {
+        q: `How many Google reviews do I need?`,
+        a: `There is no magic number, and recency matters as much as quantity — a handful of reviews from this month can do more than a large pile from years ago. Aim for a steady, ongoing trickle rather than a one-time push, since both Google and customers read fresh reviews as proof you are active and consistent right now.`,
+      },
+    ],
+    related: ['google-business-profile-guide', 'local-seo-sonoma-county', 'get-found-on-google-maps'],
+  },
+
+  {
+    slug: 'mobile-friendly-website-why',
+    metaTitle: 'Why Your Website Has to Be Mobile-Friendly in 2026 | Nuvion Solutions',
+    title: 'Why Your Website Has to Be Mobile-Friendly in 2026',
+    metaDesc: `Most of your visitors are on phones, and Google ranks your mobile site first. Here is what mobile-friendly really means, what it costs to ignore, and how to check yours.`,
+    excerpt: `Most visitors are on phones and Google ranks mobile-first — so a site that fights the small screen loses customers twice. What mobile-friendly means and how to check yours.`,
+    category: 'Getting started',
+    date: '2026-07-04',
+    readMins: 7,
+    intro: [
+      `In 2026, most people who visit your website are holding a phone, not sitting at a desk. For a local business — a Santa Rosa restaurant, a Petaluma plumber, a Sebastopol shop — the share on mobile is often well over half, because "near me" searches happen on the go. If your site does not work beautifully on a small screen, you are not inconveniencing a few visitors; you are turning away the majority.`,
+      `Mobile-friendly is no longer a nice-to-have or a checkbox — it is the floor. Google ranks your site based primarily on its mobile version, and customers judge you in the first second by how the site feels in their hand. Here is why it matters so much now, what "mobile-friendly" actually means in practice, and how to tell whether your site measures up.`,
+    ],
+    sections: [
+      {
+        h: `Your customers are on their phones`,
+        body: [
+          `The shift is not subtle anymore. Across most small business websites, phones account for the majority of visits, and for local, on-the-go searches — someone looking up a lunch spot, an emergency repair, or a shop's hours while standing on the sidewalk — the number climbs higher still. The desktop visitor carefully researching at a keyboard is now the exception, not the rule.`,
+          `That changes the whole priority order. A site designed to look great on a big monitor and merely "shrunk down" for phones gets the emphasis backwards, because it optimizes for the minority. The right approach designs for the phone first — where most people actually are — and lets the desktop version follow. If your site only truly works on a laptop, it only truly works for a shrinking slice of your visitors.`,
+        ],
+      },
+      {
+        h: `Google judges your mobile site first`,
+        body: [
+          `There is a search reason too, not just a customer one. Google uses what it calls mobile-first indexing, which means it primarily looks at the mobile version of your site to decide how to rank you — even for searches done on a desktop. If your mobile experience is poor, your rankings suffer everywhere.`,
+          `On top of that, Google factors page-experience signals like mobile usability into rankings. A site that is hard to tap, slow on a phone, or requires pinching and sideways scrolling is quietly held back in search. So a site that is not mobile-friendly loses twice: it frustrates the majority of visitors who do find it, and it makes fewer of them find it in the first place.`,
+        ],
+      },
+      {
+        h: `What "mobile-friendly" actually means`,
+        body: [
+          `Mobile-friendly is not vague — it is a specific set of things a visitor feels immediately. A genuinely mobile-friendly site has all of these:`,
+        ],
+        list: [
+          `Text you can read without zooming — big enough to comfortably read at arm's length.`,
+          `Buttons and links you can tap — large enough for a thumb, with space around them, so you never hit the wrong one.`,
+          `No sideways scrolling — the page fits the screen width; you only ever scroll up and down.`,
+          `A phone number you can tap to call — one touch dials you, no copying and pasting.`,
+          `Fast loading on mobile data — it appears quickly even off Wi-Fi, because impatience is highest on a phone.`,
+          `Menus and forms built for a thumb — navigation and any forms are easy to use one-handed.`,
+        ],
+      },
+      {
+        h: `What it costs to ignore`,
+        body: [
+          `A site that fights the phone loses customers in the most expensive way possible — silently. A visitor lands, has to pinch and squint, cannot find the tap-to-call, gives up in a few seconds, and taps back to a competitor whose site just worked. You never see it happen, so it is easy to believe the site is fine when it is quietly bleeding leads.`,
+          `The frustration is that these visitors were the warmest kind — they were already on your page, ready to act. Losing a stranger who never found you is one thing; losing someone who arrived, wanted to become a customer, and left because the buttons were too small is a self-inflicted wound. For a business whose customers search on the go, a clumsy mobile site can cost more leads than any other single problem.`,
+        ],
+      },
+      {
+        h: `How to check your own site`,
+        body: [
+          `You do not need a tool to start — pull your website up on your own phone and try to become a customer. Can you read everything without zooming? Tap the phone number to call in one touch? Find your hours and services in a few seconds? Get through the whole path without pinching or scrolling sideways? If any of that is a struggle for you, it is a struggle for every visitor.`,
+          `If your current site fails that test, it usually means it was built desktop-first or on an older template and needs a mobile-first rebuild rather than a patch. That is how we build every site — mobile-first, fast, and tappable from the start, because that is where your customers actually are. Whether you pay once from $600 or monthly from $49 with $0 down, the site works flawlessly on a phone on day one, and you own it.`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: `Why does my website need to be mobile-friendly?`,
+        a: `Because most of your visitors are on phones — often well over half for a local business — and Google ranks your site primarily on its mobile version. A site that is hard to use on a phone frustrates the majority of visitors and gets held back in search, so it loses customers twice over.`,
+      },
+      {
+        q: `How do I know if my website is mobile-friendly?`,
+        a: `Pull it up on your own phone and try to become a customer. You should be able to read everything without zooming, tap the phone number to call in one touch, find your hours and services in seconds, and get through the whole page without pinching or scrolling sideways. If any of that is a struggle, the site is not truly mobile-friendly.`,
+      },
+      {
+        q: `Does Google rank mobile-friendly sites higher?`,
+        a: `In effect, yes. Google uses mobile-first indexing, meaning it primarily judges the mobile version of your site when ranking you — even for desktop searches — and it factors mobile usability into rankings. A poor mobile experience quietly holds your site back across the board.`,
+      },
+      {
+        q: `Can an old website be made mobile-friendly?`,
+        a: `Sometimes it can be adjusted, but a site built desktop-first or on an older template often needs a mobile-first rebuild rather than a patch to truly work well on phones. We build every site mobile-first from the start, so it is fast and tappable on day one — from $600 one-time or $49 a month with $0 down, and you own it.`,
+      },
+    ],
+    related: ['how-fast-should-website-load', 'what-makes-a-website-look-professional', 'website-mistakes-small-business'],
+  },
+
+  {
+    slug: 'website-launch-checklist',
+    metaTitle: 'Website Launch Checklist: What to Do Before You Go Live | Nuvion',
+    title: 'Website Launch Checklist: What to Do Before You Go Live',
+    metaDesc: `A plain-language pre-launch checklist for your website — proofreading, testing the contact form, mobile and speed, security, redirects, and going live without surprises.`,
+    excerpt: `The checklist to run before you flip your website live — proofread, test every contact path, check mobile and speed, confirm security and redirects, then launch deliberately.`,
+    category: 'Getting started',
+    date: '2026-07-06',
+    readMins: 8,
+    intro: [
+      `Launching a website is exciting, and it is also the moment small, avoidable mistakes get set in stone — a typo on the home page, a contact form that goes nowhere, a phone number that is off by a digit. A short, deliberate pre-launch check catches these while they are still easy to fix, before real customers ever see them. Ten minutes of review beats a week of a broken form silently swallowing leads.`,
+      `This is the checklist we run before flipping any site live, boiled down to plain language you can use whether you built the site yourself or hired someone. Go through it in order, ideally on both a computer and your phone, and do not skip the boring items — the boring items are exactly the ones that quietly cost customers after launch.`,
+    ],
+    sections: [
+      {
+        h: `Check every word and link`,
+        body: [
+          `Start with the content, because typos and dead links are the most common launch-day embarrassments and the easiest to fix beforehand. Read every page slowly — or better, have someone who has not seen it read it, since fresh eyes catch what yours skip.`,
+        ],
+        list: [
+          `Proofread every page for spelling and grammar — errors quietly undercut trust.`,
+          `Click every link and button — make sure none lead to a dead end or the wrong place.`,
+          `Check your contact details on every page — phone, email, address, and hours, exactly right.`,
+          `Confirm your business name and any prices are correct and current everywhere they appear.`,
+          `Remove any placeholder text — no stray "lorem ipsum" or "coming soon" left behind.`,
+        ],
+      },
+      {
+        h: `Test everything a customer will use`,
+        body: [
+          `The single most costly launch mistake is a contact path that looks fine but does not work — a form that submits into the void, or a phone number with a wrong digit. These fail silently, so you only find out weeks later when you wonder why nobody is calling. Test them like a real customer before launch:`,
+        ],
+        list: [
+          `Submit your contact form and confirm the message actually arrives in the right inbox.`,
+          `Tap the phone number on a phone and confirm it dials the correct number.`,
+          `Click the email link and any booking or scheduling button to make sure they work.`,
+          `Check that your map or address link opens the right location.`,
+          `Test any payment or e-commerce flow with a real transaction if you have one.`,
+        ],
+      },
+      {
+        h: `Check it on a phone, and check the speed`,
+        body: [
+          `A site can look perfect on the laptop it was built on and fall apart on a phone, so never launch without checking mobile — where most of your visitors actually are. Pull the finished site up on an actual phone and walk through it as a customer would: read everything without zooming, tap the buttons, find the phone number in one touch, get through the whole thing without sideways scrolling.`,
+          `While you are at it, check that pages load quickly, especially on a phone off Wi-Fi. Slow pages lose visitors before they see anything, so a site that drags on mobile is leaking customers from the first day. If the site feels sluggish or awkward on a phone, fix that before launch, not after — first impressions do not get a second chance.`,
+        ],
+      },
+      {
+        h: `The technical basics`,
+        body: [
+          `A handful of behind-the-scenes items are invisible when they are right and painful when they are missed. Confirm each before you go live:`,
+        ],
+        list: [
+          `Your domain points to the new site and loads correctly with and without "www."`,
+          `The security padlock (https) is active on every page, with no "Not Secure" warning.`,
+          `Page titles and descriptions are set, so your listing reads well in Google search results.`,
+          `Analytics is installed if you want to track visitors from day one.`,
+          `Backups are in place, so the site can be restored if anything ever goes wrong.`,
+        ],
+      },
+      {
+        h: `Search visibility and the actual switch`,
+        body: [
+          `Two search-related steps are easy to forget and important to get right. First, if you are replacing an old site, make sure every important old page redirects to its new home so you keep the Google rankings you have already built — skipping this can drop you out of search overnight. Second, confirm the new site is actually allowed to be indexed; sites are often blocked from Google during the build, and forgetting to flip that switch means all your work stays invisible.`,
+          `Then go live deliberately. Push the site, immediately load it fresh yourself on both a computer and a phone to confirm everything works in the real world, and keep an eye on it for the first day or two. If you had an old site, leave the old setup in place just long enough to confirm the new one fully took over. A calm, checked launch beats a rushed one every time.`,
+        ],
+      },
+      {
+        h: `You do not have to run it alone`,
+        body: [
+          `Going live is a milestone, not the finish line. In the first week, watch that the contact form is delivering, that the pages load well for real visitors, and that nothing looks off on devices you did not test. Small issues are normal and easy to fix quickly when you are paying attention early.`,
+          `If a launch checklist feels like a lot to manage on top of running your business, that is the point of hiring a team that does it every week. We handle this entire list as part of every build, guarantee your site goes live in one week once we have your content or you do not pay, and set you up owning everything. And our care plans, from $29 a month, cover the ongoing hosting, backups, security, and monitoring after you launch — optional, separate, and cancel anytime, because the site is already yours.`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: `What should I check before launching my website?`,
+        a: `Proofread every page, click every link and button, and test the real contact paths — submit the form, tap the phone number, try any booking or payment flow. Then check the site on an actual phone for mobile and speed, confirm the security padlock and correct domain, set your page titles, and make sure the site is allowed to be indexed by Google.`,
+      },
+      {
+        q: `What is the most common website launch mistake?`,
+        a: `A contact path that looks fine but does not work — usually a form that submits into the void or a phone number with a wrong digit. These fail silently, so you only notice weeks later when nobody has called. Always test the form, phone, email, and booking buttons like a real customer before you go live.`,
+      },
+      {
+        q: `Do I need to redirect my old website when I launch a new one?`,
+        a: `Yes, if you are replacing an existing site. Map every important old page to its new address with redirects so you keep the Google rankings you have already built. Skipping this can drop you out of search results overnight, so it is one of the most important pre-launch steps.`,
+      },
+      {
+        q: `Who should handle the website launch?`,
+        a: `You can run this checklist yourself, but launch day is exactly when experience prevents costly slips, so many owners prefer a team that does it every week. We handle the full launch as part of every build — guaranteed live in one week once we have your content, or you do not pay — and our care plans cover ongoing hosting, backups, and monitoring after you go live.`,
+      },
+    ],
+    related: ['small-business-website-checklist', 'how-fast-should-website-load', 'website-mistakes-small-business'],
+  },
+
+  {
+    slug: 'how-fast-should-website-load',
+    metaTitle: 'How Fast Should Your Website Load? (And Why It Matters) | Nuvion',
+    title: 'How Fast Should Your Website Load? (And Why It Matters)',
+    metaDesc: `Your website should load in under about three seconds. Here is why speed decides visitors and Google rankings, what slows a site down, and how to test and fix yours.`,
+    excerpt: `Why your site should load in under three seconds, how speed quietly decides visitors and rankings, what actually slows sites down, and how to test and fix yours.`,
+    category: 'Getting started',
+    date: '2026-07-08',
+    readMins: 7,
+    intro: [
+      `Your website should load in under about three seconds, and ideally closer to one or two. That is not an arbitrary target — it is roughly the window before a meaningful share of visitors give up and leave. Speed is one of the least glamorous parts of a website and one of the most quietly decisive, because a page nobody waits for is a page nobody reads, no matter how good it looks.`,
+      `Speed matters for two reasons at once: impatient visitors and Google. People bail on slow pages, especially on phones, and Google factors loading speed into how it ranks you. So a slow site loses customers twice — fewer people find it, and fewer of those who do stick around. Here is what "fast enough" really means, what slows sites down, and how to tell where yours stands.`,
+    ],
+    sections: [
+      {
+        h: `The number to aim for`,
+        body: [
+          `Aim to have your page usable in under three seconds, and treat one to two seconds as the real goal. Study after study shows that the odds of a visitor leaving climb sharply with every extra second of load time — the jump from one second to three alone drives a large share of people away, and by the time a page takes five or more seconds, most mobile visitors are already gone.`,
+          `It helps to think about the moment from the visitor's side. Someone taps your link expecting to see something almost immediately. A blank or half-loaded screen for even a couple of seconds feels broken, and on a phone, with a dozen other options a tap away, patience is thinnest. The businesses that win the click are not the ones with the flashiest pages — they are the ones whose pages simply show up right away.`,
+        ],
+      },
+      {
+        h: `Why speed matters so much`,
+        body: [
+          `Slow loading hurts you in more places than most owners realize. It is not just annoying — it directly costs visitors, rankings, and trust:`,
+        ],
+        list: [
+          `You lose visitors before they see anything — a big share leave during the wait, so the traffic you worked for never even lands.`,
+          `Google ranks you lower — page speed is a ranking factor, so a slow site is harder to find in the first place.`,
+          `It reads as unprofessional — a sluggish page makes even a nice-looking business feel unreliable.`,
+          `Mobile makes it worse — most visitors are on phones, often on slower connections, where the wait bites hardest.`,
+          `It quietly kills conversions — every second of delay shaves off some of the people who would have called or bought.`,
+        ],
+      },
+      {
+        h: `What actually slows a website down`,
+        body: [
+          `Speed problems almost always trace back to a short list of culprits, and most are fixable. The biggest one is usually images — enormous, uncompressed photos straight off a phone or camera are the number-one reason small business sites crawl. A single unoptimized image can weigh more than an entire well-built page.`,
+          `Beyond images, the common weights are bloated page builders that pile on heavy code, too many plugins and third-party scripts, cheap or overloaded hosting, and effects like autoplay video or heavy animation that look nice and cost seconds. Builder platforms in particular often carry a lot of behind-the-scenes code you cannot trim, which is one reason builder sites frequently load slower than a cleanly built one.`,
+        ],
+      },
+      {
+        h: `How to check your own speed`,
+        body: [
+          `You do not have to guess. The simplest test is to open your site on your phone, off Wi-Fi, and count — if it is not clearly there within a few seconds, you have a speed problem. For a real measurement, free tools like Google's PageSpeed Insights grade your site and point to exactly what is slowing it down.`,
+          `Do not obsess over a perfect score, though. The goal is a site that feels instant to a real person, not a flawless number in a testing tool. A page that loads in a second or two and works smoothly on a phone is doing its job, even if some tool flags a minor issue. Test as a customer first, then use the tools to find the biggest, most worthwhile things to fix.`,
+        ],
+      },
+      {
+        h: `How to make a slow site fast`,
+        body: [
+          `Most speed gains come from a handful of fixes, roughly in order of payoff. Compress and resize your images before they go on the site — this alone solves the majority of speed problems. Then trim what you do not need: fewer heavy plugins, fewer third-party scripts, less autoplay video and animation. Good, appropriately sized hosting and a lean, cleanly built site handle the rest.`,
+          `This is also why how a site is built matters so much. A site built lean and mobile-first from the start is fast by default, without constant fighting to claw back seconds. That is how we build every site — fast, light, and optimized for phones, because speed is not a luxury feature, it is the floor. Whether you pay once from $600 or monthly from $49 with $0 down, your site is built to load fast and you own it. If your current site drags, we are happy to take a look — call us at (707) 520-9179.`,
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: `How fast should a website load?`,
+        a: `Aim for under three seconds, and treat one to two seconds as the real goal. The odds of a visitor leaving climb sharply with every extra second, and on phones — where most people are — patience is thinnest. A page that appears almost immediately keeps far more visitors than one that makes them wait.`,
+      },
+      {
+        q: `Why does website speed matter?`,
+        a: `Because a slow site loses customers twice. Impatient visitors leave during the wait before they see anything, and Google ranks slow sites lower, so fewer people find you in the first place. Speed also affects trust — a sluggish page makes even a nice business feel unreliable — and every second of delay shaves off people who would have called or bought.`,
+      },
+      {
+        q: `Why is my website so slow?`,
+        a: `The most common cause by far is large, uncompressed images loaded straight from a phone or camera. Other culprits are bloated page builders with heavy code, too many plugins and third-party scripts, cheap or overloaded hosting, and autoplay video or heavy animation. Compressing images alone fixes the majority of speed problems.`,
+      },
+      {
+        q: `How do I test my website's loading speed?`,
+        a: `Open your site on your phone off Wi-Fi and count — if it is not clearly there within a few seconds, you have a problem. For a real measurement, free tools like Google's PageSpeed Insights grade your site and show what is slowing it down. Aim for a site that feels instant to a real person rather than a perfect testing score.`,
+      },
+    ],
+    related: ['mobile-friendly-website-why', 'website-mistakes-small-business', 'why-my-website-gets-no-customers'],
+  },
 ];

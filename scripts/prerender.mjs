@@ -23,6 +23,9 @@ const ARTICLE_SLUGS = [
   'do-i-need-a-website-small-business', 'how-long-to-build-a-website', 'website-vs-facebook-page',
   'get-found-on-google-maps', 'why-my-website-gets-no-customers', 'what-makes-a-website-look-professional',
   'move-website-off-wix-squarespace', 'small-business-website-checklist',
+  'how-to-write-website-copy', 'website-photos-that-sell', 'google-business-profile-guide',
+  'website-mistakes-small-business', 'how-to-get-more-google-reviews', 'mobile-friendly-website-why',
+  'website-launch-checklist', 'how-fast-should-website-load',
 ];
 const TOWNS = [
   'santa-rosa', 'petaluma', 'rohnert-park', 'windsor', 'healdsburg', 'sonoma',
