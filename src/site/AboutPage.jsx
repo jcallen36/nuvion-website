@@ -352,7 +352,7 @@ export default function AboutPage() {
         {/* PROOF STRIP */}
         <div className="ab-strip"><div className="nv-wrap ab-strip-in">
           <span><span className="ab-stars" style={{ fontSize: '1rem' }}>★★★★★</span> {t('Loved by clients', 'Querido por clientes')}</span>
-          <span><span className="ic"><IconWeb /></span> {t('40+ sites designed', '40+ sitios diseñados')}</span>
+          <span><span className="ic"><IconWeb /></span> {t('100+ sites designed', '100+ sitios diseñados')}</span>
           <span><span className="ic"><IconSeo /></span> {t('You work with me directly', 'Trabajas directamente conmigo')}</span>
           <span><span className="ic"><IconMkt /></span> {t('Built to win you customers', 'Hecho para ganarte clientes')}</span>
         </div></div>
