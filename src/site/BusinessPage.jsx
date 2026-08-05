@@ -107,8 +107,8 @@ export default function BusinessPage() {
 
   return (
     <>
-      <title>{t('Custom Builds, Integrations & Automation for Businesses | Nuvion Solutions', 'Desarrollos a medida, integraciones y automatización para empresas | Nuvion Solutions')}</title>
-      <meta name="description" content={t('For established Sonoma County businesses that need more than a website — custom web apps, integrations, and automation, built by a senior team that answers same-day. Book a scoping call.', 'Para empresas establecidas de Sonoma County que necesitan más que un sitio web — web apps a medida, integraciones y automatización, por un equipo senior que responde el mismo día. Reserva una llamada de alcance.')} />
+      <title>{t('Custom Builds, Integrations & Automation | Nuvion', 'Desarrollos a medida, integraciones y automatización para empresas | Nuvion Solutions')}</title>
+      <meta name="description" content={t('For Sonoma County businesses that need more than a website — custom web apps, integrations, and automation from a senior team that answers same-day.', 'Para empresas establecidas de Sonoma County que necesitan más que un sitio web — web apps a medida, integraciones y automatización, por un equipo senior que responde el mismo día. Reserva una llamada de alcance.')} />
       <link rel="canonical" href="https://www.nuvion-solutions.com/for-business" />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + BZ_CSS + FORM_CSS }} />
       <Nav />

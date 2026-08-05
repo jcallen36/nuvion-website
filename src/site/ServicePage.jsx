@@ -350,8 +350,8 @@ export default function ServicePage({ cfg }) {
 
 export const WEB_DESIGN = {
   slug: 'web-design',
-  title: 'Web Design in Sonoma County | Custom Websites — Nuvion Solutions',
-  description: 'Custom websites for Sonoma County businesses — a brand-new build or a full redesign of your current site. Fast, mobile-first, SEO-ready, and you own it. Live in 1 week. Book a free call.',
+  title: 'Web Design in Sonoma County — Custom Websites | Nuvion',
+  description: 'Custom websites for Sonoma County businesses — a new build or full redesign of your site. Fast, mobile-first, SEO-ready, and you own it. Live in 1 week.',
   eyebrow: 'Web Design · Sonoma County',
   h1: 'Custom websites, built to <span class="nv-grad">grow your business</span>.',
   sub: 'Beautiful, fast, mobile-first websites — a brand-new build or a full redesign of your current site — designed around your brand and handled by a real team that answers.',
@@ -453,7 +453,7 @@ export const WEB_DESIGN = {
 
 export const SEO = {
   slug: 'seo-aso',
-  title: 'Local SEO in Sonoma County | Get Found on Google — Nuvion Solutions',
+  title: 'Local SEO in Sonoma County — Get Found on Google | Nuvion',
   description: 'Local SEO for Sonoma County businesses — get found on Google by the customers who need you. Ongoing optimization, real reporting, no long-term contracts.',
   eyebrow: 'SEO · Local Search',
   h1: 'Get found on Google by the <span class="nv-grad">customers who need you</span>.',
@@ -623,8 +623,8 @@ export const MARKETING = {
 
 export const INTEGRATIONS = {
   slug: 'integrations',
-  title: 'Integrations & Automations for Local Businesses | Nuvion Solutions',
-  description: 'We connect your website and tools — CRM, calendar, payments, POS, email, spreadsheets — and automate the repetitive work, so your systems finally talk to each other. Scoped per project. Book a free scoping call.',
+  title: 'Integrations & Automations for Local Businesses | Nuvion',
+  description: 'We connect your website and tools — CRM, calendar, payments, POS, email — and automate the repetitive work so your systems talk. Scoped per project.',
   eyebrow: 'Integrations & Automations',
   h1: 'Your tools, finally <span class="nv-grad">talking to each other</span>.',
   sub: 'We connect your website to the tools you already use — CRM, calendar, payments, POS, email, spreadsheets — and automate the busywork, so nothing falls through the cracks and you stop doing the same thing twice.',
@@ -710,7 +710,7 @@ export const INTEGRATIONS = {
 export const CUSTOM_BUILDS = {
   slug: 'custom-builds',
   title: 'Custom Builds & Web Apps in Sonoma County | Nuvion Solutions',
-  description: 'When your site needs to do more than look good — online stores, booking systems, client portals, dashboards, and custom functionality built to fit exactly how you work. Scoped per project. Book a free call.',
+  description: 'When your site needs to do more than look good — online stores, booking systems, client portals, dashboards, and custom features built to fit how you work.',
   eyebrow: 'Custom Builds & Web Apps',
   h1: 'When your site needs to <span class="nv-grad">do more than look good</span>.',
   sub: 'Sometimes a business needs the site to actually work for it — take orders, book appointments, log in customers, crunch the numbers. We build custom functionality designed to fit exactly how you run things.',

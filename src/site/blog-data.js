@@ -7,9 +7,9 @@
 export const ARTICLES = [
   {
     slug: 'website-cost-sonoma-county',
-    metaTitle: 'How Much Does a Website Cost in Sonoma County? (2026) | Nuvion Solutions',
+    metaTitle: 'How Much Does a Website Cost in Sonoma County? | Nuvion',
     title: 'How Much Does a Website Cost in Sonoma County?',
-    metaDesc: `A straight, no-hype answer on what a website really costs in Sonoma County in 2026 — DIY, freelancers, agencies, and transparent one-time vs. monthly pricing.`,
+    metaDesc: `A straight, no-hype answer on what a website costs in Sonoma County in 2026 — DIY, freelancers, agencies, and transparent one-time vs. monthly pricing.`,
     excerpt: `Real local price ranges, what actually drives the cost, and how to pay for a site you actually own — one-time or monthly with $0 down.`,
     category: 'Pricing',
     date: '2026-07-30',
@@ -86,9 +86,9 @@ export const ARTICLES = [
 
   {
     slug: 'do-i-own-my-website',
-    metaTitle: 'Do You Actually Own Your Website? What to Check | Nuvion Solutions',
+    metaTitle: 'Do You Actually Own Your Website? What to Check | Nuvion',
     title: `Do You Actually Own Your Website? What to Check Before You Hire Anyone`,
-    metaDesc: `Many businesses rent their website without realizing it. Here is how to tell owned from rented, spot lock-in traps, and verify real ownership before you sign.`,
+    metaDesc: `Many businesses rent their website without realizing it. How to tell owned from rented, spot lock-in traps, and verify real ownership before you sign.`,
     excerpt: `Owned vs. rented, the subscription traps to watch for, and exactly what to check in a contract so the website you pay for is actually yours.`,
     category: 'Before you hire',
     date: '2026-07-28',
@@ -171,9 +171,9 @@ export const ARTICLES = [
 
   {
     slug: 'choose-web-designer-santa-rosa',
-    metaTitle: 'How to Choose a Web Designer in Santa Rosa: 7 Checks | Nuvion',
+    metaTitle: 'Choose a Web Designer in Santa Rosa: 7 Checks | Nuvion',
     title: `How to Choose a Web Designer in Santa Rosa: 7 Things to Check First`,
-    metaDesc: `A practical 7-point checklist for hiring a web designer in Santa Rosa — from real portfolios and ownership to timelines, pricing, and who actually answers the phone.`,
+    metaDesc: `A practical 7-point checklist for hiring a web designer in Santa Rosa — portfolios, ownership, timelines, pricing, and who answers the phone.`,
     excerpt: `Seven specific things to check before you hire a web designer in Sonoma County, so you end up with a site you own and a partner who picks up the phone.`,
     category: 'Before you hire',
     date: '2026-08-01',
@@ -258,7 +258,7 @@ export const ARTICLES = [
     slug: 'local-seo-sonoma-county',
     metaTitle: 'Local SEO for Sonoma County: Show Up on Google | Nuvion',
     title: `Local SEO for Sonoma County Businesses: How to Actually Show Up on Google`,
-    metaDesc: `A practical, honest guide to local SEO for Sonoma County businesses — Google Business Profile, reviews, local pages, and on-page basics that help you get found.`,
+    metaDesc: `An honest guide to local SEO for Sonoma County businesses — Google Business Profile, reviews, local pages, and on-page basics that help you get found.`,
     excerpt: `What local SEO really is, the handful of things that move the needle in Sonoma County, and the honest truth about how long it takes.`,
     category: 'Local SEO',
     date: '2026-07-29',
@@ -345,9 +345,9 @@ export const ARTICLES = [
 
   {
     slug: 'ai-website-builder-vs-real-designer',
-    metaTitle: 'AI Website Builder vs. a Real Web Designer | Nuvion Solutions',
+    metaTitle: 'AI Website Builder vs. a Real Web Designer | Nuvion',
     title: `AI Website Builders vs. a Real Web Designer: Which Is Right for You?`,
-    metaDesc: `An honest comparison of AI and DIY website builders versus hiring a real web designer — the pros, the cons, when each makes sense, and what AI still cannot do.`,
+    metaDesc: `An honest comparison of AI and DIY website builders versus hiring a real web designer — pros, cons, when each makes sense, and what AI still cannot do.`,
     excerpt: `A fair look at AI and DIY builders versus a real designer — when each is the smart choice, and what AI cannot do for a business that depends on its site.`,
     category: 'Getting started',
     date: '2026-08-02',
@@ -429,9 +429,9 @@ export const ARTICLES = [
 
   {
     slug: 'do-i-need-a-website-small-business',
-    metaTitle: 'Do I Need a Website for My Small Business? (2026) | Nuvion Solutions',
+    metaTitle: 'Do I Need a Website for My Small Business? (2026) | Nuvion',
     title: 'Do I Need a Website for My Small Business in 2026?',
-    metaDesc: `Not sure a small business still needs a website in 2026? An honest look at when a site pays off, when social media is enough, and what to build first if you do.`,
+    metaDesc: `Not sure a small business needs a website in 2026? An honest look at when a site pays off, when social media is enough, and what to build first if you do.`,
     excerpt: `When a website genuinely earns its keep, when you can wait, and what to build first if your small business is still on the fence.`,
     category: 'Getting started',
     date: '2026-07-10',
@@ -513,9 +513,9 @@ export const ARTICLES = [
 
   {
     slug: 'how-long-to-build-a-website',
-    metaTitle: 'How Long Does It Take to Build a Website? (2026) | Nuvion Solutions',
+    metaTitle: 'How Long Does It Take to Build a Website? (2026) | Nuvion',
     title: 'How Long Does It Take to Build a Website?',
-    metaDesc: `How long does a website really take to build? A realistic timeline for small business sites, what actually causes delays, and why content is almost always the holdup.`,
+    metaDesc: `How long does a website really take to build? A realistic timeline for small business sites, what causes delays, and why content is usually the holdup.`,
     excerpt: `A realistic build timeline for a small business site, the one thing that causes almost every delay, and how a site can go live in a week.`,
     category: 'Getting started',
     date: '2026-07-12',
@@ -608,9 +608,9 @@ export const ARTICLES = [
 
   {
     slug: 'website-vs-facebook-page',
-    metaTitle: 'Website vs. a Facebook or Instagram Page (2026) | Nuvion Solutions',
+    metaTitle: 'Website vs. a Facebook or Instagram Page (2026) | Nuvion',
     title: 'Website vs. a Facebook or Instagram Page: What a Small Business Really Needs',
-    metaDesc: `A website or a Facebook and Instagram page — which does a small business actually need? An honest comparison of what each is good at, and why you want both.`,
+    metaDesc: `A website or a Facebook and Instagram page — which does a small business need? An honest comparison of what each is good at, and why you want both.`,
     excerpt: `What a website does that a social page can't, what social does better, and why the smart answer for most small businesses is both — with the site at the center.`,
     category: 'Getting started',
     date: '2026-07-14',
@@ -697,9 +697,9 @@ export const ARTICLES = [
 
   {
     slug: 'get-found-on-google-maps',
-    metaTitle: 'How to Get Your Business Found on Google Maps (2026) | Nuvion Solutions',
+    metaTitle: 'Get Your Business Found on Google Maps (2026) | Nuvion',
     title: 'How to Get Your Business Found on Google Maps',
-    metaDesc: `A step-by-step guide to getting your business found on Google Maps — claiming your profile, the ranking factors that matter, reviews, and the mistakes to avoid.`,
+    metaDesc: `A step-by-step guide to getting your business found on Google Maps — claiming your profile, ranking factors that matter, reviews, and mistakes to avoid.`,
     excerpt: `How Google Maps rankings actually work, the profile steps that move the needle, and how to show up when nearby customers search for what you do.`,
     category: 'Local SEO',
     date: '2026-07-16',
@@ -792,9 +792,9 @@ export const ARTICLES = [
 
   {
     slug: 'why-my-website-gets-no-customers',
-    metaTitle: `Why Isn't My Website Bringing In Customers? (2026) | Nuvion Solutions`,
+    metaTitle: `Why Isn't My Website Bringing In Customers? (2026) | Nuvion`,
     title: `Why Isn't My Website Bringing In Customers?`,
-    metaDesc: `Your website is live but the phone isn't ringing? Here are the real reasons a site brings in no customers — from traffic to trust to a missing call to action.`,
+    metaDesc: `Your website is live but the phone isn't ringing? Here are the reasons a site brings in no customers — from traffic to trust to a missing call to action.`,
     excerpt: `The real reasons a live website brings in no customers — nobody's finding it, it's not built to convert, or it quietly kills trust — and how to fix each.`,
     category: 'Getting started',
     date: '2026-07-18',
@@ -881,9 +881,9 @@ export const ARTICLES = [
 
   {
     slug: 'what-makes-a-website-look-professional',
-    metaTitle: 'What Makes a Website Look Professional (2026) | Nuvion Solutions',
+    metaTitle: 'What Makes a Website Look Professional (2026) | Nuvion',
     title: 'What Makes a Website Look Professional and Trustworthy',
-    metaDesc: `What makes a website look professional and trustworthy? The specific design, speed, and content signals that earn a visitor's trust — and the ones that break it.`,
+    metaDesc: `What makes a website look professional and trustworthy? The design, speed, and content signals that earn a visitor's trust — and the ones that break it.`,
     excerpt: `The concrete signals that make a site feel professional and trustworthy — clean design, speed, real photos, and the small details that quietly earn a customer's trust.`,
     category: 'Getting started',
     date: '2026-07-21',
@@ -970,9 +970,9 @@ export const ARTICLES = [
 
   {
     slug: 'move-website-off-wix-squarespace',
-    metaTitle: 'How to Move Your Website Off Wix or Squarespace (2026) | Nuvion Solutions',
+    metaTitle: 'Move Your Website Off Wix or Squarespace (2026) | Nuvion',
     title: 'How to Move Your Website Off Wix or Squarespace (and Why)',
-    metaDesc: `Thinking of leaving Wix or Squarespace? Why businesses move off builders, what you can and can't take with you, and how to switch without losing your site or SEO.`,
+    metaDesc: `Thinking of leaving Wix or Squarespace? Why businesses move off builders, what you can take with you, and how to switch without losing your site or SEO.`,
     excerpt: `Why businesses outgrow Wix and Squarespace, what you actually own on those platforms, and how to move to a site you control without losing your Google rankings.`,
     category: 'Before you hire',
     date: '2026-07-24',
@@ -1065,9 +1065,9 @@ export const ARTICLES = [
 
   {
     slug: 'small-business-website-checklist',
-    metaTitle: 'The Small Business Website Checklist (2026) | Nuvion Solutions',
+    metaTitle: 'The Small Business Website Checklist (2026) | Nuvion',
     title: 'The Small Business Website Checklist: What Every Site Needs',
-    metaDesc: `The practical checklist of what every small business website needs — essential pages, contact details, trust signals, and the basics that turn visitors into customers.`,
+    metaDesc: `The checklist of what every small business website needs — essential pages, contact details, trust signals, and basics that turn visitors into customers.`,
     excerpt: `A practical, no-jargon checklist of what every small business website needs to look credible, get found, and turn visitors into customers.`,
     category: 'Getting started',
     date: '2026-07-27',
@@ -1170,9 +1170,9 @@ export const ARTICLES = [
 
   {
     slug: 'how-to-write-website-copy',
-    metaTitle: 'How to Write Website Copy That Converts (2026) | Nuvion Solutions',
+    metaTitle: 'How to Write Website Copy That Converts (2026) | Nuvion',
     title: 'How to Write Website Copy That Actually Converts',
-    metaDesc: `Website copy that converts is clear, not clever. Here is how to write copy that says what you do, earns trust, and turns visitors into customers — with plain examples.`,
+    metaDesc: `Website copy that converts is clear, not clever. How to write copy that says what you do, earns trust, and turns visitors into customers — with examples.`,
     excerpt: `The plain-language rules for website copy that turns visitors into customers — lead with what they want, write like you talk, and give every page one clear next step.`,
     category: 'Getting started',
     date: '2026-06-20',
@@ -1260,9 +1260,9 @@ export const ARTICLES = [
 
   {
     slug: 'website-photos-that-sell',
-    metaTitle: 'Website Photos That Sell (and What Kills Trust) | Nuvion Solutions',
+    metaTitle: 'Website Photos That Sell (and What Kills Trust) | Nuvion',
     title: 'Website Photos: What Works (and What Kills Trust)',
-    metaDesc: `The photos on your website decide whether visitors trust you in a fraction of a second. What to shoot, what to avoid, and how to get great images without a photographer.`,
+    metaDesc: `The photos on your website decide whether visitors trust you in seconds. What to shoot, what to avoid, and how to get great images without a photographer.`,
     excerpt: `Why real photos beat stock every time, exactly what to photograph, the images that quietly kill trust, and how to get usable website photos with just your phone.`,
     category: 'Getting started',
     date: '2026-06-23',
@@ -1343,9 +1343,9 @@ export const ARTICLES = [
 
   {
     slug: 'google-business-profile-guide',
-    metaTitle: 'How to Set Up and Optimize Your Google Business Profile | Nuvion',
+    metaTitle: 'How to Set Up Your Google Business Profile | Nuvion',
     title: 'How to Set Up and Optimize Your Google Business Profile',
-    metaDesc: `A plain, step-by-step guide to claiming, completing, and optimizing your Google Business Profile so your business shows up when nearby customers search on Maps.`,
+    metaDesc: `A step-by-step guide to claiming, completing, and optimizing your Google Business Profile so your business shows up when nearby customers search on Maps.`,
     excerpt: `Step by step: claim your Google Business Profile, complete every field the right way, and keep it active so you actually show up on Google Maps in Sonoma County.`,
     category: 'Local SEO',
     date: '2026-06-26',
@@ -1433,9 +1433,9 @@ export const ARTICLES = [
 
   {
     slug: 'website-mistakes-small-business',
-    metaTitle: '9 Website Mistakes That Cost Small Businesses Customers | Nuvion',
+    metaTitle: '9 Website Mistakes That Cost You Customers | Nuvion',
     title: '9 Website Mistakes That Cost Small Businesses Customers',
-    metaDesc: `The nine most common small business website mistakes — from a buried phone number to a slow, non-mobile site — and how to spot and fix each one on your own site.`,
+    metaDesc: `The nine most common small business website mistakes — from a buried phone number to a slow, non-mobile site — and how to fix each one yourself.`,
     excerpt: `The nine small, common, fixable website mistakes that quietly cost small businesses customers — and how to audit your own site on your phone to catch them.`,
     category: 'Getting started',
     date: '2026-06-29',
@@ -1517,9 +1517,9 @@ export const ARTICLES = [
 
   {
     slug: 'how-to-get-more-google-reviews',
-    metaTitle: 'How to Get More Google Reviews (the Right Way) | Nuvion Solutions',
+    metaTitle: 'How to Get More Google Reviews (the Right Way) | Nuvion',
     title: 'How to Get More Google Reviews (the Right Way)',
-    metaDesc: `Google reviews help you rank and win customers. Here is how to get more of them the honest way — make it easy, ask at the right moment, and respond to every one.`,
+    metaDesc: `Google reviews help you rank and win customers. How to get more the honest way — make it easy, ask at the right moment, and respond to every one.`,
     excerpt: `How to build a steady stream of genuine Google reviews the right way — make it effortless, ask at the right moment, respond to every one, and avoid the rule-breaking shortcuts.`,
     category: 'Local SEO',
     date: '2026-07-02',
@@ -1599,9 +1599,9 @@ export const ARTICLES = [
 
   {
     slug: 'mobile-friendly-website-why',
-    metaTitle: 'Why Your Website Has to Be Mobile-Friendly in 2026 | Nuvion Solutions',
+    metaTitle: 'Why Your Website Has to Be Mobile-Friendly in 2026 | Nuvion',
     title: 'Why Your Website Has to Be Mobile-Friendly in 2026',
-    metaDesc: `Most of your visitors are on phones, and Google ranks your mobile site first. Here is what mobile-friendly really means, what it costs to ignore, and how to check yours.`,
+    metaDesc: `Most of your visitors are on phones, and Google ranks your mobile site first. What mobile-friendly means, what it costs to ignore, and how to check yours.`,
     excerpt: `Most visitors are on phones and Google ranks mobile-first — so a site that fights the small screen loses customers twice. What mobile-friendly means and how to check yours.`,
     category: 'Getting started',
     date: '2026-07-04',
@@ -1677,9 +1677,9 @@ export const ARTICLES = [
 
   {
     slug: 'website-launch-checklist',
-    metaTitle: 'Website Launch Checklist: What to Do Before You Go Live | Nuvion',
+    metaTitle: 'Website Launch Checklist: Before You Go Live | Nuvion',
     title: 'Website Launch Checklist: What to Do Before You Go Live',
-    metaDesc: `A plain-language pre-launch checklist for your website — proofreading, testing the contact form, mobile and speed, security, redirects, and going live without surprises.`,
+    metaDesc: `A pre-launch checklist for your website — proofreading, testing the contact form, mobile and speed, security, redirects, and going live without surprises.`,
     excerpt: `The checklist to run before you flip your website live — proofread, test every contact path, check mobile and speed, confirm security and redirects, then launch deliberately.`,
     category: 'Getting started',
     date: '2026-07-06',
@@ -1773,9 +1773,9 @@ export const ARTICLES = [
 
   {
     slug: 'how-fast-should-website-load',
-    metaTitle: 'How Fast Should Your Website Load? (And Why It Matters) | Nuvion',
+    metaTitle: 'How Fast Should Your Website Load? | Nuvion',
     title: 'How Fast Should Your Website Load? (And Why It Matters)',
-    metaDesc: `Your website should load in under about three seconds. Here is why speed decides visitors and Google rankings, what slows a site down, and how to test and fix yours.`,
+    metaDesc: `Your website should load in under three seconds. Why speed decides visitors and Google rankings, what slows a site down, and how to test and fix yours.`,
     excerpt: `Why your site should load in under three seconds, how speed quietly decides visitors and rankings, what actually slows sites down, and how to test and fix yours.`,
     category: 'Getting started',
     date: '2026-07-08',

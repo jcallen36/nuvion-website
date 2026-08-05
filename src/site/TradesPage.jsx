@@ -95,7 +95,7 @@ export default function TradesPage() {
   return (
     <>
       <title>{t('Websites for the Trades — Book More Jobs | Nuvion Solutions', 'Sitios web para los oficios — Consigue más trabajos | Nuvion Solutions')}</title>
-      <meta name="description" content={t('A custom website for trade businesses — found on Google, built to book more jobs. $0 down, everything handled, live in 1 week or your first month’s free. Get your free preview.', 'Un sitio web a la medida para negocios de oficios — encontrado en Google, hecho para conseguir más trabajos. $0 inicial, todo incluido, en vivo en 1 semana o tu primer mes es gratis. Recibe tu vista previa gratis.')} />
+      <meta name="description" content={t('A custom website for trade businesses — found on Google, built to book more jobs. $0 down, live in 1 week or your first month’s free. Get a free preview.', 'Un sitio web a la medida para negocios de oficios — encontrado en Google, hecho para conseguir más trabajos. $0 inicial, todo incluido, en vivo en 1 semana o tu primer mes es gratis. Recibe tu vista previa gratis.')} />
       <link rel="canonical" href="https://www.nuvion-solutions.com/trades" />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + TR_CSS + FORM_CSS }} />
       <Nav />

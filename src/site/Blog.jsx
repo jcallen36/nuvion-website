@@ -77,7 +77,7 @@ export function BlogIndex() {
   const sorted = [...ARTICLES].sort((a, b) => (a.date < b.date ? 1 : -1));
   return (
     <>
-      <title>{t('Guides & Resources — Web Design, SEO & Getting Found | Nuvion Solutions', 'Guías y recursos — Diseño web, SEO y cómo aparecer | Nuvion Solutions')}</title>
+      <title>{t('Guides — Web Design, SEO & Getting Found | Nuvion', 'Guías y recursos — Diseño web, SEO y cómo aparecer | Nuvion Solutions')}</title>
       <meta name="description" content={t('Straight answers on websites, pricing, ownership, and local SEO for Sonoma County businesses — from the team at Nuvion Solutions.', 'Respuestas claras sobre sitios web, precios, propiedad y SEO local para negocios de Sonoma County — del equipo de Nuvion Solutions.')} />
       <link rel="canonical" href={`${BASE_URL}/guides`} />
       <meta name="robots" content="index, follow" />

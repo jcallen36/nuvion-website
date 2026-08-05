@@ -180,8 +180,8 @@ const DEFAULT_ANGLE = {
   eyebrow: { en: 'Co-founder · Santa Rosa, CA', es: 'Cofundador · Santa Rosa, CA' },
   h1: { en: `Hi, I'm David — I'll build your website <span class="nv-grad">personally</span>.`, es: `Hola, soy David — construiré tu sitio web <span class="nv-grad">personalmente</span>.` },
   sub: { en: "You won't get passed to a sales rep or an offshore team. I design and build every site myself, answer the same day, and stick with you long after launch.", es: 'No te pasarán con un vendedor ni con un equipo en el extranjero. Yo diseño y construyo cada sitio, respondo el mismo día y me quedo contigo mucho después del lanzamiento.' },
-  title: 'Meet David — Web Designer in Sonoma County | Nuvion Solutions',
-  desc: "I'm David Prudhomme — I personally design and build websites for local businesses in Sonoma County, answer same-day, and stay with you after launch. See my work and get in touch.",
+  title: 'Meet David — Web Designer in Sonoma County | Nuvion',
+  desc: "I'm David Prudhomme — I personally design and build websites for Sonoma County businesses, answer same-day, and stay with you after launch. See my work.",
   noindex: false,
 };
 

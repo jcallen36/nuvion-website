@@ -207,8 +207,8 @@ export default function WebsiteInfo({ price = { once: '900', care: '29' }, canon
 
   return (
     <>
-      <title>Websites — See the Work, the Process, the Price | Nuvion Solutions</title>
-      <meta name="description" content="The full rundown on Nuvion Solutions websites: live examples you can tap through, everything the build includes, the exact price (one payment, you own it — plus an optional care plan), and how revisions work." />
+      <title>Websites — the Work, the Process, the Price | Nuvion</title>
+      <meta name="description" content="The full rundown on Nuvion Solutions websites — live examples you can tap through, what the build includes, the exact price, and how revisions work." />
       <link rel="canonical" href={canonical} />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + MCTA_CSS + WI_CSS }} />
 

@@ -218,7 +218,7 @@ export default function PlanBuilder() {
   return (
     <>
       <title>{t('Get your instant plan | Nuvion Solutions', 'Recibe tu plan al instante | Nuvion Solutions')}</title>
-      <meta name="description" content={t('Answer a few questions and get a tailored plan — website, custom builds, integrations & automations — with an honest estimate, from Nuvion Solutions in Sonoma County.', 'Responde unas preguntas y recibe un plan a la medida — sitio web, desarrollos a medida, integraciones y automatizaciones — con un estimado honesto, de Nuvion Solutions en Sonoma County.')} />
+      <meta name="description" content={t('Answer a few questions and get a tailored plan — website, custom builds, integrations & automation — with an honest estimate, from Nuvion Solutions.', 'Responde unas preguntas y recibe un plan a la medida — sitio web, desarrollos a medida, integraciones y automatizaciones — con un estimado honesto, de Nuvion Solutions en Sonoma County.')} />
       <link rel="canonical" href="https://www.nuvion-solutions.com/plan" />
       <meta name="robots" content="index, follow" />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + PB_CSS }} />

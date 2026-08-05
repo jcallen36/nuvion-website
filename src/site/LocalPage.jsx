@@ -96,7 +96,7 @@ export default function LocalPage() {
   return (
     <>
       <title>{`Web Design in ${town}, CA | Nuvion Solutions`}</title>
-      <meta name="description" content={`Custom web design for ${town} businesses — high-converting websites designed one-on-one by a real local team that answers same-day. Live in 1 week, or you don't pay. Serving ${town} and all of Sonoma County.`} />
+      <meta name="description" content={`Custom web design for ${town} businesses — high-converting sites built one-on-one by a real local team, live in 1 week. Serving Sonoma County.`} />
       <link rel="canonical" href={canonical} />
       {!known && <meta name="robots" content="noindex, follow" />}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />

@@ -12,8 +12,8 @@ export const INDUSTRIES = {
   restaurants: {
     slug: 'restaurants',
     name: 'Restaurants & Cafés',
-    metaTitle: 'Restaurant Web Design in Sonoma County | Nuvion Solutions',
-    metaDesc: `Restaurant websites for Sonoma County cafés and eateries — fast menus, online reservations, and mouthwatering photos that turn hungry searchers into diners.`,
+    metaTitle: 'Restaurant Web Design in Sonoma County | Nuvion',
+    metaDesc: `Restaurant websites for Sonoma County cafés and eateries — fast menus, online reservations, and mouthwatering photos that turn searchers into diners.`,
     h1a: `Restaurant websites that`,
     h1b: `fill more tables`,
     sub: `A fast, appetizing site that shows your menu, takes reservations, and gets you found the moment a hungry local searches "near me."`,
@@ -41,7 +41,7 @@ export const INDUSTRIES = {
   wineries: {
     slug: 'wineries',
     name: 'Wineries & Tasting Rooms',
-    metaTitle: 'Winery & Tasting Room Web Design in Sonoma County | Nuvion Solutions',
+    metaTitle: 'Winery & Tasting Room Web Design in Sonoma County | Nuvion',
     metaDesc: `Winery websites for Sonoma County tasting rooms — booked tastings, a thriving wine club, event listings, and allocation releases that sell out faster.`,
     h1a: `Winery websites that`,
     h1b: `pour year-round`,
@@ -70,7 +70,7 @@ export const INDUSTRIES = {
   'real-estate': {
     slug: 'real-estate',
     name: 'Real Estate Agents',
-    metaTitle: 'Real Estate Agent Web Design in Sonoma County | Nuvion Solutions',
+    metaTitle: 'Real Estate Agent Web Design in Sonoma County | Nuvion',
     metaDesc: `Real estate websites for Sonoma County agents — a personal brand that wins listings, captures buyer leads, and ranks for the neighborhoods you know best.`,
     h1a: `Real estate sites that`,
     h1b: `win the listing`,
@@ -99,7 +99,7 @@ export const INDUSTRIES = {
   'med-spas': {
     slug: 'med-spas',
     name: 'Med Spas & Salons',
-    metaTitle: 'Med Spa & Salon Web Design in Sonoma County | Nuvion Solutions',
+    metaTitle: 'Med Spa & Salon Web Design in Sonoma County | Nuvion',
     metaDesc: `Med spa and salon websites for Sonoma County — 24/7 online booking, clear service menus, before-and-after galleries, and gift cards that sell themselves.`,
     h1a: `Med spa sites that`,
     h1b: `stay fully booked`,
@@ -128,7 +128,7 @@ export const INDUSTRIES = {
   'dental-medical': {
     slug: 'dental-medical',
     name: 'Dental & Medical Practices',
-    metaTitle: 'Dental & Medical Web Design in Sonoma County | Nuvion Solutions',
+    metaTitle: 'Dental & Medical Web Design in Sonoma County | Nuvion',
     metaDesc: `Dental and medical websites for Sonoma County practices — new-patient booking, insurance clarity, provider credentials, and secure, HIPAA-aware forms.`,
     h1a: `Practice websites that`,
     h1b: `grow new patients`,
@@ -157,8 +157,8 @@ export const INDUSTRIES = {
   fitness: {
     slug: 'fitness',
     name: 'Gyms & Fitness Studios',
-    metaTitle: 'Gym & Fitness Studio Web Design in Sonoma County | Nuvion Solutions',
-    metaDesc: `Gym and fitness studio websites for Sonoma County — live class schedules, easy memberships, free-trial signups, and a community that keeps members coming back.`,
+    metaTitle: 'Gym & Fitness Studio Web Design in Sonoma County | Nuvion',
+    metaDesc: `Gym and fitness studio websites for Sonoma County — live class schedules, memberships, free-trial signups, and a community that keeps members coming back.`,
     h1a: `Fitness sites that`,
     h1b: `sign up members`,
     sub: `Show your schedule, hand out free-trial passes, sell memberships, and build the community that keeps people renewing month after month.`,
@@ -186,8 +186,8 @@ export const INDUSTRIES = {
   'professional-services': {
     slug: 'professional-services',
     name: 'Law & Professional Services',
-    metaTitle: 'Law & Professional Services Web Design in Sonoma County | Nuvion Solutions',
-    metaDesc: `Websites for Sonoma County attorneys, accountants, and consultants — authority that earns trust, booked consultations, and service pages that rank and convert.`,
+    metaTitle: 'Law & Professional Web Design in Sonoma County | Nuvion',
+    metaDesc: `Websites for Sonoma County attorneys, accountants, and consultants — authority that earns trust, consultations, and service pages that rank and convert.`,
     h1a: `Professional sites that`,
     h1b: `earn the client`,
     sub: `Establish authority, make booking a consultation effortless, and rank for the services clients search — so serious prospects choose you.`,
@@ -215,7 +215,7 @@ export const INDUSTRIES = {
   nonprofits: {
     slug: 'nonprofits',
     name: 'Nonprofits',
-    metaTitle: 'Nonprofit Web Design in Sonoma County | Nuvion Solutions',
+    metaTitle: 'Nonprofit Web Design in Sonoma County | Nuvion',
     metaDesc: `Nonprofit websites for Sonoma County causes — easy donations, volunteer signups, impact stories, and event pages that turn supporters into lasting givers.`,
     h1a: `Nonprofit sites that`,
     h1b: `move supporters to give`,

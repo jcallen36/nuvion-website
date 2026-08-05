@@ -27,7 +27,7 @@ export default function BookPage() {
   const { t } = useLang();
   return (
     <>
-      <title>Book a Free Call | Nuvion Solutions — Web Design in Sonoma County</title>
+      <title>Book a Free Call — Web Design in Sonoma County | Nuvion</title>
       <meta name="description" content="Book a free, no-pressure call with Nuvion Solutions. Tell us about your business and we'll show you exactly what we'd build. Same-day response." />
       <link rel="canonical" href="https://www.nuvion-solutions.com/book" />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + BOOK_CSS + FORM_CSS }} />
