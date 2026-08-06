@@ -331,10 +331,13 @@ img{max-width:100%;display:block}
 .nv-audit-list .it b{color:var(--ink);font-size:.96rem;font-weight:700;display:block}
 .nv-audit-list .it small{color:var(--muted);font-size:.84rem;line-height:1.4}
 /* old-way vs Nuvion comparison */
-.nv-vs{display:grid;grid-template-columns:1fr;gap:16px;align-items:center;max-width:1000px;margin:0 auto}
-@media(min-width:860px){.nv-vs{grid-template-columns:1fr 56px 1fr}}
-.nv-vs-col{border-radius:20px;padding:28px 26px}
+.nv-vs{display:grid;grid-template-columns:1fr;gap:16px;align-items:stretch;max-width:1140px;margin:0 auto}
+@media(min-width:880px){.nv-vs{grid-template-columns:repeat(3,1fr)}}
+.nv-vs-col{border-radius:20px;padding:26px 24px}
 .nv-vs-col.bad{background:#FBF7F7;border:1px solid #EFE2E2}
+.nv-vs-col.meh{background:#F7F8FA;border:1px solid #E7EBF1}
+.nv-vs-col.meh .nv-vs-lab{color:#8A93A3}
+.nv-vs-col.meh .nv-vs-row{color:var(--muted)}
 .nv-vs-col.good{background:linear-gradient(180deg,#EFF5FF,#fff 65%);border:1px solid #bcd0f7;box-shadow:var(--shadow)}
 .nv-vs-lab{font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
 .nv-vs-col.bad .nv-vs-lab{color:#9AA1AE}
@@ -997,32 +1000,42 @@ function GuaranteeBand() {
 /* ── COMPARISON (old way vs Nuvion) ────────────────────────── */
 function Compare() {
   const { t } = useLang();
-  const bad = [
-    ['🤖', t('A chatbot or a ticket queue — you never reach a person', 'Un chatbot o una fila de tickets — nunca hablas con una persona')],
-    ['🧩', t('A template the AI generated, with your logo dropped on top', 'Una plantilla que generó la IA, con tu logo encima')],
-    ['👋', t('Gone the moment your site launches', 'Desaparecen apenas se lanza tu sitio')],
-    ['🔒', t('You rent it forever — stop paying and it vanishes', 'Lo rentas para siempre — dejas de pagar y desaparece')],
-    ['🌍', t('Offshore and anonymous — they never actually met you', 'En el extranjero y anónimos — nunca te conocieron')],
+  const diy = [
+    ['🧩', t('A template — you build it yourself, nights and weekends', 'Una plantilla — la armas tú, noches y fines de semana')],
+    ['🏷️', t('Cheap to start, but you’re the designer, writer, and tech support', 'Barato al inicio, pero tú eres el diseñador, redactor y soporte técnico')],
+    ['🐌', t('As fast — or as slow — as you find the time', 'Tan rápido, o tan lento, como encuentres el tiempo')],
+    ['🔒', t('You rent it forever — stop paying and it disappears', 'Lo rentas para siempre — dejas de pagar y desaparece')],
+    ['🔤', t('English only, unless you build the Spanish yourself', 'Solo en inglés, a menos que hagas el español tú mismo')],
   ];
-  const good = [
-    ['💬', t('One real person who knows your name and answers same-day', 'Una persona real que sabe tu nombre y responde el mismo día')],
-    ['🎨', t('Your exact vision — designed with you, one-on-one, and built by hand', 'Tu visión exacta — diseñada contigo, uno a uno, y construida a mano')],
-    ['🤝', t('A long-term partner — text us in two years, we’re still here', 'Un aliado a largo plazo — escríbenos en dos años, seguimos aquí')],
-    ['🔑', t('You own it — no rent-forever, no lock-in', 'Es tuyo — sin renta eterna, sin ataduras')],
-    ['📍', t('Local in Sonoma County — we’ll meet you in person', 'Locales en Sonoma County — nos vemos en persona')],
+  const agency = [
+    ['💬', t('“Contact us for a quote” — the price is hidden until the sales call', '“Contáctanos para cotizar” — el precio se esconde hasta la llamada de ventas')],
+    ['🎨', t('Custom, usually — but a team you may never actually meet', 'Personalizado, normalmente — pero un equipo que quizá nunca conozcas')],
+    ['🗓️', t('One to three months from kickoff to launch', 'De uno a tres meses desde el inicio hasta el lanzamiento')],
+    ['🎫', t('A ticket queue after launch — changes take days', 'Una fila de tickets tras el lanzamiento — los cambios tardan días')],
+    ['🌐', t('Rarely bilingual', 'Rara vez bilingüe')],
+  ];
+  const nuvion = [
+    ['💬', t('One real person who knows your name and answers the same day — for years', 'Una persona real que sabe tu nombre y responde el mismo día — por años')],
+    ['🏷️', t('Real prices shown upfront — from $600, no quote games', 'Precios reales por adelantado — desde $600, sin juegos de cotización')],
+    ['⚡', t('Live in one week — or you don’t pay', 'En vivo en una semana — o no pagas')],
+    ['🔑', t('You own it — host it anywhere, no lock-in', 'Es tuyo — hospédalo donde quieras, sin ataduras')],
+    ['🌎', t('English and Spanish, included', 'Inglés y español, incluido')],
   ];
   return (
     <section className="nv-sec soft"><div className="nv-wrap">
-      <div className="nv-center rv"><div className="nv-kicker">{t('The Nuvion difference', 'La diferencia Nuvion')}</div><h2 className="nv-h2">{t('Most agencies hand you a bot and a template. We hand you a partner.', 'La mayoría de las agencias te entregan un bot y una plantilla. Nosotros te entregamos un aliado.')}</h2></div>
+      <div className="nv-center rv"><div className="nv-kicker">{t('The honest comparison', 'La comparación honesta')}</div><h2 className="nv-h2">{t('Wix makes you do the work. Agencies hide the price. We do neither.', 'Wix te hace hacer el trabajo. Las agencias esconden el precio. Nosotros, ninguna de las dos.')}</h2></div>
       <div className="nv-vs">
         <div className="nv-vs-col bad rv">
-          <div className="nv-vs-lab">{t('Most AI web agencies', 'La mayoría de las agencias de IA')}</div>
-          {bad.map(([ic, txt], i) => <div className="nv-vs-row" key={i}><span className="nv-vs-ico">{ic}</span>{txt}</div>)}
+          <div className="nv-vs-lab">{t('Wix / Squarespace (DIY)', 'Wix / Squarespace (hazlo tú)')}</div>
+          {diy.map(([ic, txt], i) => <div className="nv-vs-row" key={i}><span className="nv-vs-ico">{ic}</span>{txt}</div>)}
         </div>
-        <div className="nv-vs-mid rv"><div className="nv-vs-pill">VS</div></div>
+        <div className="nv-vs-col meh rv">
+          <div className="nv-vs-lab">{t('A typical agency', 'Una agencia típica')}</div>
+          {agency.map(([ic, txt], i) => <div className="nv-vs-row" key={i}><span className="nv-vs-ico">{ic}</span>{txt}</div>)}
+        </div>
         <div className="nv-vs-col good rv">
-          <div className="nv-vs-lab">{t('Working with Nuvion', 'Con Nuvion')}</div>
-          {good.map(([ic, txt], i) => <div className="nv-vs-row" key={i}><span className="nv-vs-ico">{ic}</span>{txt}</div>)}
+          <div className="nv-vs-lab">{t('★ Nuvion', '★ Nuvion')}</div>
+          {nuvion.map(([ic, txt], i) => <div className="nv-vs-row" key={i}><span className="nv-vs-ico">{ic}</span>{txt}</div>)}
         </div>
       </div>
     </div></section>
