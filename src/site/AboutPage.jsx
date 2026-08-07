@@ -125,6 +125,11 @@ function IntakeForm({ source = 'david' }) {
 
   async function submit(e) {
     e.preventDefault();
+    if (!form.phone.trim() && !form.email.trim()) {
+      setStatus('error');
+      setErr(t('Please add a phone or email so I can reach you.', 'Agrega un teléfono o correo para poder contactarte.'));
+      return;
+    }
     setStatus('sending'); setErr('');
     try {
       const r = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...form, source, lang }) });
