@@ -518,6 +518,7 @@ function Pricing() {
         <div className="nv-kicker">{t('Simple, honest pricing', 'Precios simples y honestos')}</div>
         <h2 className="nv-h2">{t('Own it outright, or start for $0 down.', 'Cómpralo de una vez, o empieza con $0 inicial.')}</h2>
         <p className="nv-lead" style={{ margin: '0 auto' }}>{t(<>Local agencies charge <b>$3,000–$10,000</b> for a website like this. Yours starts at <b>$600</b> — custom, live in a week, and <b>you own it</b>.</>, <>Las agencias locales cobran <b>$3,000–$10,000</b> por un sitio como este. El tuyo empieza en <b>$600</b> — personalizado, en vivo en una semana, y <b>es tuyo</b>.</>)}</p>
+        <p style={{ maxWidth: 640, margin: '16px auto 0', fontSize: '.98rem', color: 'var(--body)' }}>{t(<>Most agencies hide their price behind a <em>“contact us for a quote.”</em> <b style={{ color: 'var(--ink)' }}>We'd rather just show you</b> — real prices, right here, and a written quote before you owe a cent.</>, <>La mayoría de las agencias esconden su precio tras un <em>“contáctanos para cotizar.”</em> <b style={{ color: 'var(--ink)' }}>Preferimos mostrártelo</b> — precios reales, aquí mismo, y una cotización por escrito antes de que debas un centavo.</>)}</p>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <div className="nv-bill rv">
