@@ -343,7 +343,7 @@ export default function AboutPage() {
             <div className="ab-guar">{t(<>⚡ Your site live in&nbsp;<b>1 week</b>&nbsp;— or you don't pay</>, <>⚡ Tu sitio en vivo en&nbsp;<b>1 semana</b>&nbsp;— o no pagas</>)}</div>
             <div className="ab-ticks">
               <span><Check /> {t('Same-day answers', 'Respuestas el mismo día')}</span>
-              <span><Check /> {t('No long-term contracts', 'Sin contratos a largo plazo')}</span>
+              <span><Check /> {t('You own it', 'Es tuyo')}</span>
               <span><Check /> {t('Sonoma County local', 'Local de Sonoma County')}</span>
             </div>
           </div>
@@ -413,7 +413,7 @@ export default function AboutPage() {
             {[
               [t('A real person who owns it', 'Una persona real a cargo'), t('You work directly with me — accountable for your results, start to finish.', 'Trabajas directamente conmigo — responsable de tus resultados, de principio a fin.')],
               [t('Same-day answers', 'Respuestas el mismo día'), t('No ghosting, no weeks-long waits. I respond the same day, every time.', 'Sin desapariciones ni esperas de semanas. Respondo el mismo día, siempre.')],
-              [t('Until it’s exactly right', 'Hasta que quede perfecto'), t('We keep going until you’re genuinely happy. No long-term contracts.', 'Seguimos hasta que estés realmente contento. Sin contratos a largo plazo.')],
+              [t('Until it’s exactly right', 'Hasta que quede perfecto'), t('We keep going until you’re genuinely happy. And it’s yours to keep.', 'Seguimos hasta que estés realmente contento. Y es tuyo para siempre.')],
               [t('Built to get customers', 'Hecho para conseguir clientes'), t('Fast, mobile-first, SEO-ready — designed to turn visitors into paying clients.', 'Rápido, mobile-first y listo para SEO — diseñado para convertir visitantes en clientes que pagan.')],
             ].map(([title, d]) => (
               <div className="ab-why-item rv" key={title}><span className="ck"><Check /></span><div><b>{title}</b><span>{d}</span></div></div>
@@ -436,7 +436,7 @@ export default function AboutPage() {
           </div></div>
         </div></section>
       </main>
-      <Footer phone={DAVID_PHONE} />
+      <Footer phone={DAVID_PHONE} minimal />
     </>
   );
 }

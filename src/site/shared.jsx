@@ -239,7 +239,7 @@ export function Nav() {
   );
 }
 
-export function Footer({ phone = COMPANY_PHONE }) {
+export function Footer({ phone = COMPANY_PHONE, minimal = false }) {
   const year = new Date().getFullYear();
   const { t } = useLang();
   return (
@@ -247,7 +247,7 @@ export function Footer({ phone = COMPANY_PHONE }) {
     <MobileCTA phone={phone} />
     <FloatingContact phone={phone} />
     <footer className="nv-foot"><div className="nv-wrap">
-      <div className="nv-foot-grid">
+      <div className="nv-foot-grid" style={minimal ? { gridTemplateColumns: '1fr', maxWidth: 560, gap: 20 } : undefined}>
         <div>
           <Logo />
           <p className="tag">{t('On a mission to give every local business a website they’re proud of — new or redesigned, built by real people who actually answer and stay in your corner.', 'En una misión: darle a cada negocio local un sitio web del que se sienta orgulloso — nuevo o rediseñado, hecho por personas reales que sí responden y se quedan a tu lado.')}</p>
@@ -256,6 +256,7 @@ export function Footer({ phone = COMPANY_PHONE }) {
             <a href={`tel:${phone.tel}`}>{phone.display}</a>
           </div>
         </div>
+        {!minimal && (<>
         <div className="links">
           <h5>{t('Services', 'Servicios')}</h5>
           <Link to="/services/web-design">{t('Websites', 'Sitios web')}</Link>
@@ -284,6 +285,7 @@ export function Footer({ phone = COMPANY_PHONE }) {
           <Link to="/web-design-for/professional-services">{t('Professional Svcs', 'Servicios profesionales')}</Link>
           <Link to="/web-design-for/nonprofits">{t('Nonprofits', 'Sin fines de lucro')}</Link>
         </div>
+        </>)}
       </div>
       <div className="nv-foot-bot">
         <span>© {year} Nuvion Solutions. {t('All rights reserved.', 'Todos los derechos reservados.')}</span>
