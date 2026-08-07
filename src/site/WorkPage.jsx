@@ -210,7 +210,7 @@ export default function WorkPage() {
         <section className="wk-hero"><div className="nv-wrap">
           <span className="nv-eyebrow"><span className="dot" />{t('Our Work', 'Nuestro trabajo')}</span>
           <h1 className="wk-h1">{t(<>Real websites. <span className="nv-grad">Real businesses.</span></>, <>Sitios reales. <span className="nv-grad">Negocios reales.</span></>)}</h1>
-          <p>{t("Every build below is a real business we partnered with — designed one-on-one, live in a week, and theirs to own. Plus a few concept builds that show our range.", 'Cada proyecto de abajo es un negocio real con el que trabajamos de la mano — diseñado uno a uno, en vivo en una semana, y suyo. Además de algunos conceptos que muestran nuestro alcance.')}</p>
+          <p>{t("Every build below is a real business we partnered with — designed one-on-one, live in 1 week, and theirs to own. Plus a few concept builds that show our range.", 'Cada proyecto de abajo es un negocio real con el que trabajamos de la mano — diseñado uno a uno, en vivo en 1 semana, y suyo. Además de algunos conceptos que muestran nuestro alcance.')}</p>
           <div className="stats">
             <div><b>100+</b><span>{t('Sites designed', 'Sitios diseñados')}</span></div>
             <div><b>6</b><span>{t('Local clients', 'Clientes locales')}</span></div>

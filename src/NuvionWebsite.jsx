@@ -517,7 +517,7 @@ function Pricing() {
       <div className="nv-center rv">
         <div className="nv-kicker">{t('Simple, honest pricing', 'Precios simples y honestos')}</div>
         <h2 className="nv-h2">{t('Own it outright, or start for $0 down.', 'Cómpralo de una vez, o empieza con $0 inicial.')}</h2>
-        <p className="nv-lead" style={{ margin: '0 auto' }}>{t(<>Local agencies charge <b>$3,000–$10,000</b> for a website like this. Yours starts at <b>$600</b> — custom, live in a week, and <b>you own it</b>.</>, <>Las agencias locales cobran <b>$3,000–$10,000</b> por un sitio como este. El tuyo empieza en <b>$600</b> — personalizado, en vivo en una semana, y <b>es tuyo</b>.</>)}</p>
+        <p className="nv-lead" style={{ margin: '0 auto' }}>{t(<>Local agencies charge <b>$3,000–$10,000</b> for a website like this. Yours starts at <b>$600</b> — custom, live in 1 week, and <b>you own it</b>.</>, <>Las agencias locales cobran <b>$3,000–$10,000</b> por un sitio como este. El tuyo empieza en <b>$600</b> — personalizado, en vivo en 1 semana, y <b>es tuyo</b>.</>)}</p>
         <p style={{ maxWidth: 640, margin: '16px auto 0', fontSize: '.98rem', color: 'var(--body)' }}>{t(<>Most agencies hide their price behind a <em>“contact us for a quote.”</em> <b style={{ color: 'var(--ink)' }}>We'd rather just show you</b> — real prices, right here, and a written quote before you owe a cent.</>, <>La mayoría de las agencias esconden su precio tras un <em>“contáctanos para cotizar.”</em> <b style={{ color: 'var(--ink)' }}>Preferimos mostrártelo</b> — precios reales, aquí mismo, y una cotización por escrito antes de que debas un centavo.</>)}</p>
       </div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -794,7 +794,7 @@ function HowItWorks() {
     <section className="nv-sec nv-hiw" id="how-it-works"><div className="nv-wrap">
       <div className="nv-center rv">
         <div className="nv-kicker">{t('The Nuvion 1-Week Launch', 'El lanzamiento Nuvion en 1 semana')}</div>
-        <h2 className="nv-h2">{t('Your site, live in one week', 'Tu sitio, en vivo en una semana')}</h2>
+        <h2 className="nv-h2">{t('Your site, live in 1 week', 'Tu sitio, en vivo en 1 semana')}</h2>
       </div>
       <div className="nv-steps">
         {steps.map((s, i) => (
@@ -990,7 +990,7 @@ function GuaranteeBand() {
       <div className="nv-guar-card rv">
         <div className="nv-guar-badge">{t('⚡ Our guarantee', '⚡ Nuestra garantía')}</div>
         <h2>{t(<>Your website live in <em>1 week</em> — or you don't pay.</>, <>Tu sitio web en vivo en <em>1 semana</em> — o no pagas.</>)}</h2>
-        <p>{t("We're that confident. Once we have your content, your custom site goes live within one week. If we miss it, it's on us — you don't pay a cent.", 'Estamos así de seguros. En cuanto tengamos tu contenido, tu sitio personalizado sale en vivo dentro de una semana. Si no lo logramos, corre por nuestra cuenta — no pagas ni un centavo.')}</p>
+        <p>{t("We're that confident. Once we have your content, your custom site goes live within 1 week. If we miss it, it's on us — you don't pay a cent.", 'Estamos así de seguros. En cuanto tengamos tu contenido, tu sitio personalizado sale en vivo dentro de 1 semana. Si no lo logramos, corre por nuestra cuenta — no pagas ni un centavo.')}</p>
         <Link to="/book" className="nv-btn nv-btn-white nv-btn-lg">{t('Start my 1-week build', 'Empieza mi sitio en 1 semana')} <Arrow /></Link>
         <div className="nv-guar-sub">{t('You approve before you pay · You own everything · Written quote first', 'Apruebas antes de pagar · Todo es tuyo · Cotización por escrito primero')}</div>
       </div>
@@ -1018,7 +1018,7 @@ function Compare() {
   const nuvion = [
     ['💬', t('One real person who knows your name and answers the same day — for years', 'Una persona real que sabe tu nombre y responde el mismo día — por años')],
     ['🏷️', t('Real prices shown upfront — from $600, no quote games', 'Precios reales por adelantado — desde $600, sin juegos de cotización')],
-    ['⚡', t('Live in one week — or you don’t pay', 'En vivo en una semana — o no pagas')],
+    ['⚡', t('Live in 1 week — or you don’t pay', 'En vivo en 1 semana — o no pagas')],
     ['🔑', t('You own it — host it anywhere, no lock-in', 'Es tuyo — hospédalo donde quieras, sin ataduras')],
     ['🌎', t('English and Spanish, included', 'Inglés y español, incluido')],
   ];

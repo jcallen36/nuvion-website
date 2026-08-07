@@ -82,7 +82,7 @@ export default function TradesPage() {
   const steps = [
     { h: t('We build your preview — free', 'Construimos tu vista previa — gratis'), p: t('Tell us about your business and we build a real preview of your site before you owe a cent.', 'Cuéntanos sobre tu negocio y construimos una vista previa real de tu sitio antes de que debas un centavo.') },
     { h: t('You approve it', 'Tú lo apruebas'), p: t('We walk you through it live. Love it? Great. Not yet? We tweak until it’s right — or you walk away.', 'Te lo mostramos en vivo. ¿Te encanta? Perfecto. ¿Aún no? Lo ajustamos hasta que quede — o te vas.') },
-    { h: t('Live in a week — and we keep it growing', 'En vivo en una semana — y lo hacemos crecer', ), p: t('It goes live within the week, and every month we keep it fast, found, and booking jobs.', 'Sale en vivo dentro de la semana, y cada mes lo mantenemos rápido, encontrado y consiguiendo trabajos.') },
+    { h: t('Live in 1 week — and we keep it growing', 'En vivo en 1 semana — y lo hacemos crecer', ), p: t('It goes live within the week, and every month we keep it fast, found, and booking jobs.', 'Sale en vivo dentro de la semana, y cada mes lo mantenemos rápido, encontrado y consiguiendo trabajos.') },
   ];
 
   const faqs = [

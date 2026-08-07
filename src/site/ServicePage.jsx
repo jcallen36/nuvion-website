@@ -381,7 +381,7 @@ export const WEB_DESIGN = {
     { name: 'Websites', price: 'from $600', per: 'one-time · or $49/mo, $0 down', desc: 'Own it outright, or go monthly with $0 down — the site is yours to keep either way (after 18 months on monthly).', features: ['Custom, mobile-first design', 'SEO-ready build', 'Live in 1 week — or you don’t pay', 'You own it — outright, or after 18 months on monthly'], cta: 'Start your site', highlight: true },
     { name: 'Care Plan', price: 'from $29', per: '/mo · optional', desc: 'Essential entry tier — hosting, security & backups. Plus ($50/mo) adds revisions; Pro ($149/mo) adds SEO.', features: ['Hosting & SSL', 'Daily + off-site backups', 'Malware & security protection', '24/7 uptime monitoring'], cta: 'Add care' },
   ],
-  pricingNote: '⚡ Every build includes our 1-week launch guarantee — your site goes live within a week of us having your content, or you don’t pay. Final quote confirmed on your free call.',
+  pricingNote: '⚡ Every build includes our 1-week launch guarantee — your site goes live within 1 week of us having your content, or you don’t pay. Final quote confirmed on your free call.',
   assuranceKicker: 'No risk, no surprises',
   assuranceTitle: 'The catch? There isn’t one.',
   assurance: [
@@ -391,7 +391,7 @@ export const WEB_DESIGN = {
     { title: 'A written quote first', desc: 'The price you see is the price — in writing before you owe a cent. No surprise invoices, ever.' },
   ],
   faqs: [
-    { q: 'How long does it take?', a: 'One week — guaranteed. Once we have your content and go-ahead, your custom site goes live within a week. If we miss it, you don’t pay.' },
+    { q: 'How long does it take?', a: 'One week — guaranteed. Once we have your content and go-ahead, your custom site goes live within 1 week. If we miss it, you don’t pay.' },
     { q: 'We already have a website.', a: 'Then compare it side by side with what we’d build — that’s the whole test. Pull both up on your phone: which loads faster, shows your reviews, and makes it easier to call? If yours wins, keep it — no hard feelings.' },
     { q: 'I’m not a tech person.', a: 'You never touch anything. We design it, build it, and put it online — and on a care plan we host it, secure it, and keep it backed up. Your only job is a quick onboarding form and a few photos.' },
     { q: 'Do I own my website?', a: 'You do. Pay once and it’s yours the moment the build is paid — design, files, domain, all of it, and you can host it anywhere. Prefer monthly? It’s $0 down and the site becomes fully yours after 18 months. Either way it ends up yours — the optional care plans (from $29/mo) just handle hosting, security, and backups for you.' },
@@ -428,7 +428,7 @@ export const WEB_DESIGN = {
       { name: 'Sitios web', price: 'desde $600', per: 'pago único · o $49/mes, $0 inicial', desc: 'Págalo una vez, o ve mensual con $0 inicial — el sitio es tuyo de cualquier forma (después de 18 meses en el plan mensual).', features: ['Diseño personalizado, pensado para el móvil', 'Construido listo para SEO', 'En vivo en 1 semana — o no pagas', 'Es tuyo — de una vez, o después de 18 meses en el mensual'], cta: 'Comienza tu sitio', highlight: true },
       { name: 'Plan de mantenimiento', price: 'desde $29', per: '/mes · opcional', desc: 'Nivel de entrada Essential — hosting, seguridad y respaldos. Plus ($50/mes) agrega revisiones; Pro ($149/mes) agrega SEO.', features: ['Hosting y SSL', 'Respaldos diarios y externos', 'Protección contra malware y seguridad', 'Monitoreo de disponibilidad 24/7'], cta: 'Agregar mantenimiento' },
     ],
-    pricingNote: '⚡ Cada proyecto incluye nuestra garantía de lanzamiento en 1 semana — tu sitio sale en vivo dentro de una semana de tener tu contenido, o no pagas. La cotización final se confirma en tu llamada gratis.',
+    pricingNote: '⚡ Cada proyecto incluye nuestra garantía de lanzamiento en 1 semana — tu sitio sale en vivo dentro de 1 semana de tener tu contenido, o no pagas. La cotización final se confirma en tu llamada gratis.',
     assuranceKicker: 'Sin riesgo, sin sorpresas',
     assuranceTitle: '¿La trampa? No hay ninguna.',
     assurance: [
@@ -438,7 +438,7 @@ export const WEB_DESIGN = {
       { title: 'Primero una cotización por escrito', desc: 'El precio que ves es el precio — por escrito antes de que debas un centavo. Sin facturas sorpresa, nunca.' },
     ],
     faqs: [
-      { q: '¿Cuánto tarda?', a: 'Una semana — garantizado. En cuanto tengamos tu contenido y tu visto bueno, tu sitio personalizado sale en vivo dentro de una semana. Si no lo logramos, no pagas.' },
+      { q: '¿Cuánto tarda?', a: 'Una semana — garantizado. En cuanto tengamos tu contenido y tu visto bueno, tu sitio personalizado sale en vivo dentro de 1 semana. Si no lo logramos, no pagas.' },
       { q: 'Ya tenemos un sitio web.', a: 'Entonces compáralo lado a lado con lo que construiríamos — esa es toda la prueba. Abre ambos en tu teléfono: ¿cuál carga más rápido, muestra tus reseñas y hace más fácil llamar? Si el tuyo gana, quédatelo — sin resentimientos.' },
       { q: 'No soy una persona de tecnología.', a: 'Nunca tocas nada. Nosotros lo diseñamos, lo construimos y lo ponemos en línea — y con un plan de mantenimiento lo alojamos, lo aseguramos y lo respaldamos. Tu única tarea es un formulario rápido y unas cuantas fotos.' },
       { q: '¿El sitio web es mío?', a: 'Lo es. Págalo una vez y es tuyo en el momento en que se paga la construcción — el diseño, los archivos, el dominio, todo, y puedes alojarlo donde quieras. ¿Prefieres mensual? Es $0 inicial y el sitio pasa a ser 100% tuyo después de 18 meses. De cualquier forma termina siendo tuyo — los planes de mantenimiento opcionales (desde $29/mes) solo se encargan del hosting, la seguridad y los respaldos por ti.' },

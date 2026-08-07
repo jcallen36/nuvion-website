@@ -55,7 +55,7 @@ export default function BookPage() {
         </div></section>
 
         <div className="bk-strip"><div className="nv-wrap bk-strip-in">
-          <span><Check /> {t('No long-term contracts', 'Sin contratos a largo plazo')}</span>
+          <span><Check /> {t('You own it', 'Es tuyo')}</span>
           <span><Check /> {t('Same-day answers', 'Respuestas el mismo día')}</span>
           <span><Check /> {t('Sonoma County local', 'Local de Sonoma County')}</span>
           <span><Check /> ★★★★★ {t('Loved by clients', 'Querido por clientes')}</span>
