@@ -88,6 +88,13 @@ const ABOUT_CSS = `
 .ab-why-item .ck{width:26px;height:26px;border-radius:8px;background:var(--brand-soft);color:var(--brand-strong);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ab-why-item b{color:var(--ink);display:block;font-size:.98rem}.ab-why-item span{color:var(--body);font-size:.9rem}
 
+.ab-faq{display:grid;grid-template-columns:1fr;gap:14px;max-width:900px;margin:0 auto}
+@media(min-width:720px){.ab-faq{grid-template-columns:1fr 1fr}}
+.ab-faq-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow-sm)}
+.ab-faq-item h4{color:var(--ink);font-size:1rem;margin:0 0 7px;display:flex;gap:7px}
+.ab-faq-item h4 span{color:var(--brand);font-weight:800}
+.ab-faq-item p{color:var(--body);font-size:.92rem;line-height:1.55;margin:0}
+
 /* CONTACT / INTAKE */
 .ab-contact{background:radial-gradient(120% 130% at 50% -20%, #12203c, #0A1222 75%);border-radius:26px;padding:clamp(30px,5vw,54px);color:#fff}
 .ab-contact-in{display:grid;grid-template-columns:1fr;gap:34px}
@@ -170,21 +177,10 @@ function IntakeForm({ source = 'david' }) {
         <div><label>{t('Your name', 'Tu nombre')}</label><input value={form.name} onChange={set('name')} required placeholder={t('Jane Smith', 'Juana Pérez')} /></div>
         <div><label>{t('Phone', 'Teléfono')}</label><input value={form.phone} onChange={set('phone')} placeholder="(707) 555-1234" /></div>
       </div>
-      <div className="fld"><label>{t('Email', 'Correo electrónico')}</label><input type="email" value={form.email} onChange={set('email')} placeholder={t('you@business.com', 'tu@negocio.com')} /></div>
-      <div className="fld"><label>{t('What do you need help with?', '¿En qué necesitas ayuda?')}</label>
-        <select value={form.niche} onChange={set('niche')}>
-          <option value="">{t('Select one…', 'Selecciona una…')}</option>
-          <option>{t('A new website', 'Un sitio web nuevo')}</option>
-          <option>{t('Redesign my current site', 'Rediseñar mi sitio actual')}</option>
-          <option>{t('SEO / get found on Google', 'SEO / que me encuentren en Google')}</option>
-          <option>{t('Marketing & growth', 'Marketing y crecimiento')}</option>
-          <option>{t('AI tools / automation', 'Herramientas de IA / automatización')}</option>
-          <option>{t('Something else', 'Otra cosa')}</option>
-        </select>
-      </div>
-      <div className="fld"><label>{t('Tell me a bit about your project', 'Cuéntame un poco sobre tu proyecto')}</label><textarea value={form.message} onChange={set('message')} placeholder={t("What's your business, and what are you hoping to get done?", '¿Cuál es tu negocio y qué te gustaría lograr?')} /></div>
+      <div className="fld"><label>{t('Email (optional)', 'Correo (opcional)')}</label><input type="email" value={form.email} onChange={set('email')} placeholder={t('you@business.com', 'tu@negocio.com')} /></div>
+      <div className="fld"><label>{t('Your business (optional)', 'Tu negocio (opcional)')}</label><textarea value={form.message} onChange={set('message')} placeholder={t("What's your business, and do you have a site now? (a sentence is plenty)", '¿Cuál es tu negocio y ya tienes un sitio? (una frase basta)')} /></div>
       <button className="nv-btn nv-btn-primary submit" type="submit" disabled={status === 'sending'}>
-        {status === 'sending' ? t('Sending…', 'Enviando…') : t('Send it to David', 'Enviárselo a David')} <Arrow />
+        {status === 'sending' ? t('Sending…', 'Enviando…') : t('Get my free mockup', 'Quiero mi mockup gratis')} <Arrow />
       </button>
       {status === 'error' && <div className="msg err">{err}</div>}
       <div className="msg" style={{ color: 'var(--muted)', fontWeight: 500 }}>{t('Prefer to talk? Call or text me directly — I answer the same day.', '¿Prefieres hablar? Llámame o escríbeme directamente — respondo el mismo día.')}</div>
@@ -348,6 +344,14 @@ export default function AboutPage() {
     { img: workAviation, name: 'APEX Private Aviation', cat: t('Concept · Luxury Aviation', 'Concepto · Aviación de lujo'), result: t('A cinematic concept for a private-jet brand.', 'Un concepto cinematográfico para una marca de jets privados.'), url: 'https://aviation.nuvion-solutions.com' },
     { img: workMedspa, name: 'Lumina Aesthetics', cat: t('Concept · Med Spa', 'Concepto · Med Spa'), result: t('A luxe, calming concept for a modern med spa.', 'Un concepto lujoso y relajante para un med spa moderno.'), url: 'https://medspa.nuvion-solutions.com' },
   ];
+  const faqs = [
+    [t('Is the mockup really free?', '¿El mockup es realmente gratis?'), t('Yes — 100% free, no card, no obligation. I design a real mockup of your site so you can see it before you decide anything.', 'Sí — 100% gratis, sin tarjeta, sin obligación. Diseño un mockup real de tu sitio para que lo veas antes de decidir nada.')],
+    [t("What's the catch?", '¿Cuál es el truco?'), t("There isn't one. I only get paid if you love what I build and want it live. If it's not for you, we part as friends and you owe nothing.", 'No hay ninguno. Solo me pagan si te encanta lo que construyo y lo quieres en vivo. Si no es para ti, quedamos como amigos y no debes nada.')],
+    [t('When do I actually pay?', '¿Cuándo pago en realidad?'), t("Only once your site is live and you're happy with it. Nothing upfront, no deposit.", 'Solo cuando tu sitio está en vivo y estás contento con él. Nada por adelantado, sin depósito.')],
+    [t('How fast is it?', '¿Qué tan rápido es?'), t("You'll see your free mockup within a few days, and once we're rolling, your site goes live in about a week.", 'Verás tu mockup gratis en unos días, y una vez en marcha, tu sitio se publica en aproximadamente una semana.')],
+    [t('Do I own my website?', '¿Soy dueño de mi sitio web?'), t("Yes — it's yours to keep. I host and look after it for you, and you're never locked in.", 'Sí — es tuyo. Yo lo alojo y lo cuido por ti, y nunca quedas atrapado en un contrato.')],
+    [t('How do I get started?', '¿Cómo empiezo?'), t("Just tell me a bit about your business below, or text me. I'll get to work on your free mockup — same-day reply.", 'Solo cuéntame un poco sobre tu negocio abajo, o escríbeme. Empezaré con tu mockup gratis — respuesta el mismo día.')],
+  ];
   return (
     <>
       <title>{angle.title}</title>
@@ -463,6 +467,16 @@ export default function AboutPage() {
               [t('Built to get customers', 'Hecho para conseguir clientes'), t('Fast, mobile-first, SEO-ready — designed to turn visitors into paying clients.', 'Rápido, mobile-first y listo para SEO — diseñado para convertir visitantes en clientes que pagan.')],
             ].map(([title, d]) => (
               <div className="ab-why-item rv" key={title}><span className="ck"><Check /></span><div><b>{title}</b><span>{d}</span></div></div>
+            ))}
+          </div>
+        </div></section>
+
+        {/* FAQ */}
+        <section className="nv-sec soft"><div className="nv-wrap">
+          <div className="nv-center rv"><div className="nv-kicker">{t('Common questions', 'Preguntas comunes')}</div><h2 className="nv-h2">{t('The free mockup, explained', 'El mockup gratis, explicado')}</h2></div>
+          <div className="ab-faq">
+            {faqs.map(([q, a], i) => (
+              <div className="ab-faq-item rv" key={i}><h4><span>Q.</span>{q}</h4><p>{a}</p></div>
             ))}
           </div>
         </div></section>
