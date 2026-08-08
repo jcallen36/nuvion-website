@@ -11,6 +11,12 @@
 //
 // Every submission does BOTH: (1) emails YOU the lead, (2) emails the person a confirmation.
 //
+// Reliability: the lead notification is sent with a short retry on transient
+// failures (Resend 5xx / network / timeout) so a brief hiccup never drops a
+// lead; on a real failure after retries it logs the full lead (recoverable from
+// the server logs) and returns 500 so the form tells the visitor to call — it
+// never shows a false "thank you" or fires a phantom conversion.
+//
 // Env vars — set in Vercel (nuvion-website → Settings → Environment Variables):
 //   RESEND_API_KEY      (required)  your Resend API key
 //   CONTACT_EMAIL_FROM  (required for real delivery) a sender on a domain you've
@@ -24,9 +30,41 @@
 //   LEAD_EMAIL_AD       David's leads inbox   — e.g. "djprudhomme04+david@gmail.com"
 //                        Both can be the SAME Gmail; the +tag lets Gmail auto-filter,
 //                        and the subject lines label them either way.
-import { Resend } from 'resend';
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Send via Resend's REST API with a short retry on transient (5xx / network /
+// timeout) failures so a brief hiccup never drops a lead. 4xx is permanent —
+// don't waste retries. Returns { ok: true } or { ok: false, reason }.
+const SEND_RETRY_DELAYS_MS = [500, 1500];
+const SEND_TIMEOUT_MS = 8000;
+
+async function sendResend(payload, apiKey) {
+  let lastReason = 'unknown';
+  for (let i = 0; i <= SEND_RETRY_DELAYS_MS.length; i++) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), SEND_TIMEOUT_MS);
+    try {
+      const r = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      if (r.ok) return { ok: true };
+      // 4xx is a permanent error (bad payload, unverified domain, bad key) — stop.
+      if (r.status >= 400 && r.status < 500) return { ok: false, reason: `http_${r.status}` };
+      lastReason = `http_${r.status}`;
+    } catch (err) {
+      clearTimeout(timer);
+      lastReason = err && err.name === 'AbortError' ? 'timeout' : 'network';
+    }
+    const delay = SEND_RETRY_DELAYS_MS[i];
+    if (delay !== undefined) await new Promise((res) => setTimeout(res, delay));
+  }
+  return { ok: false, reason: lastReason };
+}
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
@@ -56,10 +94,8 @@ export default async function handler(req, res) {
     ? `🎯 DAVID LEAD · ${src} — ${name}${niche ? ` · ${niche}` : ''}`
     : `🌐 NUVION SITE LEAD · ${src} — ${name}${niche ? ` · ${niche}` : ''}`;
 
-  const resend = new Resend(apiKey);
-
-  // 1) Notify YOU of the submission.
-  const { error } = await resend.emails.send({
+  // 1) Notify YOU of the submission (retried on transient failures).
+  const result = await sendResend({
     from,
     to,
     reply_to: email || undefined,
@@ -76,27 +112,40 @@ Help with: ${niche || '—'}
 Message:
 ${message || '—'}
     `.trim(),
-  });
+  }, apiKey);
 
-  if (error) return res.status(500).json({ error: 'Failed to send. Please try again or call.' });
+  // On a real failure after retries, log the full lead so it's recoverable from
+  // the server logs, and tell the visitor to call — never a silent success.
+  if (!result.ok) {
+    console.error('[contact] Lead email failed after retries — recover the lead from this log:', {
+      reason: result.reason,
+      source: src,
+      name,
+      phone: phone || '—',
+      email: email || '—',
+      niche: niche || '—',
+      message: message || '—',
+    });
+    return res.status(500).json({ error: 'Failed to send. Please try again or call.' });
+  }
 
-  // 2) Send the person an instant confirmation (speed-to-lead) — best-effort, never blocks.
+  // 2) Send the person an instant confirmation (speed-to-lead) — best-effort,
+  //    retried, and never blocks the response.
   //    David's leads hear from David; main-site leads hear from the Nuvion team.
   if (email && EMAIL_RE.test(email)) {
     const firstName = String(name).trim().split(/\s+/)[0] || name;
     const es = lang === 'es';
     const phoneOut = isDavid ? '(707) 535-6054' : '(707) 520-9179';
-    try {
-      await resend.emails.send({
-        from,
-        to: email,
-        reply_to: to,
-        subject: isDavid
-          ? (es ? 'Recibí tu mensaje — David de Nuvion Solutions' : 'Got your message — David at Nuvion Solutions')
-          : (es ? 'Gracias por escribirnos — Nuvion Solutions' : 'Thanks for reaching out — Nuvion Solutions'),
-        text: isDavid
-          ? (es
-            ? `Hola ${firstName},
+    await sendResend({
+      from,
+      to: email,
+      reply_to: to,
+      subject: isDavid
+        ? (es ? 'Recibí tu mensaje — David de Nuvion Solutions' : 'Got your message — David at Nuvion Solutions')
+        : (es ? 'Gracias por escribirnos — Nuvion Solutions' : 'Thanks for reaching out — Nuvion Solutions'),
+      text: isDavid
+        ? (es
+          ? `Hola ${firstName},
 
 Gracias por escribir — soy David de Nuvion Solutions. Recibí tu mensaje y te responderé personalmente hoy, normalmente dentro de la hora.
 
@@ -105,7 +154,7 @@ Si es más fácil, llámame o escríbeme directamente al ${phoneOut}.
 Hablamos pronto,
 David
 Nuvion Solutions · Sonoma County`
-            : `Hi ${firstName},
+          : `Hi ${firstName},
 
 Thanks for reaching out — this is David from Nuvion Solutions. I got your message and I'll personally get back to you today, usually within the hour.
 
@@ -114,8 +163,8 @@ If it's easier, call or text me directly at ${phoneOut}.
 Talk soon,
 David
 Nuvion Solutions · Sonoma County`)
-          : (es
-            ? `Hola ${firstName},
+        : (es
+          ? `Hola ${firstName},
 
 Gracias por escribirnos a Nuvion Solutions. Recibimos tu mensaje y te responderemos hoy mismo, normalmente dentro de la hora.
 
@@ -124,7 +173,7 @@ Si prefieres, llámanos o escríbenos al ${phoneOut}.
 Hablamos pronto,
 El equipo de Nuvion Solutions
 Sonoma County`
-            : `Hi ${firstName},
+          : `Hi ${firstName},
 
 Thanks for reaching out to Nuvion Solutions. We got your message and we'll get back to you today, usually within the hour.
 
@@ -133,8 +182,7 @@ If it's easier, call or text us at ${phoneOut}.
 Talk soon,
 The Nuvion Solutions team
 Sonoma County`),
-      });
-    } catch { /* confirmation is best-effort; ignore failures */ }
+    }, apiKey);
   }
 
   return res.status(200).json({ ok: true });
