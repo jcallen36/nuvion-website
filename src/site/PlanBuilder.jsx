@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BASE_CSS, Nav, Footer, Arrow, Check } from './shared.jsx';
 import { useLang } from './i18n.jsx';
 import { trackLead } from '../analytics.js';
+import { useLeadStart } from './useLeadStart.js';
 
 /* ── Smart "instant plan" tool ─────────────────────────────────
    A short, low-friction builder: a few questions about the business →
@@ -82,6 +83,7 @@ export default function PlanBuilder() {
   const [a, setA] = useState({ need: [], niche: '', goals: [], when: '' });
   const [form, setForm] = useState({ name: '', business: '', email: '', phone: '' });
   const [state, setState] = useState('idle'); // idle | sending | done | error
+  const { onStart, markSubmitted } = useLeadStart('plan-builder', () => ({ name: form.name, email: form.email, phone: form.phone }));
 
   const STEPS = [
     {
@@ -204,6 +206,7 @@ export default function PlanBuilder() {
         }),
       });
       if (!res.ok) throw new Error('bad');
+      markSubmitted();
       trackLead({ source: 'plan_builder', email: form.email, phone: form.phone });
       setState('done');
     } catch {
@@ -275,7 +278,7 @@ export default function PlanBuilder() {
                 <div className="pb-step-lab">{t('Last step', 'Último paso')}</div>
                 <div className="pb-q">{t('Where should we reach you?', '¿Cómo te contactamos?')}</div>
                 <div className="pb-hint">{t("You'll see your plan on the next screen, and we'll reach out to set up a free scoping call — usually the same day.", 'Verás tu plan en la siguiente pantalla y te contactaremos para una llamada gratis — normalmente el mismo día.')}</div>
-                <div className="pb-form two">
+                <div className="pb-form two" onInput={onStart}>
                   <div className="pb-field"><label>{t('Your name', 'Tu nombre')}</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder={t('First & last', 'Nombre y apellido')} /></div>
                   <div className="pb-field"><label>{t('Business name', 'Nombre del negocio')}</label><input value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })} placeholder={t('Optional', 'Opcional')} /></div>
                   <div className="pb-field"><label>{t('Email', 'Correo')}</label><input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@business.com" /></div>

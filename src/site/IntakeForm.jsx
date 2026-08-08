@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Arrow } from './shared.jsx';
 import { useLang } from './i18n.jsx';
 import { trackLead } from '../analytics.js';
+import { useLeadStart } from './useLeadStart.js';
 
 /* Reusable intake form — posts to /api/contact (Resend). Used on /about and /book. */
 
@@ -29,6 +30,7 @@ export function IntakeForm({ source = 'website' }) {
   const [status, setStatus] = useState('idle');
   const [err, setErr] = useState('');
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+  const { onStart, markSubmitted } = useLeadStart(source, () => form);
 
   async function submit(e) {
     e.preventDefault();
@@ -41,7 +43,7 @@ export function IntakeForm({ source = 'website' }) {
     try {
       const r = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...form, source, lang }) });
       const j = await r.json().catch(() => ({}));
-      if (r.ok && j.ok) { setStatus('done'); trackLead({ source, niche: form.niche || 'unspecified', email: form.email, phone: form.phone }); }
+      if (r.ok && j.ok) { setStatus('done'); markSubmitted(); trackLead({ source, niche: form.niche || 'unspecified', email: form.email, phone: form.phone }); }
       else { setStatus('error'); setErr(j.error || t('Something went wrong. Please call instead.', 'Algo salió mal. Por favor llama en su lugar.')); }
     } catch { setStatus('error'); setErr(t('Network error — please call or text us instead.', 'Error de red — por favor llámanos o escríbenos.')); }
   }
@@ -57,7 +59,7 @@ export function IntakeForm({ source = 'website' }) {
   }
 
   return (
-    <form className="nvf-form" onSubmit={submit}>
+    <form className="nvf-form" onSubmit={submit} onInput={onStart}>
       <div className="row two" style={{ marginBottom: 14 }}>
         <div><label>{t('Your name', 'Tu nombre')}</label><input value={form.name} onChange={set('name')} required placeholder={t('Jane Smith', 'Juana Pérez')} /></div>
         <div><label>{t('Phone', 'Teléfono')}</label><input value={form.phone} onChange={set('phone')} placeholder="(707) 555-1234" /></div>

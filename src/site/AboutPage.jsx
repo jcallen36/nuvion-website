@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { BASE_CSS, Footer, useReveal, Arrow, Check, IconWeb, IconSeo, IconMkt } from './shared.jsx';
 import { useLang, LangToggle } from './i18n.jsx';
 import { trackLead, trackCall } from '../analytics.js';
+import { useLeadStart } from './useLeadStart.js';
 import { LOCAL_TOWNS } from './LocalPage.jsx';
 import davidHero from '../assets/team/david-hero.webp';
 import sonomaHills from '../assets/local/sonoma-hills.webp';
@@ -144,6 +145,7 @@ function IntakeForm({ source = 'david' }) {
   const [status, setStatus] = useState('idle');
   const [err, setErr] = useState('');
   const set = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+  const { onStart, markSubmitted } = useLeadStart(source, () => form);
 
   async function submit(e) {
     e.preventDefault();
@@ -156,7 +158,7 @@ function IntakeForm({ source = 'david' }) {
     try {
       const r = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...form, source, lang }) });
       const j = await r.json().catch(() => ({}));
-      if (r.ok && j.ok) { setStatus('done'); trackLead({ source, niche: form.niche || 'unspecified', email: form.email, phone: form.phone }); }
+      if (r.ok && j.ok) { setStatus('done'); markSubmitted(); trackLead({ source, niche: form.niche || 'unspecified', email: form.email, phone: form.phone }); }
       else { setStatus('error'); setErr(j.error || t('Something went wrong. Please call instead.', 'Algo salió mal. Por favor llama en su lugar.')); }
     } catch { setStatus('error'); setErr(t('Network error — please call or text me instead.', 'Error de red — por favor llámame o escríbeme.')); }
   }
@@ -172,7 +174,7 @@ function IntakeForm({ source = 'david' }) {
   }
 
   return (
-    <form className="ab-form" onSubmit={submit}>
+    <form className="ab-form" onSubmit={submit} onInput={onStart}>
       <div className="row two" style={{ marginBottom: 14 }}>
         <div><label>{t('Your name', 'Tu nombre')}</label><input value={form.name} onChange={set('name')} required placeholder={t('Jane Smith', 'Juana Pérez')} /></div>
         <div><label>{t('Phone', 'Teléfono')}</label><input value={form.phone} onChange={set('phone')} placeholder="(707) 555-1234" /></div>
