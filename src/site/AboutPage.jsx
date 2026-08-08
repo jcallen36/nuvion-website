@@ -9,6 +9,9 @@ import sonomaHills from '../assets/local/sonoma-hills.webp';
 import workDumolin from '../assets/work/dumolin.webp';
 import workCalegal from '../assets/work/calegal.webp';
 import workArpkd from '../assets/work/arpkd.webp';
+import workBayarea from '../assets/work/bayarea.webp';
+import workFloors from '../assets/work/floors.webp';
+import workDenise from '../assets/work/denise.webp';
 
 // David's personal line — used everywhere on the /david ad pages (distinct from the company line).
 const DAVID_PHONE = { tel: '+17075356054', display: '(707) 535-6054' };
@@ -28,7 +31,9 @@ const ABOUT_CSS = `
 .ab-photo img{width:100%;border-radius:22px;box-shadow:var(--shadow-lg);border:1px solid var(--line)}
 .ab-badge{position:absolute;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow-lg);padding:12px 15px;display:flex;gap:10px;align-items:center}
 .ab-badge b{color:var(--ink);font-size:.9rem;display:block}.ab-badge span{color:var(--muted);font-size:.76rem}
-.ab-badge.b1{top:24px;left:-14px}.ab-badge.b2{bottom:26px;right:-14px}
+.ab-badge.b1{top:24px;left:-14px;animation:ab-float 5s ease-in-out infinite}.ab-badge.b2{bottom:26px;right:-14px;animation:ab-float 5.6s ease-in-out infinite .4s}
+@keyframes ab-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(prefers-reduced-motion:reduce){.ab-badge.b1,.ab-badge.b2{animation:none}}
 .ab-stars{color:#F5A623;letter-spacing:1px;font-size:1.1rem}
 .ab-pulse{width:9px;height:9px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 0 rgba(34,197,94,.5);animation:ab-pulse 2s infinite}
 @keyframes ab-pulse{70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
@@ -46,14 +51,21 @@ const ABOUT_CSS = `
 .ab-do-card p{font-size:.94rem}
 
 .ab-work{display:grid;grid-template-columns:1fr;gap:20px}
-@media(min-width:760px){.ab-work{grid-template-columns:repeat(3,1fr)}}
-.ab-work-card{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s}
-.ab-work-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+@media(min-width:640px){.ab-work{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:940px){.ab-work{grid-template-columns:repeat(3,1fr)}}
+.ab-work-card{display:block;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff;box-shadow:var(--shadow);transition:transform .18s,box-shadow .18s;color:inherit;text-decoration:none}
+.ab-work-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
 .ab-work-bar{height:26px;background:#F1F4F9;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:5px;padding:0 10px}
 .ab-work-bar i{width:7px;height:7px;border-radius:50%;background:#CBD4E1}
-.ab-work-shot{height:172px;overflow:hidden}
-.ab-work-shot img{width:100%;height:100%;object-fit:cover;object-position:top}
-.ab-work-card h4{color:var(--ink);font-size:1rem;padding:14px 16px}
+.ab-work-shot{position:relative;height:184px;overflow:hidden}
+.ab-work-shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .3s}
+.ab-work-card:hover .ab-work-shot img{transform:scale(1.045)}
+.ab-work-live{position:absolute;right:10px;bottom:10px;background:rgba(10,18,34,.86);color:#fff;font-size:.74rem;font-weight:700;padding:6px 11px;border-radius:100px;opacity:0;transform:translateY(6px);transition:opacity .2s,transform .2s}
+.ab-work-card:hover .ab-work-live{opacity:1;transform:translateY(0)}
+.ab-work-meta{padding:15px 16px 18px}
+.ab-work-meta h4{color:var(--ink);font-size:1.02rem;margin:0 0 9px}
+.ab-work-chip{display:inline-block;background:var(--brand-soft);color:var(--brand-strong);font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:100px}
+.ab-work-result{color:var(--body);font-size:.88rem;line-height:1.5;margin-top:10px}
 
 .ab-quote{max-width:760px;margin:0 auto;text-align:center}
 .ab-quote .mk{font-size:3.4rem;line-height:.5;color:var(--brand);font-weight:800}
@@ -320,7 +332,14 @@ export default function AboutPage() {
   const { variant } = useParams();
   const angle = resolveAngle(variant);
   const formSource = variant ? `david_${variant}` : 'david';
-  const works = [{ img: workDumolin, name: 'DuMolin Community Living' }, { img: workCalegal, name: 'CA Legal Document Excellence' }, { img: workArpkd, name: 'ARPKD / CHF Alliance' }];
+  const works = [
+    { img: workCalegal, name: 'California Legal Document Excellence', cat: t('Legal · Sonoma County', 'Legal · Sonoma County'), result: t('A lead-gen site with same-day intake — turns searches into booked consults.', 'Un sitio de captación con admisión el mismo día — convierte búsquedas en consultas agendadas.'), url: 'https://calegaldocumenthelp.com' },
+    { img: workDumolin, name: 'DuMolin Community Living', cat: t('Care Facilities · Santa Rosa', 'Centros de cuidado · Santa Rosa'), result: t('Six licensed care homes, unified under one modern, multi-location site.', 'Seis hogares de cuidado con licencia, unidos en un sitio moderno de varias ubicaciones.'), url: 'https://dumolin-homes.vercel.app' },
+    { img: workFloors, name: 'Floors for Sonoma', cat: t('Flooring Studio · Sonoma', 'Estudio de pisos · Sonoma'), result: t('An editorial, high-end site for a Sonoma Valley flooring studio.', 'Un sitio editorial y de alta gama para un estudio de pisos de Sonoma Valley.'), url: 'https://floors-for-sonoma.vercel.app' },
+    { img: workDenise, name: 'Denise Kramer Weddings', cat: t('Weddings · Wine Country', 'Bodas · Wine Country'), result: t('An elegant wedding-planning site for Sonoma & Napa couples.', 'Un elegante sitio de planificación de bodas para parejas de Sonoma y Napa.'), url: 'https://demo-wedding-iota.vercel.app' },
+    { img: workBayarea, name: 'Bay Area 2nd Mom', cat: t('Nanny Agency · Bay Area', 'Agencia de niñeras · Bay Area'), result: t('40+ years of trusted care, freshly branded online.', '40+ años de cuidado confiable, con una marca renovada en línea.'), url: 'https://nanny-agency-website-alpha.vercel.app' },
+    { img: workArpkd, name: 'ARPKD / CHF Alliance', cat: t('Nonprofit · National', 'Sin fines de lucro · Nacional'), result: t('A 25-year rare-disease nonprofit, fully modernized.', 'Una organización de enfermedades raras de 25 años, totalmente modernizada.'), url: '' },
+  ];
   return (
     <>
       <title>{angle.title}</title>
@@ -374,15 +393,20 @@ export default function AboutPage() {
 
         {/* MY WORK */}
         <section className="nv-sec soft"><div className="nv-wrap">
-          <div className="nv-center rv"><div className="nv-kicker">{t('My work', 'Mi trabajo')}</div><h2 className="nv-h2">{t("A few businesses I've helped", 'Algunos negocios que he ayudado')}</h2></div>
+          <div className="nv-center rv"><div className="nv-kicker">{t('My work', 'Mi trabajo')}</div><h2 className="nv-h2">{t('Real sites for real local businesses', 'Sitios reales para negocios locales reales')}</h2><p className="nv-lead">{t("A few I've designed and built — tap any one to see it live.", 'Algunos que he diseñado y construido — toca cualquiera para verlo en vivo.')}</p></div>
           <div className="ab-work">
-            {works.map((w, i) => (
-              <div className={`ab-work-card rv d${i + 1}`} key={w.name}>
-                <div className="ab-work-bar"><i/><i/><i/></div>
-                <div className="ab-work-shot"><img src={w.img} alt={`${w.name} website`} loading="lazy" /></div>
-                <h4>{w.name}</h4>
-              </div>
-            ))}
+            {works.map((w, i) => {
+              const inner = (
+                <>
+                  <div className="ab-work-bar"><i/><i/><i/></div>
+                  <div className="ab-work-shot"><img src={w.img} alt={`${w.name} website`} loading="lazy" />{w.url && <span className="ab-work-live">{t('View live', 'Ver en vivo')} ↗</span>}</div>
+                  <div className="ab-work-meta"><h4>{w.name}</h4><span className="ab-work-chip">{w.cat}</span><p className="ab-work-result">{w.result}</p></div>
+                </>
+              );
+              return w.url
+                ? <a className={`ab-work-card rv d${(i % 3) + 1}`} key={w.name} href={w.url} target="_blank" rel="noopener noreferrer">{inner}</a>
+                : <div className={`ab-work-card rv d${(i % 3) + 1}`} key={w.name}>{inner}</div>;
+            })}
           </div>
           <div style={{ textAlign: 'center', marginTop: 34 }}><Link to="/work" className="nv-btn nv-btn-ghost">{t('See all my work', 'Ver todo mi trabajo')} <Arrow /></Link></div>
         </div></section>
