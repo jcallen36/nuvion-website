@@ -33,6 +33,13 @@
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+// Customer auto-confirmation email — OFF for now (David's call, 2026-08-08). A confirmation can
+// only be delivered from a domain VERIFIED in Resend, and nuvion-solutions.com isn't verified yet,
+// so a confirmation from the shared sandbox sender would never reach real customers. Lead
+// NOTIFICATIONS to David are unaffected — they deliver fine. To re-enable: verify
+// nuvion-solutions.com in Resend → Domains, set CONTACT_EMAIL_FROM to it, then flip this to true.
+const SEND_CONFIRMATION = false;
+
 // Send via Resend's REST API with a short retry on transient (5xx / network /
 // timeout) failures so a brief hiccup never drops a lead. 4xx is permanent —
 // don't waste retries. Returns { ok: true } or { ok: false, reason }.
@@ -69,16 +76,29 @@ async function sendResend(payload, apiKey) {
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) return res.status(503).json({ error: 'Email service not configured.' });
-
-  const { name, email, phone, niche, message, source, lang } = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+  let body;
+  try {
+    body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+  } catch {
+    return res.status(400).json({ error: 'Invalid request.' });
+  }
+  const { name, email, phone, niche, message, source, lang } = body;
 
   if (!name || (!email && !phone)) {
     return res.status(400).json({ error: 'Please include your name and a phone or email.' });
   }
   if (email && !EMAIL_RE.test(email)) {
     return res.status(400).json({ error: 'Please enter a valid email address.' });
+  }
+
+  // Key check AFTER we have the lead in hand — so a missing/expired key still leaves the full
+  // lead in the server logs (recoverable) instead of the submission vanishing without a trace.
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    console.error('[contact] RESEND_API_KEY missing — lead NOT emailed. Recover it from this log:', {
+      source: source || 'website', name, phone: phone || '—', email: email || '—', niche: niche || '—', message: message || '—',
+    });
+    return res.status(503).json({ error: 'Email service not configured.' });
   }
 
   // Two streams: David's own ad-page leads vs. everything on the main company site.
@@ -132,7 +152,7 @@ ${message || '—'}
   // 2) Send the person an instant confirmation (speed-to-lead) — best-effort,
   //    retried, and never blocks the response.
   //    David's leads hear from David; main-site leads hear from the Nuvion team.
-  if (email && EMAIL_RE.test(email)) {
+  if (SEND_CONFIRMATION && email && EMAIL_RE.test(email)) {
     const firstName = String(name).trim().split(/\s+/)[0] || name;
     const es = lang === 'es';
     const phoneOut = isDavid ? '(707) 535-6054' : '(707) 520-9179';

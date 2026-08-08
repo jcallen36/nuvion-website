@@ -207,8 +207,9 @@ export default function PlanBuilder() {
       trackLead({ source: 'plan_builder', email: form.email, phone: form.phone });
       setState('done');
     } catch {
-      // still show the plan + fallback contact; lead can call
-      trackLead({ source: 'plan_builder', email: form.email, phone: form.phone });
+      // Send failed — still show the plan (so the visitor gets value + the phone fallback),
+      // but do NOT fire a conversion: the lead didn't actually reach us. If the POST reached
+      // the server, /api/contact's failure path already logged the full lead for recovery.
       setState('done');
     }
   }
@@ -272,8 +273,8 @@ export default function PlanBuilder() {
             {state !== 'done' && isFormStep && (
               <>
                 <div className="pb-step-lab">{t('Last step', 'Último paso')}</div>
-                <div className="pb-q">{t('Where do we send your plan?', '¿A dónde te enviamos tu plan?')}</div>
-                <div className="pb-hint">{t("We'll email your plan and reach out to set up a free scoping call — usually the same day.", 'Te enviaremos tu plan por correo y te contactaremos para una llamada gratis — normalmente el mismo día.')}</div>
+                <div className="pb-q">{t('Where should we reach you?', '¿Cómo te contactamos?')}</div>
+                <div className="pb-hint">{t("You'll see your plan on the next screen, and we'll reach out to set up a free scoping call — usually the same day.", 'Verás tu plan en la siguiente pantalla y te contactaremos para una llamada gratis — normalmente el mismo día.')}</div>
                 <div className="pb-form two">
                   <div className="pb-field"><label>{t('Your name', 'Tu nombre')}</label><input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder={t('First & last', 'Nombre y apellido')} /></div>
                   <div className="pb-field"><label>{t('Business name', 'Nombre del negocio')}</label><input value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })} placeholder={t('Optional', 'Opcional')} /></div>
@@ -296,7 +297,7 @@ export default function PlanBuilder() {
                 <div className="pb-done" style={{ paddingBottom: 8 }}>
                   <div className="big"><Check /></div>
                   <h2>{t("Here's your plan, ", 'Aquí está tu plan, ')}{form.name.split(' ')[0]}.</h2>
-                  <p>{t("We just emailed you a copy and we'll reach out to set up your free scoping call — usually the same day.", 'Te acabamos de enviar una copia y te contactaremos para tu llamada de cotización gratis — normalmente el mismo día.')}</p>
+                  <p>{t("We've got your details and we'll reach out to set up your free scoping call — usually the same day.", 'Recibimos tus datos y te contactaremos para tu llamada de cotización gratis — normalmente el mismo día.')}</p>
                 </div>
                 <div className="pb-plan-kick">{t('What we’d build for you', 'Lo que construiríamos para ti')}</div>
                 <div className="pb-plan-h">{t('Your recommended build', 'Tu plan recomendado')}</div>
