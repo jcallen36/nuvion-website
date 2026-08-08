@@ -14,7 +14,7 @@ const GA4_ID = '';
 const META_PIXEL_ID = '';
 const GOOGLE_ADS_ID = 'AW-18377556298';
 const GOOGLE_ADS_LEAD_LABEL = '4MfUCMqjjd4cEMqCjbtE';
-const GOOGLE_ADS_CALL_LABEL = '';
+const GOOGLE_ADS_CALL_LABEL = 'OhVFCNeOit4cEMqCjbtE';
 
 let started = false;
 
@@ -58,15 +58,31 @@ export function track(event, params = {}) {
   try { if (window.fbq) window.fbq('trackCustom', event, params); } catch { /* noop */ }
 }
 
-/* THE money event — a form submission / new lead. Fires GA4, Meta, and Google Ads conversions. */
+/* THE money event — a form submission / new lead. Fires GA4, Meta, and Google Ads conversions.
+   For Google Ads Enhanced Conversions we also hand Google the lead's email/phone via gtag('set','user_data')
+   so it can match this conversion back to the ad click. The Google tag normalizes + SHA-256-hashes the
+   values in-browser before sending — the raw values never leave the page. email/phone are stripped out of
+   the GA4 / Meta event params so no PII leaks into those. */
 export function trackLead(params = {}) {
-  try { if (window.gtag && GA4_ID) window.gtag('event', 'generate_lead', params); } catch { /* noop */ }
+  const { email, phone, ...rest } = params;
+  try {
+    if (window.gtag && GOOGLE_ADS_ID && (email || phone)) {
+      const userData = {};
+      const e = String(email || '').trim().toLowerCase();
+      if (e) userData.email = e;
+      let d = String(phone || '').replace(/\D/g, '');
+      if (d.length === 10) d = '1' + d;          // bare US 10-digit → add country code
+      if (d) userData.phone_number = '+' + d;    // E.164 (Google requires the leading +)
+      if (userData.email || userData.phone_number) window.gtag('set', 'user_data', userData);
+    }
+  } catch { /* noop */ }
+  try { if (window.gtag && GA4_ID) window.gtag('event', 'generate_lead', rest); } catch { /* noop */ }
   try {
     if (window.gtag && GOOGLE_ADS_ID && GOOGLE_ADS_LEAD_LABEL) {
       window.gtag('event', 'conversion', { send_to: `${GOOGLE_ADS_ID}/${GOOGLE_ADS_LEAD_LABEL}` });
     }
   } catch { /* noop */ }
-  try { if (window.fbq) window.fbq('track', 'Lead', params); } catch { /* noop */ }
+  try { if (window.fbq) window.fbq('track', 'Lead', rest); } catch { /* noop */ }
 }
 
 /* The other money event — someone taps a call/text button. Fires GA4, Meta, and Google Ads call conversions. */

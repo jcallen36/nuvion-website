@@ -204,11 +204,11 @@ export default function PlanBuilder() {
         }),
       });
       if (!res.ok) throw new Error('bad');
-      trackLead({ source: 'plan_builder' });
+      trackLead({ source: 'plan_builder', email: form.email, phone: form.phone });
       setState('done');
     } catch {
       // still show the plan + fallback contact; lead can call
-      trackLead({ source: 'plan_builder' });
+      trackLead({ source: 'plan_builder', email: form.email, phone: form.phone });
       setState('done');
     }
   }

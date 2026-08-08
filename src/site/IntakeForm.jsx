@@ -41,7 +41,7 @@ export function IntakeForm({ source = 'website' }) {
     try {
       const r = await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...form, source, lang }) });
       const j = await r.json().catch(() => ({}));
-      if (r.ok && j.ok) { setStatus('done'); trackLead({ source, niche: form.niche || 'unspecified' }); }
+      if (r.ok && j.ok) { setStatus('done'); trackLead({ source, niche: form.niche || 'unspecified', email: form.email, phone: form.phone }); }
       else { setStatus('error'); setErr(j.error || t('Something went wrong. Please call instead.', 'Algo salió mal. Por favor llama en su lugar.')); }
     } catch { setStatus('error'); setErr(t('Network error — please call or text us instead.', 'Error de red — por favor llámanos o escríbenos.')); }
   }
