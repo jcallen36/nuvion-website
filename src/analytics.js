@@ -12,8 +12,8 @@
 ───────────────────────────────────────────────────────────── */
 const GA4_ID = '';
 const META_PIXEL_ID = '';
-const GOOGLE_ADS_ID = '';
-const GOOGLE_ADS_LEAD_LABEL = '';
+const GOOGLE_ADS_ID = 'AW-18377556298';
+const GOOGLE_ADS_LEAD_LABEL = '4MfUCMqjjd4cEMqCjbtE';
 const GOOGLE_ADS_CALL_LABEL = '';
 
 let started = false;
