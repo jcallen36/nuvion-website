@@ -183,10 +183,10 @@ function IntakeForm({ source = 'david' }) {
    message-matched to the ad; everything else (proof, work, form) stays. */
 const DEFAULT_ANGLE = {
   eyebrow: { en: 'Co-founder · Santa Rosa, CA', es: 'Cofundador · Santa Rosa, CA' },
-  h1: { en: `Hi, I'm David — I'll build your website <span class="nv-grad">personally</span>.`, es: `Hola, soy David — construiré tu sitio web <span class="nv-grad">personalmente</span>.` },
-  sub: { en: "You won't get passed to a sales rep or an offshore team. I design and build every site myself, answer the same day, and stick with you long after launch.", es: 'No te pasarán con un vendedor ni con un equipo en el extranjero. Yo diseño y construyo cada sitio, respondo el mismo día y me quedo contigo mucho después del lanzamiento.' },
+  h1: { en: `Hi, I'm David — I'll build your website <span class="nv-grad">before you pay</span>.`, es: `Hola, soy David — construiré tu sitio web <span class="nv-grad">antes de que pagues</span>.` },
+  sub: { en: "Start with a free mockup — see exactly what your site will look like. I design, build, and host the whole thing myself, and you only pay once it's live and you love it. One local person, start to finish.", es: 'Empieza con un mockup gratis — mira exactamente cómo se verá tu sitio. Yo diseño, construyo y alojo todo, y solo pagas cuando está en vivo y te encanta. Una persona local, de principio a fin.' },
   title: 'Meet David — Web Designer in Sonoma County | Nuvion',
-  desc: "I'm David Prudhomme — I personally design and build websites for Sonoma County businesses, answer same-day, and stay with you after launch. See my work.",
+  desc: "I'm David Prudhomme — I design, build, and host your website before you pay. Start with a free mockup, go live in about a week, and only pay once you love it. Sonoma County web design.",
   noindex: false,
 };
 
@@ -337,13 +337,13 @@ export default function AboutPage() {
             <h1 className="ab-h1" dangerouslySetInnerHTML={{ __html: angle.h1[lang] || angle.h1.en }} />
             <p className="sub">{angle.sub[lang] || angle.sub.en}</p>
             <div className="ab-cta">
-              <a href="#contact" className="nv-btn nv-btn-primary nv-btn-lg">{t('Start your project', 'Comienza tu proyecto')} <Arrow /></a>
+              <a href="#contact" className="nv-btn nv-btn-primary nv-btn-lg">{t('Get my free mockup', 'Quiero mi mockup gratis')} <Arrow /></a>
               <a href={`tel:${DAVID_PHONE.tel}`} className="nv-btn nv-btn-ghost nv-btn-lg" onClick={() => trackCall({ source: 'david_hero' })}>{t('Call / text me', 'Llámame')}</a>
             </div>
-            <div className="ab-guar">{t(<>⚡ Your site live in&nbsp;<b>1 week</b>&nbsp;— or you don't pay</>, <>⚡ Tu sitio en vivo en&nbsp;<b>1 semana</b>&nbsp;— o no pagas</>)}</div>
+            <div className="ab-guar">{t(<>⚡ Free mockup —&nbsp;<b>built before you pay</b></>, <>⚡ Mockup gratis —&nbsp;<b>construido antes de pagar</b></>)}</div>
             <div className="ab-ticks">
-              <span><Check /> {t('Same-day answers', 'Respuestas el mismo día')}</span>
-              <span><Check /> {t('You own it', 'Es tuyo')}</span>
+              <span><Check /> {t('Pay only when you love it', 'Pagas solo cuando te encanta')}</span>
+              <span><Check /> {t('Yours forever', 'Tuyo para siempre')}</span>
               <span><Check /> {t('Sonoma County local', 'Local de Sonoma County')}</span>
             </div>
           </div>
@@ -425,8 +425,8 @@ export default function AboutPage() {
         <section className="nv-sec" id="contact" style={{ paddingTop: 0 }}><div className="nv-wrap">
           <div className="ab-contact rv"><div className="ab-contact-in">
             <div>
-              <h2>{t("Let's talk about your project", 'Hablemos de tu proyecto')}</h2>
-              <p className="lead">{t("Tell me a bit about your business and I'll personally get back to you the same day — no pressure, no jargon.", 'Cuéntame un poco sobre tu negocio y te responderé personalmente el mismo día — sin presión, sin tecnicismos.')}</p>
+              <h2>{t('Get your free mockup', 'Recibe tu mockup gratis')}</h2>
+              <p className="lead">{t("Tell me a bit about your business and I'll design a free mockup of your new site — no cost, no pressure. You only pay if you love it and want it live.", 'Cuéntame un poco sobre tu negocio y diseñaré un mockup gratis de tu nuevo sitio — sin costo, sin presión. Solo pagas si te encanta y lo quieres en vivo.')}</p>
               <div className="ab-call">
                 <a className="ab-callbtn" href={`tel:${DAVID_PHONE.tel}`} onClick={() => trackCall({ source: 'david_contact' })}><span>📞</span><span>{DAVID_PHONE.display}<small>{t('Call or text me directly', 'Llámame o escríbeme directamente')}</small></span></a>
               </div>

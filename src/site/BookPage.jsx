@@ -27,16 +27,16 @@ export default function BookPage() {
   const { t } = useLang();
   return (
     <>
-      <title>Book a Free Call — Web Design in Sonoma County | Nuvion</title>
-      <meta name="description" content="Book a free, no-pressure call with Nuvion Solutions. Tell us about your business and we'll show you exactly what we'd build. Same-day response." />
+      <title>Get a Free Website Mockup — Sonoma County | Nuvion</title>
+      <meta name="description" content="Get a free mockup of your new website from Nuvion Solutions. We design, build, and host it — you only pay once it's live and you love it. Same-day response." />
       <link rel="canonical" href="https://www.nuvion-solutions.com/book" />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + BOOK_CSS + FORM_CSS }} />
       <Nav />
       <main>
         <section className="bk-hero"><div className="nv-wrap">
-          <span className="nv-eyebrow"><span className="dot" />{t('Free vision session · No pressure', 'Sesión de visión gratis · Sin presión')}</span>
-          <h1 className="bk-h1">{t(<>Let's turn your vision into a <span className="nv-grad">website that wins customers</span>.</>, <>Convirtamos tu visión en un <span className="nv-grad">sitio que gana clientes</span>.</>)}</h1>
-          <p className="sub">{t("Tell us about your business and your vision — we'll get back to you the same day with exactly what we'd build and a straight answer on cost. Bring your ideas, even a rough sketch.", 'Cuéntanos sobre tu negocio y tu visión — te responderemos el mismo día con exactamente lo que construiríamos y una respuesta directa sobre el costo. Trae tus ideas, hasta un boceto.')}</p>
+          <span className="nv-eyebrow"><span className="dot" />{t('Free mockup · No commitment', 'Mockup gratis · Sin compromiso')}</span>
+          <h1 className="bk-h1">{t(<>Get a free mockup of your <span className="nv-grad">new website</span>.</>, <>Recibe un mockup gratis de tu <span className="nv-grad">nuevo sitio web</span>.</>)}</h1>
+          <p className="sub">{t("Tell us about your business and we'll design a free mockup of your new site — see exactly what you'd get before you pay a dime. Bring your ideas, even a rough sketch, and we'll get back to you the same day.", 'Cuéntanos sobre tu negocio y diseñaremos un mockup gratis de tu nuevo sitio — mira exactamente lo que tendrías antes de pagar nada. Trae tus ideas, hasta un boceto, y te responderemos el mismo día.')}</p>
         </div></section>
 
         <section className="nv-sec" style={{ paddingTop: 34 }}><div className="nv-wrap">
@@ -44,8 +44,8 @@ export default function BookPage() {
             <div className="bk-info rv">
               <h2>{t('What to expect', 'Qué esperar')}</h2>
               <ul className="bk-list">
-                <li><span className="ck"><Check /></span><div><b>{t('A real conversation', 'Una conversación real')}</b><span>{t('You talk to a real person — not a sales rep. Bring your ideas, even a rough sketch.', 'Hablas con una persona real — no con un vendedor. Trae tus ideas, hasta un boceto.')}</span></div></li>
-                <li><span className="ck"><Check /></span><div><b>{t('Your vision, mapped out', 'Tu visión, trazada')}</b><span>{t("We'll turn your ideas into a clear plan — exactly what we'd build and roughly what it costs.", 'Convertiremos tus ideas en un plan claro — exactamente lo que construiríamos y aproximadamente cuánto cuesta.')}</span></div></li>
+                <li><span className="ck"><Check /></span><div><b>{t('A free mockup', 'Un mockup gratis')}</b><span>{t('We design a real mockup of your new site so you can see it before you decide anything. No cost, no commitment.', 'Diseñamos un mockup real de tu nuevo sitio para que lo veas antes de decidir nada. Sin costo, sin compromiso.')}</span></div></li>
+                <li><span className="ck"><Check /></span><div><b>{t('Built before you pay', 'Construido antes de pagar')}</b><span>{t('Love it? We build and host the whole site — and you only pay once it goes live and you love it.', '¿Te encanta? Construimos y alojamos todo el sitio — y solo pagas cuando está en vivo y te encanta.')}</span></div></li>
                 <li><span className="ck"><Check /></span><div><b>{t('Same-day response', 'Respuesta el mismo día')}</b><span>{t("Send the form and we'll get back to you today — usually within the hour.", 'Envía el formulario y te responderemos hoy — normalmente dentro de la hora.')}</span></div></li>
               </ul>
               <a className="bk-call" href="tel:+17075209179"><span className="ph">📞</span><span><b>(707) 520-9179</b><span>{t('Prefer to call or text? Reach us directly.', '¿Prefieres llamar o escribir? Contáctanos directamente.')}</span></span></a>

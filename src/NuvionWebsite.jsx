@@ -653,7 +653,7 @@ function Nav() {
         </nav>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <LangToggle />
-          <Link to="/book" className="nv-btn nv-btn-primary nv-navcta">{t('Book a Call', 'Reserva una llamada')}</Link>
+          <Link to="/book" className="nv-btn nv-btn-primary nv-navcta">{t('Free Mockup', 'Mockup Gratis')}</Link>
           <button className={`nv-burger${open ? ' open' : ''}`} onClick={() => setOpen(!open)} aria-label="Menu"><span/><span/><span/></button>
         </div>
       </div>
@@ -662,7 +662,7 @@ function Nav() {
         {links.map((l, i) => l.to.startsWith('#')
           ? <a key={i} href={l.to} onClick={() => setOpen(false)}>{l.label}</a>
           : <Link key={i} to={l.to} onClick={() => setOpen(false)}>{l.label}</Link>)}
-        <Link to="/book" className="nv-btn nv-btn-primary" onClick={() => setOpen(false)}>{t('Book a Call', 'Reserva una llamada')}</Link>
+        <Link to="/book" className="nv-btn nv-btn-primary" onClick={() => setOpen(false)}>{t('Free Mockup', 'Mockup Gratis')}</Link>
       </div>
     </header>
   );
@@ -674,20 +674,20 @@ function Hero() {
   return (
     <section className="nv-hero" id="top">
       <div className="nv-wrap nv-hero-in">
-        <span className="nv-eyebrow"><span className="dot" />{t('Web Design · Custom Builds · Automation · Sonoma County', 'Diseño web · Desarrollos a medida · Automatización · Sonoma County')}</span>
-        <h1 className="nv-h1">{t(<>Websites that win you <span className="nv-grad">more customers</span>.</>, <>Sitios web que te ganan <span className="nv-grad">más clientes</span>.</>)}</h1>
-        <p className="nv-hero-sub">{t('Custom, lightning-fast websites for local businesses — plus the custom builds, integrations, and automations that make them actually run your business. Built by a real Sonoma County team that answers same-day and sticks with you.', 'Sitios web personalizados y rapidísimos para negocios locales — además de los desarrollos a medida, las integraciones y las automatizaciones que hacen que realmente manejen tu negocio. Creados por un equipo real de Sonoma County que responde el mismo día y se queda contigo.')}</p>
+        <span className="nv-eyebrow"><span className="dot" />{t('Web Design · SEO · Sonoma County', 'Diseño Web · SEO · Sonoma County')}</span>
+        <h1 className="nv-h1">{t(<>See your new website <span className="nv-grad">before you pay a dime</span>.</>, <>Ve tu nuevo sitio web <span className="nv-grad">antes de pagar nada</span>.</>)}</h1>
+        <p className="nv-hero-sub">{t('Start with a free mockup — no commitment. We design, build, and host your entire site, and you only pay once it goes live and you love it. Live in about a week, built by a real Sonoma County team, and yours forever.', 'Empieza con un mockup gratis — sin compromiso. Diseñamos, construimos y alojamos todo tu sitio, y solo pagas cuando está en vivo y te encanta. Listo en una semana, hecho por un equipo real de Sonoma County, y es tuyo para siempre.')}</p>
         <div className="nv-hero-cta">
-          <Link to="/book" className="nv-btn nv-btn-primary nv-btn-lg">{t('Book a Free Call', 'Reserva una llamada gratis')} <Arrow /></Link>
+          <Link to="/book" className="nv-btn nv-btn-primary nv-btn-lg">{t('Get my free mockup', 'Quiero mi mockup gratis')} <Arrow /></Link>
           <a href="#work" className="nv-btn nv-btn-ghost nv-btn-lg">{t('See our work', 'Ve nuestro trabajo')}</a>
         </div>
         <div className="nv-ticks">
-          <span><Check /> {t('You own it', 'Es tuyo')}</span>
-          <span><Check /> {t('Same-day responses', 'Respuestas el mismo día')}</span>
-          <span><Check /> {t('Built for your customers', 'Hecho para tus clientes')}</span>
+          <span><Check /> {t('Pay only when you love it', 'Pagas solo cuando te encanta')}</span>
+          <span><Check /> {t('Yours forever', 'Tuyo para siempre')}</span>
+          <span><Check /> {t('Live in about a week', 'Listo en una semana')}</span>
         </div>
         <div className="nv-rate"><span className="nv-stars">★★★★★</span> {t("loved by the local owners we've built for", 'querido por los dueños locales para los que hemos construido')}</div>
-        <div style={{ display: 'flex', justifyContent: 'center' }}><div className="nv-guarpill">{t(<>⚡ Live in&nbsp;<b>1 week</b>&nbsp;— or you don't pay</>, <>⚡ En vivo en&nbsp;<b>1 semana</b>&nbsp;— o no pagas</>)}</div></div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}><div className="nv-guarpill">{t(<>⚡ Free mockup —&nbsp;<b>built before you pay</b></>, <>⚡ Mockup gratis —&nbsp;<b>construido antes de pagar</b></>)}</div></div>
 
         <div className="nv-stage rv">
           <div className="glow" />
@@ -1128,10 +1128,10 @@ function FinalCta() {
   return (
     <section className="nv-sec" id="contact"><div className="nv-wrap">
       <div className="nv-band rv">
-        <h2>{t('Ready for a website that works as hard as you do?', '¿Listo para un sitio web que trabaje tan duro como tú?')}</h2>
-        <p>{t('Book a free call. We’ll show you exactly what we’d build — no pressure, no jargon.', 'Reserva una llamada gratis. Te mostramos exactamente lo que construiríamos — sin presión, sin tecnicismos.')}</p>
-        <Link to="/book" className="nv-btn nv-btn-white nv-btn-lg">{t('Book a Free Call', 'Reserva una llamada gratis')} <Arrow /></Link>
-        <div className="sub">{t(<>⚡ Live in 1 week or you don't pay &nbsp;·&nbsp; or call / text <a className="tel" href="tel:+17075209179">(707) 520-9179</a></>, <>⚡ En vivo en 1 semana o no pagas &nbsp;·&nbsp; o llama / escribe <a className="tel" href="tel:+17075209179">(707) 520-9179</a></>)}</div>
+        <h2>{t('Ready to see your new website — before you pay?', '¿Listo para ver tu nuevo sitio web — antes de pagar?')}</h2>
+        <p>{t('Get a free mockup of your new site. We design, build, and host it — and you only pay once it goes live and you love it.', 'Recibe un mockup gratis de tu nuevo sitio. Lo diseñamos, construimos y alojamos — y solo pagas cuando está en vivo y te encanta.')}</p>
+        <Link to="/book" className="nv-btn nv-btn-white nv-btn-lg">{t('Get my free mockup', 'Quiero mi mockup gratis')} <Arrow /></Link>
+        <div className="sub">{t(<>⚡ Built before you pay &nbsp;·&nbsp; or call / text <a className="tel" href="tel:+17075209179">(707) 520-9179</a></>, <>⚡ Construido antes de pagar &nbsp;·&nbsp; o llama / escribe <a className="tel" href="tel:+17075209179">(707) 520-9179</a></>)}</div>
       </div>
     </div></section>
   );
@@ -1167,7 +1167,7 @@ function Footer() {
           <Link to="/work">{t('Our Work', 'Nuestro trabajo')}</Link>
           <Link to="/about">{t('About', 'Nosotros')}</Link>
           <Link to="/guides">{t('Guides', 'Guías')}</Link>
-          <Link to="/book">{t('Book a Call', 'Reserva una llamada')}</Link>
+          <Link to="/book">{t('Free Mockup', 'Mockup Gratis')}</Link>
         </div>
       </div>
       <div className="nv-foot-bot">

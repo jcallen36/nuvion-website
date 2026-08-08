@@ -155,7 +155,7 @@ export function MobileCTA({ phone = COMPANY_PHONE }) {
   return (
     <div className="nv-mcta" role="region" aria-label="Quick contact">
       <a className="call" href={`tel:${phone.tel}`} aria-label={`Call or text ${phone.display}`} onClick={() => trackCall({ source: 'mobile_bar' })}><PhoneIco /></a>
-      <Link className="book" to="/book">{t('Book a Free Call', 'Reserva una llamada gratis')}<small>{t('⚡ Live in 1 week or you don\'t pay', '⚡ En vivo en 1 semana o no pagas')}</small></Link>
+      <Link className="book" to="/book">{t('Get my free mockup', 'Quiero mi mockup gratis')}<small>{t('⚡ Built before you pay', '⚡ Construido antes de pagar')}</small></Link>
     </div>
   );
 }
@@ -226,14 +226,14 @@ export function Nav() {
         <nav className="nv-links">{NAV_LINKS.map((l) => <Link key={l.label} to={l.to}>{t(l.label, NAV_LABELS_ES[l.label])}</Link>)}</nav>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <LangToggle />
-          <Link to="/book" className="nv-btn nv-btn-primary nv-navcta">{t('Book a Call', 'Reserva una llamada')}</Link>
+          <Link to="/book" className="nv-btn nv-btn-primary nv-navcta">{t('Free Mockup', 'Mockup Gratis')}</Link>
           <button className={`nv-burger${open ? ' open' : ''}`} onClick={() => setOpen(!open)} aria-label="Menu"><span/><span/><span/></button>
         </div>
       </div>
       <div className={`nv-mobile${open ? ' show' : ''}`}>
         <LangToggle />
         {NAV_LINKS.map((l) => <Link key={l.label} to={l.to} onClick={() => setOpen(false)}>{t(l.label, NAV_LABELS_ES[l.label])}</Link>)}
-        <Link to="/book" className="nv-btn nv-btn-primary" onClick={() => setOpen(false)}>{t('Book a Call', 'Reserva una llamada')}</Link>
+        <Link to="/book" className="nv-btn nv-btn-primary" onClick={() => setOpen(false)}>{t('Free Mockup', 'Mockup Gratis')}</Link>
       </div>
     </header>
   );
@@ -272,7 +272,7 @@ export function Footer({ phone = COMPANY_PHONE, minimal = false }) {
           <Link to="/work">{t('Our Work', 'Nuestro trabajo')}</Link>
           <Link to="/about">{t('About', 'Nosotros')}</Link>
           <Link to="/guides">{t('Guides', 'Guías')}</Link>
-          <Link to="/book">{t('Book a Call', 'Reserva una llamada')}</Link>
+          <Link to="/book">{t('Free Mockup', 'Mockup Gratis')}</Link>
         </div>
         <div className="links">
           <h5>{t('Industries', 'Industrias')}</h5>
