@@ -12,6 +12,9 @@ import workArpkd from '../assets/work/arpkd.webp';
 import workBayarea from '../assets/work/bayarea.webp';
 import workFloors from '../assets/work/floors.webp';
 import workDenise from '../assets/work/denise.webp';
+import workSupercars from '../assets/work/supercars.webp';
+import workAviation from '../assets/work/aviation.webp';
+import workMedspa from '../assets/work/medspa.webp';
 
 // David's personal line — used everywhere on the /david ad pages (distinct from the company line).
 const DAVID_PHONE = { tel: '+17075356054', display: '(707) 535-6054' };
@@ -340,6 +343,11 @@ export default function AboutPage() {
     { img: workBayarea, name: 'Bay Area 2nd Mom', cat: t('Nanny Agency · Bay Area', 'Agencia de niñeras · Bay Area'), result: t('40+ years of trusted care, freshly branded online.', '40+ años de cuidado confiable, con una marca renovada en línea.'), url: 'https://nanny-agency-website-alpha.vercel.app' },
     { img: workArpkd, name: 'ARPKD / CHF Alliance', cat: t('Nonprofit · National', 'Sin fines de lucro · Nacional'), result: t('A 25-year rare-disease nonprofit, fully modernized.', 'Una organización de enfermedades raras de 25 años, totalmente modernizada.'), url: '' },
   ];
+  const concepts = [
+    { img: workSupercars, name: 'Velocity Motors', cat: t('Concept · Automotive', 'Concepto · Automotriz'), result: t('A bold automotive brand — motion, depth, and drama.', 'Una marca automotriz audaz — movimiento, profundidad y dramatismo.'), url: 'https://supercars.nuvion-solutions.com' },
+    { img: workAviation, name: 'APEX Private Aviation', cat: t('Concept · Luxury Aviation', 'Concepto · Aviación de lujo'), result: t('A cinematic concept for a private-jet brand.', 'Un concepto cinematográfico para una marca de jets privados.'), url: 'https://aviation.nuvion-solutions.com' },
+    { img: workMedspa, name: 'Lumina Aesthetics', cat: t('Concept · Med Spa', 'Concepto · Med Spa'), result: t('A luxe, calming concept for a modern med spa.', 'Un concepto lujoso y relajante para un med spa moderno.'), url: 'https://medspa.nuvion-solutions.com' },
+  ];
   return (
     <>
       <title>{angle.title}</title>
@@ -409,6 +417,20 @@ export default function AboutPage() {
             })}
           </div>
           <div style={{ textAlign: 'center', marginTop: 34 }}><Link to="/work" className="nv-btn nv-btn-ghost">{t('See all my work', 'Ver todo mi trabajo')} <Arrow /></Link></div>
+        </div></section>
+
+        {/* DESIGN RANGE (concept builds) */}
+        <section className="nv-sec"><div className="nv-wrap">
+          <div className="nv-center rv"><div className="nv-kicker">{t('Design range', 'Rango de diseño')}</div><h2 className="nv-h2">{t('A taste of what I can build', 'Una muestra de lo que puedo construir')}</h2><p className="nv-lead">{t('Concept builds — showing the range and polish I can bring to yours. Tap any to explore.', 'Proyectos conceptuales — muestran el rango y la calidad que puedo aportar al tuyo. Toca cualquiera para explorar.')}</p></div>
+          <div className="ab-work">
+            {concepts.map((w, i) => (
+              <a className={`ab-work-card rv d${(i % 3) + 1}`} key={w.name} href={w.url} target="_blank" rel="noopener noreferrer">
+                <div className="ab-work-bar"><i/><i/><i/></div>
+                <div className="ab-work-shot"><img src={w.img} alt={`${w.name} concept website`} loading="lazy" /><span className="ab-work-live">{t('View live', 'Ver en vivo')} ↗</span></div>
+                <div className="ab-work-meta"><h4>{w.name}</h4><span className="ab-work-chip">{w.cat}</span><p className="ab-work-result">{w.result}</p></div>
+              </a>
+            ))}
+          </div>
         </div></section>
 
         {/* REVIEW */}
