@@ -194,7 +194,7 @@ const SERVICE_ANGLES = {
   'web-design': {
     eyebrow: { en: 'Web Design · Santa Rosa, CA', es: 'Diseño web · Santa Rosa, CA' },
     h1: { en: `Hi, I'm David — I'll design your <span class="nv-grad">custom website</span>, personally.`, es: `Hola, soy David — diseñaré tu <span class="nv-grad">sitio web personalizado</span>, personalmente.` },
-    sub: { en: "No template, no bot. I design and build every site myself, one-on-one, to your exact vision — live in 1 week, and it's yours to keep.", es: 'Sin plantilla, sin bot. Diseño y construyo cada sitio yo mismo, uno a uno, según tu visión exacta — en vivo en 1 semana, y es tuyo.' },
+    sub: { en: "Start with a free mockup — no template, no bot. I design, build, and host your custom site myself, and you only pay once it's live and you love it. Yours forever.", es: 'Empieza con un mockup gratis — sin plantilla, sin bot. Yo diseño, construyo y alojo tu sitio personalizado, y solo pagas cuando está en vivo y te encanta. Tuyo para siempre.' },
     title: 'David — Custom Web Design in Sonoma County | Nuvion Solutions',
     desc: "I'm David — I personally design and build custom, high-converting websites for local businesses. Live in 1 week, or you don't pay.",
     noindex: true,
@@ -202,7 +202,7 @@ const SERVICE_ANGLES = {
   'seo': {
     eyebrow: { en: 'Local SEO · Santa Rosa, CA', es: 'SEO local · Santa Rosa, CA' },
     h1: { en: `Hi, I'm David — I'll get your business <span class="nv-grad">found on Google</span>.`, es: `Hola, soy David — haré que tu negocio <span class="nv-grad">aparezca en Google</span>.` },
-    sub: { en: 'Real, local SEO handled by me personally — no agency runaround, no empty promises. Just more of the right customers finding you.', es: 'SEO local real, manejado por mí — sin vueltas de agencia, sin promesas vacías. Solo más de los clientes correctos encontrándote.' },
+    sub: { en: 'Real, local SEO handled by me personally — no agency runaround, no empty promises, no long contracts. Just more of the right customers finding you.', es: 'SEO local real, manejado por mí — sin vueltas de agencia, sin promesas vacías, sin contratos largos. Solo más de los clientes correctos encontrándote.' },
     title: 'David — Local SEO in Sonoma County | Nuvion Solutions',
     desc: "I'm David — I personally handle local SEO for Sonoma County businesses. No agency runaround, just more of the right customers finding you.",
     noindex: true,
@@ -210,7 +210,7 @@ const SERVICE_ANGLES = {
   'redesign': {
     eyebrow: { en: 'Website Redesign · Santa Rosa, CA', es: 'Rediseño web · Santa Rosa, CA' },
     h1: { en: `Hi, I'm David — I'll <span class="nv-grad">redesign your website</span>, personally.`, es: `Hola, soy David — <span class="nv-grad">rediseñaré tu sitio web</span>, personalmente.` },
-    sub: { en: "Already have a site that's slow, dated, or just not bringing in customers? I'll rebuild it into something you're proud of — one-on-one, live in 1 week, and you own it.", es: '¿Ya tienes un sitio lento, anticuado o que simplemente no te trae clientes? Lo reconstruiré en algo de lo que estés orgulloso — uno a uno, en vivo en 1 semana, y es tuyo.' },
+    sub: { en: "Already have a site that's slow, dated, or just not bringing in customers? Start with a free mockup of the rebuild — I design, build, and host it, and you only pay once it's live and you love it. Yours forever.", es: '¿Ya tienes un sitio lento, anticuado o que simplemente no te trae clientes? Empieza con un mockup gratis de la reconstrucción — yo lo diseño, construyo y alojo, y solo pagas cuando está en vivo y te encanta. Tuyo para siempre.' },
     title: 'David — Website Redesign in Sonoma County | Nuvion Solutions',
     desc: "I'm David — I personally redesign and rebuild outdated, slow, or underperforming websites into custom sites that win customers. Live in 1 week.",
     noindex: true,
@@ -218,7 +218,7 @@ const SERVICE_ANGLES = {
   'custom-builds': {
     eyebrow: { en: 'Custom Builds & Web Apps · Sonoma County', es: 'Desarrollos a medida y web apps · Sonoma County' },
     h1: { en: `Hi, I'm David — I'll build the <span class="nv-grad">custom features</span> your business needs.`, es: `Hola, soy David — construiré las <span class="nv-grad">funciones a medida</span> que tu negocio necesita.` },
-    sub: { en: "Online stores, booking systems, client portals, dashboards — when your site needs to do more than look good, I build the functionality to fit exactly how you work.", es: 'Tiendas en línea, sistemas de reservas, portales de clientes, paneles — cuando tu sitio necesita hacer más que verse bien, construyo la funcionalidad a la medida de cómo trabajas.' },
+    sub: { en: "Online stores, booking systems, client portals, dashboards — I build the functionality to fit exactly how you work. Free scoping, a written quote before you owe a cent, and you own everything.", es: 'Tiendas en línea, sistemas de reservas, portales de clientes, paneles — construyo la funcionalidad a la medida de cómo trabajas. Alcance gratis, una cotización por escrito antes de que debas un centavo, y todo es tuyo.' },
     title: 'David — Custom Builds & Web Apps in Sonoma County | Nuvion Solutions',
     desc: "I'm David — I build custom functionality (stores, booking, portals, dashboards) for Sonoma County businesses that need their site to actually work.",
     noindex: true,
@@ -226,7 +226,7 @@ const SERVICE_ANGLES = {
   'automation': {
     eyebrow: { en: 'Integrations & Automation · Sonoma County', es: 'Integraciones y automatización · Sonoma County' },
     h1: { en: `Hi, I'm David — I'll <span class="nv-grad">connect and automate</span> your business tools.`, es: `Hola, soy David — <span class="nv-grad">conectaré y automatizaré</span> las herramientas de tu negocio.` },
-    sub: { en: "I connect your website to the tools you already use — CRM, calendar, payments, POS — and automate the busywork, so nothing falls through the cracks and you stop doing the same thing twice.", es: 'Conecto tu sitio con las herramientas que ya usas — CRM, calendario, pagos, punto de venta — y automatizo el trabajo repetitivo, para que nada se pierda y dejes de hacer lo mismo dos veces.' },
+    sub: { en: "I connect your website to the tools you already use — CRM, calendar, payments, POS — and automate the busywork. Free scoping, a written quote before you owe a cent, and you own everything.", es: 'Conecto tu sitio con las herramientas que ya usas — CRM, calendario, pagos, punto de venta — y automatizo el trabajo repetitivo. Alcance gratis, una cotización por escrito antes de que debas un centavo, y todo es tuyo.' },
     title: 'David — Integrations & Automation in Sonoma County | Nuvion Solutions',
     desc: "I'm David — I connect your website to your CRM, calendar, payments and POS, and automate the busywork. The thing template shops can't do.",
     noindex: true,
@@ -237,16 +237,16 @@ const SERVICE_ANGLES = {
 const OFFER_ANGLES = {
   'zero-down': {
     eyebrow: { en: '$0 Down · Sonoma County', es: '$0 inicial · Sonoma County' },
-    h1: { en: `Hi, I'm David — get a custom website for <span class="nv-grad">$0 down</span>.`, es: `Hola, soy David — obtén un sitio web personalizado con <span class="nv-grad">$0 inicial</span>.` },
-    sub: { en: "No big upfront cost. I'll design and build your site for as little as $49/mo — hosting, care and updates included — and it's yours to keep after 18 months. Live in 1 week.", es: 'Sin gran costo inicial. Diseño y construyo tu sitio desde $49/mes — hosting, cuidado y actualizaciones incluidos — y es tuyo para siempre después de 18 meses. En vivo en 1 semana.' },
-    title: "David — Websites for $0 Down ($49/mo) in Sonoma County | Nuvion Solutions",
-    desc: "I'm David — get a custom website for $0 down, from $49/mo (hosting & care included), yours to keep after 18 months. Live in 1 week.",
+    h1: { en: `Hi, I'm David — <span class="nv-grad">$0 upfront</span> for your new website.`, es: `Hola, soy David — <span class="nv-grad">$0 por adelantado</span> por tu nuevo sitio web.` },
+    sub: { en: "No upfront cost, no risk. Start with a free mockup — I design, build, and host your whole site, and you only pay once it's live and you love it. Yours forever.", es: 'Sin costo inicial, sin riesgo. Empieza con un mockup gratis — yo diseño, construyo y alojo todo tu sitio, y solo pagas cuando está en vivo y te encanta. Tuyo para siempre.' },
+    title: "David — Websites With $0 Upfront in Sonoma County | Nuvion Solutions",
+    desc: "I'm David — $0 upfront for a custom website. Free mockup first, and you only pay once it's live and you love it. Yours forever.",
     noindex: true,
   },
   'guarantee': {
     eyebrow: { en: '1-Week Guarantee · Sonoma County', es: 'Garantía de 1 semana · Sonoma County' },
     h1: { en: `Hi, I'm David — your site's <span class="nv-grad">live in 1 week</span>, or you don't pay.`, es: `Hola, soy David — tu sitio está <span class="nv-grad">en vivo en 1 semana</span>, o no pagas.` },
-    sub: { en: "I design and build your custom site myself, one-on-one, and it's live within 1 week of your content — guaranteed. Miss the deadline and you don't pay. And it's yours to keep.", es: 'Diseño y construyo tu sitio personalizado yo mismo, uno a uno, y está en vivo dentro de 1 semana de tu contenido — garantizado. Si no cumplo, no pagas. Y es tuyo.' },
+    sub: { en: "Start with a free mockup, then I design, build, and host your custom site — live within 1 week of your content, guaranteed. You only pay once it's live and you love it, and it's yours forever.", es: 'Empieza con un mockup gratis, luego diseño, construyo y alojo tu sitio personalizado — en vivo dentro de 1 semana de tu contenido, garantizado. Solo pagas cuando está en vivo y te encanta, y es tuyo para siempre.' },
     title: "David — 1-Week Website Guarantee in Sonoma County | Nuvion Solutions",
     desc: "I'm David — your custom website is live in 1 week or you don't pay. Designed one-on-one, and it's yours to keep.",
     noindex: true,
@@ -254,7 +254,7 @@ const OFFER_ANGLES = {
   'business': {
     eyebrow: { en: 'For established businesses · Sonoma County', es: 'Para empresas establecidas · Sonoma County' },
     h1: { en: `Hi, I'm David — I build the <span class="nv-grad">systems</span> bigger businesses run on.`, es: `Hola, soy David — construyo los <span class="nv-grad">sistemas</span> que las empresas más grandes usan.` },
-    sub: { en: "Custom builds, integrations, and automation, done right — you work directly with me, get answers the same day, and own everything. The technical depth of an agency, without the runaround.", es: 'Desarrollos a medida, integraciones y automatización, bien hechos — trabajas directamente conmigo, obtienes respuestas el mismo día y todo es tuyo. La profundidad técnica de una agencia, sin las vueltas.' },
+    sub: { en: "Custom builds, integrations, and automation, done right — you work directly with me, get answers the same day, and own everything. A written quote before you owe a cent, no runaround.", es: 'Desarrollos a medida, integraciones y automatización, bien hechos — trabajas directamente conmigo, obtienes respuestas el mismo día y todo es tuyo. Una cotización por escrito antes de que debas un centavo, sin vueltas.' },
     title: "David — Custom Builds & Systems for Businesses in Sonoma County | Nuvion Solutions",
     desc: "I'm David — I build custom web apps, integrations, and automation for established Sonoma County businesses. Work directly with me, and own everything.",
     noindex: true,
@@ -265,7 +265,7 @@ const INDUSTRY_ANGLES = {
   'restaurants': {
     eyebrow: { en: 'Restaurant Web Design · Sonoma County', es: 'Diseño web para restaurantes · Sonoma County' },
     h1: { en: `Hi, I'm David — I build websites that fill <span class="nv-grad">restaurant tables</span>.`, es: `Hola, soy David — construyo sitios web que llenan <span class="nv-grad">mesas de restaurantes</span>.` },
-    sub: { en: 'Menus that make people hungry, one-tap reservations, and Google visibility — designed one-on-one by me, live in 1 week.', es: 'Menús que dan hambre, reservaciones en un toque y visibilidad en Google — diseñado uno a uno por mí, en vivo en 1 semana.' },
+    sub: { en: "Menus that make people hungry, one-tap reservations, and Google visibility — designed by me. Start with a free mockup and only pay once it's live and you love it.", es: 'Menús que dan hambre, reservaciones en un toque y visibilidad en Google — diseñado por mí. Empieza con un mockup gratis y solo paga cuando está en vivo y te encanta.' },
     title: 'David — Restaurant Web Design in Sonoma County | Nuvion Solutions',
     desc: "I'm David — I build custom websites for restaurants that fill tables: mouth-watering menus, one-tap reservations, and Google visibility.",
     noindex: true,
@@ -273,7 +273,7 @@ const INDUSTRY_ANGLES = {
   'contractors': {
     eyebrow: { en: 'Web Design for Contractors · Sonoma County', es: 'Diseño web para contratistas · Sonoma County' },
     h1: { en: `Hi, I'm David — I build websites that book <span class="nv-grad">more jobs</span>.`, es: `Hola, soy David — construyo sitios web que consiguen <span class="nv-grad">más trabajos</span>.` },
-    sub: { en: 'Tap-to-call, quote forms, and local SEO so homeowners in your area find you first — built by me, personally, live in 1 week.', es: 'Llamada en un toque, formularios de cotización y SEO local para que los dueños de casa de tu zona te encuentren primero — hecho por mí, en vivo en 1 semana.' },
+    sub: { en: "Tap-to-call, quote forms, and local SEO so homeowners find you first — built by me. Start with a free mockup and only pay once it's live and you love it.", es: 'Llamada en un toque, formularios de cotización y SEO local para que los dueños de casa te encuentren primero — hecho por mí. Empieza con un mockup gratis y solo paga cuando está en vivo y te encanta.' },
     title: 'David — Web Design for Contractors in Sonoma County | Nuvion Solutions',
     desc: "I'm David — I build custom websites for contractors and home-services pros that book more jobs: tap-to-call, quote forms, and local SEO.",
     noindex: true,
@@ -281,7 +281,7 @@ const INDUSTRY_ANGLES = {
   'med-spas': {
     eyebrow: { en: 'Med Spa Web Design · Sonoma County', es: 'Diseño web para spas médicos · Sonoma County' },
     h1: { en: `Hi, I'm David — I build websites that book <span class="nv-grad">more appointments</span>.`, es: `Hola, soy David — construyo sitios web que agendan <span class="nv-grad">más citas</span>.` },
-    sub: { en: 'A luxe, calming site with online booking that turns browsers into clients — designed one-on-one by me, live in 1 week.', es: 'Un sitio elegante y relajante con reservas en línea que convierte visitantes en clientes — diseñado uno a uno por mí, en vivo en 1 semana.' },
+    sub: { en: "A luxe, calming site with online booking that turns browsers into clients — designed by me. Start with a free mockup and only pay once it's live and you love it.", es: 'Un sitio elegante y relajante con reservas en línea que convierte visitantes en clientes — diseñado por mí. Empieza con un mockup gratis y solo paga cuando está en vivo y te encanta.' },
     title: 'David — Med Spa Web Design in Sonoma County | Nuvion Solutions',
     desc: "I'm David — I build custom websites for med spas that book more appointments: a luxe, calming design with online booking.",
     noindex: true,
@@ -289,7 +289,7 @@ const INDUSTRY_ANGLES = {
   'real-estate': {
     eyebrow: { en: 'Real Estate Web Design · Sonoma County', es: 'Diseño web para bienes raíces · Sonoma County' },
     h1: { en: `Hi, I'm David — I build websites that win <span class="nv-grad">more listings</span>.`, es: `Hola, soy David — construyo sitios web que ganan <span class="nv-grad">más propiedades</span>.` },
-    sub: { en: 'A polished personal-brand site that makes sellers trust you before you even meet — built by me, personally, live in 1 week.', es: 'Un sitio de marca personal pulido que hace que los vendedores confíen en ti antes de conocerte — hecho por mí, en vivo en 1 semana.' },
+    sub: { en: "A polished personal-brand site that makes sellers trust you before you meet — built by me. Start with a free mockup and only pay once it's live and you love it.", es: 'Un sitio de marca personal pulido que hace que los vendedores confíen en ti antes de conocerte — hecho por mí. Empieza con un mockup gratis y solo paga cuando está en vivo y te encanta.' },
     title: 'David — Real Estate Web Design in Sonoma County | Nuvion Solutions',
     desc: "I'm David — I build polished personal-brand websites for real estate agents that win more listings and build trust before you meet.",
     noindex: true,
@@ -305,7 +305,7 @@ function resolveAngle(variant) {
     return {
       eyebrow: { en: `Web Design · ${town}, CA`, es: `Diseño web · ${town}, CA` },
       h1: { en: `Hi, I'm David — I build websites for <span class="nv-grad">${town}</span> businesses.`, es: `Hola, soy David — construyo sitios web para negocios de <span class="nv-grad">${town}</span>.` },
-      sub: { en: `I'm right here in Sonoma County. I'll design your ${town} business a custom site, one-on-one, and answer the same day — live in 1 week, and you own it.`, es: `Estoy aquí mismo en Sonoma County. Diseñaré para tu negocio en ${town} un sitio personalizado, uno a uno, y respondo el mismo día — en vivo en 1 semana, y es tuyo.` },
+      sub: { en: `I'm right here in Sonoma County. Start with a free mockup of your ${town} business site — I design, build, and host it, and you only pay once it's live and you love it. Yours forever.`, es: `Estoy aquí mismo en Sonoma County. Empieza con un mockup gratis del sitio de tu negocio en ${town} — yo lo diseño, construyo y alojo, y solo pagas cuando está en vivo y te encanta. Tuyo para siempre.` },
       title: `David — Web Design in ${town}, CA | Nuvion Solutions`,
       desc: `I'm David — I personally design and build custom websites for ${town} businesses. Same-day answers, live in 1 week, and you own it.`,
       noindex: true,
