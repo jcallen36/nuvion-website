@@ -4,11 +4,11 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { LangProvider } from './site/i18n.jsx'
 import { initAnalytics, trackPageview } from './analytics.js'
-// Eager: only the service template — its named service configs (WEB_DESIGN, …) are
-// imported synchronously by the routes below, which pins this module to the initial bundle.
-import ServicePage, { WEB_DESIGN, SEO, MARKETING, INTEGRATIONS, CUSTOM_BUILDS } from './site/ServicePage.jsx'
-// Lazy: every other page ships as its own chunk, off the initial load
-const NuvionWebsite = lazy(() => import('./NuvionWebsite.jsx')) // homepage — biggest single page, now split out of the core bundle
+// Lazy: every page ships as its own chunk, off the initial load. ServicePage is passed a
+// cfgKey string (see routes) instead of an imported config object, so neither the service
+// template nor its 5 configs are pinned into the core bundle.
+const NuvionWebsite = lazy(() => import('./NuvionWebsite.jsx')) // homepage — biggest single page, split out of core
+const ServicePage = lazy(() => import('./site/ServicePage.jsx'))
 const Agreement = lazy(() => import('./pages/Agreement.jsx'))
 const WebsiteInfo = lazy(() => import('./pages/WebsiteInfo.jsx'))
 const Terms = lazy(() => import('./pages/Terms.jsx'))
@@ -45,12 +45,12 @@ createRoot(document.getElementById('root')).render(
       <Suspense fallback={null}>
       <Routes>
         <Route path="/" element={<NuvionWebsite />} />
-        <Route path="/services/integrations" element={<ServicePage cfg={INTEGRATIONS} />} />
-        <Route path="/services/ai-automation" element={<ServicePage cfg={INTEGRATIONS} />} />
-        <Route path="/services/custom-builds" element={<ServicePage cfg={CUSTOM_BUILDS} />} />
-        <Route path="/services/social-media-ai" element={<ServicePage cfg={MARKETING} />} />
-        <Route path="/services/seo-aso" element={<ServicePage cfg={SEO} />} />
-        <Route path="/services/web-design" element={<ServicePage cfg={WEB_DESIGN} />} />
+        <Route path="/services/integrations" element={<ServicePage cfgKey="integrations" />} />
+        <Route path="/services/ai-automation" element={<ServicePage cfgKey="integrations" />} />
+        <Route path="/services/custom-builds" element={<ServicePage cfgKey="custom-builds" />} />
+        <Route path="/services/social-media-ai" element={<ServicePage cfgKey="marketing" />} />
+        <Route path="/services/seo-aso" element={<ServicePage cfgKey="seo" />} />
+        <Route path="/services/web-design" element={<ServicePage cfgKey="web-design" />} />
         <Route path="/book" element={<BookPage />} />
         <Route path="/websites" element={<WebsiteInfo />} />
         <Route path="/websites2" element={<WebsiteInfo price={{ once: '1,800', care: '29', monthly: '149' }} canonical="https://www.nuvion-solutions.com/websites2" />} />

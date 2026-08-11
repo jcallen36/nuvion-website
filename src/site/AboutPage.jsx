@@ -41,7 +41,7 @@ const ABOUT_CSS = `
 .ab-stars{color:#F5A623;letter-spacing:1px;font-size:1.1rem}
 .ab-pulse{width:9px;height:9px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 0 rgba(34,197,94,.5);animation:ab-pulse 2s infinite}
 @keyframes ab-pulse{70%{box-shadow:0 0 0 9px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
-@media(max-width:560px){.ab-badge{display:none}}
+@media(max-width:560px){.ab-badge{display:none}.ab-hero{padding:40px 0 30px}.ab-hero-in{gap:24px}.ab-h1{margin:10px 0 12px}.ab-cta{margin:20px 0 12px}.ab-heroform{padding:18px 18px 8px}}
 
 .ab-strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft)}
 .ab-strip-in{display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap;padding:20px 0;font-weight:600;color:var(--ink);font-size:.92rem}

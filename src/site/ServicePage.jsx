@@ -203,7 +203,8 @@ function ServiceVisual({ kind }) {
   );
 }
 
-export default function ServicePage({ cfg }) {
+export default function ServicePage({ cfg: cfgProp, cfgKey }) {
+  const cfg = cfgProp || CONFIGS[cfgKey];
   useReveal();
   const { lang, t } = useLang();
   const c = lang === 'es' && cfg.es ? { ...cfg, ...cfg.es } : cfg;
@@ -790,4 +791,15 @@ export const CUSTOM_BUILDS = {
     ],
     ctaHeadline: '¿Necesitas que tu sitio haga más?',
   },
+};
+
+// Route key → service config. main.jsx passes a cfgKey string instead of importing
+// these objects, so this whole module (component + all 5 configs) stays lazy and out of
+// the core bundle. Keep keys in sync with the <Route … cfgKey="…"> values in main.jsx.
+const CONFIGS = {
+  'web-design': WEB_DESIGN,
+  seo: SEO,
+  marketing: MARKETING,
+  integrations: INTEGRATIONS,
+  'custom-builds': CUSTOM_BUILDS,
 };
