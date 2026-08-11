@@ -45,6 +45,11 @@ const MIME = {
 const escText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const escAttr = (s) => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 
+// Diagnostic breadcrumb written into the deploy output so we can see what happened
+// on Vercel (whose build logs we can't access) by fetching /prerender-status.txt.
+const STATUS_FILE = path.join(DIST, 'prerender-status.txt');
+function writeStatus(msg) { try { fs.writeFileSync(STATUS_FILE, msg + '\n'); } catch { /* noop */ } }
+
 function routesFromSitemap() {
   const xml = fs.readFileSync(path.join(DIST, 'sitemap.xml'), 'utf8');
   const locs = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
@@ -138,12 +143,15 @@ async function main() {
   const shell = fs.readFileSync(path.join(DIST, 'index.html')); // capture ORIGINAL before any overwrite
   const routes = routesFromSitemap();
   console.log(`[prerender] ${routes.length} routes to snapshot`);
+  writeStatus(`01 started | routes=${routes.length} | node=${process.version} | VERCEL=${!!process.env.VERCEL} | CI=${!!process.env.CI}`);
 
   const server = await startServer(shell);
   let browser;
   try {
     browser = await launchBrowser();
+    writeStatus(`03 browser-launched ok`);
   } catch (e) {
+    writeStatus(`02 BROWSER-LAUNCH-FAILED | ${e && e.message} | ${String(e && e.stack).slice(0, 500)}`);
     console.error('[prerender] Browser launch FAILED — shipping client-only build. Reason:', e.message);
     server.close();
     return;
@@ -178,10 +186,12 @@ async function main() {
   }
   await browser.close().catch(() => {});
   server.close();
+  writeStatus(`99 done | ok=${ok} | failed=${failed} | routes=${routes.length}`);
   console.log(`[prerender] done — ${ok} snapshotted, ${failed} failed of ${routes.length}`);
 }
 
 main().catch((e) => {
+  writeStatus(`FATAL | ${e && e.message} | ${String(e && e.stack).slice(0, 500)}`);
   console.error('[prerender] fatal (shipping client-only build):', e);
   process.exit(0);
 });
