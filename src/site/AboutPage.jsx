@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { BASE_CSS, Footer, useReveal, Arrow, Check, IconWeb, IconSeo, IconMkt } from './shared.jsx';
 import { useLang, LangToggle } from './i18n.jsx';
@@ -121,6 +121,20 @@ const ABOUT_CSS = `
 .ab-done .big{width:56px;height:56px;border-radius:50%;background:#ECFDF5;color:#059669;display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
 .ab-done h3{color:var(--ink);font-size:1.3rem;margin-bottom:8px}
 .ab-done p{color:var(--body)}
+
+/* HERO FORM (above the fold) */
+.ab-heroform{background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow-lg);padding:22px 22px 10px;max-width:440px;width:100%;justify-self:center}
+.ab-heroform .hf-head{display:flex;align-items:center;gap:13px;margin:0 0 15px}
+.ab-heroform .hf-head img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--brand-soft);flex-shrink:0}
+.ab-heroform .hf-head b{color:var(--ink);font-size:1.02rem;display:block;line-height:1.2}
+.ab-heroform .hf-head .st{color:#F5A623;letter-spacing:1px;font-size:.9rem}
+.ab-heroform .hf-head .sd{color:var(--muted);font-size:.78rem;font-weight:500}
+.ab-heroform .ab-form{box-shadow:none;border:0;padding:0;border-radius:0}
+
+/* STICKY CTA (follows on scroll) */
+.ab-sticky{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:9px;background:var(--brand-strong);color:#fff;font-weight:800;font-size:.98rem;padding:14px 24px;border-radius:100px;box-shadow:0 12px 32px rgba(10,18,34,.3);text-decoration:none;white-space:nowrap;animation:ab-stickyin .28s ease}
+.ab-sticky:hover{background:var(--brand)}
+@keyframes ab-stickyin{from{opacity:0;transform:translate(-50%,14px)}to{opacity:1;transform:translate(-50%,0)}}
 `;
 
 /* Minimal nav for the ad landing page — logo + language toggle + one call CTA, no exit links */
@@ -188,6 +202,26 @@ function IntakeForm({ source = 'david' }) {
       <div className="msg" style={{ color: 'var(--muted)', fontWeight: 500 }}>{t('Prefer to talk? Call or text me directly — I answer the same day.', '¿Prefieres hablar? Llámame o escríbeme directamente — respondo el mismo día.')}</div>
     </form>
   );
+}
+
+/* Floating CTA that appears once the visitor scrolls past the hero form, so a
+   convinced mid-page reader can jump to the form from anywhere. Hides again near
+   the bottom form so it doesn't overlap it. */
+function StickyCTA() {
+  const { t } = useLang();
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const onScroll = () => {
+      const nearBottom = window.innerHeight + window.scrollY > document.documentElement.scrollHeight - 720;
+      setShow(window.scrollY > 620 && !nearBottom);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => { window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
+  }, []);
+  if (!show) return null;
+  return <a href="#contact" className="ab-sticky">⚡ {t('Get my free mockup', 'Quiero mi mockup gratis')} <Arrow /></a>;
 }
 
 /* ── Ad-angle configs: /david (default) + /david/:variant ──────────────
@@ -370,7 +404,6 @@ export default function AboutPage() {
             <h1 className="ab-h1" dangerouslySetInnerHTML={{ __html: angle.h1[lang] || angle.h1.en }} />
             <p className="sub">{angle.sub[lang] || angle.sub.en}</p>
             <div className="ab-cta">
-              <a href="#contact" className="nv-btn nv-btn-primary nv-btn-lg">{t('Get my free mockup', 'Quiero mi mockup gratis')} <Arrow /></a>
               <a href={`tel:${DAVID_PHONE.tel}`} className="nv-btn nv-btn-ghost nv-btn-lg" onClick={() => trackCall({ source: 'david_hero' })}>{t('Call / text me', 'Llámame')}</a>
             </div>
             <div className="ab-guar">{t(<>⚡ Free mockup —&nbsp;<b>built before you pay</b></>, <>⚡ Mockup gratis —&nbsp;<b>construido antes de pagar</b></>)}</div>
@@ -380,10 +413,15 @@ export default function AboutPage() {
               <span><Check /> {t('Sonoma County local', 'Local de Sonoma County')}</span>
             </div>
           </div>
-          <div className="ab-photo rv d1">
-            <img src={davidHero} alt="David Prudhomme, founder of Nuvion Solutions" />
-            <div className="ab-badge b1"><div><span className="ab-stars">★★★★★</span><b style={{ marginTop: 2 }}>{t('5-star', '5★')}</b></div></div>
-            <div className="ab-badge b2"><div className="ab-pulse" /><div><b>{t('Replies same-day', 'Responde el mismo día')}</b><span>{t('Every time', 'Siempre')}</span></div></div>
+          <div className="ab-heroform rv d1">
+            <div className="hf-head">
+              <img src={davidHero} alt="David Prudhomme, founder of Nuvion Solutions" />
+              <div>
+                <b>{t('Start your free mockup', 'Empieza tu mockup gratis')}</b>
+                <div className="st">★★★★★ <span className="sd">· {t('replies same-day', 'responde el mismo día')}</span></div>
+              </div>
+            </div>
+            <IntakeForm source={formSource} />
           </div>
         </div></section>
 
@@ -498,6 +536,7 @@ export default function AboutPage() {
           </div></div>
         </div></section>
       </main>
+      <StickyCTA />
       <Footer phone={DAVID_PHONE} minimal />
     </>
   );
