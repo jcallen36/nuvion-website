@@ -1,4 +1,6 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build:ssg",
   "trailingSlash": false,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
