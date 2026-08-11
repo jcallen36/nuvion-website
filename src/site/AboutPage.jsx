@@ -110,7 +110,7 @@ const ABOUT_CSS = `
 .ab-form .row{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:520px){.ab-form .row.two{grid-template-columns:1fr 1fr}}
 .ab-form label{display:block;font-size:.8rem;font-weight:700;color:var(--ink);margin:0 0 6px}
-.ab-form input,.ab-form select,.ab-form textarea{width:100%;font-family:var(--font);font-size:.95rem;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 13px;outline:none;transition:border-color .15s,box-shadow .15s}
+.ab-form input,.ab-form select,.ab-form textarea{width:100%;font-family:var(--font);font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 13px;outline:none;transition:border-color .15s,box-shadow .15s}
 .ab-form input:focus,.ab-form select:focus,.ab-form textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(37,110,247,.14)}
 .ab-form textarea{resize:vertical;min-height:96px}
 .ab-form .fld{margin-bottom:14px}

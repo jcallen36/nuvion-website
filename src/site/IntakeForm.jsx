@@ -11,7 +11,7 @@ export const FORM_CSS = `
 .nvf-form .row{display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:520px){.nvf-form .row.two{grid-template-columns:1fr 1fr}}
 .nvf-form label{display:block;font-size:.8rem;font-weight:700;color:var(--ink);margin:0 0 6px}
-.nvf-form input,.nvf-form select,.nvf-form textarea{width:100%;font-family:var(--font);font-size:.95rem;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 13px;outline:none;transition:border-color .15s,box-shadow .15s}
+.nvf-form input,.nvf-form select,.nvf-form textarea{width:100%;font-family:var(--font);font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 13px;outline:none;transition:border-color .15s,box-shadow .15s}
 .nvf-form input:focus,.nvf-form select:focus,.nvf-form textarea:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(37,110,247,.14)}
 .nvf-form textarea{resize:vertical;min-height:96px}
 .nvf-form .fld{margin-bottom:14px}
