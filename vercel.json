@@ -1,6 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run build:ssg",
+  "buildCommand": "dnf install -y nss nspr atk at-spi2-atk cups-libs libdrm mesa-libgbm libxkbcommon pango alsa-lib 2>/dev/null || yum install -y nss nspr atk at-spi2-atk cups-libs libdrm mesa-libgbm libxkbcommon pango alsa-lib 2>/dev/null || true; npm run build:ssg",
   "trailingSlash": false,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
