@@ -4,10 +4,11 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { LangProvider } from './site/i18n.jsx'
 import { initAnalytics, trackPageview } from './analytics.js'
-// Eager: the landing page + the service template (its configs load synchronously)
-import NuvionWebsite from './NuvionWebsite.jsx'
+// Eager: only the service template — its named service configs (WEB_DESIGN, …) are
+// imported synchronously by the routes below, which pins this module to the initial bundle.
 import ServicePage, { WEB_DESIGN, SEO, MARKETING, INTEGRATIONS, CUSTOM_BUILDS } from './site/ServicePage.jsx'
 // Lazy: every other page ships as its own chunk, off the initial load
+const NuvionWebsite = lazy(() => import('./NuvionWebsite.jsx')) // homepage — biggest single page, now split out of the core bundle
 const Agreement = lazy(() => import('./pages/Agreement.jsx'))
 const WebsiteInfo = lazy(() => import('./pages/WebsiteInfo.jsx'))
 const Terms = lazy(() => import('./pages/Terms.jsx'))
