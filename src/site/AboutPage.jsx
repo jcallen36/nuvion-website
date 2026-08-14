@@ -20,6 +20,12 @@ import workMedspa from '../assets/work/medspa.webp';
 // David's personal line — used everywhere on the /david ad pages (distinct from the company line).
 const DAVID_PHONE = { tel: '+17075356054', display: '(707) 535-6054' };
 
+// Opens the shared call-capture modal from any CTA. `source` labels the trigger
+// (and, suffixed, the captured lead) so David sees where each one came from.
+function openCallCapture(source) {
+  try { window.dispatchEvent(new CustomEvent('nv-callcapture', { detail: { source } })); } catch { /* noop */ }
+}
+
 const ABOUT_CSS = `
 .ab-hero{padding:64px 0 44px;background:linear-gradient(180deg, rgba(246,249,253,.95), rgba(246,249,253,.84) 44%, rgba(246,249,253,.72)), url(${sonomaHills});background-size:cover;background-position:center 26%}
 .ab-hero-in{display:grid;grid-template-columns:1fr;gap:44px;align-items:center}
@@ -135,6 +141,38 @@ const ABOUT_CSS = `
 .ab-sticky{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:60;display:inline-flex;align-items:center;gap:9px;background:var(--brand-strong);color:#fff;font-weight:800;font-size:.98rem;padding:14px 24px;border-radius:100px;box-shadow:0 12px 32px rgba(10,18,34,.3);text-decoration:none;white-space:nowrap;animation:ab-stickyin .28s ease}
 .ab-sticky:hover{background:var(--brand)}
 @keyframes ab-stickyin{from{opacity:0;transform:translate(-50%,14px)}to{opacity:1;transform:translate(-50%,0)}}
+
+/* CALL-CAPTURE MODAL — turns a "call/text" tap into a captured lead. A raw tel:
+   link does nothing on desktop and leaves no trace if a mobile caller doesn't
+   dial, so those taps became anonymous conversions. This still lets a ready
+   caller tap-to-call/text, but also captures a name + number for a callback. */
+.cc-overlay{position:fixed;inset:0;z-index:200;background:rgba(10,18,34,.55);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:20px;animation:cc-fade .2s ease}
+.cc-panel{position:relative;background:#fff;border-radius:20px;box-shadow:var(--shadow-lg);width:100%;max-width:410px;padding:30px 26px 24px;animation:cc-pop .24s cubic-bezier(.2,.7,.3,1)}
+@keyframes cc-fade{from{opacity:0}to{opacity:1}}
+@keyframes cc-pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.cc-overlay,.cc-panel{animation:none}}
+.cc-close{position:absolute;top:12px;right:12px;width:34px;height:34px;border:0;border-radius:9px;background:var(--bg-soft);color:var(--muted);font-size:.95rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.cc-close:hover{background:var(--line);color:var(--ink)}
+.cc-head b{display:block;color:var(--ink);font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
+.cc-head p{color:var(--body);font-size:.93rem;line-height:1.5;margin:6px 0 0}
+.cc-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:20px 0 0}
+.cc-actions a{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--brand-soft);color:var(--brand-strong);font-weight:800;font-size:1rem;padding:14px 12px;border-radius:12px;text-decoration:none;transition:background .15s}
+.cc-actions a:hover{background:#dbe7ff}
+.cc-num{text-align:center;color:var(--muted);font-size:.84rem;font-weight:600;margin:9px 0 0}
+.cc-or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;margin:16px 0 14px}
+.cc-or::before,.cc-or::after{content:"";flex:1;height:1px;background:var(--line)}
+.cc-form label{display:block;font-size:.78rem;font-weight:700;color:var(--ink);margin:0 0 6px}
+.cc-form input{width:100%;font-family:var(--font);font-size:16px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:12px 13px;outline:none;transition:border-color .15s,box-shadow .15s}
+.cc-form input:focus{border-color:var(--brand);box-shadow:0 0 0 3px rgba(37,110,247,.14)}
+.cc-form .fld{margin-bottom:12px}
+.cc-form .submit{width:100%;justify-content:center;margin-top:2px}
+.cc-form .msg{margin-top:10px;font-size:.88rem;font-weight:600}
+.cc-form .msg.err{color:#DC2626}
+.cc-note{color:var(--muted);font-size:.8rem;text-align:center;margin-top:12px}
+.cc-done{text-align:center;padding:16px 6px 8px}
+.cc-done .big{width:52px;height:52px;border-radius:50%;background:#ECFDF5;color:#059669;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.cc-done h3{color:var(--ink);font-size:1.2rem;margin-bottom:6px}
+.cc-done p{color:var(--body);font-size:.95rem;line-height:1.5}
 `;
 
 /* Minimal nav for the ad landing page — logo + language toggle + one call CTA, no exit links */
@@ -146,7 +184,7 @@ function MiniNav() {
         <Link to="/" className="nv-logo" aria-label="Nuvion Solutions home"><span className="mark">N</span><span className="wm"><b>NUVION</b><small>SOLUTIONS</small></span></Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <LangToggle />
-          <a href={`tel:${DAVID_PHONE.tel}`} className="nv-btn nv-btn-primary" onClick={() => trackCall({ source: 'david_nav' })}>{t('Call / text me', 'Llámame')}</a>
+          <a href={`tel:${DAVID_PHONE.tel}`} className="nv-btn nv-btn-primary" onClick={(e) => { e.preventDefault(); openCallCapture('david_nav'); }}>{t('Call / text me', 'Llámame')}</a>
         </div>
       </div>
     </header>
@@ -222,6 +260,101 @@ function StickyCTA() {
   }, []);
   if (!show) return null;
   return <a href="#contact" className="ab-sticky">⚡ {t('Get my free mockup', 'Quiero mi mockup gratis')} <Arrow /></a>;
+}
+
+/* Shared modal opened by every "Call / text me" button (via openCallCapture).
+   A raw tel: link does nothing on desktop and vanishes if a mobile caller
+   doesn't dial — so those taps became anonymous "Contact" conversions with no
+   way to reach the person. This keeps one-tap call/text for a ready caller AND
+   captures a name + number for a callback, so no tap is wasted. The callback
+   POSTs to the same /api/contact as the form (source suffixed "_callback", so it
+   routes to David's inbox and reads clearly), and fires the lead conversion. */
+function CallCaptureModal() {
+  const { t, lang } = useLang();
+  const [open, setOpen] = useState(false);
+  const [source, setSource] = useState('david');
+  const [form, setForm] = useState({ name: '', phone: '' });
+  const [status, setStatus] = useState('idle');
+  const [err, setErr] = useState('');
+  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
+
+  useEffect(() => {
+    const onOpen = (e) => {
+      setSource((e.detail && e.detail.source) || 'david');
+      setForm({ name: '', phone: '' }); setStatus('idle'); setErr('');
+      setOpen(true);
+    };
+    window.addEventListener('nv-callcapture', onOpen);
+    return () => window.removeEventListener('nv-callcapture', onOpen);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false); };
+    window.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = prev; };
+  }, [open]);
+
+  if (!open) return null;
+
+  async function submit(e) {
+    e.preventDefault();
+    if (!form.phone.trim()) {
+      setStatus('error');
+      setErr(t('Please add your number so I can call you back.', 'Agrega tu número para poder devolverte la llamada.'));
+      return;
+    }
+    setStatus('sending'); setErr('');
+    try {
+      const r = await fetch('/api/contact', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: form.name, phone: form.phone, source: `${source}_callback`, message: 'Requested a callback', lang }),
+      });
+      const j = await r.json().catch(() => ({}));
+      if (r.ok && j.ok) { setStatus('done'); trackLead({ source: `${source}_callback`, niche: 'callback', phone: form.phone }); }
+      else { setStatus('error'); setErr(j.error || t('Something went wrong — please call me directly.', 'Algo salió mal — por favor llámame directamente.')); }
+    } catch { setStatus('error'); setErr(t('Network error — please call or text me directly.', 'Error de red — llámame o escríbeme directamente.')); }
+  }
+
+  return (
+    <div className="cc-overlay" role="dialog" aria-modal="true" aria-label={t('Call or text David', 'Llama o escribe a David')}
+      onMouseDown={(e) => { if (e.target === e.currentTarget) setOpen(false); }}>
+      <div className="cc-panel">
+        <button className="cc-close" type="button" aria-label={t('Close', 'Cerrar')} onClick={() => setOpen(false)}>✕</button>
+        {status === 'done' ? (
+          <div className="cc-done">
+            <div className="big"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="m20 6-11 11-5-5"/></svg></div>
+            <h3>{t("Got it — I'll call you back.", 'Listo — te devuelvo la llamada.')}</h3>
+            <p>{t("Thanks! I'll personally call you back today, usually within the hour.", '¡Gracias! Te llamaré personalmente hoy, normalmente dentro de la hora.')}</p>
+          </div>
+        ) : (
+          <>
+            <div className="cc-head">
+              <b>{t('Talk to David', 'Habla con David')}</b>
+              <p>{t("Call or text me directly — I answer the same day. Or leave your number and I'll call you back.", 'Llámame o escríbeme directamente — respondo el mismo día. O deja tu número y te llamo yo.')}</p>
+            </div>
+            <div className="cc-actions">
+              <a href={`tel:${DAVID_PHONE.tel}`} onClick={() => trackCall({ source })}>📞 {t('Call', 'Llamar')}</a>
+              <a href={`sms:${DAVID_PHONE.tel}`} onClick={() => trackCall({ source: `${source}_sms` })}>💬 {t('Text', 'Escribir')}</a>
+            </div>
+            <div className="cc-num">{DAVID_PHONE.display}</div>
+            <div className="cc-or">{t('or', 'o')}</div>
+            <form className="cc-form" onSubmit={submit}>
+              <div className="fld"><label>{t('Your name', 'Tu nombre')}</label><input value={form.name} onChange={set('name')} required placeholder={t('Jane Smith', 'Juana Pérez')} /></div>
+              <div className="fld"><label>{t('Your number', 'Tu número')}</label><input type="tel" value={form.phone} onChange={set('phone')} required placeholder="(707) 555-1234" /></div>
+              <button className="nv-btn nv-btn-primary submit" type="submit" disabled={status === 'sending'}>
+                {status === 'sending' ? t('Sending…', 'Enviando…') : t('Call me back', 'Llámame')} <Arrow />
+              </button>
+              {status === 'error' && <div className="msg err">{err}</div>}
+            </form>
+            <div className="cc-note">{t('Your number goes straight to me — never shared.', 'Tu número llega directo a mí — nunca se comparte.')}</div>
+          </>
+        )}
+      </div>
+    </div>
+  );
 }
 
 /* ── Ad-angle configs: /david (default) + /david/:variant ──────────────
@@ -404,7 +537,7 @@ export default function AboutPage() {
             <h1 className="ab-h1" dangerouslySetInnerHTML={{ __html: angle.h1[lang] || angle.h1.en }} />
             <p className="sub">{angle.sub[lang] || angle.sub.en}</p>
             <div className="ab-cta">
-              <a href={`tel:${DAVID_PHONE.tel}`} className="nv-btn nv-btn-ghost nv-btn-lg" onClick={() => trackCall({ source: 'david_hero' })}>{t('Call / text me', 'Llámame')}</a>
+              <a href={`tel:${DAVID_PHONE.tel}`} className="nv-btn nv-btn-ghost nv-btn-lg" onClick={(e) => { e.preventDefault(); openCallCapture('david_hero'); }}>{t('Call / text me', 'Llámame')}</a>
             </div>
             <div className="ab-guar">{t(<>⚡ Free mockup —&nbsp;<b>built before you pay</b></>, <>⚡ Mockup gratis —&nbsp;<b>construido antes de pagar</b></>)}</div>
             <div className="ab-ticks">
@@ -528,7 +661,7 @@ export default function AboutPage() {
               <h2>{t('Get your free mockup', 'Recibe tu mockup gratis')}</h2>
               <p className="lead">{t("Tell me a bit about your business and I'll design a free mockup of your new site — no cost, no pressure. You only pay if you love it and want it live.", 'Cuéntame un poco sobre tu negocio y diseñaré un mockup gratis de tu nuevo sitio — sin costo, sin presión. Solo pagas si te encanta y lo quieres en vivo.')}</p>
               <div className="ab-call">
-                <a className="ab-callbtn" href={`tel:${DAVID_PHONE.tel}`} onClick={() => trackCall({ source: 'david_contact' })}><span>📞</span><span>{DAVID_PHONE.display}<small>{t('Call or text me directly', 'Llámame o escríbeme directamente')}</small></span></a>
+                <a className="ab-callbtn" href={`tel:${DAVID_PHONE.tel}`} onClick={(e) => { e.preventDefault(); openCallCapture('david_contact'); }}><span>📞</span><span>{DAVID_PHONE.display}<small>{t('Call or text me directly', 'Llámame o escríbeme directamente')}</small></span></a>
               </div>
               <div className="note">{t('Your info goes straight to my inbox — never shared.', 'Tu información llega directo a mi correo — nunca se comparte.')}</div>
             </div>
@@ -537,6 +670,7 @@ export default function AboutPage() {
         </div></section>
       </main>
       <StickyCTA />
+      <CallCaptureModal />
       <Footer phone={DAVID_PHONE} minimal />
     </>
   );
