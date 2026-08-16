@@ -26,6 +26,7 @@ export const useLang = () => useContext(LangCtx);
 export const LANG_CSS = `
 .nv-lang{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;background:#fff;flex-shrink:0}
 .nv-lang button{font-family:var(--font);font-weight:800;font-size:.72rem;letter-spacing:.04em;padding:6px 11px;border:none;background:transparent;color:var(--muted);cursor:pointer;transition:background .15s,color .15s;line-height:1}
+@media(max-width:939px){.nv-lang button{padding:10px 13px}}
 .nv-lang button.on{background:var(--brand);color:#fff}
 .nv-lang button:not(.on):hover{color:var(--ink)}
 `;

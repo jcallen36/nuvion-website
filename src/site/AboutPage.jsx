@@ -173,6 +173,13 @@ const ABOUT_CSS = `
 .cc-done .big{width:52px;height:52px;border-radius:50%;background:#ECFDF5;color:#059669;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
 .cc-done h3{color:var(--ink);font-size:1.2rem;margin-bottom:6px}
 .cc-done p{color:var(--body);font-size:.95rem;line-height:1.5}
+
+/* Mobile fixes (audit 2026-08-16) */
+@media(max-width:939px){.ab-sticky{display:none}}            /* the sticky pill sat behind the mobile CTA bar and duplicated it */
+.cc-overlay{overflow-y:auto}                                 /* let the call-capture modal scroll on short/landscape phones */
+.cc-panel{max-height:92dvh;overflow-y:auto}
+.cc-close{width:40px;height:40px}                            /* bigger tap target */
+@media(max-width:390px){.nv-nav .nv-btn-primary{padding:9px 13px;font-size:.85rem}}  /* keep the MiniNav from crowding on tiny phones */
 `;
 
 /* Minimal nav for the ad landing page — logo + language toggle + one call CTA, no exit links */

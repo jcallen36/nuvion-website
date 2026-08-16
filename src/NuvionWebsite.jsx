@@ -10,6 +10,7 @@ import heroPhoneShot from './assets/work/calegal-m.webp';
 import sonomaHills from './assets/local/sonoma-hills.webp';
 import sonomaVineyard from './assets/local/sonoma-vineyard.webp';
 import sonomaGreen from './assets/local/sonoma-green.webp';
+import navMark from './assets/nuvion-mark-white.png';
 import { LogoWall, WALL_CSS, MobileCTA, FloatingContact, MCTA_CSS } from './site/shared.jsx';
 import { useLang, LangToggle, LANG_CSS } from './site/i18n.jsx';
 import { LOCAL_TOWNS } from './site/LocalPage.jsx';
@@ -69,7 +70,7 @@ img{max-width:100%;display:block}
 .nv-nav.scrolled{background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line);box-shadow:0 4px 24px -18px rgba(10,18,34,.5)}
 .nv-nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
 .nv-logo{display:flex;align-items:center;gap:10px}
-.nv-logo .mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--brand),var(--brand-strong));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;box-shadow:0 6px 16px -6px rgba(37,110,247,.6);flex-shrink:0}
+.nv-logo .mark{width:38px;height:38px;border-radius:11px;background:url(${navMark}) center/62% no-repeat, linear-gradient(135deg,var(--brand),var(--brand-strong));color:transparent;font-size:0;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px -6px rgba(37,110,247,.6);flex-shrink:0}
 .nv-logo .wm{display:flex;flex-direction:column;line-height:1.05}
 .nv-logo .wm b{color:var(--ink);font-weight:800;font-size:1.14rem;letter-spacing:-.01em}
 .nv-logo .wm small{color:var(--muted);font-size:.58rem;font-weight:700;letter-spacing:.22em}
@@ -366,8 +367,9 @@ img{max-width:100%;display:block}
 /* transparent pricing + founding offer */
 .nv-found{max-width:940px;margin:0 auto 32px;background:linear-gradient(100deg,#0A1222,#132444);color:#fff;border-radius:16px;padding:15px 26px;text-align:center;font-weight:500;font-size:.98rem;line-height:1.55;box-shadow:var(--shadow-lg)}
 .nv-found b{color:#FFD84D;font-weight:800}
-.nv-bill{display:inline-flex;background:#eef2f8;border:1px solid var(--line);border-radius:100px;padding:5px;margin:0 auto 26px;gap:4px}
+.nv-bill{display:inline-flex;flex-wrap:wrap;max-width:100%;justify-content:center;background:#eef2f8;border:1px solid var(--line);border-radius:100px;padding:5px;margin:0 auto 26px;gap:4px}
 .nv-bill button{font-family:var(--font);font-weight:700;font-size:.9rem;padding:10px 20px;border-radius:100px;border:none;background:none;color:var(--muted);cursor:pointer;transition:all .16s;white-space:nowrap}
+@media(max-width:400px){.nv-bill button{padding:9px 14px;font-size:.82rem}}
 .nv-bill button.on{background:#fff;color:var(--ink);box-shadow:var(--shadow-sm)}
 .nv-tiers{display:grid;grid-template-columns:1fr;gap:22px;max-width:1040px;margin:0 auto}
 @media(min-width:840px){.nv-tiers{grid-template-columns:repeat(3,1fr);align-items:start}}

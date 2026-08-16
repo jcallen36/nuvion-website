@@ -6,6 +6,7 @@ import dumolinLogo from '../assets/clients/dumolin.webp';
 import arpkdLogo from '../assets/clients/arpkd.webp';
 import deniseLogo from '../assets/clients/denise.webp';
 import calegalLogo from '../assets/clients/calegal.webp';
+import navMark from '../assets/nuvion-mark-white.png';
 
 /* ─────────────────────────────────────────────────────────────
    Shared design system — tokens, primitives, Nav, Footer, icons.
@@ -80,7 +81,7 @@ img{max-width:100%;display:block}
 .nv-nav.scrolled{border-bottom:1px solid var(--line);box-shadow:0 4px 24px -18px rgba(10,18,34,.5)}
 .nv-nav-in{display:flex;align-items:center;justify-content:space-between;height:74px}
 .nv-logo{display:flex;align-items:center;gap:10px}
-.nv-logo .mark{width:38px;height:38px;border-radius:11px;background:linear-gradient(135deg,var(--brand),var(--brand-strong));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;box-shadow:0 6px 16px -6px rgba(37,110,247,.6);flex-shrink:0}
+.nv-logo .mark{width:38px;height:38px;border-radius:11px;background:url(${navMark}) center/62% no-repeat, linear-gradient(135deg,var(--brand),var(--brand-strong));color:transparent;font-size:0;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 16px -6px rgba(37,110,247,.6);flex-shrink:0}
 .nv-logo .wm{display:flex;flex-direction:column;line-height:1.05}
 .nv-logo .wm b{color:var(--ink);font-weight:800;font-size:1.14rem;letter-spacing:-.01em}
 .nv-logo .wm small{color:var(--muted);font-size:.58rem;font-weight:700;letter-spacing:.22em}
