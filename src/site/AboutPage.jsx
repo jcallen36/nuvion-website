@@ -365,8 +365,8 @@ const DEFAULT_ANGLE = {
   eyebrow: { en: 'Co-founder · Santa Rosa, CA', es: 'Cofundador · Santa Rosa, CA' },
   h1: { en: `Hi, I'm David — I'll build your website <span class="nv-grad">before you pay</span>.`, es: `Hola, soy David — construiré tu sitio web <span class="nv-grad">antes de que pagues</span>.` },
   sub: { en: "Start with a free mockup — see exactly what your site will look like. I design, build, and host the whole thing myself, and you only pay once it's live and you love it. One local person, start to finish.", es: 'Empieza con un mockup gratis — mira exactamente cómo se verá tu sitio. Yo diseño, construyo y alojo todo, y solo pagas cuando está en vivo y te encanta. Una persona local, de principio a fin.' },
-  title: 'Meet David — Web Designer in Sonoma County | Nuvion',
-  desc: "I'm David Prudhomme — I design, build, and host your website before you pay. Start with a free mockup, go live in about a week, and only pay once you love it. Sonoma County web design.",
+  title: 'Meet David — Web Designer in California | Nuvion',
+  desc: "I'm David Prudhomme — I design, build, and host your website before you pay. Start with a free mockup, go live in about a week, and only pay once you love it. California web design.",
   noindex: false,
 };
 
@@ -543,12 +543,13 @@ export default function AboutPage() {
             <div className="ab-ticks">
               <span><Check /> {t('Pay only when you love it', 'Pagas solo cuando te encanta')}</span>
               <span><Check /> {t('Yours forever', 'Tuyo para siempre')}</span>
-              <span><Check /> {t('Sonoma County local', 'Local de Sonoma County')}</span>
+              <span><Check /> {t('Live in ~1 week', 'En vivo en ~1 semana')}</span>
+              <span><Check /> {t('A real local designer', 'Un diseñador local de verdad')}</span>
             </div>
           </div>
           <div className="ab-heroform rv d1">
             <div className="hf-head">
-              <img src={davidHero} alt="David Prudhomme, founder of Nuvion Solutions" />
+              <img src={davidHero} alt="David Prudhomme, co-founder of Nuvion Solutions" />
               <div>
                 <b>{t('Start your free mockup', 'Empieza tu mockup gratis')}</b>
                 <div className="st">★★★★★ <span className="sd">· {t('replies same-day', 'responde el mismo día')}</span></div>
@@ -624,7 +625,7 @@ export default function AboutPage() {
           <div className="ab-story rv">
             <p>{t('I started Nuvion because I was tired of watching small businesses get burned — overcharged for a website, then left on read the moment they needed a change.', 'Empecé Nuvion porque estaba cansado de ver a los pequeños negocios salir perjudicados — cobrándoles de más por un sitio web y luego ignorándolos apenas necesitaban un cambio.')}</p>
             <p>{t(<><strong>I do the opposite.</strong> I personally design and build every site, I answer the same day, and I stay with you long after launch. When you need a phone number changed or a page added, you text me — and it's done, not stuck in a ticket queue.</>, <><strong>Yo hago lo contrario.</strong> Diseño y construyo cada sitio personalmente, respondo el mismo día y me quedo contigo mucho después del lanzamiento. Cuando necesites cambiar un número o agregar una página, me escribes — y queda hecho, no atrapado en una fila de tickets.</>)}</p>
-            <p>{t("I'm based in Santa Rosa and work with businesses across Sonoma County and beyond. My goal is simple: build you a website that actually wins you customers, and be the kind of partner you'd recommend to a friend.", 'Estoy en Santa Rosa y trabajo con negocios en todo Sonoma County y más allá. Mi meta es simple: construirte un sitio web que de verdad te gane clientes y ser el tipo de aliado que le recomendarías a un amigo.')}</p>
+            <p>{t("I'm based in Santa Rosa and work with businesses across California. My goal is simple: build you a website that actually wins you customers, and be the kind of partner you'd recommend to a friend.", 'Estoy en Santa Rosa y trabajo con negocios en toda California. Mi meta es simple: construirte un sitio web que de verdad te gane clientes y ser el tipo de aliado que le recomendarías a un amigo.')}</p>
             <div className="ab-sign">— David Prudhomme</div>
           </div>
         </div></section>

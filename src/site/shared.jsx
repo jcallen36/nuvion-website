@@ -150,12 +150,17 @@ export const PhoneIco = () => <svg width="20" height="20" viewBox="0 0 24 24" fi
 export const COMPANY_PHONE = { tel: '+17075209179', display: '(707) 520-9179' };
 
 /* ── STICKY MOBILE CTA (site-wide, mobile only) ────────────── */
-export function MobileCTA({ phone = COMPANY_PHONE }) {
+export function MobileCTA({ phone = COMPANY_PHONE, minimal = false }) {
   const { t } = useLang();
+  // On ad landing pages (minimal) the on-page form is right there, so keep the visitor
+  // on the page (#contact) instead of sending them off to /book.
+  const label = <>{t('Get my free mockup', 'Quiero mi mockup gratis')}<small>{t('⚡ Built before you pay', '⚡ Construido antes de pagar')}</small></>;
   return (
     <div className="nv-mcta" role="region" aria-label="Quick contact">
       <a className="call" href={`tel:${phone.tel}`} aria-label={`Call or text ${phone.display}`} onClick={() => trackCall({ source: 'mobile_bar' })}><PhoneIco /></a>
-      <Link className="book" to="/book">{t('Get my free mockup', 'Quiero mi mockup gratis')}<small>{t('⚡ Built before you pay', '⚡ Construido antes de pagar')}</small></Link>
+      {minimal
+        ? <a className="book" href="#contact">{label}</a>
+        : <Link className="book" to="/book">{label}</Link>}
     </div>
   );
 }
@@ -244,7 +249,7 @@ export function Footer({ phone = COMPANY_PHONE, minimal = false }) {
   const { t } = useLang();
   return (
     <>
-    <MobileCTA phone={phone} />
+    <MobileCTA phone={phone} minimal={minimal} />
     <FloatingContact phone={phone} />
     <footer className="nv-foot"><div className="nv-wrap">
       <div className="nv-foot-grid" style={minimal ? { gridTemplateColumns: '1fr', maxWidth: 560, gap: 20 } : undefined}>
