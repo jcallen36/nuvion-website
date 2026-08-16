@@ -212,7 +212,7 @@ export default function WorkPage() {
           <h1 className="wk-h1">{t(<>Real websites. <span className="nv-grad">Real businesses.</span></>, <>Sitios reales. <span className="nv-grad">Negocios reales.</span></>)}</h1>
           <p>{t("Every build below is a real business we partnered with — designed one-on-one, live in 1 week, and theirs to own. Plus a few concept builds that show our range.", 'Cada proyecto de abajo es un negocio real con el que trabajamos de la mano — diseñado uno a uno, en vivo en 1 semana, y suyo. Además de algunos conceptos que muestran nuestro alcance.')}</p>
           <div className="stats">
-            <div><b>100+</b><span>{t('Sites designed', 'Sitios diseñados')}</span></div>
+            <div><b>83+</b><span>{t('Sites designed', 'Sitios diseñados')}</span></div>
             <div><b>6</b><span>{t('Local clients', 'Clientes locales')}</span></div>
             <div><b>1 wk</b><span>{t('To launch — guaranteed', 'Para lanzar — garantizado')}</span></div>
           </div>

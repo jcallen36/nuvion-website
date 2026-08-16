@@ -855,8 +855,8 @@ function Stats() {
         </div>
         <div className="nv-dash-card rv d1"><div className="nv-dash-big">1<em>-on-1</em></div><div className="nv-dash-cap">{t('Every project, personally', 'Cada proyecto, en persona')}</div></div>
         <div className="nv-dash-card rv d2"><div className="nv-dash-big">1<em>wk</em></div><div className="nv-dash-cap">{t('To launch — guaranteed', 'Para lanzar — garantizado')}</div></div>
-        {/* 100+ sites designed & built — operator-set count (2026-08-05, per David). */}
-        <div className="nv-dash-card rv d1"><div className="nv-dash-big"><Count to={100} /><em>+</em></div><div className="nv-dash-cap">{t('Sites designed & built', 'Sitios diseñados y construidos')}</div></div>
+        {/* 83+ sites designed & built — operator-set count (2026-08-15, per David: use the real specific number, not a round-looking 100+). */}
+        <div className="nv-dash-card rv d1"><div className="nv-dash-big"><Count to={83} /><em>+</em></div><div className="nv-dash-cap">{t('Sites designed & built', 'Sitios diseñados y construidos')}</div></div>
         <div className="nv-dash-card rv d2"><div className="nv-dash-big"><Count to={100} /><em>%</em></div><div className="nv-dash-cap">{t('Custom — no templates', 'Personalizado — sin plantillas')}</div></div>
         <div className="nv-dash-card rv d3">
           <div className="nv-dash-head" style={{ marginBottom: 2 }}>PageSpeed</div>
