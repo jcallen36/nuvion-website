@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { BASE_CSS, Footer, useReveal, Arrow, Check, IconWeb, IconSeo, IconMkt } from './shared.jsx';
+import { BASE_CSS, Footer, useReveal, Arrow, Check, IconWeb, IconSeo, IconMkt, LogoWall, WALL_CSS } from './shared.jsx';
 import { useLang, LangToggle } from './i18n.jsx';
 import { trackLead, trackCall } from '../analytics.js';
 import { useLeadStart } from './useLeadStart.js';
@@ -236,7 +236,7 @@ function IntakeForm({ source = 'david' }) {
     <form className="ab-form" onSubmit={submit} onInput={onStart}>
       <div className="row two" style={{ marginBottom: 14 }}>
         <div><label>{t('Your name', 'Tu nombre')}</label><input value={form.name} onChange={set('name')} required placeholder={t('Jane Smith', 'Juana Pérez')} /></div>
-        <div><label>{t('Phone', 'Teléfono')}</label><input value={form.phone} onChange={set('phone')} placeholder="(707) 555-1234" /></div>
+        <div><label>{t('Phone', 'Teléfono')}</label><input type="tel" inputMode="tel" autoComplete="tel" value={form.phone} onChange={set('phone')} placeholder="(707) 555-1234" /></div>
       </div>
       <div className="fld"><label>{t('Email (optional)', 'Correo (opcional)')}</label><input type="email" value={form.email} onChange={set('email')} placeholder={t('you@business.com', 'tu@negocio.com')} /></div>
       <div className="fld"><label>{t('Your business (optional)', 'Tu negocio (opcional)')}</label><textarea value={form.message} onChange={set('message')} placeholder={t("What's your business, and do you have a site now? (a sentence is plenty)", '¿Cuál es tu negocio y ya tienes un sitio? (una frase basta)')} /></div>
@@ -370,7 +370,7 @@ function CallCaptureModal() {
    message-matched to the ad; everything else (proof, work, form) stays. */
 const DEFAULT_ANGLE = {
   eyebrow: { en: 'Co-founder · Santa Rosa, CA', es: 'Cofundador · Santa Rosa, CA' },
-  h1: { en: `Hi, I'm David — I'll build your website <span class="nv-grad">before you pay</span>.`, es: `Hola, soy David — construiré tu sitio web <span class="nv-grad">antes de que pagues</span>.` },
+  h1: { en: `Hi, I'm David — you'll <span class="nv-grad">see your new website before you pay</span>.`, es: `Hola, soy David — <span class="nv-grad">verás tu nuevo sitio web antes de pagar</span>.` },
   sub: { en: "Start with a free mockup — see exactly what your site will look like. I design, build, and host the whole thing myself, and you only pay once it's live and you love it. One local person, start to finish.", es: 'Empieza con un mockup gratis — mira exactamente cómo se verá tu sitio. Yo diseño, construyo y alojo todo, y solo pagas cuando está en vivo y te encanta. Una persona local, de principio a fin.' },
   title: 'Meet David — Web Designer in California | Nuvion',
   desc: "I'm David Prudhomme — I design, build, and host your website before you pay. Start with a free mockup, go live in about a week, and only pay once you love it. California web design.",
@@ -534,7 +534,7 @@ export default function AboutPage() {
       <meta name="description" content={angle.desc} />
       <link rel="canonical" href={`https://www.nuvion-solutions.com/david${variant ? '/' + variant : ''}`} />
       {angle.noindex && <meta name="robots" content="noindex, follow" />}
-      <style dangerouslySetInnerHTML={{ __html: BASE_CSS + ABOUT_CSS }} />
+      <style dangerouslySetInnerHTML={{ __html: BASE_CSS + ABOUT_CSS + WALL_CSS }} />
       <MiniNav />
       <main>
         {/* HERO */}
@@ -544,6 +544,7 @@ export default function AboutPage() {
             <h1 className="ab-h1" dangerouslySetInnerHTML={{ __html: angle.h1[lang] || angle.h1.en }} />
             <p className="sub">{angle.sub[lang] || angle.sub.en}</p>
             <div className="ab-cta">
+              <a href="#mockup" className="nv-btn nv-btn-primary nv-btn-lg">{t('Get my free mockup', 'Quiero mi mockup gratis')} <Arrow /></a>
               <a href={`tel:${DAVID_PHONE.tel}`} className="nv-btn nv-btn-ghost nv-btn-lg" onClick={(e) => { e.preventDefault(); openCallCapture('david_hero'); }}>{t('Call / text me', 'Llámame')}</a>
             </div>
             <div className="ab-guar">{t(<>⚡ Free mockup —&nbsp;<b>built before you pay</b></>, <>⚡ Mockup gratis —&nbsp;<b>construido antes de pagar</b></>)}</div>
@@ -554,7 +555,7 @@ export default function AboutPage() {
               <span><Check /> {t('A real local designer', 'Un diseñador local de verdad')}</span>
             </div>
           </div>
-          <div className="ab-heroform rv d1">
+          <div className="ab-heroform rv d1" id="mockup">
             <div className="hf-head">
               <img src={davidHero} alt="David Prudhomme, co-founder of Nuvion Solutions" />
               <div>
@@ -573,6 +574,12 @@ export default function AboutPage() {
           <span><span className="ic"><IconSeo /></span> {t('You work with me directly', 'Trabajas directamente conmigo')}</span>
           <span><span className="ic"><IconMkt /></span> {t('Built to win you customers', 'Hecho para ganarte clientes')}</span>
         </div></div>
+
+        {/* CLIENT LOGOS — real, verifiable proof for cold paid traffic */}
+        <section className="nv-sec" style={{ paddingTop: 46, paddingBottom: 46 }}><div className="nv-wrap">
+          <p className="rv" style={{ textAlign: 'center', margin: '0 0 26px', color: 'var(--muted)', fontWeight: 700, fontSize: '.78rem', letterSpacing: '.11em', textTransform: 'uppercase' }}>{t('Real businesses I’ve designed & built for', 'Negocios reales para los que he diseñado y construido')}</p>
+          <div className="rv"><LogoWall /></div>
+        </div></section>
 
         {/* WHAT I DO */}
         <section className="nv-sec"><div className="nv-wrap">

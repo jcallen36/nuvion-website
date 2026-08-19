@@ -32,8 +32,6 @@ body{padding-bottom:0}
 `;
 
 export const BASE_CSS = `
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-
 :root{
   --bg:#FFFFFF; --bg-soft:#F5F8FC; --surface:#FFFFFF;
   --ink:#0A1222; --body:#475467; --muted:#667085;
@@ -153,14 +151,14 @@ export const COMPANY_PHONE = { tel: '+17075209179', display: '(707) 520-9179' };
 /* ── STICKY MOBILE CTA (site-wide, mobile only) ────────────── */
 export function MobileCTA({ phone = COMPANY_PHONE, minimal = false }) {
   const { t } = useLang();
-  // On ad landing pages (minimal) the on-page form is right there, so keep the visitor
-  // on the page (#contact) instead of sending them off to /book.
+  // On ad landing pages (minimal) the free-mockup form is right in the hero, so send the
+  // visitor straight to it (#mockup) instead of the page bottom or off to /book.
   const label = <>{t('Get my free mockup', 'Quiero mi mockup gratis')}<small>{t('⚡ Built before you pay', '⚡ Construido antes de pagar')}</small></>;
   return (
     <div className="nv-mcta" role="region" aria-label="Quick contact">
       <a className="call" href={`tel:${phone.tel}`} aria-label={`Call or text ${phone.display}`} onClick={() => trackCall({ source: 'mobile_bar' })}><PhoneIco /></a>
       {minimal
-        ? <a className="book" href="#contact">{label}</a>
+        ? <a className="book" href="#mockup">{label}</a>
         : <Link className="book" to="/book">{label}</Link>}
     </div>
   );

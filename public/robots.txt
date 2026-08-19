@@ -1,14 +1,22 @@
+# Nuvion Solutions — robots.txt
+# Everyone welcome, including AI/LLM answer engines — we WANT to be read and cited.
+
 User-agent: *
 Allow: /
 
-# Common AI/LLM crawlers
+# ── AI / LLM answer-engine crawlers (explicitly welcomed) ──
+# OpenAI (ChatGPT + ChatGPT Search)
 User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
 Allow: /
 
-User-agent: CCBot
+# Anthropic (Claude)
+User-agent: ClaudeBot
 Allow: /
 
 User-agent: anthropic-ai
@@ -17,7 +25,35 @@ Allow: /
 User-agent: Claude-Web
 Allow: /
 
+# Google (Gemini / AI training + AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Common Crawl (feeds many models), Meta AI, Amazon, Cohere, DuckDuckGo
+User-agent: CCBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: DuckAssistBot
 Allow: /
 
 Sitemap: https://www.nuvion-solutions.com/sitemap.xml
