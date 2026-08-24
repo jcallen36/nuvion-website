@@ -369,7 +369,7 @@ function CallCaptureModal() {
    pages never compete with or duplicate the organic site. Hero copy is
    message-matched to the ad; everything else (proof, work, form) stays. */
 const DEFAULT_ANGLE = {
-  eyebrow: { en: 'Co-founder · Santa Rosa, CA', es: 'Cofundador · Santa Rosa, CA' },
+  eyebrow: { en: 'Sales & Business Development · Santa Rosa, CA', es: 'Ventas y Desarrollo de Negocios · Santa Rosa, CA' },
   h1: { en: `Hi, I'm David — you'll <span class="nv-grad">see your new website before you pay</span>.`, es: `Hola, soy David — <span class="nv-grad">verás tu nuevo sitio web antes de pagar</span>.` },
   sub: { en: "Start with a free mockup — see exactly what your site will look like. I design, build, and host the whole thing myself, and you only pay once it's live and you love it. One local person, start to finish.", es: 'Empieza con un mockup gratis — mira exactamente cómo se verá tu sitio. Yo diseño, construyo y alojo todo, y solo pagas cuando está en vivo y te encanta. Una persona local, de principio a fin.' },
   title: 'Meet David — Web Designer in California | Nuvion',
@@ -557,7 +557,7 @@ export default function AboutPage() {
           </div>
           <div className="ab-heroform rv d1" id="mockup">
             <div className="hf-head">
-              <img src={davidHero} alt="David Prudhomme, co-founder of Nuvion Solutions" />
+              <img src={davidHero} alt="David Prudhomme, Sales & Business Development at Nuvion Solutions" />
               <div>
                 <b>{t('Start your free mockup', 'Empieza tu mockup gratis')}</b>
                 <div className="st">★★★★★ <span className="sd">· {t('replies same-day', 'responde el mismo día')}</span></div>
@@ -637,7 +637,7 @@ export default function AboutPage() {
         <section className="nv-sec soft"><div className="nv-wrap">
           <div className="nv-center rv"><div className="nv-kicker">{t('My story', 'Mi historia')}</div><h2 className="nv-h2">{t('Why I do this', 'Por qué hago esto')}</h2></div>
           <div className="ab-story rv">
-            <p>{t('I started Nuvion because I was tired of watching small businesses get burned — overcharged for a website, then left on read the moment they needed a change.', 'Empecé Nuvion porque estaba cansado de ver a los pequeños negocios salir perjudicados — cobrándoles de más por un sitio web y luego ignorándolos apenas necesitaban un cambio.')}</p>
+            <p>{t('I do this because I was tired of watching small businesses get burned — overcharged for a website, then left on read the moment they needed a change.', 'Hago esto porque estaba cansado de ver a los pequeños negocios salir perjudicados — cobrándoles de más por un sitio web y luego ignorándolos apenas necesitaban un cambio.')}</p>
             <p>{t(<><strong>I do the opposite.</strong> I personally design and build every site, I answer the same day, and I stay with you long after launch. When you need a phone number changed or a page added, you text me — and it's done, not stuck in a ticket queue.</>, <><strong>Yo hago lo contrario.</strong> Diseño y construyo cada sitio personalmente, respondo el mismo día y me quedo contigo mucho después del lanzamiento. Cuando necesites cambiar un número o agregar una página, me escribes — y queda hecho, no atrapado en una fila de tickets.</>)}</p>
             <p>{t("I'm based in Santa Rosa and work with businesses across California. My goal is simple: build you a website that actually wins you customers, and be the kind of partner you'd recommend to a friend.", 'Estoy en Santa Rosa y trabajo con negocios en toda California. Mi meta es simple: construirte un sitio web que de verdad te gane clientes y ser el tipo de aliado que le recomendarías a un amigo.')}</p>
             <div className="ab-sign">— David Prudhomme</div>

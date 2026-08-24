@@ -55,8 +55,10 @@ export default function CompanyAbout() {
         url: 'https://www.nuvion-solutions.com', telephone: '+1-707-520-9179', email: 'team@nuvion-solutions.com',
         areaServed: 'Sonoma County, California',
         founder: [
-          { '@type': 'Person', name: 'David Prudhomme', jobTitle: 'Co-founder', worksFor: { '@type': 'Organization', name: 'Nuvion Solutions' } },
           { '@type': 'Person', name: 'Jaeden Callender', jobTitle: 'Co-founder', worksFor: { '@type': 'Organization', name: 'Nuvion Solutions' } },
+        ],
+        employee: [
+          { '@type': 'Person', name: 'David Prudhomme', jobTitle: 'Sales & Business Development', worksFor: { '@type': 'Organization', name: 'Nuvion Solutions' } },
         ],
       }) }} />
       <style dangerouslySetInnerHTML={{ __html: BASE_CSS + CA_CSS + WALL_CSS }} />
@@ -85,7 +87,7 @@ export default function CompanyAbout() {
 
         {/* STORY */}
         <section className="nv-sec soft"><div className="nv-wrap">
-          <div className="nv-center rv"><div className="nv-kicker">{t('Our story', 'Nuestra historia')}</div><h2 className="nv-h2">{t('Why we started Nuvion', 'Por qué empezamos Nuvion')}</h2></div>
+          <div className="nv-center rv"><div className="nv-kicker">{t('Our story', 'Nuestra historia')}</div><h2 className="nv-h2">{t('Why we do what we do', 'Por qué hacemos lo que hacemos')}</h2></div>
           <div className="ca-story rv">
             <p>{t('We were tired of watching local businesses get burned — overcharged for a website, then left on read the moment they needed a change.', 'Estábamos cansados de ver a negocios locales salir perjudicados: que les cobraran de más por un sitio web y luego los dejaran en visto en el momento en que necesitaban un cambio.')}</p>
             <p>{t(<><strong>So we built the opposite.</strong> A studio where you work directly with the people building your site, get answers the same day, and never get stuck in a ticket queue. We're based in Santa Rosa and proud to serve Sonoma County and beyond.</>, <><strong>Así que construimos lo contrario.</strong> Un estudio donde trabajas directamente con las personas que construyen tu sitio, obtienes respuestas el mismo día y nunca te quedas atrapado en una cola de tickets. Estamos en Santa Rosa y con orgullo servimos a Sonoma County y más allá.</>)}</p>
@@ -102,9 +104,9 @@ export default function CompanyAbout() {
           <div className="ca-team">
             <div className="ca-mem rv">
               <img src={davidHero} alt="David Prudhomme" loading="lazy" />
-              <div className="role">{t('Co-founder · Design & Delivery', 'Cofundador · Diseño y entrega')}</div>
+              <div className="role">{t('Sales & Business Development', 'Ventas y Desarrollo de Negocios')}</div>
               <h3>David Prudhomme</h3>
-              <p>{t('Your main point of contact — designs, builds, and stays with you long after launch.', 'Tu punto de contacto principal — diseña, construye y se queda contigo mucho después del lanzamiento.')}</p>
+              <p>{t('Your main point of contact — makes sure your project runs smoothly and you get exactly what you need, start to finish.', 'Tu punto de contacto principal — se asegura de que tu proyecto avance sin problemas y obtengas exactamente lo que necesitas, de principio a fin.')}</p>
               <Link to="/david" className="nv-btn nv-btn-ghost">{t('Meet David', 'Conoce a David')} <Arrow /></Link>
             </div>
             <div className="ca-mem rv d1">

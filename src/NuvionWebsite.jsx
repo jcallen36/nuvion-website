@@ -958,7 +958,7 @@ function Testimonials() {
 function Team() {
   const { t } = useLang();
   const members = [
-    { photo: davidPhoto, name: 'David Prudhomme', role: t('Co-founder · Design & Delivery', 'Cofundador · Diseño y entrega'), bio: t('Your main point of contact — designs, builds, and stays with you long after launch.', 'Tu punto de contacto principal — diseña, construye y se queda contigo mucho después del lanzamiento.'), to: '/david' },
+    { photo: davidPhoto, name: 'David Prudhomme', role: t('Sales & Business Development', 'Ventas y Desarrollo de Negocios'), bio: t('Your main point of contact — makes sure your project runs smoothly and you get exactly what you need, start to finish.', 'Tu punto de contacto principal — se asegura de que tu proyecto avance sin problemas y obtengas exactamente lo que necesitas, de principio a fin.'), to: '/david' },
     { photo: jaedenPhoto, name: 'Jaeden Callender', role: t('Co-founder · Client Success', 'Cofundador · Éxito del cliente'), bio: t('Makes sure every client gets exactly what they need, exactly when they need it.', 'Se asegura de que cada cliente reciba justo lo que necesita, justo cuando lo necesita.'), to: '/jaeden' },
   ];
   return (
