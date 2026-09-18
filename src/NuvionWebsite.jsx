@@ -128,7 +128,7 @@ img{max-width:100%;display:block}
 
 /* TRUST BAR */
 .nv-trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-soft)}
-.nv-trust-in{display:flex;gap:18px;justify-content:space-between;flex-wrap:wrap;padding:20px 0;font-weight:600;color:var(--ink);font-size:.93rem}
+.nv-trust-in{display:flex;gap:18px;justify-content:space-between;flex-wrap:wrap;padding-block:20px;font-weight:600;color:var(--ink);font-size:.93rem}
 .nv-trust-in span{display:inline-flex;align-items:center;gap:9px}
 .nv-trust-in .ic{color:var(--brand);display:inline-flex}
 
@@ -150,7 +150,7 @@ img{max-width:100%;display:block}
 .nv-card .ico{width:54px;height:54px;border-radius:14px;background:var(--brand-soft);color:var(--brand-strong);display:flex;align-items:center;justify-content:center;margin-bottom:18px}
 .nv-card h3{color:var(--ink);font-size:1.34rem;font-weight:700;letter-spacing:-.01em;margin-bottom:10px}
 .nv-card p{font-size:.98rem;color:var(--body)}
-.nv-card .go{margin-top:18px;display:inline-flex;align-items:center;gap:7px;color:var(--brand-strong);font-weight:700;font-size:.92rem}
+.nv-card .go{margin-top:8px;padding-block:10px;display:inline-flex;align-items:center;gap:7px;color:var(--brand-strong);font-weight:700;font-size:.92rem}
 .nv-card.feat{background:linear-gradient(160deg,#F4F8FF, #fff 60%);border-color:#cddcf7}
 .nv-card.feat .badge{position:absolute;top:22px;right:24px;font-size:.68rem;font-weight:800;letter-spacing:.08em;color:var(--brand-strong);background:#fff;border:1px solid #cddcf7;padding:5px 10px;border-radius:100px;text-transform:uppercase}
 .nv-card ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:9px}

@@ -120,7 +120,7 @@ const WORK_CSS = `
 .wk-bar{height:30px;background:#F1F4F9;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:5px;padding:0 12px}
 .wk-bar i{width:8px;height:8px;border-radius:50%;background:#CBD4E1}
 .wk-shot{overflow:hidden;background:var(--bg-soft)}
-.wk-feat-card .wk-shot{height:300px}
+.wk-feat-card .wk-shot{aspect-ratio:1100/688}
 .wk-shot img{width:100%;height:100%;object-fit:cover;object-position:center;transition:object-position 3.5s ease}
 .wk-feat-card:hover .wk-shot img{object-position:center bottom}
 .wk-feat-body{padding:24px 26px}
