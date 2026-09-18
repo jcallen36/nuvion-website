@@ -25,11 +25,11 @@ const PROJECTS = [
   // ── Real client work (lead with the most system-like builds) ──
   { key: 'calegal', name: 'California Legal Document Excellence', category: 'Legal Services · Sonoma County', group: 'business', img: workCalegal, url: 'https://calegaldocumenthelp.com', result: 'Lead-gen platform with same-day intake — turns searches into booked consults.', tags: ['Web Design', 'SEO', 'Lead-gen system'], featured: true },
   { key: 'dumolin', name: 'DuMolin Community Living', category: 'Care Facilities · Santa Rosa', group: 'business', img: workDumolin, url: 'https://dumolin-homes.vercel.app', result: 'Six licensed care homes, unified under one modern, multi-location site.', tags: ['Web Design', 'Local SEO', 'Multi-location'], featured: true },
-  { key: 'floors', name: 'Floors for Sonoma', category: 'Flooring Studio · Sonoma', group: 'concept', img: workFloors, url: 'https://floors-for-sonoma.vercel.app', result: 'An editorial, high-end site for a Sonoma Valley flooring studio.', tags: ['Web Design', 'Local SEO'] },
   { key: 'denise', name: 'Denise Kramer Weddings', category: 'Weddings · Wine Country', group: 'business', img: workDenise, url: 'https://demo-wedding-iota.vercel.app', result: 'An elegant wedding-planning site for Sonoma & Napa couples.', tags: ['Web Design'] },
   { key: 'arpkd', name: 'ARPKD / CHF Alliance', category: 'Nonprofit · National', group: 'nonprofit', img: workArpkd, url: '', result: 'A 25-year rare-disease nonprofit, fully modernized.', tags: ['Web Design', 'Nonprofit'] },
   { key: 'bayarea', name: 'Bay Area 2nd Mom', category: 'Nanny Agency · Bay Area', group: 'business', img: workBayarea, url: 'https://nanny-agency-website-alpha.vercel.app', result: '40+ years of trusted care, freshly branded online.', tags: ['Web Design'] },
   // ── Concept builds (demos showing our range) ──
+  { key: 'floors', name: 'Floors for Sonoma', category: 'Concept · Flooring Studio', group: 'concept', img: workFloors, url: 'https://floors-for-sonoma.vercel.app', result: 'An editorial, high-end concept for a wine-country flooring studio.', tags: ['Concept'] },
   { key: 'aviation', name: 'APEX Private Aviation', category: 'Concept · Luxury Aviation', group: 'concept', img: workAviation, url: 'https://aviation.nuvion-solutions.com', result: 'A cinematic concept for a private-jet brand.', tags: ['Concept'] },
   { key: 'supercars', name: 'Velocity Motors', category: 'Concept · Automotive', group: 'concept', img: workSupercars, url: 'https://supercars.nuvion-solutions.com', result: 'A bold automotive concept — motion, depth, drama.', tags: ['Concept'] },
   { key: 'restaurant', name: 'Verdant', category: 'Concept · Fine Dining', group: 'concept', img: workRestaurant, url: 'https://restaurant.nuvion-solutions.com', result: 'A refined fine-dining concept with an AI sommelier.', tags: ['Concept'] },
@@ -61,7 +61,7 @@ const FILTER_ES = {
 const CAT_ES = {
   dumolin: 'Centros de cuidado · Santa Rosa',
   calegal: 'Servicios legales · Sonoma County',
-  floors: 'Estudio de pisos · Sonoma',
+  floors: 'Concepto · Estudio de pisos',
   denise: 'Bodas · Wine Country',
   arpkd: 'Sin fines de lucro · Nacional',
   bayarea: 'Agencia de niñeras · Bay Area',
@@ -79,7 +79,7 @@ const CAT_ES = {
 const RESULT_ES = {
   dumolin: 'Seis casas de cuidado con licencia, unidas en un sitio cálido y moderno.',
   calegal: 'Sitio de generación de leads con admisión el mismo día: convierte búsquedas en consultas.',
-  floors: 'Un sitio editorial y de alta gama para un estudio de pisos de Sonoma Valley.',
+  floors: 'Un concepto editorial y de alta gama para un estudio de pisos de wine country.',
   denise: 'Un elegante sitio de planificación de bodas para parejas de Sonoma y Napa.',
   arpkd: 'Una organización sin fines de lucro de enfermedades raras con 25 años, totalmente modernizada.',
   bayarea: 'Más de 40 años de cuidado de confianza, con una nueva imagen en línea.',

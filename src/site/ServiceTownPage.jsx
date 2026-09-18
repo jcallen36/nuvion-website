@@ -5,7 +5,7 @@ import { SERVICES } from './service-town-data.js';
 import { LOCAL_TOWNS } from './LocalPage.jsx';
 import { TOWN_INFO } from './towns-data.js';
 import sonomaHills from '../assets/local/sonoma-hills.webp';
-import workFloors from '../assets/work/floors.webp';
+import workDenise from '../assets/work/denise.webp';
 import workCalegal from '../assets/work/calegal.webp';
 import workDumolin from '../assets/work/dumolin.webp';
 
@@ -97,7 +97,7 @@ export default function ServiceTownPage({ service }) {
   ];
 
   const works = [
-    { img: workFloors, alt: 'Floors for Sonoma website' },
+    { img: workDenise, alt: 'Denise Kramer Weddings website' },
     { img: workCalegal, alt: 'California Legal Document Excellence website' },
     { img: workDumolin, alt: 'DuMolin Community Living website' },
   ];

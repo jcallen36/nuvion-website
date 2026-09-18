@@ -306,7 +306,7 @@ const CLIENT_LOGOS = [
   { img: arpkdLogo, name: 'ARPKD / CHF Alliance' },
   { img: deniseLogo, name: 'Denise Kramer Weddings' },
 ];
-const CLIENT_NAMES = ['Bay Area 2nd Mom', 'Floors for Sonoma'];
+const CLIENT_NAMES = ['Bay Area 2nd Mom'];
 
 export const WALL_CSS = `
 .nv-wall{display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch;gap:16px}

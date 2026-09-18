@@ -3,7 +3,7 @@ import { BASE_CSS, Nav, Footer, useReveal, Arrow, Check, LogoWall, WALL_CSS } fr
 import { useLang } from './i18n.jsx';
 import { INDUSTRIES } from './industries-data.js';
 import sonomaHills from '../assets/local/sonoma-hills.webp';
-import workFloors from '../assets/work/floors.webp';
+import workDenise from '../assets/work/denise.webp';
 import workDumolin from '../assets/work/dumolin.webp';
 import workCalegal from '../assets/work/calegal.webp';
 
@@ -89,7 +89,7 @@ export default function IndustryPage() {
   ];
 
   const works = [
-    { img: workFloors, alt: 'Floors for Sonoma website' },
+    { img: workDenise, alt: 'Denise Kramer Weddings website' },
     { img: workDumolin, alt: 'DuMolin Community Living website' },
     { img: workCalegal, alt: 'California Legal Document Excellence website' },
   ];
