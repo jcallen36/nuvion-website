@@ -235,7 +235,6 @@ export function Nav() {
         </div>
       </div>
       <div className={`nv-mobile${open ? ' show' : ''}`}>
-        <LangToggle />
         {NAV_LINKS.map((l) => <Link key={l.label} to={l.to} onClick={() => setOpen(false)}>{t(l.label, NAV_LABELS_ES[l.label])}</Link>)}
         <Link to="/book" className="nv-btn nv-btn-primary" onClick={() => setOpen(false)}>{t('Free Mockup', 'Mockup Gratis')}</Link>
       </div>

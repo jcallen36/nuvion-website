@@ -254,7 +254,7 @@ img{max-width:100%;display:block}
 .nv-stat .lbl{margin-top:9px;color:var(--muted);font-size:.85rem;font-weight:600}
 
 /* LOCAL BAND */
-.nv-local{padding:0 0 82px}
+.nv-local{padding:56px 0 82px}
 .nv-local-card{position:relative;border-radius:26px;overflow:hidden;background-size:cover;background-position:center 60%;min-height:400px;display:flex;align-items:center;box-shadow:var(--shadow-lg)}
 .nv-local-card::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(8,15,30,.9), rgba(8,15,30,.55) 58%, rgba(8,15,30,.2))}
 .nv-local-inner{position:relative;padding:clamp(32px,5vw,52px);max-width:580px;color:#fff}
@@ -308,7 +308,7 @@ img{max-width:100%;display:block}
 /* 1-week launch guarantee */
 .nv-guarpill{display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:#0A1222;color:#fff;font-weight:700;font-size:.92rem;padding:10px 18px;border-radius:100px;box-shadow:var(--shadow)}
 .nv-guarpill b{color:#FFD84D}
-.nv-guar{padding:0 0 82px}
+.nv-guar{padding:56px 0 82px}
 .nv-guar-card{position:relative;overflow:hidden;border-radius:26px;padding:clamp(38px,5vw,58px) 40px;text-align:center;color:#fff;background:linear-gradient(125deg, #2563EB 0%, #1D4ED8 55%, #0B1222 100%)}
 .nv-guar-card::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.1) 1px,transparent 1px);background-size:22px 22px;opacity:.5}
 .nv-guar-card > *{position:relative}
@@ -321,7 +321,7 @@ img{max-width:100%;display:block}
 .nv-guarnote{margin-top:12px;color:var(--muted);font-size:.85rem;font-weight:600;display:inline-flex;align-items:center;gap:7px}
 .nv-guarnote svg{color:var(--brand)}
 /* free website audit offer */
-.nv-audit{padding:0 0 82px}
+.nv-audit{padding:56px 0 82px}
 .nv-audit-card{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr;gap:26px;align-items:center;background:linear-gradient(135deg,#EAF1FF,#F5F8FC 70%);border:1px solid #D9E5FF;border-radius:26px;padding:clamp(30px,4vw,48px)}
 @media(min-width:860px){.nv-audit-card{grid-template-columns:1.25fr .95fr}}
 .nv-audit-card .lead h2{color:var(--ink);font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.03em;line-height:1.12;margin:14px 0 12px}
@@ -352,7 +352,7 @@ img{max-width:100%;display:block}
 .nv-vs-pill{width:56px;height:56px;border-radius:50%;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--muted);font-size:.82rem}
 @media(max-width:859px){.nv-vs-mid{display:none}}
 /* The Nuvion Promise */
-.nv-promise{padding:0 0 82px}
+.nv-promise{padding:56px 0 82px}
 .nv-promise-card{position:relative;overflow:hidden;border-radius:26px;padding:clamp(34px,5vw,58px);background:linear-gradient(180deg,#F4F8FF,#fff 72%);border:1px solid #dbe6fb;box-shadow:var(--shadow)}
 .nv-promise-head{text-align:center;max-width:640px;margin:0 auto 40px}
 .nv-promise-grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:900px;margin:0 auto}
@@ -660,7 +660,6 @@ function Nav() {
         </div>
       </div>
       <div className={`nv-mobile${open ? ' show' : ''}`}>
-        <LangToggle />
         {links.map((l, i) => l.to.startsWith('#')
           ? <a key={i} href={l.to} onClick={() => setOpen(false)}>{l.label}</a>
           : <Link key={i} to={l.to} onClick={() => setOpen(false)}>{l.label}</Link>)}
